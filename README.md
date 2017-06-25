@@ -1,2 +1,2 @@
 # supple
-In browser CSS framework; Fluid, Variable, supple if you will
+In-browser CSS framework; Fluid, Variable, supple if you will
