@@ -1,0 +1,35 @@
+/*! supple.settings.defaults | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    settings.defaults
+    Supple default variables. Redefine and override them with your
+    application-level variables.
+    ========================================================================= */
+
+/* stylelint-disable indentation */
+
+:root {
+
+/*  Typography
+    ========================================================================= */
+
+--supple-base-font-size: 16;
+--supple-base-line-height: 24;
+--supple-base-line-height-ratio: calc(var(--supple-base-line-height) / var(--supple-base-font-size));
+
+
+
+/*  Spacing
+    Assign our `--supple-base-line-height` to a new spacing variable for
+    more transparency
+    ========================================================================= */
+
+--supple-space: calc(var(--supple-base-line-height-ratio) * 1rem);
+--supple-space-tiny: calc(var(--supple-space) / 4);
+--supple-space-small: calc(var(--supple-space) / 2);
+--supple-space-large: calc(var(--supple-space) * 2);
+--supple-space-huge: calc(var(--supple-space) * 4);
+
+}
+
+/* stylelint-enable indentation */

@@ -1,4 +1,11 @@
+/*! supple v0.0.1 | MIT License | github.com/supple-css */
+
 /*  =========================================================================
     Supple
     In-browser CSS framework; Fluid, Variable, supple if you will
     ========================================================================= */
+
+/*  Settings
+    ========================================================================= */
+
+@import "./lib/settings/defaults.css";
