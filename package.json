@@ -10,5 +10,14 @@
     "supple",
     "css",
     "bem"
-  ]
+  ],
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "./node_modules/.bin/stylelint \"**/*.css\""
+  },
+  "devDependencies": {
+    "glob": "^7.1.1",
+    "stylelint": "^7.10.1",
+    "stylelint-config-blocss": "^1.0.3"
+  }
 }
