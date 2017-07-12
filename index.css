@@ -9,3 +9,11 @@
     ========================================================================= */
 
 @import "./lib/settings/defaults.css";
+
+
+
+/*  Generic
+    ========================================================================= */
+
+@import './lib/generic/reset.css';
+@import './lib/generic/vertical-rhythm.css';
