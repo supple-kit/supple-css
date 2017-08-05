@@ -32,4 +32,16 @@
 
 }
 
+
+
+/*  Responsive
+    ========================================================================= */
+
+@custom-media --supple-mq--palm (min-width: 0);
+@custom-media --supple-mq--palm-max (max-width: 479px);
+@custom-media --supple-mq--lap (min-width: 480px);
+@custom-media --supple-mq--lap-max (max-width: 1023px);
+@custom-media --supple-mq--lap-range (min-width: 480px) and (max-width: 1023px);
+@custom-media --supple-mq--desk (min-width: 1024px);
+
 /* stylelint-enable indentation */
