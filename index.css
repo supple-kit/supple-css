@@ -15,12 +15,12 @@
 /*  Generic
     ========================================================================= */
 
-@import './lib/generic/reset.css';
-@import './lib/generic/vertical-rhythm.css';
+@import "./lib/generic/reset.css";
+@import "./lib/generic/vertical-rhythm.css";
 
 
 
 /*  Objects
     ========================================================================= */
 
-@import './lib/objects/layout.css';
+@import "./lib/objects/layout.css";

@@ -10,7 +10,7 @@
  * Toplevel HTML element
  * 1. Apply the `--supple-base-font-size` & `--supple-line-height-ratio`
  */
- html {
+html {
   font-size: calc((var(--supple-base-font-size) / 16) * 1em); /* [1] */
   line-height: var(--supple-base-line-height-ratio); /* [1] */
 }

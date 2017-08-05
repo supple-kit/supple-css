@@ -13,7 +13,7 @@
  * 3. Fonts on OSX will look more consistent with other systems that do not
  *    render text using sub-pixel anti-aliasing.
  */
- html {
+html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
   min-height: 100%;
