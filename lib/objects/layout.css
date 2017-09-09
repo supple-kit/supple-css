@@ -5,12 +5,9 @@
     Fluid and nestable layout system based on flexbox.
     ========================================================================= */
 
-/*  Variables & @apply rules
+/*  Variables
     ========================================================================= */
 
-/**
- * The default gutter
- */
 :root {
   --supple-layout-columns: 12;
   --supple-layout-colspan: var(--supple-layout-columns);
@@ -19,25 +16,6 @@
   --supple-layout-gutter-small: var(--supple-space-small, 12px);
   --supple-layout-gutter-large: var(--supple-space-large, 48px);
   --supple-layout-gutter-huge: var(--supple-space-huge, 96px);
-
-
-  /**
-   * @apply rule: Make a unit shrink wrap its content.
-   */
-  --supple-layout--fit: {
-    flex-basis: auto;
-  };
-
-  /**
-   * @apply rule: Make a cell fill the remaining space.
-   *
-   * 1. Be explicit to work around IE10 bug with shorthand flex
-   * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
-   */
-  --supple-layout--fill: {
-    flex: 1 1 0%; /* [1] */
-    flex-basis: 0%; /* [2] */
-  };
 }
 
 
@@ -219,7 +197,7 @@
  * Modifier: Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
-  @apply --supple-layout--fit;
+  flex-basis: auto;
 }
 
 
@@ -227,55 +205,6 @@
  * Modifier: Make a cell fill the remaining space.
  */
 .o-layout__cell--fill {
-  @apply --supple-layout--fill;
-}
-
-
-
-/*  Responsive
-    ========================================================================= */
-
-@media (--supple-mq--palm-max) {
-  .o-layout__cell--fit\@palm-max {
-    @apply --supple-layout--fit;
-  }
-  .o-layout__cell--fill\@palm-max {
-    @apply --supple-layout--fill;
-  }
-}
-
-@media (--supple-mq--lap) {
-  .o-layout__cell--fit\@lap {
-    @apply --supple-layout--fit;
-  }
-  .o-layout__cell--fill\@lap {
-    @apply --supple-layout--fill;
-  }
-}
-
-@media (--supple-mq--lap-max) {
-  .o-layout__cell--fit\@lap-max {
-    @apply --supple-layout--fit;
-  }
-  .o-layout__cell--fill\@lap-max {
-    @apply --supple-layout--fill;
-  }
-}
-
-@media (--supple-mq--lap-range) {
-  .o-layout__cell--fit\@lap-range {
-    @apply --supple-layout--fit;
-  }
-  .o-layout__cell--fill\@lap-range {
-    @apply --supple-layout--fill;
-  }
-}
-
-@media (--supple-mq--desk) {
-  .o-layout__cell--fit\@desk {
-    @apply --supple-layout--fit;
-  }
-  .o-layout__cell--fill\@desk {
-    @apply --supple-layout--fill;
-  }
+  flex: 1 1 0%; /* [1] */
+  flex-basis: 0%; /* [2] */
 }
