@@ -16,8 +16,8 @@
     "lint": "./node_modules/.bin/stylelint \"**/*.css\""
   },
   "devDependencies": {
-    "glob": "^7.1.1",
-    "stylelint": "^7.10.1",
+    "glob": "^7.1.2",
+    "stylelint": "^8.1.1",
     "stylelint-config-blocss": "^1.0.3"
   }
 }
