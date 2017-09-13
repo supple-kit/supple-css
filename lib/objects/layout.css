@@ -9,13 +9,13 @@
     ========================================================================= */
 
 :root {
-  --supple-layout-columns: 12;
-  --supple-layout-colspan: var(--supple-layout-columns);
-  --supple-layout-gutter: var(--supple-space, 24px);
-  --supple-layout-gutter-tiny: var(--supple-space-tiny, 6px);
-  --supple-layout-gutter-small: var(--supple-space-small, 12px);
-  --supple-layout-gutter-large: var(--supple-space-large, 48px);
-  --supple-layout-gutter-huge: var(--supple-space-huge, 96px);
+  --o-layout-columns: 12;
+  --o-layout-colspan: var(--o-layout-columns);
+  --o-layout-gutter: var(--supple-space, 24px);
+  --o-layout-gutter-tiny: var(--supple-space-tiny, 6px);
+  --o-layout-gutter-small: var(--supple-space-small, 12px);
+  --o-layout-gutter-large: var(--supple-space-large, 48px);
+  --o-layout-gutter-huge: var(--supple-space-huge, 96px);
 }
 
 
@@ -110,11 +110,11 @@
  * Modifier: Gutter
  */
 .o-layout--gutter {
-  margin-left: calc(-1 * var(--supple-layout-gutter));
+  margin-left: calc(-1 * var(--o-layout-gutter));
 }
 
 .o-layout--gutter > .o-layout__cell {
-  padding-left: var(--supple-layout-gutter);
+  padding-left: var(--o-layout-gutter);
 }
 
 
@@ -122,11 +122,11 @@
  * Modifier: Tiny gutter
  */
 .o-layout--gutter-tiny {
-  margin-left: calc(-1 * var(--supple-layout-gutter-tiny));
+  margin-left: calc(-1 * var(--o-layout-gutter-tiny));
 }
 
 .o-layout--gutter-tiny > .o-layout__cell {
-  padding-left: var(--supple-layout-gutter-tiny);
+  padding-left: var(--o-layout-gutter-tiny);
 }
 
 
@@ -134,33 +134,33 @@
  * Modifier: Small gutter
  */
 .o-layout--gutter-small {
-  margin-left: calc(-1 * var(--supple-layout-gutter-small));
+  margin-left: calc(-1 * var(--o-layout-gutter-small));
 }
 
 .o-layout--gutter-small > .o-layout__cell {
-  padding-left: var(--supple-layout-gutter-small);
+  padding-left: var(--o-layout-gutter-small);
 }
 
 /**
  * Modifier: Large gutter
  */
 .o-layout--gutter-large {
-  margin-left: calc(-1 * var(--supple-layout-gutter-large));
+  margin-left: calc(-1 * var(--o-layout-gutter-large));
 }
 
 .o-layout--gutter-large > .o-layout__cell {
-  padding-left: var(--supple-layout-gutter-large);
+  padding-left: var(--o-layout-gutter-large);
 }
 
 /**
  * Modifier: Huge gutter
  */
 .o-layout--gutter-huge {
-  margin-left: calc(-1 * var(--supple-layout-gutter-huge));
+  margin-left: calc(-1 * var(--o-layout-gutter-huge));
 }
 
 .o-layout--gutter-huge > .o-layout__cell {
-  padding-left: var(--supple-layout-gutter-huge);
+  padding-left: var(--o-layout-gutter-huge);
 }
 
 
@@ -177,7 +177,7 @@
  *    `o-layout__cell` container
  */
 .o-layout__cell {
-  flex-basis: calc(100% / var(--supple-layout-columns) * var(--supple-layout-colspan)); /* [1] */
+  flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
   min-width: 0; /* [2] */
 }
 
