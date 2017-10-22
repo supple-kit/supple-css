@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "glob": "^7.1.2",
-    "stylelint": "^8.1.1",
+    "stylelint": "^8.2.0",
     "stylelint-config-blocss": "^1.0.3"
   }
 }
