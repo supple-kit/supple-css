@@ -12,11 +12,23 @@
     "bem"
   ],
   "scripts": {
-    "test": "npm run lint",
-    "lint": "./node_modules/.bin/stylelint \"**/*.css\""
+    "test": "npm run lint && npm run build",
+    "lint": "./node_modules/.bin/stylelint \"**/*.css\"",
+    "build": "postcss -c postcss.config.json -o test/css/supple.css index.css"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "devDependencies": {
+    "autoprefixer": "^7.1.6",
     "glob": "^7.1.2",
+    "postcss": "^6.0.13",
+    "postcss-apply": "^0.8.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-color-function": "^4.0.0",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-easy-import": "^3.0.0",
     "stylelint": "^8.2.0",
     "stylelint-config-supple": "^1.0.0"
   }
