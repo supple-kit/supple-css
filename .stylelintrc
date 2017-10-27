@@ -1,6 +1,6 @@
 {
   "extends": "stylelint-config-supple",
   "ignoreFiles": [
-    "test/css/index.css"
+    "test/css/supple.css"
   ]
 }
