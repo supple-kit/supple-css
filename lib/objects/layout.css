@@ -280,3 +280,23 @@
     @apply --o-layout__cell--fill;
   }
 }
+
+@media (--max-desk) {
+  .o-layout__cell--fit\@max-desk {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@max-desk {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--wall) {
+  .o-layout__cell--fit\@wall {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@wall {
+    @apply --o-layout__cell--fill;
+  }
+}
