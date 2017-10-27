@@ -32,4 +32,20 @@
 
 }
 
-/* stylelint-enable indentation */
+
+
+/*  Responsive
+    Define your breakpoints. The variable name maps directly to the classes
+    you can use (e.g. --lap maps to `classname@lap`), the second value is the media
+    query that the breakpoint fires at.
+    As per: https://drafts.csswg.org/mediaqueries-5/#custom-mq
+    And: https://github.com/postcss/postcss-custom-media
+    ========================================================================= */
+
+@custom-media --palm (min-width: 0);
+@custom-media --max-palm (max-width: 639px);
+@custom-media --lap (min-width: 640px);
+@custom-media --max-lap (max-width: 1023px);
+@custom-media --desk (min-width: 1024px);
+
+/* stylelint-enable */

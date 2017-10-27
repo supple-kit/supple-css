@@ -16,6 +16,24 @@
   --o-layout-gutter-small: var(--supple-space-small, 12px);
   --o-layout-gutter-large: var(--supple-space-large, 48px);
   --o-layout-gutter-huge: var(--supple-space-huge, 96px);
+
+  /**
+   * @apply rule: Make a cell shrink wrap its content.
+   */
+  --o-layout__cell--fit: {
+    flex-basis: auto;
+  };
+
+  /**
+   * @apply rule: Make a cell fill the remaining space.
+   *
+   * 1. Be explicit to work around IE10 bug with shorthand flex
+   * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+   */
+  --o-layout__cell--fill: {
+    flex: 1 1 0%; /* [1] */
+    flex-basis: 0%; /* [2] */
+  };
 }
 
 
@@ -197,17 +215,68 @@
  * Modifier: Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
-  flex-basis: auto;
+  @apply --o-layout__cell--fit;
 }
 
 
 /**
  * Modifier: Make a cell fill the remaining space.
- *
- * 1. Be explicit to work around IE10 bug with shorthand flex
- * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
  */
 .o-layout__cell--fill {
-  flex: 1 1 0%; /* [1] */
-  flex-basis: 0%; /* [2] */
+  @apply --o-layout__cell--fill;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@media (--palm) {
+  .o-layout__cell--fit\@palm {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@palm {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--max-palm) {
+  .o-layout__cell--fit\@max-palm {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@max-palm {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--lap) {
+  .o-layout__cell--fit\@lap {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@lap {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--max-lap) {
+  .o-layout__cell--fit\@max-lap {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@max-lap {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--desk) {
+  .o-layout__cell--fit\@desk {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@desk {
+    @apply --o-layout__cell--fill;
+  }
 }
