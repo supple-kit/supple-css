@@ -1,16 +1,103 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>layout [object] - Supple CSS</title>
+<title>Supple CSS test suite</title>
 <meta name="viewport" content="initial-scale=1,width=device-width">
 <link rel="stylesheet" href="css/supple.css">
 <style>
-  /* Styles */
+
+  html {
+    font-family: sans-serif;
+  }
+
+  h1 {
+    margin-bottom: var(--supple-space);
+    font-size: 3em;
+  }
+
+  .module__title,
+  .test__describe,
+  .test__it {
+    margin-bottom: var(--supple-space);
+    background-color: #eeeeee;
+    padding: var(--supple-space-small) var(--supple-space);
+  }
+
+  .test__describe,
+  .test__it {
+    border-left: 3px solid #666666;
+    padding-left: calc(var(--supple-space) - 3px);
+  }
+
+  .module__title::before,
+  .test__describe::before,
+  .test__it::before {
+    margin-right: var(--supple-space);
+    color: #999999;
+  }
+
+  .module {
+    counter-reset: module;
+  }
+  .module__title {
+    counter-reset: test-describe;
+    counter-increment: module;
+  }
+  .module__title::before {
+    content: counter(module);
+  }
+
+  .test {}
+    .test__describe {
+      margin-top: var(--supple-space-large);
+      counter-reset: test-it;
+      counter-increment: test-describe;
+    }
+    .test__describe::before {
+      content: counter(module) "." counter(test-describe);
+    }
+
+    .test__it {
+      margin-top: var(--supple-space-small);
+      counter-increment: test-it;
+    }
+    .test__it::before {
+      content: counter(module) "." counter(test-describe) "." counter(test-it);
+    }
+
+  .fixture-box {
+    margin-bottom: var(--supple-space-small);
+    padding: 0 var(--supple-space-small);
+    background: rgba(220, 20, 60, 1);
+    line-height: var(--supple-space-large);
+    color: #ffffff;
+    text-align: center;
+    border: 1px solid #000000;
+  }
+
+  .fixture-wrap {
+    margin-bottom: var(--supple-space-small);
+    border: 1px solid #000000;
+    color: #ffffff;
+    text-align: center;
+    background: rgba(220, 20, 60, .7);
+  }
+
+  .fixture-box--double-height {
+    line-height: var(--supple-space-huge);
+  }
+
+  pre {
+    overflow: auto;
+    white-space: pre;
+    word-wrap: normal;
+    margin-bottom: 0;
+  }
 </style>
 
 <h1>Supple CSS tests</h1>
 
 <div class="module">
-  <h2 class="module__title">Layout object tests</h2>
+  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/layout.css">Layout</a> object tests</h2>
   <div class="test">
     <h3 class="test__describe">.o-layout</h3>
     <h4 class="test__it">renders cells at full-width by default</h4>
@@ -23,6 +110,414 @@
           <div class="fixture-box">2</div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">removes inter-cell whitespace</h4>
+    <div class="test__run">
+      <div class="o-layout" style="--o-layout-columns: 4">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">4</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">handles overflowing elements</h4>
+    <div class="test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell">
+          <div class="fixture-box">
+            <pre>This is some really long content that should be scrolled when the container is too small.</pre>
+          </div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">automatically wraps cells across multiple lines when they don't fit a single row</h4>
+    <div class="test__run">
+      <div class="o-layout" style="--o-layout-columns: 4">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">6</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">7</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">8</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">arranges cells of different heights into clear rows</h4>
+    <div class="test__run">
+      <div class="o-layout" style="--o-layout-columns: 4">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box  fixture-box--double-height">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box  fixture-box--double-height">3</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box  fixture-box--double-height">6</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">7</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box  fixture-box--double-height">8</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">supports nested layouts</h4>
+    <div class="test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell">
+          <div class="fixture-wrap">
+            1
+            <div class="o-layout" style="--o-layout-columns: 4">
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">2</div>
+              </div>
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">3</div>
+              </div>
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">supports .o-layout__cell--fill on cells with no width</h4>
+    <div class="test__run">
+      <div class="o-layout" style="--o-layout-columns: 4">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">1/4</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+          <div class="fixture-box">fill</div>
+        </div>
+      </div>
+
+      <div class="o-layout" style="--o-layout-columns: 12">
+        <div class="o-layout__cell" style="--o-layout-colspan: 2">
+          <div class="fixture-box">2/12</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+          <div class="fixture-box">fill</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 2">
+          <div class="fixture-box">2/12</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">supports o-layout__cell--fit and o-layout__cell--fill</h4>
+    <div class="test__run">
+      <div class="o-layout" style="--o-layout-columns: 4">
+        <div class="o-layout__cell  o-layout__cell--fit">
+          <div class="fixture-box">shrink to content width</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+          <div class="fixture-box">fill</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--align-center</h3>
+    <h4 class="test__it">center-aligns all cells but not their content</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--align-center" style="--o-layout-columns: 12;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 5;">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 5;">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 5;">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--align-right</h3>
+    <h4 class="test__it">right-aligns all cells but not their content</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--align-right" style="--o-layout-columns: 12;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--align-middle</h3>
+    <h4 class="test__it">middle-aligns all cells</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--align-middle" style="--o-layout-columns: 12;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box  fixture-box--double-height">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--align-bottom</h3>
+    <h4 class="test__it">bottom-aligns all cells</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--align-bottom" style="--o-layout-columns: 12;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box  fixture-box--double-height">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--fit</h3>
+    <h4 class="test__it">evenly distribute space between cells without sizing classes or colspan properties</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--fit">
+        <div class="o-layout__cell">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+      <div class="o-layout  o-layout--fit">
+        <div class="o-layout__cell">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">6</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--equalheight</h3>
+    <h4 class="test__it">equal height columns based on tallest cell</h4>
+    <div class="test__run">
+      <div class="o-layout o-layout--equalheight" style="--o-layout-columns: 3">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">2<br>line 2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout__cell--center</h3>
+    <h4 class="test__it">centers an individual layout cell but not its content</h4>
+    <div class="test__run">
+      <div class="o-layout" style="--o-layout-columns: 12">
+        <div class="o-layout__cell" style="--o-layout-colspan: 6">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 6">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--center" style="--o-layout-colspan: 8">
+          <div class="fixture-box">3: centered cell</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--gutter</h3>
+    <h4 class="test__it">supports gutters</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 4">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1">
+          <div class="fixture-box">4</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">doesn't apply gutters to nested layouts</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+          <div class="fixture-wrap">
+            1
+            <div class="o-layout" style="--o-layout-columns: 2">
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+            <div class="fixture-wrap">
+              2
+              <div class="o-layout" style="--o-layout-columns: 2">
+                <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                  <div class="fixture-box">1</div>
+                </div>
+                <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                  <div class="fixture-box">2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">correctly aligns gutters within nested layouts</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+          <div class="fixture-wrap">
+            1
+            <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2">
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                <div class="fixture-box">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+            <div class="fixture-wrap">
+              2
+              <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2">
+                <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                  <div class="fixture-box">1</div>
+                </div>
+                <div class="o-layout__cell" style="--o-layout-colspan: 1">
+                  <div class="fixture-box">2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">correctly adds gutters with o-layout--fit</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--gutter  o-layout--fit">
+        <div class="o-layout__cell">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+      <div class="o-layout  o-layout--gutter  o-layout--fit">
+        <div class="o-layout__cell">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">6</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+  </div><!-- .test -->
+
+</div><!-- .module -->
