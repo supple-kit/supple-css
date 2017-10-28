@@ -12,9 +12,10 @@
     "bem"
   ],
   "scripts": {
-    "test": "npm run lint && npm run build",
+    "test": "npm run lint && npm run build && npm run gzip",
     "lint": "./node_modules/.bin/stylelint \"**/*.css\"",
-    "build": "postcss -c postcss.config.json -o test/css/supple.css index.css"
+    "gzip": "gzip-size test/css/supple.css",
+    "build": "postcss -c postcss.config.js -o test/css/supple.css index.css"
   },
   "browserslist": [
     "> 1%",
@@ -22,7 +23,9 @@
   ],
   "devDependencies": {
     "autoprefixer": "^7.1.6",
+    "cssnano": "^3.10.0",
     "glob": "^7.1.2",
+    "gzip-size-cli": "^2.1.0",
     "postcss": "^6.0.13",
     "postcss-apply": "^0.8.0",
     "postcss-cli": "^4.1.1",

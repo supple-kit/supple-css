@@ -4,6 +4,9 @@ module.exports = {
     require('postcss-color-function'),
     require('postcss-apply'),
     require('postcss-custom-media'),
-    require('autoprefixer')
+    require('autoprefixer'),
+    require('cssnano')({
+      preset: 'default',
+    })
   ]
 }
