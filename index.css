@@ -32,5 +32,6 @@
 /*  Utilities
     ========================================================================= */
 
+@import "./lib/utilities/fractions.css";
 @import "./lib/utilities/visually-hidden.css";
 @import "./lib/utilities/hidden.css";
