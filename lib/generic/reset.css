@@ -42,11 +42,18 @@ h3,
 h4,
 h5,
 h6,
+figure,
 p,
 pre,
 fieldset,
 hr {
   margin: 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
 
 fieldset,

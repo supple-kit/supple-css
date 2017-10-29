@@ -9,21 +9,13 @@
     font-family: sans-serif;
   }
 
-  h1 {
+  body {
+    margin: var(--supple-space);
+  }
+
+  .page-title {
     margin-bottom: var(--supple-space);
     font-size: 3.157em;
-  }
-
-  h2 {
-    font-size: 2.369em;
-  }
-
-  h3 {
-    font-size: 1.777em;
-  }
-
-  h4 {
-    font-size: 1.333em;
   }
 
   .module__title,
@@ -52,6 +44,7 @@
   }
   .module__title {
     margin-top: var(--supple-space-huge);
+    font-size: 2.369em;
     counter-reset: test-describe;
   }
   .module__title::before {
@@ -61,6 +54,7 @@
   .test {}
     .test__describe {
       margin-top: var(--supple-space-large);
+      font-size: 1.777em;
       counter-reset: test-it;
       counter-increment: test-describe;
     }
@@ -70,6 +64,7 @@
 
     .test__it {
       margin-top: var(--supple-space-small);
+      font-size: 1.333em;
       counter-increment: test-it;
     }
     .test__it::before {
@@ -103,23 +98,90 @@
     line-height: var(--supple-space-huge);
   }
 
-  pre {
+  .preformatted {
     overflow: auto;
     white-space: pre;
     word-wrap: normal;
-    margin-bottom: 0;
   }
 </style>
 
-<h1>Supple CSS tests</h1>
+<h1 class="page-title">Supple CSS tests</h1>
 
 <ol>
+  <li><a href="#generic">generic</a></li>
   <li><a href="#o-layout">layout object</a></li>
   <li><a href="#o-flexembed">flexembed object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
   <li><a href="#u-visually-hidden">visually-hidden utility</a></li>
   <li><a href="#u-hidden">hidden utility</a></li>
 </ol>
+
+<div class="module" id="generic">
+  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/generic/">generic</a> tests</h2>
+  <div class="test">
+    <h3 class="test__describe">h1-h6</h3>
+    <h4 class="test__it">have no margin</h4>
+    <div class="test__run">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">hgroup, ul, ol, dl, blockquote, p, address, table, fieldset, figure, pre, hr</h3>
+    <h4 class="test__it">have a shared margin bottom (--supple-space)</h4>
+    <div class="test__run">
+      <hgroup>hgroup</hgroup>
+      <ul>
+        <li>Unordered list: item 1</li>
+        <li>Unordered list: item 2</li>
+      </ul>
+      <ol>
+        <li>Ordered list: item 1</li>
+        <li>Ordered list: item 2</li>
+      </ol>
+      <dl>
+        <dt>Definition list: Term</dt>
+        <dd>Definition list: Description</dd>
+      </dl>
+      <blockquote>Blockquote content</blockquote>
+      <p>Paragraph</p>
+      <address>Address</address>
+      <table>
+        <tbody>
+          <tr>
+            <td>Table</td>
+          </tr>
+        </tbody>
+      </table>
+      <fieldset>Fieldset</fieldset>
+      <figure>Figure</figure>
+      <pre>Preformatted text</pre>
+      <hr>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">button</h3>
+    <h4 class="test__it">has no background, border, or padding</h4>
+    <div class="test__run">
+      <button type="button">Button content</button>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">has focus styles (in Firefox and IE)</h4>
+    <div class="test__run">
+      <button type="button">Button content</button>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">[tabindex="-1"]:focus</h3>
+    <h4 class="test__it">has no focus outline (try clicking to trigger focus)</h4>
+    <div class="test__run">
+      <a href="#_" tabindex="-1">Link content</a>
+      <button type="button" tabindex="-1">Button content</button>
+    </div><!-- .test__run -->
+
+  </div><!-- .test -->
+</div><!-- .module -->
 
 <div class="module" id="o-layout">
   <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/layout.css">layout</a> object tests</h2>
@@ -160,7 +222,7 @@
       <div class="o-layout">
         <div class="o-layout__cell">
           <div class="fixture-box">
-            <pre>This is some really long content that should be scrolled when the container is too small.</pre>
+            <pre class="preformatted">This is some really long content that should be scrolled when the container is too small.</pre>
           </div>
         </div>
       </div>

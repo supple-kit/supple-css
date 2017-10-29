@@ -34,5 +34,8 @@
     "postcss-easy-import": "^3.0.0",
     "stylelint": "^8.2.0",
     "stylelint-config-supple": "^1.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
   }
 }

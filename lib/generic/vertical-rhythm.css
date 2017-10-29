@@ -29,6 +29,7 @@ p,
 address,
 table,
 fieldset,
+figure,
 pre,
 hr {
   margin-bottom: var(--supple-space);

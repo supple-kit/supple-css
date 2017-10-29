@@ -15,6 +15,7 @@
 /*  Generic
     ========================================================================= */
 
+@import "normalize.css";
 @import "./lib/generic/reset.css";
 @import "./lib/generic/vertical-rhythm.css";
 
