@@ -147,6 +147,11 @@
   width: calc(100% * 11 / 12) !important;
 }
 
+.u-fraction--full {
+  flex-basis: auto !important;
+  width: 100% !important;
+}
+
 
 
 /*  Responsive
@@ -286,6 +291,11 @@
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
   }
+
+  .u-fraction--full\@palm {
+    flex-basis: auto !important;
+    width: 100% !important;
+  }
 }
 
 @media (--max-palm) {
@@ -421,6 +431,11 @@
   .u-fraction--11of12\@max-palm {
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
+  }
+
+  .u-fraction--full\@max-palm {
+    flex-basis: auto !important;
+    width: 100% !important;
   }
 }
 
@@ -558,6 +573,11 @@
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
   }
+
+  .u-fraction--full\@lap {
+    flex-basis: auto !important;
+    width: 100% !important;
+  }
 }
 
 @media (--max-lap) {
@@ -693,6 +713,11 @@
   .u-fraction--11of12\@max-lap {
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
+  }
+
+  .u-fraction--full\@max-lap {
+    flex-basis: auto !important;
+    width: 100% !important;
   }
 }
 
@@ -830,6 +855,11 @@
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
   }
+
+  .u-fraction--full\@desk {
+    flex-basis: auto !important;
+    width: 100% !important;
+  }
 }
 
 @media (--max-desk) {
@@ -966,6 +996,11 @@
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
   }
+
+  .u-fraction--full\@max-desk {
+    flex-basis: auto !important;
+    width: 100% !important;
+  }
 }
 
 @media (--wall) {
@@ -1101,5 +1136,10 @@
   .u-fraction--11of12\@wall {
     flex-basis: auto !important;
     width: calc(100% * 11 / 12) !important;
+  }
+
+  .u-fraction--full\@wall {
+    flex-basis: auto !important;
+    width: 100% !important;
   }
 }
