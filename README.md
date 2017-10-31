@@ -1,4 +1,7 @@
-# supple - v0.0.1
+# supple - v0.1.0
+
+**NOTE: This is a alpha release, dragons ahead**
+
 **Why use supple:**
 It is a small but powerfull CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://jonathantneal.github.io/css-db/) to let you forget about any preprocessor.
 
@@ -6,8 +9,8 @@ Supple provides little to no design wich means no undoing other peoples design d
 
 Use supple if:
 
-* You need a powerful library of defaults & objects.
 * You want to write just CSS ;-)
+* You need a powerful library of defaults & objects.
 * You appreciate the value of Object Oriented code and the need for scalability
   and reuse.
 * You need a framework that is robust and evolves constantly.
