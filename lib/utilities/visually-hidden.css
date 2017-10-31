@@ -1,0 +1,85 @@
+/*! supple.utilities.visually-hidden | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    utilities.visually-hidden
+    Completely remove from the flow but leave available to screen readers.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+:root {
+
+  /**
+   * @apply rule
+   * As per: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
+   */
+  --u-visually-hidden: {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+  }
+}
+
+
+
+/*  Module
+    ========================================================================= */
+
+.u-visually-hidden {
+  @apply --u-visually-hidden;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@media (--palm) {
+  .u-visually-hidden\@palm {
+    @apply --u-visually-hidden;
+  }
+}
+
+@media (--max-palm) {
+  .u-visually-hidden\@max-palm {
+    @apply --u-visually-hidden;
+  }
+}
+
+@media (--lap) {
+  .u-visually-hidden\@lap {
+    @apply --u-visually-hidden;
+  }
+}
+
+@media (--max-lap) {
+  .u-visually-hidden\@max-lap {
+    @apply --u-visually-hidden;
+  }
+}
+
+@media (--desk) {
+  .u-visually-hidden\@desk {
+    @apply --u-visually-hidden;
+  }
+}
+
+@media (--max-desk) {
+  .u-visually-hidden\@max-desk {
+    @apply --u-visually-hidden;
+  }
+}
+
+@media (--wall) {
+  .u-visually-hidden\@wall {
+    @apply --u-visually-hidden;
+  }
+}

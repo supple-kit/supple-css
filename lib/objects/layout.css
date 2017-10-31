@@ -1,0 +1,302 @@
+/*! supple.objects.layout | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    objects.layout
+    Fluid and nestable layout system based on flexbox.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+:root {
+  --o-layout-columns: 12;
+  --o-layout-colspan: var(--o-layout-columns);
+  --o-layout-gutter: var(--supple-space, 24px);
+  --o-layout-gutter-tiny: var(--supple-space-tiny, 6px);
+  --o-layout-gutter-small: var(--supple-space-small, 12px);
+  --o-layout-gutter-large: var(--supple-space-large, 48px);
+  --o-layout-gutter-huge: var(--supple-space-huge, 96px);
+
+  /**
+   * @apply rule: Make a cell shrink wrap its content.
+   */
+  --o-layout__cell--fit: {
+    flex-basis: auto;
+  };
+
+  /**
+   * @apply rule: Make a cell fill the remaining space.
+   *
+   * 1. Be explicit to work around IE10 bug with shorthand flex
+   * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+   */
+  --o-layout__cell--fill: {
+    flex: 1 1 0%; /* [1] */
+    flex-basis: 0%; /* [2] */
+  };
+}
+
+
+
+/*  Layout root
+    ========================================================================= */
+
+/**
+ * All content must be contained within child `o-layout__cell` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ */
+.o-layout {
+  display: flex; /* [1] */
+  flex-flow: row wrap;
+  padding: 0; /* [1] */
+  margin-left: 0; /* [1] */
+  list-style: none; /* [1] */
+}
+
+
+/**
+ * Modifier: center align all layout cells
+ */
+.o-layout--align-center {
+  justify-content: center;
+}
+
+
+/**
+ * Modifier: right align all layout cells
+ */
+.o-layout--align-right {
+  justify-content: flex-end;
+}
+
+
+/**
+ * Modifier: middle-align layout cells
+ */
+.o-layout--align-middle {
+  align-items: center;
+}
+
+
+/**
+ * Modifier: bottom-align layout cells
+ */
+.o-layout--align-bottom {
+  align-items: flex-end;
+}
+
+
+/**
+ * Modifier: reverse all cells
+ */
+.o-layout--reverse {
+  flex-direction: row-reverse;
+}
+
+
+/**
+ * Modifier: allow cells to equal distribute width
+ *
+ * 1. Provide all values to avoid IE10 bug with shorthand flex
+ *    http://git.io/vllC7
+ *
+ *    Use `0%` to avoid bug in IE10/11 with unitless flex basis
+ *    http://git.io/vllWx
+ */
+.o-layout--fit > .o-layout__cell {
+  flex: 1 1 0%; /* [1] */
+}
+
+
+/**
+ * Modifier: all cells match height of tallest cell in a row
+ * 1. The direct child of the flexbox must be a single element when you want
+ *    to use equalheight
+ */
+.o-layout--equalheight > .o-layout__cell {
+  display: flex;
+}
+
+.o-layout--equalheight > .o-layout__cell > * {
+  width: 100%; /* [1] */
+}
+
+
+/**
+ * Modifier: Gutter
+ */
+.o-layout--gutter {
+  margin-left: calc(-1 * var(--o-layout-gutter));
+}
+
+.o-layout--gutter > .o-layout__cell {
+  padding-left: var(--o-layout-gutter);
+}
+
+
+/**
+ * Modifier: Tiny gutter
+ */
+.o-layout--gutter-tiny {
+  margin-left: calc(-1 * var(--o-layout-gutter-tiny));
+}
+
+.o-layout--gutter-tiny > .o-layout__cell {
+  padding-left: var(--o-layout-gutter-tiny);
+}
+
+
+/**
+ * Modifier: Small gutter
+ */
+.o-layout--gutter-small {
+  margin-left: calc(-1 * var(--o-layout-gutter-small));
+}
+
+.o-layout--gutter-small > .o-layout__cell {
+  padding-left: var(--o-layout-gutter-small);
+}
+
+/**
+ * Modifier: Large gutter
+ */
+.o-layout--gutter-large {
+  margin-left: calc(-1 * var(--o-layout-gutter-large));
+}
+
+.o-layout--gutter-large > .o-layout__cell {
+  padding-left: var(--o-layout-gutter-large);
+}
+
+/**
+ * Modifier: Huge gutter
+ */
+.o-layout--gutter-huge {
+  margin-left: calc(-1 * var(--o-layout-gutter-huge));
+}
+
+.o-layout--gutter-huge > .o-layout__cell {
+  padding-left: var(--o-layout-gutter-huge);
+}
+
+
+
+/*  Layout cell
+    ========================================================================= */
+
+/**
+ * No explicit width by default. Rely on combining `o-layout__cell` with a
+ * dimension utility or a component class that extends 'o-layout'.
+ *
+ * 1. Set flex items to full width by default
+ * 2. Fix issue where elements with overflow extend past the
+ *    `o-layout__cell` container
+ */
+.o-layout__cell {
+  flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
+  min-width: 0; /* [2] */
+}
+
+
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `o-layout` object.
+ */
+.o-layout__cell--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/**
+ * Modifier: Make a cell shrink wrap its content.
+ */
+.o-layout__cell--fit {
+  @apply --o-layout__cell--fit;
+}
+
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ */
+.o-layout__cell--fill {
+  @apply --o-layout__cell--fill;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@media (--palm) {
+  .o-layout__cell--fit\@palm {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@palm {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--max-palm) {
+  .o-layout__cell--fit\@max-palm {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@max-palm {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--lap) {
+  .o-layout__cell--fit\@lap {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@lap {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--max-lap) {
+  .o-layout__cell--fit\@max-lap {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@max-lap {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--desk) {
+  .o-layout__cell--fit\@desk {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@desk {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--max-desk) {
+  .o-layout__cell--fit\@max-desk {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@max-desk {
+    @apply --o-layout__cell--fill;
+  }
+}
+
+@media (--wall) {
+  .o-layout__cell--fit\@wall {
+    @apply --o-layout__cell--fit;
+  }
+
+  .o-layout__cell--fill\@wall {
+    @apply --o-layout__cell--fill;
+  }
+}

@@ -1,0 +1,65 @@
+/*! supple.objects.flexembed | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    objects.flexembed
+    For use with multi-media embeds, such as videos or slideshows, that need to
+    retain a specific aspect ratio but adapt to elements of variable widths.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+:root {
+  --o-flexembed-x: 1;
+  --o-flexembed-y: 1;
+  --o-flexembed-space: var(--supple-space);
+}
+
+
+
+/*  Module
+    ========================================================================= */
+
+/**
+ * 1. Default cropping is a perfect square
+ */
+.o-flexembed {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: calc((var(--o-flexembed-y) / var(--o-flexembed-x)) * 100%); /* [1] */
+  margin-bottom: var(--o-flexembed-space);
+}
+
+/**
+ * The actual embed/item
+ */
+.o-flexembed__item,
+.o-flexembed > iframe,
+.o-flexembed > embed,
+.o-flexembed > object {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/*  Ratio modifiers
+    ========================================================================= */
+
+.o-flexembed--4by3 {
+  padding-bottom: calc((3/4) * 100%);
+}
+
+.o-flexembed--16by9 {
+  padding-bottom: calc((9/16) * 100%);
+}
+
+.o-flexembed--2by1 {
+  padding-bottom: calc((1/2) * 100%);
+}

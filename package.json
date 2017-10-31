@@ -1,6 +1,6 @@
 {
   "name": "supple",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "In-browser CSS framework; Fluid, Variable, supple if you will",
   "main": "index.css",
   "repository": "https://github.com/supple-css/supple.git",
@@ -10,5 +10,33 @@
     "supple",
     "css",
     "bem"
-  ]
+  ],
+  "scripts": {
+    "test": "npm run lint && npm run build && npm run gzip",
+    "lint": "./node_modules/.bin/stylelint \"**/*.css\"",
+    "gzip": "gzip-size test/css/supple.css",
+    "build": "postcss -c postcss.config.js -o test/css/supple.css index.css"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "cssnano": "^3.10.0",
+    "glob": "^7.1.2",
+    "gzip-size-cli": "^2.1.0",
+    "postcss": "^6.0.13",
+    "postcss-apply": "^0.8.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-color-function": "^4.0.0",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-custom-properties": "^6.2.0",
+    "postcss-easy-import": "^3.0.0",
+    "stylelint": "^8.2.0",
+    "stylelint-config-supple": "^1.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  }
 }
