@@ -80,7 +80,7 @@ All Components should be prefixed with `c-`.
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [fractions.css](lib/utilities/fractions.css) - This set uf utilities is only needed if you want to support browsers without custom property support.
+* [fractions.css](lib/utilities/fractions.css) - This set if utilities is only needed if you want to support browsers without custom property support.
 * [float.css](lib/utilities/float.css)
 * [module.css](lib/utilities/module.css)
 * [visually-hidden.css](lib/utilities/visually-hidden.css)
@@ -96,8 +96,8 @@ It is advised that you will use supple code throughout your own, a sample `style
 
 ```scss
 /* Settings */
-@import "settings/vars.css";
 @import "node_modules/supple/lib/settings/defaults.css";
+@import "settings/vars.css";
 @import "settings/colors.css";
 
 /* Tools */
