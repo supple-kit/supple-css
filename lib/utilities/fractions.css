@@ -5,6 +5,9 @@
     Sizes in human readable format. These are used in conjunction with other
     objects and abstractions found in supple, most commonly the `o-layout`
     system and tables
+
+    NOTE: Only use this set of utilities if you need to support browsers who
+    don’t support custom properties
     ========================================================================= */
 
 /*  Module
