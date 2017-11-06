@@ -80,11 +80,13 @@ All Components should be prefixed with `c-`.
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [fractions.css](lib/utilities/fractions.css) - This set if utilities is only needed if you want to support browsers without custom property support.
+* [fractions.css](lib/utilities/fractions.css) - *
 * [float.css](lib/utilities/float.css)
 * [module.css](lib/utilities/module.css)
 * [visually-hidden.css](lib/utilities/visually-hidden.css)
 * [hidden.css](lib/utilities/hidden.css)
+
+(*) This set if utilities is only needed if you want to support browsers without custom property support. Fractions also have a breakpoint specific file so you can granularly control the amount of CSS.
 
 All Utilities should be prefixed with `u-`.
 
@@ -126,6 +128,7 @@ It is advised that you will use supple code throughout your own, a sample `style
 
 /* Utilities */
 @import "node_modules/supple/lib/utilities/fractions.css";
+@import "node_modules/supple/lib/utilities/fractions@desk.css";
 @import "node_modules/supple/lib/utilities/float.css";
 @import "node_modules/supple/lib/utilities/module.css";
 @import "node_modules/supple/lib/utilities/visually-hidden.css";

@@ -1,0 +1,133 @@
+/*  =========================================================================
+    utilities.fractions@wall
+    For more information check utilities.fractions
+
+    In this file you'll find all fractions for the `wall` breakpoint.
+    ========================================================================= */
+
+@media (--wall) {
+
+  /**
+   * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+   * 2. Looks like a weird ass selector, but this is the only way we can
+   *    target only at a certain breakpoint
+   */
+  [class*="u-fraction--"][class*="@wall"] { /* [2] */
+    flex-basis: auto !important; /* [1] */
+  }
+
+  .u-fraction--1of12\@wall {
+    width: calc(100% * 1 / 12) !important;
+  }
+
+  .u-fraction--1of10\@wall {
+    width: 10% !important;
+  }
+
+  .u-fraction--1of8\@wall {
+    width: 12.5% !important;
+  }
+
+  .u-fraction--1of6\@wall,
+  .u-fraction--2of12\@wall {
+    width: calc(100% * 1 / 6) !important;
+  }
+
+  .u-fraction--1of5\@wall,
+  .u-fraction--2of10\@wall {
+    width: 20% !important;
+  }
+
+  .u-fraction--1of4\@wall,
+  .u-fraction--2of8\@wall,
+  .u-fraction--3of12\@wall {
+    width: 25% !important;
+  }
+
+  .u-fraction--3of10\@wall {
+    width: 30% !important;
+  }
+
+  .u-fraction--1of3\@wall,
+  .u-fraction--2of6\@wall,
+  .u-fraction--4of12\@wall {
+    width: calc(100% * 1 / 3) !important;
+  }
+
+  .u-fraction--3of8\@wall {
+    width: 37.5% !important;
+  }
+
+  .u-fraction--2of5\@wall,
+  .u-fraction--4of10\@wall {
+    width: 40% !important;
+  }
+
+  .u-fraction--5of12\@wall {
+    width: calc(100% * 5 / 12) !important;
+  }
+
+  .u-fraction--1of2\@wall,
+  .u-fraction--2of4\@wall,
+  .u-fraction--3of6\@wall,
+  .u-fraction--4of8\@wall,
+  .u-fraction--5of10\@wall,
+  .u-fraction--6of12\@wall {
+    width: 50% !important;
+  }
+
+  .u-fraction--7of12\@wall {
+    width: calc(100% * 7 / 12) !important;
+  }
+
+  .u-fraction--3of5\@wall,
+  .u-fraction--6of10\@wall {
+    width: 60% !important;
+  }
+
+  .u-fraction--5of8\@wall {
+    width: 62.5% !important;
+  }
+
+  .u-fraction--2of3\@wall,
+  .u-fraction--4of6\@wall,
+  .u-fraction--8of12\@wall {
+    width: calc(100% * 2 / 3) !important;
+  }
+
+  .u-fraction--7of10\@wall {
+    width: 70% !important;
+  }
+
+  .u-fraction--3of4\@wall,
+  .u-fraction--6of8\@wall,
+  .u-fraction--9of12\@wall {
+    width: 75% !important;
+  }
+
+  .u-fraction--4of5\@wall,
+  .u-fraction--8of10\@wall {
+    width: 80% !important;
+  }
+
+  .u-fraction--5of6\@wall,
+  .u-fraction--10of12\@wall {
+    width: calc(100% * 5 / 6) !important;
+  }
+
+  .u-fraction--7of8\@wall {
+    width: 87.5% !important;
+  }
+
+  .u-fraction--9of10\@wall {
+    width: 90% !important;
+  }
+
+  .u-fraction--11of12\@wall {
+    width: calc(100% * 11 / 12) !important;
+  }
+
+  .u-fraction--full\@wall {
+    width: 100% !important;
+  }
+}
