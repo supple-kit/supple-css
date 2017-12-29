@@ -23,8 +23,6 @@ Supple supports all [major browsers which can render CSS custom properties](http
 * [postcss-custom-media](https://github.com/postcss/postcss-custom-media)
 * [postcss-autoprefixer](https://github.com/postcss/autoprefixer)
 
-If you want to support browsers without support for custom properties you can add [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties) to the mix. Keep in mind this will break some specific functionalities related to custom properties in the framework. But the basics are all there.
-
 ## Installation
 * yarn: `yarn add supple --dev`
 * npm: `npm install supple --save-dev`
