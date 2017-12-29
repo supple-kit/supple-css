@@ -8,6 +8,7 @@
 /*  Variables
     ========================================================================= */
 
+:host,
 :root {
   --o-layout-columns: 12;
   --o-layout-colspan: var(--o-layout-columns);
@@ -16,16 +17,22 @@
   --o-layout-gutter-small: var(--supple-space-small, 12px);
   --o-layout-gutter-large: var(--supple-space-large, 48px);
   --o-layout-gutter-huge: var(--supple-space-huge, 96px);
+}
+
+/**
+ * @apply rules
+ */
+:root {
 
   /**
-   * @apply rule: Make a cell shrink wrap its content.
+   * Make a cell shrink wrap its content.
    */
   --o-layout__cell--fit: {
     flex-basis: auto;
   };
 
   /**
-   * @apply rule: Make a cell fill the remaining space.
+   * Make a cell fill the remaining space.
    *
    * 1. Be explicit to work around IE10 bug with shorthand flex
    * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
@@ -187,10 +194,12 @@
     ========================================================================= */
 
 /**
- * No explicit width by default. Rely on combining `o-layout__cell` with a
- * dimension utility or a component class that extends 'o-layout'.
+ * No explicit width by default. You can provide a colspan to provide width.
+ * Alternatively you can add a fraction utility or a component class that
+ * extends 'o-layout'.
  *
- * 1. Set flex items to full width by default
+ * 1. Set flex items to full width by default, or an explicit
+ *    width when you provide a colspan
  * 2. Fix issue where elements with overflow extend past the
  *    `o-layout__cell` container
  */
