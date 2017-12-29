@@ -9,6 +9,7 @@
 /*  Variables
     ========================================================================= */
 
+:host,
 :root {
   --o-flexembed-ratio: 1/1;
   --o-flexembed-space: var(--supple-space);
