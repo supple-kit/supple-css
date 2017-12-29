@@ -13,65 +13,68 @@
 /*  Module
     ========================================================================= */
 
+/**
+ * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+ */
 .u-fraction--1of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 1 / 12) !important;
 }
 
 .u-fraction--1of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 10% !important;
 }
 
 .u-fraction--1of8 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 12.5% !important;
 }
 
 .u-fraction--1of6,
 .u-fraction--2of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 1 / 6) !important;
 }
 
 .u-fraction--1of5,
 .u-fraction--2of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 20% !important;
 }
 
 .u-fraction--1of4,
 .u-fraction--2of8,
 .u-fraction--3of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 25% !important;
 }
 
 .u-fraction--3of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 30% !important;
 }
 
 .u-fraction--1of3,
 .u-fraction--2of6,
 .u-fraction--4of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 1 / 3) !important;
 }
 
 .u-fraction--3of8 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 37.5% !important;
 }
 
 .u-fraction--2of5,
 .u-fraction--4of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 40% !important;
 }
 
 .u-fraction--5of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 5 / 12) !important;
 }
 
@@ -81,70 +84,75 @@
 .u-fraction--4of8,
 .u-fraction--5of10,
 .u-fraction--6of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 50% !important;
 }
 
 .u-fraction--7of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 7 / 12) !important;
 }
 
 .u-fraction--3of5,
 .u-fraction--6of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 60% !important;
 }
 
 .u-fraction--5of8 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 62.5% !important;
 }
 
 .u-fraction--2of3,
 .u-fraction--4of6,
 .u-fraction--8of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 2 / 3) !important;
 }
 
 .u-fraction--7of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 70% !important;
 }
 
 .u-fraction--3of4,
 .u-fraction--6of8,
 .u-fraction--9of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 75% !important;
 }
 
 .u-fraction--4of5,
 .u-fraction--8of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 80% !important;
 }
 
 .u-fraction--5of6,
 .u-fraction--10of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 5 / 6) !important;
 }
 
 .u-fraction--7of8 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 87.5% !important;
 }
 
 .u-fraction--9of10 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: 90% !important;
 }
 
 .u-fraction--11of12 {
-  flex-basis: auto !important;
+  flex-basis: auto !important; /* [1] */
   width: calc(100% * 11 / 12) !important;
+}
+
+.u-fraction--full {
+  flex-basis: auto !important; /* [1] */
+  width: 100% !important;
 }
 
 
@@ -152,954 +160,8 @@
 /*  Responsive
     ========================================================================= */
 
-@media (--palm) {
-  .u-fraction--1of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@palm {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@palm {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@palm,
-  .u-fraction--2of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@palm,
-  .u-fraction--2of10\@palm {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@palm,
-  .u-fraction--2of8\@palm,
-  .u-fraction--3of12\@palm {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@palm {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@palm,
-  .u-fraction--2of6\@palm,
-  .u-fraction--4of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@palm {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@palm,
-  .u-fraction--4of10\@palm {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@palm,
-  .u-fraction--2of4\@palm,
-  .u-fraction--3of6\@palm,
-  .u-fraction--4of8\@palm,
-  .u-fraction--5of10\@palm,
-  .u-fraction--6of12\@palm {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@palm,
-  .u-fraction--6of10\@palm {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@palm {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@palm,
-  .u-fraction--4of6\@palm,
-  .u-fraction--8of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@palm {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@palm,
-  .u-fraction--6of8\@palm,
-  .u-fraction--9of12\@palm {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@palm,
-  .u-fraction--8of10\@palm {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@palm,
-  .u-fraction--10of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@palm {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@palm {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@palm {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
-
-@media (--max-palm) {
-  .u-fraction--1of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@max-palm {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@max-palm {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@max-palm,
-  .u-fraction--2of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@max-palm,
-  .u-fraction--2of10\@max-palm {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@max-palm,
-  .u-fraction--2of8\@max-palm,
-  .u-fraction--3of12\@max-palm {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@max-palm {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@max-palm,
-  .u-fraction--2of6\@max-palm,
-  .u-fraction--4of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@max-palm {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@max-palm,
-  .u-fraction--4of10\@max-palm {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@max-palm,
-  .u-fraction--2of4\@max-palm,
-  .u-fraction--3of6\@max-palm,
-  .u-fraction--4of8\@max-palm,
-  .u-fraction--5of10\@max-palm,
-  .u-fraction--6of12\@max-palm {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@max-palm,
-  .u-fraction--6of10\@max-palm {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@max-palm {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@max-palm,
-  .u-fraction--4of6\@max-palm,
-  .u-fraction--8of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@max-palm {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@max-palm,
-  .u-fraction--6of8\@max-palm,
-  .u-fraction--9of12\@max-palm {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@max-palm,
-  .u-fraction--8of10\@max-palm {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@max-palm,
-  .u-fraction--10of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@max-palm {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@max-palm {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@max-palm {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
-
-@media (--lap) {
-  .u-fraction--1of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@lap {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@lap {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@lap,
-  .u-fraction--2of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@lap,
-  .u-fraction--2of10\@lap {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@lap,
-  .u-fraction--2of8\@lap,
-  .u-fraction--3of12\@lap {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@lap {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@lap,
-  .u-fraction--2of6\@lap,
-  .u-fraction--4of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@lap {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@lap,
-  .u-fraction--4of10\@lap {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@lap,
-  .u-fraction--2of4\@lap,
-  .u-fraction--3of6\@lap,
-  .u-fraction--4of8\@lap,
-  .u-fraction--5of10\@lap,
-  .u-fraction--6of12\@lap {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@lap,
-  .u-fraction--6of10\@lap {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@lap {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@lap,
-  .u-fraction--4of6\@lap,
-  .u-fraction--8of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@lap {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@lap,
-  .u-fraction--6of8\@lap,
-  .u-fraction--9of12\@lap {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@lap,
-  .u-fraction--8of10\@lap {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@lap,
-  .u-fraction--10of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@lap {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@lap {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@lap {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
-
-@media (--max-lap) {
-  .u-fraction--1of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@max-lap {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@max-lap {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@max-lap,
-  .u-fraction--2of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@max-lap,
-  .u-fraction--2of10\@max-lap {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@max-lap,
-  .u-fraction--2of8\@max-lap,
-  .u-fraction--3of12\@max-lap {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@max-lap {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@max-lap,
-  .u-fraction--2of6\@max-lap,
-  .u-fraction--4of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@max-lap {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@max-lap,
-  .u-fraction--4of10\@max-lap {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@max-lap,
-  .u-fraction--2of4\@max-lap,
-  .u-fraction--3of6\@max-lap,
-  .u-fraction--4of8\@max-lap,
-  .u-fraction--5of10\@max-lap,
-  .u-fraction--6of12\@max-lap {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@max-lap,
-  .u-fraction--6of10\@max-lap {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@max-lap {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@max-lap,
-  .u-fraction--4of6\@max-lap,
-  .u-fraction--8of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@max-lap {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@max-lap,
-  .u-fraction--6of8\@max-lap,
-  .u-fraction--9of12\@max-lap {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@max-lap,
-  .u-fraction--8of10\@max-lap {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@max-lap,
-  .u-fraction--10of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@max-lap {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@max-lap {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@max-lap {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
-
-@media (--desk) {
-  .u-fraction--1of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@desk {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@desk {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@desk,
-  .u-fraction--2of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@desk,
-  .u-fraction--2of10\@desk {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@desk,
-  .u-fraction--2of8\@desk,
-  .u-fraction--3of12\@desk {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@desk {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@desk,
-  .u-fraction--2of6\@desk,
-  .u-fraction--4of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@desk {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@desk,
-  .u-fraction--4of10\@desk {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@desk,
-  .u-fraction--2of4\@desk,
-  .u-fraction--3of6\@desk,
-  .u-fraction--4of8\@desk,
-  .u-fraction--5of10\@desk,
-  .u-fraction--6of12\@desk {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@desk,
-  .u-fraction--6of10\@desk {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@desk {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@desk,
-  .u-fraction--4of6\@desk,
-  .u-fraction--8of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@desk {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@desk,
-  .u-fraction--6of8\@desk,
-  .u-fraction--9of12\@desk {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@desk,
-  .u-fraction--8of10\@desk {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@desk,
-  .u-fraction--10of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@desk {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@desk {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@desk {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
-
-@media (--max-desk) {
-  .u-fraction--1of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@max-desk {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@max-desk {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@max-desk,
-  .u-fraction--2of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@max-desk,
-  .u-fraction--2of10\@max-desk {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@max-desk,
-  .u-fraction--2of8\@max-desk,
-  .u-fraction--3of12\@max-desk {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@max-desk {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@max-desk,
-  .u-fraction--2of6\@max-desk,
-  .u-fraction--4of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@max-desk {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@max-desk,
-  .u-fraction--4of10\@max-desk {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@max-desk,
-  .u-fraction--2of4\@max-desk,
-  .u-fraction--3of6\@max-desk,
-  .u-fraction--4of8\@max-desk,
-  .u-fraction--5of10\@max-desk,
-  .u-fraction--6of12\@max-desk {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@max-desk,
-  .u-fraction--6of10\@max-desk {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@max-desk {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@max-desk,
-  .u-fraction--4of6\@max-desk,
-  .u-fraction--8of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@max-desk {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@max-desk,
-  .u-fraction--6of8\@max-desk,
-  .u-fraction--9of12\@max-desk {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@max-desk,
-  .u-fraction--8of10\@max-desk {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@max-desk,
-  .u-fraction--10of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@max-desk {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@max-desk {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@max-desk {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
-
-@media (--wall) {
-  .u-fraction--1of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 12) !important;
-  }
-
-  .u-fraction--1of10\@wall {
-    flex-basis: auto !important;
-    width: 10% !important;
-  }
-
-  .u-fraction--1of8\@wall {
-    flex-basis: auto !important;
-    width: 12.5% !important;
-  }
-
-  .u-fraction--1of6\@wall,
-  .u-fraction--2of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 6) !important;
-  }
-
-  .u-fraction--1of5\@wall,
-  .u-fraction--2of10\@wall {
-    flex-basis: auto !important;
-    width: 20% !important;
-  }
-
-  .u-fraction--1of4\@wall,
-  .u-fraction--2of8\@wall,
-  .u-fraction--3of12\@wall {
-    flex-basis: auto !important;
-    width: 25% !important;
-  }
-
-  .u-fraction--3of10\@wall {
-    flex-basis: auto !important;
-    width: 30% !important;
-  }
-
-  .u-fraction--1of3\@wall,
-  .u-fraction--2of6\@wall,
-  .u-fraction--4of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 1 / 3) !important;
-  }
-
-  .u-fraction--3of8\@wall {
-    flex-basis: auto !important;
-    width: 37.5% !important;
-  }
-
-  .u-fraction--2of5\@wall,
-  .u-fraction--4of10\@wall {
-    flex-basis: auto !important;
-    width: 40% !important;
-  }
-
-  .u-fraction--5of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 12) !important;
-  }
-
-  .u-fraction--1of2\@wall,
-  .u-fraction--2of4\@wall,
-  .u-fraction--3of6\@wall,
-  .u-fraction--4of8\@wall,
-  .u-fraction--5of10\@wall,
-  .u-fraction--6of12\@wall {
-    flex-basis: auto !important;
-    width: 50% !important;
-  }
-
-  .u-fraction--7of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 7 / 12) !important;
-  }
-
-  .u-fraction--3of5\@wall,
-  .u-fraction--6of10\@wall {
-    flex-basis: auto !important;
-    width: 60% !important;
-  }
-
-  .u-fraction--5of8\@wall {
-    flex-basis: auto !important;
-    width: 62.5% !important;
-  }
-
-  .u-fraction--2of3\@wall,
-  .u-fraction--4of6\@wall,
-  .u-fraction--8of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 2 / 3) !important;
-  }
-
-  .u-fraction--7of10\@wall {
-    flex-basis: auto !important;
-    width: 70% !important;
-  }
-
-  .u-fraction--3of4\@wall,
-  .u-fraction--6of8\@wall,
-  .u-fraction--9of12\@wall {
-    flex-basis: auto !important;
-    width: 75% !important;
-  }
-
-  .u-fraction--4of5\@wall,
-  .u-fraction--8of10\@wall {
-    flex-basis: auto !important;
-    width: 80% !important;
-  }
-
-  .u-fraction--5of6\@wall,
-  .u-fraction--10of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 5 / 6) !important;
-  }
-
-  .u-fraction--7of8\@wall {
-    flex-basis: auto !important;
-    width: 87.5% !important;
-  }
-
-  .u-fraction--9of10\@wall {
-    flex-basis: auto !important;
-    width: 90% !important;
-  }
-
-  .u-fraction--11of12\@wall {
-    flex-basis: auto !important;
-    width: calc(100% * 11 / 12) !important;
-  }
-}
+/**
+ * Responsive fractions live in their respective files, you can include
+ * them if you really need them.
+ * eg.: `fractions@lap.css`
+ */

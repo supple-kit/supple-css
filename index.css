@@ -1,4 +1,4 @@
-/*! supple v0.1.0 | MIT License | github.com/supple-css */
+/*! supple v0.2.0 | MIT License | github.com/supple-css */
 
 /*  =========================================================================
     Supple
@@ -55,6 +55,13 @@
     ========================================================================= */
 
 @import "./lib/utilities/fractions.css";
+@import "./lib/utilities/fractions@palm.css";
+@import "./lib/utilities/fractions@max-palm.css";
+@import "./lib/utilities/fractions@lap.css";
+@import "./lib/utilities/fractions@max-lap.css";
+@import "./lib/utilities/fractions@desk.css";
+@import "./lib/utilities/fractions@max-desk.css";
+@import "./lib/utilities/fractions@wall.css";
 @import "./lib/utilities/float.css";
 @import "./lib/utilities/module.css";
 @import "./lib/utilities/visually-hidden.css";
