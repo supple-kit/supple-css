@@ -1,6 +1,6 @@
 {
   "name": "supple",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "In-browser CSS framework; Fluid, Variable, supple if you will",
   "main": "index.css",
   "repository": "https://github.com/supple-css/supple.git",
