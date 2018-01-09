@@ -1,4 +1,4 @@
-# supple - v0.2.0
+# supple - v0.2.1
 
 **NOTE: This is a alpha release, dragons ahead**
 

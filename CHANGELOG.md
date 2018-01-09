@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.1 - 09-jan-2018
+- Removed `:host` selector again because that is not how webcomponents work
+
 ## 0.2.0 - 29-dec-2017
 - Splitted responsive fractions into separate files
 - Added full fraction
