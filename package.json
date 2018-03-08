@@ -22,7 +22,7 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^8.1.0",
     "cssnano": "^3.10.0",
     "glob": "^7.1.2",
     "gzip-size-cli": "^2.1.0",
