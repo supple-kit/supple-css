@@ -22,20 +22,21 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^8.1.0",
     "cssnano": "^3.10.0",
     "glob": "^7.1.2",
     "gzip-size-cli": "^2.1.0",
-    "postcss": "^6.0.13",
+    "postcss": "^6.0.19",
     "postcss-apply": "^0.8.0",
     "postcss-cli": "^4.1.1",
-    "postcss-color-function": "^4.0.0",
+    "postcss-color-function": "^4.0.1",
     "postcss-custom-media": "^6.0.0",
+    "postcss-custom-properties": "^7.0.0",
     "postcss-easy-import": "^3.0.0",
-    "stylelint": "^8.2.0",
+    "stylelint": "^9.1.1",
     "stylelint-config-supple": "^1.0.0"
   },
   "dependencies": {
-    "normalize.css": "^7.0.0"
+    "normalize.css": "^8.0.0"
   }
 }

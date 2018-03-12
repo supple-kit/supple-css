@@ -10,10 +10,12 @@
   }
 
   body {
+    margin: 1.5rem;
     margin: var(--supple-space);
   }
 
   .page-title {
+    margin-bottom: 1.5rem;
     margin-bottom: var(--supple-space);
     font-size: 3.157em;
   }
@@ -21,20 +23,24 @@
   .module__title,
   .test__describe,
   .test__it {
+    margin-bottom: 1.5rem;
     margin-bottom: var(--supple-space);
     background-color: #eeeeee;
+    padding: 0.75rem 1.5rem;
     padding: var(--supple-space-small) var(--supple-space);
   }
 
   .test__describe,
   .test__it {
     border-left: 3px solid #666666;
+    padding-left: calc(1.5rem - 3px);
     padding-left: calc(var(--supple-space) - 3px);
   }
 
-  .module__title::before,
-  .test__describe::before,
-  .test__it::before {
+  .module__title:before,
+  .test__describe:before,
+  .test__it:before {
+    margin-right: 1.5rem;
     margin-right: var(--supple-space);
     color: #999999;
   }
@@ -42,44 +48,57 @@
   .module {
     counter-increment: module;
   }
+
   .module__title {
+    margin-top: 6rem;
     margin-top: var(--supple-space-huge);
     font-size: 2.369em;
     counter-reset: test-describe;
   }
-  .module__title::before {
+
+  .module__title:before {
     content: counter(module);
   }
 
   .test {}
-    .test__describe {
-      margin-top: var(--supple-space-large);
-      font-size: 1.777em;
-      counter-reset: test-it;
-      counter-increment: test-describe;
-    }
-    .test__describe::before {
-      content: counter(module) "." counter(test-describe);
-    }
 
-    .test__it {
-      margin-top: var(--supple-space-small);
-      font-size: 1.333em;
-      counter-increment: test-it;
-    }
-    .test__it::before {
-      content: counter(module) "." counter(test-describe) "." counter(test-it);
-    }
+  .test__describe {
+    margin-top: 3rem;
+    margin-top: var(--supple-space-large);
+    font-size: 1.777em;
+    counter-reset: test-it;
+    counter-increment: test-describe;
+  }
 
-    .test__run {}
-    .test__run--retained {
-      max-width: calc(var(--supple-space) * 21);
-    }
+  .test__describe:before {
+    content: counter(module) "." counter(test-describe);
+  }
+
+  .test__it {
+    margin-top: 0.75rem;
+    margin-top: var(--supple-space-small);
+    font-size: 1.333em;
+    counter-increment: test-it;
+  }
+
+  .test__it:before {
+    content: counter(module) "." counter(test-describe) "." counter(test-it);
+  }
+
+  .test__run {}
+
+  .test__run--retained {
+    max-width: calc(1.5rem * 21);
+    max-width: calc(var(--supple-space) * 21);
+  }
 
   .fixture-box {
+    margin-bottom: 0.75rem;
     margin-bottom: var(--supple-space-small);
+    padding: 0 0.75rem;
     padding: 0 var(--supple-space-small);
     background: rgba(220, 20, 60, 1);
+    line-height: 3rem;
     line-height: var(--supple-space-large);
     color: #ffffff;
     border: 1px solid #000000;
@@ -87,16 +106,23 @@
   }
 
   .fixture-wrap {
+    margin-bottom: 0.75rem;
     margin-bottom: var(--supple-space-small);
     border: 1px solid #000000;
-    background: rgba(220, 20, 60, .4);
+    background: rgba(220, 20, 60, 0.4);
   }
 
   .fixture-box--double-height {
+    line-height: 6rem;
     line-height: var(--supple-space-huge);
   }
 
+  .fixture-box--flatten {
+    margin-bottom: 0;
+  }
+
   .box {
+    padding: 1.5rem;
     padding: var(--supple-space);
   }
 
@@ -104,6 +130,10 @@
     overflow: auto;
     white-space: pre;
     word-wrap: normal;
+  }
+
+  .c-vertical {
+    height: 400px;
   }
 </style>
 
@@ -687,6 +717,102 @@
         </div>
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">4</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">.o-layout--vertical</h3>
+    <h4 class="test__it">Supports vertical layout</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--vertical">
+        <div class="o-layout__cell">
+          <div class="fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">Supports vertical fractions</h4>
+    <div class="test__run">
+      <div class="c-vertical  o-layout  o-layout--vertical  o-layout--equalheight" style="--o-layout-columns: 4;">
+        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+          <div class="fixture-box">1/4</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 2;">
+          <div class="fixture-box">2/4</div>
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+          <div class="fixture-box">1/4</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">Supports vertical fit & fill</h4>
+    <div class="test__run">
+      <div class="c-vertical  o-layout  o-layout--vertical  o-layout--equalheight">
+        <div class="o-layout__cell  o-layout__cell--fit">
+          <div class="fixture-box">fit</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fit@max-lap  o-layout__cell--fill@desk">
+          <div class="fixture-box">fill</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fit">
+          <div class="fixture-box">fit</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h4 class="test__it">Should display a combination of horizontal & vertical layout based on the heighest column</h4>
+    <div class="test__run">
+      <div class="o-layout  o-layout--equalheight  o-layout--gutter">
+        <div class="o-layout__cell  o-layout__cell--fit">
+
+          <div class="o-layout  o-layout--vertical  o-layout--gutter  o-layout--equalheight">
+            <div class="o-layout__cell  o-layout__cell--fit">
+              <div class="fixture-box  fixture-box--flatten">fit</div>
+            </div>
+            <div class="o-layout__cell  o-layout__cell--fill">
+              <div class="fixture-box  fixture-box--flatten">fill</div>
+            </div>
+            <div class="o-layout__cell  o-layout__cell--fit">
+              <div class="fixture-box  fixture-box--flatten">fit</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+
+          <div class="o-layout  o-layout--vertical  o-layout--gutter  o-layout--equalheight">
+            <div class="o-layout__cell" style="--o-layout-colspan: 3">
+              <div class="fixture-box  fixture-box--flatten">3/12</div>
+            </div>
+            <div class="o-layout__cell" style="--o-layout-colspan: 4">
+              <div class="fixture-box  fixture-box--flatten">4/12</div>
+            </div>
+            <div class="o-layout__cell" style="--o-layout-colspan: 3">
+              <div class="fixture-box  fixture-box--flatten">3/12</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="o-layout__cell" style="--o-layout-colspan: 4;">
+            <div class="o-layout  o-layout--vertical  o-layout--gutter">
+              <div class="o-layout__cell  o-layout__cell--fit">
+                <div class="fixture-box  fixture-box--flatten">fit</div>
+              </div>
+              <div class="o-layout__cell  o-layout__cell--fill">
+                <div class="fixture-box  fixture-box--flatten">
+                  fill<br>
+                  With some content to make this the largest column<br>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde inventore minima amet, nobis dolores dolor et nostrum nesciunt fugiat! Voluptatem quam laboriosam quo nam eum a neque consectetur aliquid et.
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div><!-- .test__run -->

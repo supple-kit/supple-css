@@ -3,6 +3,9 @@ module.exports = {
     require("postcss-easy-import"),
     require("postcss-color-function"),
     require("postcss-apply"),
+    // require("postcss-custom-properties")({
+    //   preserve: true
+    // }),
     require("postcss-custom-media"),
     require("autoprefixer"),
     require("cssnano")({
