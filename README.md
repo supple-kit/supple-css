@@ -1,9 +1,7 @@
 # supple - v0.2.1
 
-<img src="https://raw.githubusercontent.com/supple-css/supple/master/_assets/supple-logo.svg" align="right" width="80" height="80" alt="Supple Logo">
+[![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE)
 
-[![npm][npm-image]][npm-url] [![license][license-image]][license-url]
-[![changelog][changelog-image]][changelog-url]
 
 **NOTE: This is a alpha release, dragons ahead**
 
