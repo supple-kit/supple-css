@@ -1,6 +1,6 @@
 # supple - v0.2.1
 
-<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple logo" align="right" width="80" height="80" />
+<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple logo" style="float: right; margin-left: 20px; margin-bottom: 20px; width: 80px; height: 80px;" />
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
