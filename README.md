@@ -22,8 +22,6 @@ Supple supports all [major browsers which can render CSS custom properties](http
 * [postcss-easy-import](https://github.com/TrySound/postcss-easy-import)
 * [postcss-custom-media](https://github.com/postcss/postcss-custom-media)
 
-**Note:**
-
 
 ## Installation
 
@@ -82,7 +80,7 @@ Supple does not have any global tools, so this layer is empty by default.
 ### Generic
 It contains ground-zero styles like [Normalize.css](http://necolas.github.io/normalize.css/), global box-sizing rules, CSS resets and so on.
 
-* It’s advised to include [normalize.css](http://necolas.github.io/normalize.css/), it is installed by default.
+* It’s advised to include [normalize.css](http://necolas.github.io/normalize.css/), it is installed as a dependency by default.
 * [reset.css](lib/generic/reset.css)
 * [vertical-rhythm.css](lib/generic/vertical-rhythm.css)
 
