@@ -1,37 +1,65 @@
 # Supple
 
-<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple logo" align="right" width="80" height="80" />
+<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple logo" align="right" width="60" height="60" />
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
-
-
-**NOTE: This is a alpha release, dragons ahead**
-
-**Why use supple:**
-It is a small but powerfull CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://jonathantneal.github.io/css-db/) to let you forget about any preprocessor.
+**Why use Supple:**
+> It is a small but powerfull CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://jonathantneal.github.io/css-db/) to let you forget about any preprocessor.
 
 Supple provides little to no design wich means no undoing other peoples design decisions.
 
 Use supple if:
 
 * You want to write just CSS ;-)
+* You appreciate the value of Object Oriented code and the need for scalability and reuse.
 * You need a powerful library of defaults & objects.
-* You appreciate the value of Object Oriented code and the need for scalability
-  and reuse.
 * You need a framework that is robust and evolves constantly.
 
 ## Browser support
 Supple supports all [major browsers which can render CSS custom properties](http://caniuse.com/#feat=css-variables) given you configure your build process with the following postcss plugins:
 
 * [postcss-easy-import](https://github.com/TrySound/postcss-easy-import)
-* [postcss-apply](https://github.com/pascalduez/postcss-apply)
 * [postcss-custom-media](https://github.com/postcss/postcss-custom-media)
-* [postcss-autoprefixer](https://github.com/postcss/autoprefixer)
+
+**Note:**
+
 
 ## Installation
-* yarn: `yarn add supple --dev`
-* npm: `npm install supple --save-dev`
+
+* yarn: `yarn add supple --save && yarn add postcss-custom-media postcss-easy-import autoprefixer --dev`
+* npm: `npm install supple --save && npm install postcss-custom-media postcss-easy-import autoprefixer --save-dev`
+
+### PostCSS configuration
+
+Example `postcss.config.js`:
+
+```js
+module.exports = {
+  plugins: [
+    require("postcss-easy-import"),
+    require("postcss-custom-media"),
+    require("autoprefixer"),
+  ],
+};
+```
+
+**Note**: It is advised to add [postcss-autoprefixer](https://github.com/postcss/autoprefixer) to automatically generate vendor prefixes.
+### Support for older browsers
+If you need to support browsers that don't play nice with custom properties you can add [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties/) to the mix:
+
+```js
+module.exports = {
+  plugins: [
+    require("postcss-easy-import"),
+    require("postcss-custom-media"),
+    require("postcss-custom-properties"),
+    require("autoprefixer"),
+  ],
+};
+```
+
+This plugin in combination with some Supple helper utilities will allow you use Supple for projects which will work in older browsers.
 
 ## Available modules
 All supple submodules are created based on the ITCSS principle.
