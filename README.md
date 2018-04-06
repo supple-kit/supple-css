@@ -1,4 +1,4 @@
-# supple - v0.2.1
+# Supple
 
 <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple logo" align="right" width="80" height="80" />
 
