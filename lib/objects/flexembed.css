@@ -53,13 +53,13 @@
     ========================================================================= */
 
 .o-flexembed--4by3 {
-  padding-bottom: calc((3/4) * 100%);
+  padding-bottom: calc(100% / (4 / 3));
 }
 
 .o-flexembed--16by9 {
-  padding-bottom: calc((9/16) * 100%);
+  padding-bottom: calc(100% / (16 / 9));
 }
 
 .o-flexembed--2by1 {
-  padding-bottom: calc((1/2) * 100%);
+  padding-bottom: calc(100% / (2 / 1));
 }
