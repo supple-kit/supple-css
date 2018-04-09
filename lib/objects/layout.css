@@ -17,12 +17,14 @@
   --o-layout-gutter-large: var(--supple-space-large, 48px);
   --o-layout-gutter-huge: var(--supple-space-huge, 96px);
 
+
   /**
    * @apply rule: Make a cell shrink wrap its content.
    */
   --o-layout__cell--fit: {
     flex-basis: auto;
   };
+
 
   /**
    * @apply rule: Make a cell fill the remaining space.
@@ -33,6 +35,16 @@
   --o-layout__cell--fill: {
     flex: 1 1 0%; /* [1] */
     flex-basis: 0%; /* [2] */
+  };
+
+
+  /**
+   * @apply rule: Make a cell fill the remaining space in a vertical layout
+   *
+   * 1. Make IE11 behave and fill stuff out properly
+   */
+  --o-layout--vertical__cell--fill: {
+    flex-basis: auto; /* [1] */
   };
 }
 
@@ -125,6 +137,40 @@
 
 
 /**
+ * Modifier: vertical
+ * Throws layout in vertical mode
+ */
+.o-layout--vertical {
+  flex-flow: column;
+}
+
+
+/**
+ * Modifier: vertical
+ * Filthy ass selector to target ie11 for a dirrty fix
+ *
+ * 1. fix for ie11 bug where flex items with a percentage based `flex-basis`
+ *    renders with 0 height.
+ */
+_:-ms-fullscreen, :root .o-layout--vertical > .o-layout__cell { /* stylelint-disable-line selector-type-no-unknown */
+  flex-basis: auto; /* [1] */
+}
+
+
+/**
+ * Modifier: vertical
+ * Reset gutters
+ */
+.o-layout--vertical[class*="o-layout--gutter"] {
+  margin-left: 0;
+}
+
+.o-layout--vertical[class*="o-layout--gutter"] > .o-layout__cell {
+  padding-left: 0;
+}
+
+
+/**
  * Modifier: Gutter
  */
 .o-layout--gutter {
@@ -133,6 +179,15 @@
 
 .o-layout--gutter > .o-layout__cell {
   padding-left: var(--o-layout-gutter);
+}
+
+/* gutter in vertical mode */
+.o-layout--gutter.o-layout--vertical {
+  margin-top: calc(-1 * var(--o-layout-gutter));
+}
+
+.o-layout--gutter.o-layout--vertical > .o-layout__cell {
+  padding-top: var(--o-layout-gutter);
 }
 
 
@@ -147,6 +202,15 @@
   padding-left: var(--o-layout-gutter-tiny);
 }
 
+/* gutter-tiny in vertical mode */
+.o-layout--gutter-tiny.o-layout--vertical {
+  margin-top: calc(-1 * var(--o-layout-gutter-tiny));
+}
+
+.o-layout--gutter-tiny.o-layout--vertical > .o-layout__cell {
+  padding-top: var(--o-layout-gutter-tiny);
+}
+
 
 /**
  * Modifier: Small gutter
@@ -159,6 +223,16 @@
   padding-left: var(--o-layout-gutter-small);
 }
 
+/* gutter-small in vertical mode */
+.o-layout--gutter-small.o-layout--vertical {
+  margin-top: calc(-1 * var(--o-layout-gutter-small));
+}
+
+.o-layout--gutter-small.o-layout--vertical > .o-layout__cell {
+  padding-top: var(--o-layout-gutter-small);
+}
+
+
 /**
  * Modifier: Large gutter
  */
@@ -170,6 +244,16 @@
   padding-left: var(--o-layout-gutter-large);
 }
 
+/* gutter-large in vertical mode */
+.o-layout--gutter-large.o-layout--vertical {
+  margin-top: calc(-1 * var(--o-layout-gutter-large));
+}
+
+.o-layout--gutter-large.o-layout--vertical > .o-layout__cell {
+  padding-top: var(--o-layout-gutter-large);
+}
+
+
 /**
  * Modifier: Huge gutter
  */
@@ -179,6 +263,15 @@
 
 .o-layout--gutter-huge > .o-layout__cell {
   padding-left: var(--o-layout-gutter-huge);
+}
+
+/* gutter-huge in vertical mode */
+.o-layout--gutter-huge.o-layout--vertical {
+  margin-top: calc(-1 * var(--o-layout-gutter-huge));
+}
+
+.o-layout--gutter-huge.o-layout--vertical > .o-layout__cell {
+  padding-top: var(--o-layout-gutter-huge);
 }
 
 
@@ -217,88 +310,135 @@
  * Modifier: Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
-  @apply --o-layout__cell--fit;
+  flex-basis: auto;
 }
 
 
 /**
  * Modifier: Make a cell fill the remaining space.
+ * 1. Be explicit to work around IE10 bug with shorthand flex
+ * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
  */
 .o-layout__cell--fill {
-  @apply --o-layout__cell--fill;
+  flex: 1 1 0%; /* [1] */
+  flex-basis: 0%; /* [2] */
+}
+
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ * 1. Make IE11 behave and fill stuff out properly
+ */
+.o-layout--vertical > .o-layout__cell--fill {
+  flex-basis: auto; /* [1] */
 }
 
 
 
-/*  Responsive
+/*  Responsive fitters & fillers
     ========================================================================= */
 
 @media (--palm) {
   .o-layout__cell--fit\@palm {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@palm {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@palm {
+    flex-basis: auto;
   }
 }
 
 @media (--max-palm) {
   .o-layout__cell--fit\@max-palm {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@max-palm {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@max-palm {
+    flex-basis: auto;
   }
 }
 
 @media (--lap) {
   .o-layout__cell--fit\@lap {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@lap {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@lap {
+    flex-basis: auto;
   }
 }
 
 @media (--max-lap) {
   .o-layout__cell--fit\@max-lap {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@max-lap {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@max-lap {
+    flex-basis: auto;
   }
 }
 
 @media (--desk) {
   .o-layout__cell--fit\@desk {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@desk {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@desk {
+    flex-basis: auto;
   }
 }
 
 @media (--max-desk) {
   .o-layout__cell--fit\@max-desk {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@max-desk {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@max-desk {
+    flex-basis: auto;
   }
 }
 
 @media (--wall) {
   .o-layout__cell--fit\@wall {
-    @apply --o-layout__cell--fit;
+    flex-basis: auto;
   }
 
   .o-layout__cell--fill\@wall {
-    @apply --o-layout__cell--fill;
+    flex: 1 1 0%;
+    flex-basis: 0%;
+  }
+
+  .o-layout--vertical > .o-layout__cell--fill\@wall {
+    flex-basis: auto;
   }
 }
