@@ -1,6 +1,4 @@
-# Supple
-
-<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple logo" align="right" width="60" height="60" />
+# Supple CSS framework [<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="PostCSS Logo" width="90" height="90" align="right">][postcss]
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
@@ -15,6 +13,11 @@ Use supple if:
 * You appreciate the value of Object Oriented code and the need for scalability and reuse.
 * You need a powerful library of defaults & objects.
 * You need a framework that is robust and evolves constantly.
+
+**Size**
+
+The core framework without fallbacks weighs about 2.5kB.
+Including all fallbacks for unsupporting browsers the framework comes in at 4.29kB.
 
 ## Browser support
 Supple supports all [major browsers which can render CSS custom properties](http://caniuse.com/#feat=css-variables) given you configure your build process with the following postcss plugins:
