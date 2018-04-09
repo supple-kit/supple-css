@@ -2,19 +2,33 @@
 
 /*  =========================================================================
     utilities.visually-hidden
-    Completely remove from the flow but leave available to screen readers.
+    Completely remove from the flow but leave content available to
+    screen readers.
     ========================================================================= */
 
-/*  Variables
+/*  Module
     ========================================================================= */
 
-:root {
+.u-visually-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
 
-  /**
-   * @apply rule
-   * As per: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
-   */
-  --u-visually-hidden: {
+
+
+/*  Responsive
+    ========================================================================= */
+
+@media (--palm) {
+  .u-visually-hidden\@palm {
     border: 0 !important;
     clip: rect(0 0 0 0) !important;
     clip-path: inset(50%) !important;
@@ -28,58 +42,92 @@
   }
 }
 
-
-
-/*  Module
-    ========================================================================= */
-
-.u-visually-hidden {
-  @apply --u-visually-hidden;
-}
-
-
-
-/*  Responsive
-    ========================================================================= */
-
-@media (--palm) {
-  .u-visually-hidden\@palm {
-    @apply --u-visually-hidden;
-  }
-}
-
 @media (--max-palm) {
   .u-visually-hidden\@max-palm {
-    @apply --u-visually-hidden;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 }
 
 @media (--lap) {
   .u-visually-hidden\@lap {
-    @apply --u-visually-hidden;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 }
 
 @media (--max-lap) {
   .u-visually-hidden\@max-lap {
-    @apply --u-visually-hidden;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 }
 
 @media (--desk) {
   .u-visually-hidden\@desk {
-    @apply --u-visually-hidden;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 }
 
 @media (--max-desk) {
   .u-visually-hidden\@max-desk {
-    @apply --u-visually-hidden;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 }
 
 @media (--wall) {
   .u-visually-hidden\@wall {
-    @apply --u-visually-hidden;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
   }
 }
