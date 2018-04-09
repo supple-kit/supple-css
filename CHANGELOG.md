@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.0.1 - 09-apr-2018
+- Stupid typo's
+
 ## 1.0.0 - 09-apr-2018
 - Added vertical layout mode.
 - Formatted flexembed fallbacks a bit more consistent.
