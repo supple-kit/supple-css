@@ -48,7 +48,8 @@
 
 
 
-/*  Ratio modifiers
+/*  Common ratio modifiers, for use in browsers without
+    custom-property support
     ========================================================================= */
 
 .o-flexembed--4by3 {

@@ -324,6 +324,7 @@ _:-ms-fullscreen, :root .o-layout--vertical > .o-layout__cell { /* stylelint-dis
   flex-basis: 0%; /* [2] */
 }
 
+
 /**
  * Modifier: Make a cell fill the remaining space.
  * 1. Make IE11 behave and fill stuff out properly
@@ -334,7 +335,7 @@ _:-ms-fullscreen, :root .o-layout--vertical > .o-layout__cell { /* stylelint-dis
 
 
 
-/*  Responsive
+/*  Responsive fitters & fillers
     ========================================================================= */
 
 @media (--palm) {
