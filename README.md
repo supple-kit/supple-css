@@ -1,4 +1,4 @@
-# Supple CSS framework [<img src="https://supple-css.github.io/supple/supple-logo.svg" alt="PostCSS Logo" width="90" height="90" align="right">][postcss]
+# Supple CSS framework <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple Logo" width="90" height="90" align="right">
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
