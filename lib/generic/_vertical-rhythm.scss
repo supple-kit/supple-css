@@ -8,11 +8,11 @@
 
 /**
  * Toplevel HTML element
- * 1. Apply the `--supple-base-font-size` & `--supple-line-height-ratio`
+ * 1. Apply the `$supple-font-size` & `$supple-line-height-ratio`
  */
 html {
-  font-size: calc((var(--supple-base-font-size) / 16) * 1em); /* [1] */
-  line-height: var(--supple-base-line-height-ratio); /* [1] */
+  font-size: #{($supple-font-size/16px)*1em}; /* [1] */
+  line-height: #{$supple-line-height-ratio}; /* [1] */
 }
 
 
@@ -32,7 +32,7 @@ fieldset,
 figure,
 pre,
 hr {
-  margin-bottom: var(--supple-space);
+  @include supple-rem(margin-bottom, $supple-space);
 }
 
 
@@ -42,5 +42,5 @@ hr {
 ul,
 ol,
 dd {
-  margin-left: var(--supple-space);
+  @include supple-rem(margin-left, $supple-space);
 }

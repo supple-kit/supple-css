@@ -1,0 +1,22 @@
+/*! supple.tools.mixins | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    tools.mixins
+    ========================================================================= */
+
+/*  Rem
+    Converts a set of values to rem values
+    Usage: @include supple-rem(margin, 0 auto 300px, !important);
+    ========================================================================= */
+
+@mixin supple-rem ($property, $value, $append: "") {
+  @if type-of($value) == list {
+    $all: ();
+    @for $i from 1 through length($value) {
+      $all: append($all, supple-value-to-rem(nth($value, $i), false));
+    }
+    #{$property}: $all #{$append};
+  } @else {
+    #{$property}: supple-value-to-rem($value) #{$append};
+  }
+}

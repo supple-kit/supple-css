@@ -15,6 +15,19 @@ $supple-line-height-ratio: $supple-line-height/$supple-font-size !default;
 
 
 
+/*  Spacing
+    Assign our `$supple-line-height` to a new spacing variable for
+    more transparency & consistency
+    ========================================================================= */
+
+$supple-space: $supple-line-height !default;
+$supple-space-tiny: $supple-space/4 !default;
+$supple-space-small: $supple-space/2 !default;
+$supple-space-large: $supple-space*2 !default;
+$supple-space-huge: $supple-space*4 !default;
+
+
+
 /* stylelint-disable indentation */
 
 :root {
