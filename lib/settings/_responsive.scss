@@ -1,0 +1,16 @@
+/*! supple.settings.defaults | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    settings.responsive
+    Used in conjunction with Sass MQ: https://sass-mq.github.io/sass-mq/
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+$mq-breakpoints: (
+  palm: 0,
+  lap: 40em,
+  desk: 60em,
+  wall: 80em
+);
