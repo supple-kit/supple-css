@@ -1,0 +1,36 @@
+/*! supple.settings.defaults | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    tools.functions
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+$supple-browser-context: $supple-font-size !default;
+
+
+
+/*  Functions
+    ========================================================================= */
+
+/**
+ * Value to rem
+ * Converts a px value to a rem unit based on the current browser context
+ */
+@function supple-value-to-rem ($value) {
+  @if type-of($value) == string or unitless($value) == true or unit($value) != "px" {
+    @warn "You’ve passed in a `$value` which is not in the `px` format. I’ve returned your `#{$value}` unmodified.";
+    @return $value;
+  } @else {
+    @return ($value/$supple-browser-context*1rem);
+  }
+}
+
+
+/**
+ * A small, internally-used function to remove the units from a given value.
+ */
+@function supple-strip-units ($number) {
+  @return $number / ($number * 0 + 1);
+}

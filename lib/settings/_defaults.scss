@@ -6,6 +6,15 @@
     application-level variables.
     ========================================================================= */
 
+/*  Typography
+    ========================================================================= */
+
+$supple-font-size: 16px !default;
+$supple-line-height: 24px !default;
+$supple-line-height-ratio: $supple-line-height/$supple-font-size !default;
+
+
+
 /* stylelint-disable indentation */
 
 :root {
