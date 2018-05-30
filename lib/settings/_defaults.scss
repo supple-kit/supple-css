@@ -28,6 +28,18 @@ $supple-space-huge: $supple-space*4 !default;
 
 
 
+/*  Namespace
+    Would you like supple classes to be used with a different namespace?
+    ========================================================================= */
+
+$supple-namespace: null !default;
+$supple-namespace-object: "o-" !default;
+$supple-namespace-component: "c-" !default;
+$supple-namespace-utility: "u-" !default;
+$supple-responsive-modifier: unquote("\\@") !default;
+
+
+
 /* stylelint-disable indentation */
 
 :root {

@@ -1,0 +1,89 @@
+/*! supple.objects.flexembed | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    objects.flexembed
+    For use with multi-media embeds, such as videos or slideshows, that need to
+    retain a specific aspect ratio but adapt to elements of variable widths.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-flexembed-namespace: $supple-namespace !default;
+$supple-flexembed-combined-namespace: #{$supple-flexembed-namespace}#{$supple-namespace-object} !default;
+
+
+/**
+ * Spacing
+ */
+$supple-flexembed-space: $supple-space !default;
+
+
+/**
+ * Ratio's
+ */
+$supple-flexembed-ratios: (
+  (2:1),
+  (4:3),
+  (16:9),
+) !default;
+
+
+/**
+ * Custom properties for dynamic aspect ratios
+ */
+:root {
+  --o-flexembed-ratio: 1/1;
+}
+
+
+
+/*  Module
+    ========================================================================= */
+
+/**
+ * 1. Default cropping is a perfect square
+ */
+.#{$supple-flexembed-combined-namespace}flexembed {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0 0 calc(100% / (var(--o-flexembed-ratio)));
+  overflow: hidden;
+  @include supple-rem(margin-bottom, $supple-flexembed-space);
+}
+
+/**
+ * The actual embed/item
+ */
+.#{$supple-flexembed-combined-namespace}flexembed__item,
+.#{$supple-flexembed-combined-namespace}flexembed > iframe,
+.#{$supple-flexembed-combined-namespace}flexembed > embed,
+.#{$supple-flexembed-combined-namespace}flexembed > object {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/*  Common ratio modifiers, for use in browsers without
+    custom-property support
+    ========================================================================= */
+
+@each $ratio in $supple-flexembed-ratios {
+  @each $a, $b in $ratio {
+    @if (type-of($a) != number or type-of($b) != number) {
+      @error "`#{$a}` and `#{$b}` need to be numbers.";
+    }
+
+    .#{$supple-flexembed-combined-namespace}flexembed--#{$a}by#{$b} {
+      padding-bottom: ($b/$a) * 100%;
+    }
+  }
+}
