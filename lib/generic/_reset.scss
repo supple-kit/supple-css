@@ -12,11 +12,14 @@
  * 2. Always add the vertical scrollbar to prevent layout shifting
  * 3. Fonts on OSX will look more consistent with other systems that do not
  *    render text using sub-pixel anti-aliasing.
+ * 4. Apply the `$supple-font-size` & `$supple-line-height-ratio`
  */
 html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
   min-height: 100%;
+  font-size: #{($supple-font-size/16px)*1em}; /* [4] */
+  line-height: #{$supple-line-height-ratio}; /* [4] */
   -moz-osx-font-smoothing: grayscale; /* [3] */
   -webkit-font-smoothing: antialiased; /* [3] */
 }
@@ -29,44 +32,46 @@ html {
 
 
 /**
- * The usual resetting of margins, paddings, borders etc.
+ * Remove default margins from headings
  */
-blockquote,
-dl,
-dd,
-ol,
-ul,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-figure,
-p,
-pre,
-fieldset,
-hr {
+h6 {
   margin: 0;
 }
 
-button {
-  background: transparent;
-  border: 0;
-  padding: 0;
-}
 
-fieldset,
+/**
+ * Removes unwanted margins & applies vertical rhythm to designated elements
+ * As per: http://csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+hgroup,
+ul,
 ol,
-ul {
-  padding: 0;
+dl,
+blockquote,
+p,
+address,
+table,
+fieldset,
+figure,
+pre,
+hr {
+  @include supple-rem(margin, 0 0 $supple-space);
 }
 
-iframe,
-fieldset {
-  border: 0;
-}
 
+/**
+ * Default indentation value for lists
+ */
+ul,
+ol,
+dd {
+  @include supple-rem(margin-left, $supple-space);
+}
 
 /**
  * Remove extra vertical spacing when nesting lists.
@@ -74,6 +79,27 @@ fieldset {
 li > ul,
 li > ol {
   margin-bottom: 0;
+}
+
+
+/**
+ * Strip unwanted paddings & styling from elements
+ */
+button {
+  background: transparent;
+}
+
+button,
+fieldset,
+ol,
+ul {
+  padding: 0;
+}
+
+button,
+iframe,
+fieldset {
+  border: 0;
 }
 
 
