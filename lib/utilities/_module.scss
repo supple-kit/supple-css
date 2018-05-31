@@ -1,0 +1,28 @@
+/*! supple.utilities.module | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    utilities.module
+    Removes the `margin-bottom` from the last childs of a module.
+    As per: http://css-tricks.com/spacing-the-bottom-of-modules/
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-module-namespace: $supple-namespace !default;
+$supple-module-combined-namespace: #{$supple-module-namespace}#{$supple-namespace-utility} !default;
+
+
+
+/*  Module
+    ========================================================================= */
+
+.#{$supple-module-combined-namespace}module > *:last-child,
+.#{$supple-module-combined-namespace}module > *:last-child > *:last-child,
+.#{$supple-module-combined-namespace}module > *:last-child > *:last-child > *:last-child,
+.#{$supple-module-combined-namespace}module > *:last-child > *:last-child > *:last-child > *:last-child {
+  margin-bottom: 0 !important;
+}
