@@ -32,10 +32,10 @@ $supple-layout-gutter-huge: $supple-space-huge !default;
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-layout-x: ('lap', 'desk');
+ * $supple-breakpoint-has-layout-x: ("lap", "desk");
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
- *       in the supple base repository
+ *       in `settings/responsive`
  */
 $supple-breakpoint-has-layout-fit: () !default;
 $supple-breakpoint-has-layout-fill: () !default;
@@ -274,20 +274,26 @@ $supple-breakpoint-has-layout-fill: () !default;
 /*  Responsive fitters & fillers
     ========================================================================= */
 
-@if (variable-exists(mq-breakpoints)) {
-  @each $name in $supple-breakpoint-has-layout-fit {
+@each $name in $supple-breakpoint-has-layout-fit {
+  @if (variable-exists(mq-breakpoints)) {
     @include mq($from: $name) {
       .#{$supple-layout-combined-namespace}layout__cell--fit#{$supple-layout-responsive-modifier}#{$name} {
         @include supple-layout-fit;
       }
     }
+  } @else {
+    @warn $supple-responsive-warning;
   }
+}
 
-  @each $name in $supple-breakpoint-has-layout-fill {
+@each $name in $supple-breakpoint-has-layout-fill {
+  @if (variable-exists(mq-breakpoints)) {
     @include mq($from: $name) {
       .#{$supple-layout-combined-namespace}layout__cell--fill#{$supple-layout-responsive-modifier}#{$name} {
         @include supple-layout-fill;
       }
     }
+  } @else {
+    @warn $supple-responsive-warning;
   }
 }

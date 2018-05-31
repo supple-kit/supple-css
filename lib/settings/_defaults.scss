@@ -40,6 +40,16 @@ $supple-responsive-modifier: unquote("\\@") !default;
 
 
 
+/*  Internal
+    ========================================================================= */
+
+/**
+ * Shared warnings
+ */
+$supple-responsive-warning: "You haven’t included `Sass MQ` and `settings/responsive` in your manifest file. Please add them or add your own responsive classes yourself" !default;
+
+
+
 /* stylelint-disable indentation */
 
 :root {

@@ -1,0 +1,56 @@
+/*! supple.utilities.hidden | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    utilities.hidden
+    Completely remove from the flow and hide it from screenreaders
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-hidden-namespace: $supple-namespace !default;
+$supple-hidden-combined-namespace: #{$supple-hidden-namespace}#{$supple-namespace-utility} !default;
+$supple-hidden-responsive-modifier: $supple-responsive-modifier !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for `hidden`.
+ * This is handy if you only need `hidden` on, say, desk, or you only need it
+ * at mobile sizes. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $supple-breakpoint-has-hidden: ("lap", "desk");
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+$supple-breakpoint-has-hidden: () !default;
+
+
+
+/*  Module
+    ========================================================================= */
+
+.#{$supple-hidden-combined-namespace}hidden {
+  display: none !important;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $name in $supple-breakpoint-has-hidden {
+  @if (variable-exists(mq-breakpoints)) {
+    @include mq($from: $name) {
+      .#{$supple-hidden-combined-namespace}hidden#{$supple-hidden-responsive-modifier}#{$name} {
+        display: none !important;
+      }
+    }
+  } @else {
+    @warn $supple-responsive-warning;
+  }
+}
