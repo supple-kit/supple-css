@@ -36,3 +36,27 @@ $supple-browser-context: $supple-font-size !default;
 @function supple-strip-units ($number) {
   @return $number / ($number * 0 + 1);
 }
+
+
+/**
+ * Find the greatest common factor of two integers
+ */
+@function supple-greatest-common-factor ($a, $b) {
+  @if $b == 0 {
+    @return $a;
+  } @else {
+    @return supple-greatest-common-factor($b, $a % $b);
+  }
+}
+
+
+/**
+ * Check if a list contains a value
+ */
+@function supple-list-contains ($list, $value) {
+  @if type-of($list) == list {
+    @return not not index($list, $value);
+  } @else {
+    @return $list == $value;
+  }
+}

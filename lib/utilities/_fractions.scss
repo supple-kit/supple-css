@@ -1,3 +1,5 @@
+/*! supple.utilities.fractions | MIT License | github.com/supple-css */
+
 /*  =========================================================================
     utilities.fractions
     Sizes in human readable format. These are used in conjunction with other
@@ -53,24 +55,6 @@ $supple-fractions-delimiter: "of" !default;
     Functions and/or mixins used in this module
     ========================================================================= */
 
-@function gcf($a, $b) {
-  @if $b == 0 {
-    @return $a;
-  } @else {
-    @return gcf($b, $a % $b);
-  }
-}
-
-// Check if a list contains a value
-@function contains($list, $value) {
-  @if type-of($list) == list {
-    @return not not index($list, $value);
-  } @else {
-    @return $list == $value;
-  }
-}
-
-
 /**
  * Fluid units
  * USAGE: provide a space-separated list of integers, each of which
@@ -89,26 +73,24 @@ $supple-fractions-delimiter: "of" !default;
    * Intentional redundancy build into each set of unit classes.
    */
   @each $denominator in $units {
-    $x: $denominator - 1;
-
-    @for $numerator from 1 through $x {
+    @for $numerator from 1 through $denominator {
       // Initialize variables
-      $i-r: 0;
-      $n-r: 0;
+      $numerator-r: 0;
+      $denominator-r: 0;
 
       // Find the greatest common factor
-      $g: gcf($numerator, $denominator);
+      $gcf: supple-greatest-common-factor($numerator, $denominator);
 
-      @if $g > 1 {
+      @if $gcf > 1 {
         // Reduced value of $i
-        $i-r: $numerator/$g;
+        $numerator-r: $numerator/$gcf;
         // Reduced value of $n
-        $n-r: $denominator/$g;
+        $denominator-r: $denominator/$gcf;
       }
 
       // Check if the reduced value of $n was also supplied in the list
       // of units to be built
-      $canreduce: contains($units, $n-r);
+      $canreduce: supple-list-contains($units, $denominator-r);
 
       /**
        * Create units based on fractions
@@ -116,7 +98,7 @@ $supple-fractions-delimiter: "of" !default;
        */
       .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$numerator}#{$supple-fractions-delimiter}#{$denominator}#{$modifier} {
         @if $canreduce {
-          @extend .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$i-r}#{$supple-fractions-delimiter}#{$n-r}#{$modifier};
+          @extend .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$numerator-r}#{$supple-fractions-delimiter}#{$denominator-r}#{$modifier};
         } @else {
           flex-basis: auto !important; /* [1] */
           width: percentage($numerator / $denominator) !important;
