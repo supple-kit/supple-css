@@ -16,13 +16,37 @@ $supple-module-namespace: $supple-namespace !default;
 $supple-module-combined-namespace: #{$supple-module-namespace}#{$supple-namespace-utility} !default;
 
 
+/**
+ * Depth
+ */
+$supple-module-depth: 2 !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+@mixin supple-render-module {
+  $selector-all: "";
+  @for $step from 1 through $supple-module-depth {
+    $selector: "";
+    @for $i from 1 through $step {
+      $selector: $selector + " > *:last-child";
+    }
+    $selector-all: $selector-all + $selector + ",";
+  }
+
+  #{$selector-all} {
+    margin-bottom: 0 !important;
+  }
+}
+
+
 
 /*  Module
     ========================================================================= */
 
-.#{$supple-module-combined-namespace}module > *:last-child,
-.#{$supple-module-combined-namespace}module > *:last-child > *:last-child,
-.#{$supple-module-combined-namespace}module > *:last-child > *:last-child > *:last-child,
-.#{$supple-module-combined-namespace}module > *:last-child > *:last-child > *:last-child > *:last-child {
-  margin-bottom: 0 !important;
+.#{$supple-module-combined-namespace}module {
+  @include supple-render-module();
 }
