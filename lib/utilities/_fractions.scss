@@ -82,14 +82,14 @@ $supple-fractions-delimiter: "of" !default;
       $gcf: supple-greatest-common-factor($numerator, $denominator);
 
       @if $gcf > 1 {
-        // Reduced value of $i
+        // Reduced value of $numerator
         $numerator-r: $numerator/$gcf;
-        // Reduced value of $n
+        // Reduced value of $denominator
         $denominator-r: $denominator/$gcf;
       }
 
-      // Check if the reduced value of $n was also supplied in the list
-      // of units to be built
+      // Check if the reduced value of $denominator-r was also supplied in the
+      // list of units to be built
       $canreduce: supple-list-contains($units, $denominator-r);
 
       /**
