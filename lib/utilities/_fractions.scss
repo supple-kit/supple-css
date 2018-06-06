@@ -1,0 +1,155 @@
+/*  =========================================================================
+    utilities.fractions
+    Sizes in human readable format. These are used in conjunction with other
+    objects and abstractions found in supple, most commonly the layout system
+    and tables
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-fractions-namespace: $supple-namespace !default;
+$supple-fractions-combined-namespace: #{$supple-fractions-namespace}#{$supple-namespace-utility} !default;
+$supple-fractions-responsive-modifier: $supple-responsive-modifier !default;
+
+
+/**
+ * Fractions, makes it easy to create several proportional
+ * dimensions (e.g., both a 2-part and a 12-part grid).
+ *
+ * For example, `2 4 6 12` will let you use the u-fraction-1-2, u-fraction-2-4,
+ * fraction-3-6, and fraction-6-12 classes to specify that an element should
+ * take up 50% of its container.
+ */
+$supple-fractions: 12 !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each
+ * of the fractions. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $supple-breakpoint-has-fractions: ('palm', 'desk');
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+$supple-breakpoint-has-fractions: () !default;
+
+
+/**
+ * You can rename the fraction name & delimiter to your liking
+ */
+$supple-fractions-name-fraction: fraction !default;
+$supple-fractions-delimiter: "of" !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+@function gcf($a, $b) {
+  @if $b == 0 {
+    @return $a;
+  } @else {
+    @return gcf($b, $a % $b);
+  }
+}
+
+// Check if a list contains a value
+@function contains($list, $value) {
+  @if type-of($list) == list {
+    @return not not index($list, $value);
+  } @else {
+    @return $list == $value;
+  }
+}
+
+
+/**
+ * Fluid units
+ * USAGE: provide a space-separated list of integers, each of which
+ * represents the number of fractions that make up a unit component.
+ * Optionally provide a modifier suffix that can be used to adjust
+ * grids in different contexts (e.g. viewport dimensions).
+ */
+
+/* stylelint-disable max-nesting-depth */
+@mixin supple-fractions-build ($units, $modifier: "") {
+
+  /**
+   * Proportional fractions
+   * Specify the proportional width of an object.
+   * Primarily for, but not limited to, use with `.grid__cell` components.
+   * Intentional redundancy build into each set of unit classes.
+   */
+  @each $denominator in $units {
+    $x: $denominator - 1;
+
+    @for $numerator from 1 through $x {
+      // Initialize variables
+      $i-r: 0;
+      $n-r: 0;
+
+      // Find the greatest common factor
+      $g: gcf($numerator, $denominator);
+
+      @if $g > 1 {
+        // Reduced value of $i
+        $i-r: $numerator/$g;
+        // Reduced value of $n
+        $n-r: $denominator/$g;
+      }
+
+      // Check if the reduced value of $n was also supplied in the list
+      // of units to be built
+      $canreduce: contains($units, $n-r);
+
+      /**
+       * Create units based on fractions
+       * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+       */
+      .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$numerator}#{$supple-fractions-delimiter}#{$denominator}#{$modifier} {
+        @if $canreduce {
+          @extend .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$i-r}#{$supple-fractions-delimiter}#{$n-r}#{$modifier};
+        } @else {
+          flex-basis: auto !important; /* [1] */
+          width: percentage($numerator / $denominator) !important;
+        }
+      }
+    }
+  }
+}
+
+/* stylelint-enable max-nesting-depth */
+
+
+
+/*  Dimensions core
+    ========================================================================= */
+
+/**
+ * Setup generic factions
+ */
+@include supple-fractions-build($supple-fractions);
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $name in $supple-breakpoint-has-fractions {
+  @if (variable-exists(mq-breakpoints)) {
+    @include mq($from: $name) {
+      @include supple-fractions-build($supple-fractions, "#{$supple-fractions-responsive-modifier}#{$name}");
+    }
+  } @else {
+    @warn $supple-responsive-warning;
+  }
+}
+
