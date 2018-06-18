@@ -1,8 +1,8 @@
-# Supple CSS framework <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="Supple Logo" width="90" height="90" align="right">
+# Supple CSS framework <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
-**Why use Supple:**
+**Why use supple:**
 > It is a small but powerfull CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://jonathantneal.github.io/css-db/) to let you forget about any preprocessor.
 
 Supple provides little to no design wich means no undoing other peoples design decisions.
@@ -60,7 +60,7 @@ module.exports = {
 };
 ```
 
-This plugin in combination with some Supple helper utilities will allow you use Supple for projects which will work in older browsers.
+This plugin in combination with some supple helper utilities will allow you use supple for projects which will work in older browsers.
 
 ## Available modules
 All supple submodules are created based on the ITCSS principle.
@@ -83,9 +83,9 @@ Supple does not have any global tools, so this layer is empty by default.
 ### Generic
 It contains ground-zero styles like [Normalize.css](http://necolas.github.io/normalize.css/), global box-sizing rules, CSS resets and so on.
 
-* It’s advised to include [normalize.css](http://necolas.github.io/normalize.css/), it is installed as a dependency by default.
-* [reset.css](lib/generic/reset.css)
-* [vertical-rhythm.css](lib/generic/vertical-rhythm.css)
+* [generic/_normalize.scss](lib/generic/_normalize.scss) to flatten cross browser inconsistencies.
+    * **Note:** *Although supple has a prepackaged version of normalize.css it is encouraged to include the latest version from [normalize.css](http://necolas.github.io/normalize.css/).*
+* [generic/_reset.scss](lib/generic/_reset.scss), a thin layer on top of normalize.css that provides a starting point more suitable for web applications.
 
 ### Elements
 These are bare, unclassed HTML elements. The Elements layer binds onto HTML element (or 'type') selectors only.

@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-supple",
   "ignoreFiles": [
-    "test/css/supple.css"
+    "test/css/supple.css",
+    "lib/generic/_normalize.scss"
   ]
 }
