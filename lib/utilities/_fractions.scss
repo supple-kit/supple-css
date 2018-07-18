@@ -126,7 +126,7 @@ $supple-fractions-delimiter: "of" !default;
     ========================================================================= */
 
 @each $name in $supple-breakpoint-has-fractions {
-  @if (variable-exists(mq-breakpoints)) {
+  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
     @include mq($from: $name) {
       @include supple-fractions-build($supple-fractions, "#{$supple-fractions-responsive-modifier}#{$name}");
     }

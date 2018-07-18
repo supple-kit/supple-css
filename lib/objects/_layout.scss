@@ -275,7 +275,7 @@ $supple-breakpoint-has-layout-fill: () !default;
     ========================================================================= */
 
 @each $name in $supple-breakpoint-has-layout-fit {
-  @if (variable-exists(mq-breakpoints)) {
+  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
     @include mq($from: $name) {
       .#{$supple-layout-combined-namespace}layout__cell--fit#{$supple-layout-responsive-modifier}#{$name} {
         @include supple-layout-fit;
@@ -287,7 +287,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 }
 
 @each $name in $supple-breakpoint-has-layout-fill {
-  @if (variable-exists(mq-breakpoints)) {
+  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
     @include mq($from: $name) {
       .#{$supple-layout-combined-namespace}layout__cell--fill#{$supple-layout-responsive-modifier}#{$name} {
         @include supple-layout-fill;
@@ -297,3 +297,4 @@ $supple-breakpoint-has-layout-fill: () !default;
     @warn $supple-responsive-warning;
   }
 }
+

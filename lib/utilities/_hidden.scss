@@ -44,7 +44,7 @@ $supple-breakpoint-has-hidden: () !default;
     ========================================================================= */
 
 @each $name in $supple-breakpoint-has-hidden {
-  @if (variable-exists(mq-breakpoints)) {
+  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
     @include mq($from: $name) {
       .#{$supple-hidden-combined-namespace}hidden#{$supple-hidden-responsive-modifier}#{$name} {
         display: none !important;
