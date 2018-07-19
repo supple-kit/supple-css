@@ -35,7 +35,7 @@ $supple-fractions: 12 !default;
  * of the fractions. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-fractions: ('palm', 'desk');
+ * $supple-breakpoint-has-fractions: ("lap", "desk");
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
