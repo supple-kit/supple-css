@@ -69,10 +69,13 @@ $supple-breakpoint-has-layout-fill: () !default;
  *
  * 1. Be explicit to work around IE10 bug with shorthand flex
  * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+ * 3. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
  */
 @mixin supple-layout-fill () {
-  flex: 1 1 0%; /* [1] */
-  flex-basis: 0%; /* [2] */
+  flex: 1 1 auto; /* [1] */
+  flex-basis: auto; /* [2] */
+  width: 0%; /* [3] */
 }
 
 
