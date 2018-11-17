@@ -17,6 +17,6 @@
     }
     #{$property}: $all #{$append};
   } @else {
-    #{$property}: supple-value-to-rem($value) #{$append};
+    #{$property}: supple-value-to-rem($value, false) #{$append};
   }
 }
