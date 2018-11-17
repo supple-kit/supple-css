@@ -61,6 +61,14 @@ $supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespac
 }
 
 
+/**
+ * Modifier: no-padding
+ */
+.#{$supple-retain-combined-namespace}retain--no-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 
 /*  Common width modifiers, for use in browsers without
     custom-property support
