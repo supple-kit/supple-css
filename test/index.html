@@ -133,6 +133,7 @@
 <ol>
   <li><a href="#generic">generic</a></li>
   <li><a href="#o-layout">layout object</a></li>
+  <li><a href="#o-retain">retain object</a></li>
   <li><a href="#o-flexembed">flexembed object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
   <li><a href="#u-float">float utility</a></li>
@@ -715,6 +716,51 @@
   </div><!-- .test -->
 
 </div><!-- .module -->
+
+<div class="module" id="o-retain">
+  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/retain.css">retain</a> object tests</h2>
+  <div class="test">
+    <h3 class="test__describe">.o-retain</h3>
+    <h4 class="test__it">Is padded at both sides</h4>
+    <div class="test__run">
+      <div class="o-retain">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--lap</h3>
+    <h4 class="test__it">Is retained at 640px</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--lap">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--desk</h3>
+    <h4 class="test__it">Is retained at 960px</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--desk">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--wall</h3>
+    <h4 class="test__it">Is retained at 1280px</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--wall">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--text</h3>
+    <h4 class="test__it">Retains paragraphs at an ideal max-width of 40em</h4>
+    <div class="test__run">
+      <p class="o-retain  o-retain--text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a doloremque quasi dolor blanditiis quae quo cum illum unde repellat maxime, facere culpa minima placeat ullam architecto at iure deleniti?
+      </p>
+    </div>
+  </div>
+</div>
 
 <div class="module" id="o-flexembed">
   <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/flexembed.css">flexembed</a> object tests</h2>

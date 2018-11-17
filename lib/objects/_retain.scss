@@ -1,0 +1,73 @@
+/*! supple.objects.retain | MIT License | github.com/supple-css */
+
+/*  =========================================================================
+    objects.retain
+    Page-level constraining and wrapping elements.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+$supple-retain-text-size: 40em !default;
+$supple-retain-space: $supple-space !default;
+
+
+/**
+ * Sizes
+ */
+$supple-retain-sizes: (
+  lap: 640px,
+  desk: 960px,
+  wall: $supple-static-breakpoint,
+  text: $supple-retain-text-size
+) !default;
+
+
+/**
+ * Namespacing
+ */
+$supple-retain-namespace: $supple-namespace !default;
+$supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespace-object} !default;
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+
+
+/*  Module
+    ========================================================================= */
+
+.#{$supple-retain-combined-namespace}retain {
+  --#{$supple-retain-combined-namespace}retain-max-width: 100%;
+  max-width: var(--#{$supple-retain-combined-namespace}retain-max-width);
+  @include supple-rem(padding-right, $supple-retain-space);
+  @include supple-rem(padding-left, $supple-retain-space);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/**
+ * Modifier: text
+ */
+.#{$supple-retain-combined-namespace}retain--text {
+  --#{$supple-retain-combined-namespace}retain-max-width: #{$supple-retain-text-size};
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+
+/*  Common width modifiers, for use in browsers without
+    custom-property support
+    ========================================================================= */
+
+@each $key, $value in $supple-retain-sizes {
+  .#{$supple-retain-combined-namespace}retain--#{$key} {
+    @include supple-rem(max-width, $value);
+  }
+}
