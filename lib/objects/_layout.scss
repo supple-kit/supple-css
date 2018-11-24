@@ -34,6 +34,10 @@ $supple-layout-gutter-huge: $supple-space-huge !default;
  *
  * $supple-breakpoint-has-layout-x: ("lap", "desk");
  *
+ * Or
+ *
+ * $supple-breakpoint-has-layout-x: (from: lap, until: desk);
+ *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
  */
@@ -270,27 +274,14 @@ $supple-breakpoint-has-layout-fill: () !default;
 /*  Responsive fitters & fillers
     ========================================================================= */
 
-@each $name in $supple-breakpoint-has-layout-fit {
-  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-    @include mq($from: $name) {
-      .#{$supple-layout-combined-namespace}layout__cell--fit#{$supple-layout-responsive-modifier}#{$name} {
-        @include supple-layout-fit;
-      }
-    }
-  } @else {
-    @warn $supple-responsive-warning;
+@if (mixin-exists(supple-breakpoint-has)) {
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fit, ".#{$supple-layout-combined-namespace}layout__cell--fit") {
+    @include supple-layout-fit;
   }
-}
 
-@each $name in $supple-breakpoint-has-layout-fill {
-  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-    @include mq($from: $name) {
-      .#{$supple-layout-combined-namespace}layout__cell--fill#{$supple-layout-responsive-modifier}#{$name} {
-        @include supple-layout-fill;
-      }
-    }
-  } @else {
-    @warn $supple-responsive-warning;
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fill, ".#{$supple-layout-combined-namespace}layout__cell--fill") {
+    @include supple-layout-fill;
   }
+} @else {
+  @error "The layout object relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?";
 }
-
