@@ -114,6 +114,16 @@ fieldset {
 
 
 /**
+ * Gets rid of the annoying outline for mouse users but preserves it for
+ * keyboard users, and is ignored by browsers that don’t support :focus-visible.
+ * As per: https://twitter.com/LeaVerou/status/1045768279753666562
+ */
+:focus:not(:focus-visible) { // stylelint-disable-line selector-pseudo-class-no-unknown
+  outline: none;
+}
+
+
+/**
  * Image
  *
  * 1. By default all images are fluid
