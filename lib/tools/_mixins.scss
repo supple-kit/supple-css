@@ -65,3 +65,71 @@
     margin-bottom: 0 !important;
   }
 }
+
+
+
+/*  mq
+    A little wrapper around sass-mq which alows us to pass in a string based
+    direction instead of direction variable.
+
+    Example usage:
+    @include supple-mq(wall, until) {
+      outline: 1px solid #ff0000;
+    }
+    ========================================================================= */
+
+@mixin supple-mq($name, $direction: from) {
+  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
+    @if ($direction == from) {
+      @include mq($from: $name) {
+        @content;
+      }
+    } @else if ($direction == until) {
+      @include mq($until: $name) {
+        @content;
+      }
+    } @else {
+      @error "#{$direction} is not a valid sass-mq direction";
+    }
+  } @else {
+    @warn $supple-responsive-warning;
+  }
+}
+
+
+/*  breakpoint-has
+    A little helper mixin to quickly create responsive variants of a certain
+    selector.
+
+    Example usage:
+    $supple-breakpoint-has-YOURMODULE: (
+      from: lap,
+      from: desk,
+      until: desk,
+    );
+    @include supple-breakpoint-has($supple-breakpoint-has-YOURMODULE, '.your-selector') {
+      outline: 1px solid #ff0000;
+    }
+    ========================================================================= */
+
+@mixin supple-breakpoint-has($breakpoints, $selector) {
+  @if ($breakpoints and $selector) {
+    @each $breakpoint in $breakpoints {
+      @if ((nth($breakpoint, 1) == "from" or nth($breakpoint, 1) == "until") and nth($breakpoint, 2)) {
+        @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+          #{$selector}#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)} {
+            @content;
+          }
+        }
+      } @else {
+        @include supple-mq($breakpoint) {
+          #{$selector}#{$supple-responsive-modifier}from-#{$breakpoint} {
+            @content;
+          }
+        }
+      }
+    }
+  } @else {
+    @error "$breakpoints and $selector arguments are required";
+  }
+}
