@@ -15,13 +15,13 @@
  * 1. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.u-cf:before,
-.u-cf:after {
+.u-clearfix:before,
+.u-clearfix:after {
   display: table; /* [1] */
   content: "";
 }
 
-.u-cf:after {
+.u-clearfix:after {
   clear: both;
 }
 
