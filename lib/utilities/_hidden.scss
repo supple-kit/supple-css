@@ -22,7 +22,11 @@ $supple-hidden-responsive-modifier: $supple-responsive-modifier !default;
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-hidden: ("lap", "desk");
+ * $supple-breakpoint-has-hidden: (lap, desk);
+ *
+ * Or
+ *
+ * $supple-breakpoint-has-hidden: (from: lap, until: desk);
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
@@ -43,14 +47,10 @@ $supple-breakpoint-has-hidden: () !default;
 /*  Responsive
     ========================================================================= */
 
-@each $name in $supple-breakpoint-has-hidden {
-  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-    @include mq($from: $name) {
-      .#{$supple-hidden-combined-namespace}hidden#{$supple-hidden-responsive-modifier}#{$name} {
-        display: none !important;
-      }
-    }
-  } @else {
-    @warn $supple-responsive-warning;
+@if (mixin-exists(supple-breakpoint-has)) {
+  @include supple-breakpoint-has($supple-breakpoint-has-hidden, ".#{$supple-hidden-combined-namespace}hidden") {
+    display: none !important;
   }
+} @else {
+  @error "The hidden utility relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?";
 }

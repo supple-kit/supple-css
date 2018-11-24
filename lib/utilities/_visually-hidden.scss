@@ -15,21 +15,24 @@
  */
 $supple-visually-hidden-namespace: $supple-namespace !default;
 $supple-visually-hidden-combined-namespace: #{$supple-visually-hidden-namespace}#{$supple-namespace-utility} !default;
-$supple-visually-hidden-responsive-modifier: $supple-responsive-modifier !default;
 
 
 /**
-* Define which namespaced breakpoints you would like to generate for
-* `visually-hidden`. This is handy if you only need `visually-hidden` on, say,
-* desk, or you only need it at mobile sizes. It allows you to only compile
-* as much CSS as you need.
-* All are empty by default, but you can add breakpoints at will.
-*
-* $supple-breakpoint-has-visually-hidden: ("lap", "desk");
-*
-* Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
-*       in `settings/responsive`
-*/
+ * Define which namespaced breakpoints you would like to generate for
+ * `visually-hidden`. This is handy if you only need `visually-hidden` on, say,
+ * desk, or you only need it at mobile sizes. It allows you to only compile
+ * as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $supple-breakpoint-has-visually-hidden: (lap, desk);
+ *
+ * Or
+ *
+ * $supple-breakpoint-has-visually-hidden: (from: lap, until: desk);
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
 $supple-breakpoint-has-visually-hidden: () !default;
 
 
@@ -56,18 +59,10 @@ $supple-breakpoint-has-visually-hidden: () !default;
 /*  Responsive
     ========================================================================= */
 
-@if (mixin-exists(supple-visually-hidden)) {
-  @each $name in $supple-breakpoint-has-visually-hidden {
-    @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-      @include mq($from: $name) {
-        .#{$supple-visually-hidden-combined-namespace}visually-hidden#{$supple-visually-hidden-responsive-modifier}#{$name} {
-          @include supple-visually-hidden();
-        }
-      }
-    } @else {
-      @warn $supple-responsive-warning;
-    }
+@if (mixin-exists(supple-visually-hidden) and mixin-exists(supple-breakpoint-has)) {
+  @include supple-breakpoint-has($supple-breakpoint-has-visually-hidden, ".#{$supple-visually-hidden-combined-namespace}visually-hidden") {
+    @include supple-visually-hidden();
   }
 } @else {
-  @error "The visually-hidden utility relies on the `supple-visually-hidden` mixin. Did you include supple’s mixin file?";
+  @error "The visually-hidden utility relies on the `supple-visually-hidden` and `supple-breakpoint-has` mixin. Did you include supple’s mixin file?";
 }

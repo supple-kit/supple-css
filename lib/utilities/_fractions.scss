@@ -16,7 +16,6 @@
  */
 $supple-fractions-namespace: $supple-namespace !default;
 $supple-fractions-combined-namespace: #{$supple-fractions-namespace}#{$supple-namespace-utility} !default;
-$supple-fractions-responsive-modifier: $supple-responsive-modifier !default;
 
 
 /**
@@ -35,7 +34,11 @@ $supple-fractions: 12 !default;
  * of the fractions. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-fractions: ("lap", "desk");
+ * $supple-breakpoint-has-fractions: (lap, desk);
+ *
+ * Or
+ *
+ * $supple-breakpoint-has-fractions: (from: lap, until: desk);
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
@@ -125,13 +128,18 @@ $supple-fractions-delimiter: "of" !default;
 /*  Responsive
     ========================================================================= */
 
-@each $name in $supple-breakpoint-has-fractions {
-  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-    @include mq($from: $name) {
-      @include supple-fractions-build($supple-fractions, "#{$supple-fractions-responsive-modifier}#{$name}");
+@if (mixin-exists(supple-mq)) {
+  @each $breakpoint in $supple-breakpoint-has-fractions {
+    @if ((nth($breakpoint, 1) == "from" or nth($breakpoint, 1) == "until") and nth($breakpoint, 2)) {
+      @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+        @include supple-fractions-build($supple-fractions, "#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}");
+      }
+    } @else {
+      @include supple-mq($breakpoint) {
+        @include supple-fractions-build($supple-fractions, "#{$supple-responsive-modifier}from-#{$breakpoint}");
+      }
     }
-  } @else {
-    @warn $supple-responsive-warning;
   }
+} @else {
+  @error "The fractions utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?";
 }
-
