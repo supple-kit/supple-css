@@ -38,26 +38,17 @@ $supple-breakpoint-has-visually-hidden: () !default;
     Functions and/or mixins used in this module
     ========================================================================= */
 
-@mixin supple-visually-hidden {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  white-space: nowrap !important;
-  width: 1px !important;
-}
-
 
 
 /*  Module
     ========================================================================= */
 
-.#{$supple-visually-hidden-combined-namespace}visually-hidden {
-  @include supple-visually-hidden();
+@if (mixin-exists(supple-visually-hidden)) {
+  .#{$supple-visually-hidden-combined-namespace}visually-hidden {
+    @include supple-visually-hidden();
+  }
+} @else {
+  @error "The visually-hidden utility relies on the `supple-visually-hidden` mixin. Did you include supple’s mixin file?";
 }
 
 
@@ -65,14 +56,18 @@ $supple-breakpoint-has-visually-hidden: () !default;
 /*  Responsive
     ========================================================================= */
 
-@each $name in $supple-breakpoint-has-visually-hidden {
-  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-    @include mq($from: $name) {
-      .#{$supple-visually-hidden-combined-namespace}visually-hidden#{$supple-visually-hidden-responsive-modifier}#{$name} {
-        @include supple-visually-hidden();
+@if (mixin-exists(supple-visually-hidden)) {
+  @each $name in $supple-breakpoint-has-visually-hidden {
+    @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
+      @include mq($from: $name) {
+        .#{$supple-visually-hidden-combined-namespace}visually-hidden#{$supple-visually-hidden-responsive-modifier}#{$name} {
+          @include supple-visually-hidden();
+        }
       }
+    } @else {
+      @warn $supple-responsive-warning;
     }
-  } @else {
-    @warn $supple-responsive-warning;
   }
+} @else {
+  @error "The visually-hidden utility relies on the `supple-visually-hidden` mixin. Did you include supple’s mixin file?";
 }

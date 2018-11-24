@@ -27,26 +27,15 @@ $supple-module-depth: 2 !default;
     Functions and/or mixins used in this module
     ========================================================================= */
 
-@mixin supple-render-module {
-  $selector-all: "";
-  @for $step from 1 through $supple-module-depth {
-    $selector: "";
-    @for $i from 1 through $step {
-      $selector: $selector + " > *:last-child";
-    }
-    $selector-all: $selector-all + $selector + ",";
-  }
-
-  #{$selector-all} {
-    margin-bottom: 0 !important;
-  }
-}
-
 
 
 /*  Module
     ========================================================================= */
 
-.#{$supple-module-combined-namespace}module {
-  @include supple-render-module();
+@if (mixin-exists(supple-render-module)) {
+  .#{$supple-module-combined-namespace}module {
+    @include supple-render-module($supple-module-depth);
+  }
+} @else {
+  @error "The module utility relies on the `supple-render-module` mixin. Did you include supple’s mixin file?";
 }

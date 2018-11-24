@@ -20,3 +20,48 @@
     #{$property}: supple-value-to-rem($value, false) #{$append};
   }
 }
+
+
+
+/*  Visually-hidden
+    Hides an element visually while still allowing the content to be accessible
+    to assistive technology, e.g. screen readers.
+    Usage: @include supple-visually-hidden();
+    ========================================================================= */
+
+@mixin supple-visually-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+
+
+/*  Render-module
+    Removes the `margin-bottom` from the last childs of a module.
+    As per: http://css-tricks.com/spacing-the-bottom-of-modules/
+    Usage: @include supple-render-module(4);
+    ========================================================================= */
+
+
+@mixin supple-render-module($depth: 2) {
+  $selector-all: "";
+  @for $step from 1 through $depth {
+    $selector: "";
+    @for $i from 1 through $step {
+      $selector: $selector + " > *:last-child";
+    }
+    $selector-all: $selector-all + $selector + ",";
+  }
+
+  #{$selector-all} {
+    margin-bottom: 0 !important;
+  }
+}
