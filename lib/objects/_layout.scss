@@ -41,15 +41,6 @@ $supple-breakpoint-has-layout-fit: () !default;
 $supple-breakpoint-has-layout-fill: () !default;
 
 
-/**
- * Custom properties for fractions
- */
-:root {
-  --o-layout-columns: 12;
-  --o-layout-colspan: var(--o-layout-columns);
-}
-
-
 
 /*  Functions/Mixins
     Functions and/or mixins used in this module
@@ -90,6 +81,8 @@ $supple-breakpoint-has-layout-fill: () !default;
  *    the component.
  */
 .#{$supple-layout-combined-namespace}layout {
+  --#{$supple-layout-combined-namespace}layout-columns: 12;
+  --#{$supple-layout-combined-namespace}layout-colspan: var(--#{$supple-layout-combined-namespace}layout-columns);
   display: flex; /* [1] */
   flex-flow: row wrap;
   padding: 0; /* [1] */
@@ -241,7 +234,7 @@ $supple-breakpoint-has-layout-fill: () !default;
  *    `layout__cell` container
  */
 .#{$supple-layout-combined-namespace}layout__cell {
-  flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
+  flex-basis: calc(100% / var(--#{$supple-layout-combined-namespace}layout-columns) * var(--#{$supple-layout-combined-namespace}layout-colspan)); /* [1] */
   min-width: 0; /* [2] */
 }
 

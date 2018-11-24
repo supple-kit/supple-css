@@ -32,14 +32,6 @@ $supple-flexembed-ratios: (
 ) !default;
 
 
-/**
- * Custom properties for dynamic aspect ratios
- */
-:root {
-  --o-flexembed-ratio: 1/1;
-}
-
-
 
 /*  Module
     ========================================================================= */
@@ -48,6 +40,7 @@ $supple-flexembed-ratios: (
  * 1. Default cropping is a perfect square
  */
 .#{$supple-flexembed-combined-namespace}flexembed {
+  --o-flexembed-ratio: 1/1;
   position: relative;
   display: block;
   height: 0;
