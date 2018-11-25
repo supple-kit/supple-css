@@ -24,11 +24,17 @@ $supple-flexembed-space: $supple-space !default;
 
 /**
  * Ratio's
+ * Define ’em like this:
+ * $supple-flexembed-ratios: (
+ *   (2:1),
+ *   (4:3),
+ *   (16:9),
+ * );
  */
 $supple-flexembed-ratios: (
   (2:1),
   (4:3),
-  (16:9),
+  (16:9)
 ) !default;
 
 
@@ -37,14 +43,15 @@ $supple-flexembed-ratios: (
     ========================================================================= */
 
 /**
- * 1. Default cropping is a perfect square
+ * 1. Default cropping is a perfect square, in you own modules you can override
+ *    the ratio like this: (16/9)
  */
 .#{$supple-flexembed-combined-namespace}flexembed {
-  --o-flexembed-ratio: 1/1;
+  --o-flexembed-ratio: (1/1); /* [1] */
   position: relative;
   display: block;
   height: 0;
-  padding: 0 0 calc(100% / (var(--o-flexembed-ratio)));
+  padding: 0 0 calc(100% / var(--o-flexembed-ratio));
   overflow: hidden;
   @include supple-rem(margin-bottom, $supple-flexembed-space);
 }
@@ -76,7 +83,7 @@ $supple-flexembed-ratios: (
     }
 
     .#{$supple-flexembed-combined-namespace}flexembed--#{$a}by#{$b} {
-      padding-bottom: ($b/$a) * 100%;
+      padding-bottom: 100% / ($a/$b);
     }
   }
 }
