@@ -16,7 +16,7 @@
     "lint": "./node_modules/.bin/stylelint \"**/*.scss\"",
     "gzip": "gzip-size test/css/supple.css",
     "postcss": "postcss -c postcss.config.js -o test/css/supple.css test/css/supple.css",
-    "build": "node-sass index.scss test/css/supple.css"
+    "build": "node-sass index.scss test/css/supple.css  --precision 8"
   },
   "browserslist": [
     "> 1%",
