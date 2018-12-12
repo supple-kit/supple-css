@@ -15,11 +15,11 @@
   @if type-of($value) == list {
     $all: ();
     @for $i from 1 through length($value) {
-      $all: append($all, supple-supple-value-to-rem(nth($value, $i), false));
+      $all: append($all, supple-value-to-rem(nth($value, $i), false));
     }
     #{$property}: $all #{$append};
   } @else {
-    #{$property}: supple-supple-value-to-rem($value, false) #{$append};
+    #{$property}: supple-value-to-rem($value, false) #{$append};
   }
 }
 
