@@ -32,7 +32,7 @@ If you want to support older browsers (mostly IE11) you’ll need to include the
 **Note**: It is advised to add [postcss-autoprefixer](https://github.com/postcss/autoprefixer) to automatically generate vendor prefixes.
 
 ## Available modules
-All supple submodules are created based on the ITCSS principle.
+All supple submodules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
 
 ITCSS stands for Inverted Triangle CSS and it helps you to organize your project CSS files in such way that you can better deal with CSS specifics like global namespace, cascade and selectors specificity.
 
@@ -147,9 +147,10 @@ The file [index.scss](index.scss) is added as a reference file on how you could 
 
 Supple is derived by the ideas of many other developers:
 
-* [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff
-* [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS
-* [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS
-* [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things
+* [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff.
+* [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS.
+* [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS.
+* [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things.
+* [Machiel Hulsbosch](http://www.hulsbos.ch/) for the supple logo.
 
 And probably more…
