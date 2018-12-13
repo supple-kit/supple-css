@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.0.1 - 13-dec-2018
+
+- Use rem for spacing utility
+
 ## 2.0.0 - 13-dec-2018
 Massive overhaul, v2 is by any means not compatible with v1 codebases.
 
