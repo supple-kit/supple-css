@@ -77,7 +77,7 @@ $supple-breakpoint-has-spacing: () !default;
       @each $size-namespace, $size in $supple-spacing-sizes {
         .#{$supple-spacing-combined-namespace}#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
           @each $direction in $direction-rules {
-            #{$property}#{$direction}: $size !important;
+            @include supple-rem(#{$property}#{$direction}, $size, !important);
           }
         }
       }
