@@ -99,6 +99,7 @@ $supple-fractions-delimiter: "of" !default;
        */
       .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$numerator}#{$supple-fractions-delimiter}#{$denominator}#{$modifier} {
         @if $canreduce {
+          // stylelint-disable-next-line scss/at-extend-no-missing-placeholder
           @extend .#{$supple-fractions-combined-namespace}#{$supple-fractions-name-fraction}--#{$numerator-r}#{$supple-fractions-delimiter}#{$denominator-r}#{$modifier};
         } @else {
           flex-basis: auto !important; /* [1] */
