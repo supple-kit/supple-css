@@ -1,7 +1,7 @@
 {
   "name": "supple",
-  "version": "1.0.1",
-  "description": "In-browser CSS framework; Fluid, Variable, supple if you will",
+  "version": "2.0.0",
+  "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-css/supple.git",
   "author": "Bram Smulders <bram@bramsmulders.com>",
@@ -9,6 +9,10 @@
   "keywords": [
     "supple",
     "css",
+    "scss",
+    "itcss",
+    "grid",
+    "framework",
     "bem"
   ],
   "scripts": {

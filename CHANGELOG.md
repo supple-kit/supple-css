@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.0.0 - 13-dec-2018
+Massive overhaul, v2 is by any means not compatible with v1 codebases.
+
+- Converted the codebase to SCSS while maintaining custom property support.
+- now uses an 8px vertical rhythm
+- Added retain object
+- renamed `.u-cf` to `.u-clearfix`
+- Added `:focus:not(:focus-visible)` as per [https://twitter.com/LeaVerou/status/1045768279753666562](https://twitter.com/LeaVerou/status/1045768279753666562)
+- Added font size mixin to help with vertical rhythm
+- Added CSS lock mixin
+- Added spacing utility
+- Updated to `stylelint-config-supple` v2
+
 ## 1.0.1 - 09-apr-2018
 - Stupid typo's
 
@@ -10,7 +23,7 @@ All notable changes to this project will be documented in this file.
 - Removed `@apply` rules because the spec is abandoned.
 - Update readme with helpfull information.
 
-First mayor release 🔥.
+First major release 🔥.
 
 ## 0.2.1 - 09-jan-2018
 - Removed `:host` selector again because that is not how webcomponents work
