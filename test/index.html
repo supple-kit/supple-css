@@ -11,12 +11,10 @@
 
   body {
     margin: 1.5rem;
-    margin: var(--supple-space);
   }
 
   .page-title {
     margin-bottom: 1.5rem;
-    margin-bottom: var(--supple-space);
     font-size: 3.157em;
   }
 
@@ -24,24 +22,20 @@
   .test__describe,
   .test__it {
     margin-bottom: 1.5rem;
-    margin-bottom: var(--supple-space);
     background-color: #eeeeee;
     padding: 0.75rem 1.5rem;
-    padding: var(--supple-space-small) var(--supple-space);
   }
 
   .test__describe,
   .test__it {
     border-left: 3px solid #666666;
     padding-left: calc(1.5rem - 3px);
-    padding-left: calc(var(--supple-space) - 3px);
   }
 
   .module__title:before,
   .test__describe:before,
   .test__it:before {
     margin-right: 1.5rem;
-    margin-right: var(--supple-space);
     color: #999999;
   }
 
@@ -51,7 +45,6 @@
 
   .module__title {
     margin-top: 6rem;
-    margin-top: var(--supple-space-huge);
     font-size: 2.369em;
     counter-reset: test-describe;
   }
@@ -64,7 +57,6 @@
 
   .test__describe {
     margin-top: 3rem;
-    margin-top: var(--supple-space-large);
     font-size: 1.777em;
     counter-reset: test-it;
     counter-increment: test-describe;
@@ -76,7 +68,6 @@
 
   .test__it {
     margin-top: 0.75rem;
-    margin-top: var(--supple-space-small);
     font-size: 1.333em;
     counter-increment: test-it;
   }
@@ -89,17 +80,13 @@
 
   .test__run--retained {
     max-width: calc(1.5rem * 21);
-    max-width: calc(var(--supple-space) * 21);
   }
 
   .fixture-box {
     margin-bottom: 0.75rem;
-    margin-bottom: var(--supple-space-small);
     padding: 0 0.75rem;
-    padding: 0 var(--supple-space-small);
     background: #ee4266;
     line-height: 3rem;
-    line-height: var(--supple-space-large);
     color: #ffffff;
     border: 1px solid #000000;
     text-indent: 0;
@@ -107,14 +94,12 @@
 
   .fixture-wrap {
     margin-bottom: 0.75rem;
-    margin-bottom: var(--supple-space-small);
     border: 1px solid #000000;
     background: rgba(238, 66, 102, 0.3);
   }
 
   .fixture-box--double-height {
     line-height: 6rem;
-    line-height: var(--supple-space-huge);
   }
 
   .fixture-box--flatten {
@@ -123,7 +108,6 @@
 
   .box {
     padding: 1.5rem;
-    padding: var(--supple-space);
   }
 
   .preformatted {
@@ -149,6 +133,7 @@
 <ol>
   <li><a href="#generic">generic</a></li>
   <li><a href="#o-layout">layout object</a></li>
+  <li><a href="#o-retain">retain object</a></li>
   <li><a href="#o-flexembed">flexembed object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
   <li><a href="#u-float">float utility</a></li>
@@ -172,7 +157,7 @@
     </div><!-- .test__run -->
 
     <h3 class="test__describe">hgroup, ul, ol, dl, blockquote, p, address, table, fieldset, figure, pre, hr</h3>
-    <h4 class="test__it">have a shared margin bottom (--supple-space)</h4>
+    <h4 class="test__it">have a shared margin bottom</h4>
     <div class="test__run">
       <hgroup>hgroup</hgroup>
       <ul>
@@ -728,105 +713,62 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--vertical</h3>
-    <h4 class="test__it">Supports vertical layout</h4>
-    <div class="test__run">
-      <div class="o-layout  o-layout--vertical">
-        <div class="o-layout__cell">
-          <div class="fixture-box">1</div>
-        </div>
-        <div class="o-layout__cell">
-          <div class="fixture-box">2</div>
-        </div>
-        <div class="o-layout__cell">
-          <div class="fixture-box">3</div>
-        </div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h4 class="test__it">Supports vertical fractions</h4>
-    <div class="test__run">
-      <div class="c-vertical  o-layout  o-layout--vertical  o-layout--equalheight" style="--o-layout-columns: 4;">
-        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
-          <div class="fixture-box">1/4</div>
-        </div>
-        <div class="o-layout__cell" style="--o-layout-colspan: 2;">
-          <div class="fixture-box">2/4</div>
-        </div>
-        <div class="o-layout__cell" style="--o-layout-colspan: 1;">
-          <div class="fixture-box">1/4</div>
-        </div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h4 class="test__it">Supports vertical fit & fill</h4>
-    <div class="test__run">
-      <div class="c-vertical  o-layout  o-layout--vertical  o-layout--equalheight">
-        <div class="o-layout__cell  o-layout__cell--fit">
-          <div class="fixture-box">fit</div>
-        </div>
-        <div class="o-layout__cell  o-layout__cell--fit@max-lap  o-layout__cell--fill@desk">
-          <div class="fixture-box">fill</div>
-        </div>
-        <div class="o-layout__cell  o-layout__cell--fit">
-          <div class="fixture-box">fit</div>
-        </div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h4 class="test__it">Should display a combination of horizontal & vertical layout based on the heighest column</h4>
-    <div class="test__run">
-      <div class="o-layout  o-layout--equalheight  o-layout--gutter">
-        <div class="o-layout__cell  o-layout__cell--fit">
-
-          <div class="o-layout  o-layout--vertical  o-layout--gutter  o-layout--equalheight">
-            <div class="o-layout__cell  o-layout__cell--fit">
-              <div class="fixture-box  fixture-box--flatten">fit</div>
-            </div>
-            <div class="o-layout__cell  o-layout__cell--fill">
-              <div class="fixture-box  fixture-box--flatten">fill</div>
-            </div>
-            <div class="o-layout__cell  o-layout__cell--fit">
-              <div class="fixture-box  fixture-box--flatten">fit</div>
-            </div>
-          </div>
-
-        </div>
-        <div class="o-layout__cell  o-layout__cell--fill">
-
-          <div class="o-layout  o-layout--vertical  o-layout--gutter  o-layout--equalheight">
-            <div class="o-layout__cell" style="--o-layout-colspan: 3">
-              <div class="fixture-box  fixture-box--flatten">3/12</div>
-            </div>
-            <div class="o-layout__cell" style="--o-layout-colspan: 4">
-              <div class="fixture-box  fixture-box--flatten">4/12</div>
-            </div>
-            <div class="o-layout__cell" style="--o-layout-colspan: 3">
-              <div class="fixture-box  fixture-box--flatten">3/12</div>
-            </div>
-          </div>
-
-        </div>
-        <div class="o-layout__cell" style="--o-layout-colspan: 4;">
-            <div class="o-layout  o-layout--vertical  o-layout--gutter">
-              <div class="o-layout__cell  o-layout__cell--fit">
-                <div class="fixture-box  fixture-box--flatten">fit</div>
-              </div>
-              <div class="o-layout__cell  o-layout__cell--fill">
-                <div class="fixture-box  fixture-box--flatten">
-                  fill<br>
-                  With some content to make this the largest column<br>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde inventore minima amet, nobis dolores dolor et nostrum nesciunt fugiat! Voluptatem quam laboriosam quo nam eum a neque consectetur aliquid et.
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div><!-- .test__run -->
-
   </div><!-- .test -->
 
 </div><!-- .module -->
+
+<div class="module" id="o-retain">
+  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/retain.css">retain</a> object tests</h2>
+  <div class="test">
+    <h3 class="test__describe">.o-retain</h3>
+    <h4 class="test__it">Is padded at both sides</h4>
+    <div class="test__run">
+      <div class="o-retain">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--no-padding</h3>
+    <h4 class="test__it">Is not padded at both sides</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--no-padding">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--lap</h3>
+    <h4 class="test__it">Is retained at 640px</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--lap">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--desk</h3>
+    <h4 class="test__it">Is retained at 960px</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--desk">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--wall</h3>
+    <h4 class="test__it">Is retained at 1280px</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--wall">
+        <div class="fixture-box">Retained</div>
+      </div>
+    </div>
+
+    <h3 class="test__describe">.o-retain--text</h3>
+    <h4 class="test__it">Retains paragraphs at an ideal max-width of 40em</h4>
+    <div class="test__run">
+      <p class="o-retain  o-retain--text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a doloremque quasi dolor blanditiis quae quo cum illum unde repellat maxime, facere culpa minima placeat ullam architecto at iure deleniti?
+      </p>
+    </div>
+  </div>
+</div>
 
 <div class="module" id="o-flexembed">
   <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/flexembed.css">flexembed</a> object tests</h2>
@@ -846,9 +788,9 @@
       </div>
     </div><!-- .test__run -->
 
-    <h4 class="test__it">supports dynamic ratios (eg.: --o-flexembed-ratio: 560/315)</h4>
+    <h4 class="test__it">supports dynamic ratios (eg.: --o-flexembed-ratio: (560/315))</h4>
     <div class="test__run  test__run--retained">
-      <div class="o-flexembed" style="--o-flexembed-ratio: 560/315;">
+      <div class="o-flexembed" style="--o-flexembed-ratio: (560/315);">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
       </div>
     </div><!-- .test__run -->
@@ -905,134 +847,6 @@
 <div class="module" id="u-fractions">
   <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/fractions.css">fractions</a> utility tests</h2>
   <div class="test">
-    <h3 class="test__describe">.u-fraction--Xof2</h3>
-    <h4 class="test__it">sizes to 1/2 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of2">
-        <div class="fixture-box">1of2</div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h3 class="test__describe">.u-fraction--Xof3</h3>
-    <h4 class="test__it">sizes to 1/3 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of3">
-        <div class="fixture-box">1of3</div>
-      </div>
-      <div class="u-fraction--2of3">
-        <div class="fixture-box">2of3</div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h3 class="test__describe">.u-fraction--Xof4</h3>
-    <h4 class="test__it">sizes to 1/4 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of4">
-        <div class="fixture-box">1of4</div>
-      </div>
-      <div class="u-fraction--2of4">
-        <div class="fixture-box">2of4</div>
-      </div>
-      <div class="u-fraction--3of4">
-        <div class="fixture-box">3of4</div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h3 class="test__describe">.u-fraction--Xof5</h3>
-    <h4 class="test__it">sizes to 1/5 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of5">
-        <div class="fixture-box">1of5</div>
-      </div>
-      <div class="u-fraction--2of5">
-        <div class="fixture-box">2of5</div>
-      </div>
-      <div class="u-fraction--3of5">
-        <div class="fixture-box">3of5</div>
-      </div>
-      <div class="u-fraction--4of5">
-        <div class="fixture-box">4of5</div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h3 class="test__describe">.u-fraction--Xof6</h3>
-    <h4 class="test__it">sizes to 1/6 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of6">
-        <div class="fixture-box">1of6</div>
-      </div>
-      <div class="u-fraction--2of6">
-        <div class="fixture-box">2of6</div>
-      </div>
-      <div class="u-fraction--3of6">
-        <div class="fixture-box">3of6</div>
-      </div>
-      <div class="u-fraction--4of6">
-        <div class="fixture-box">4of6</div>
-      </div>
-      <div class="u-fraction--5of6">
-        <div class="fixture-box">5of6</div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h3 class="test__describe">.u-fraction--Xof8</h3>
-    <h4 class="test__it">sizes to 1/8 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of8">
-        <div class="fixture-box">1of8</div>
-      </div>
-      <div class="u-fraction--2of8">
-        <div class="fixture-box">2of8</div>
-      </div>
-      <div class="u-fraction--3of8">
-        <div class="fixture-box">3of8</div>
-      </div>
-      <div class="u-fraction--4of8">
-        <div class="fixture-box">4of8</div>
-      </div>
-      <div class="u-fraction--5of8">
-        <div class="fixture-box">5of8</div>
-      </div>
-      <div class="u-fraction--6of8">
-        <div class="fixture-box">6of8</div>
-      </div>
-      <div class="u-fraction--7of8">
-        <div class="fixture-box">7of8</div>
-      </div>
-    </div><!-- .test__run -->
-
-    <h3 class="test__describe">.u-fraction--Xof10</h3>
-    <h4 class="test__it">sizes to 1/10 of the parent container</h4>
-    <div class="test__run">
-      <div class="u-fraction--1of10">
-        <div class="fixture-box">1of10</div>
-      </div>
-      <div class="u-fraction--2of10">
-        <div class="fixture-box">2of10</div>
-      </div>
-      <div class="u-fraction--3of10">
-        <div class="fixture-box">3of10</div>
-      </div>
-      <div class="u-fraction--4of10">
-        <div class="fixture-box">4of10</div>
-      </div>
-      <div class="u-fraction--5of10">
-        <div class="fixture-box">5of10</div>
-      </div>
-      <div class="u-fraction--6of10">
-        <div class="fixture-box">6of10</div>
-      </div>
-      <div class="u-fraction--7of10">
-        <div class="fixture-box">7of10</div>
-      </div>
-      <div class="u-fraction--8of10">
-        <div class="fixture-box">8of10</div>
-      </div>
-      <div class="u-fraction--9of10">
-        <div class="fixture-box">9of10</div>
-      </div>
-    </div><!-- .test__run -->
-
     <h3 class="test__describe">.u-fraction--Xof12</h3>
     <h4 class="test__it">sizes to 1/12 of the parent container</h4>
     <div class="test__run">
@@ -1075,11 +889,11 @@
     <h4 class="test__it">Can be used to create a fallback for layout cells in browsers which do not support custom properties</h4>
     <div class="test__run">
       <div class="o-layout">
-        <div class="o-layout__cell  u-fraction--1of3">
-          <div class="fixture-box">1of3</div>
+        <div class="o-layout__cell  u-fraction--4of12">
+          <div class="fixture-box">4of12</div>
         </div>
-        <div class="o-layout__cell  u-fraction--2of3">
-          <div class="fixture-box">2of3</div>
+        <div class="o-layout__cell  u-fraction--8of12">
+          <div class="fixture-box">8of12</div>
         </div>
       </div>
     </div><!-- .test__run -->
@@ -1090,10 +904,10 @@
 <div class="module" id="u-float">
   <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/float.css">float</a> utility tests</h2>
   <div class="test">
-    <h3 class="test__describe">.u-cf</h3>
+    <h3 class="test__describe">.u-clearfix</h3>
     <h4 class="test__it">the container should clear the floated images</h4>
     <div class="test__run">
-      <div class="fixture-wrap  u-cf">
+      <div class="fixture-wrap  u-clearfix">
         <img class="u-float--left" src="//placehold.it/120x120" alt="">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus numquam repellendus repellat eaque illum, praesentium facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut doloribus adipisci.</p>
         <img class="u-float--right" src="//placehold.it/120x120" alt="">
@@ -1104,7 +918,7 @@
     <h3 class="test__describe">.u-float--left</h3>
     <h4 class="test__it">the image is floated to the left</h4>
     <div class="test__run">
-      <div class="fixture-wrap  u-cf">
+      <div class="fixture-wrap  u-clearfix">
         <img class="u-float--left" src="//placehold.it/120x120" alt="">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus numquam repellendus repellat eaque illum,
           praesentium facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut doloribus adipisci.</p>
@@ -1114,7 +928,7 @@
     <h3 class="test__describe">.u-float--right</h3>
     <h4 class="test__it">the image is floated to the right</h4>
     <div class="test__run">
-      <div class="fixture-wrap  u-cf">
+      <div class="fixture-wrap  u-clearfix">
         <img class="u-float--right" src="//placehold.it/120x120" alt="">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus numquam repellendus repellat eaque illum,
           praesentium facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut doloribus adipisci.</p>

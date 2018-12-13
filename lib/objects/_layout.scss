@@ -1,0 +1,285 @@
+/*  =========================================================================
+    objects.layout
+    Fluid and nestable layout system based on flexbox.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-layout-namespace: $supple-namespace !default;
+$supple-layout-combined-namespace: #{$supple-layout-namespace}#{$supple-namespace-object} !default;
+$supple-layout-responsive-modifier: $supple-responsive-modifier !default;
+
+
+/**
+ * The default gutter
+ */
+$supple-layout-gutter: $supple-space !default;
+$supple-layout-gutter-tiny: $supple-space-tiny !default;
+$supple-layout-gutter-small: $supple-space-small !default;
+$supple-layout-gutter-large: $supple-space-large !default;
+$supple-layout-gutter-huge: $supple-space-huge !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for `fit` & `fill`.
+ * This is handy if you only need `fit` on, say, desk, or you only need `fill`
+ * at mobile sizes. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $supple-breakpoint-has-layout-x: (lap, desk);
+ *
+ * Or
+ *
+ * $supple-breakpoint-has-layout-x: (from: lap, until: desk);
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+$supple-breakpoint-has-layout-fit: () !default;
+$supple-breakpoint-has-layout-fill: () !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+
+/**
+ * Modifier: Make a unit shrink wrap its content.
+ */
+@mixin supple-layout-fit () {
+  flex-basis: auto;
+}
+
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ *
+ * 1. Be explicit to work around IE10 bug with shorthand flex
+ * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+ * 3. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
+ */
+@mixin supple-layout-fill () {
+  flex: 1 1 auto; /* [1] */
+  flex-basis: auto; /* [2] */
+  width: 0%; /* [3] */
+}
+
+
+
+/*  Layout root
+    ========================================================================= */
+
+/**
+ * All content must be contained within child `layout__cell` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ */
+.#{$supple-layout-combined-namespace}layout {
+  --#{$supple-layout-combined-namespace}layout-columns: 12;
+  --#{$supple-layout-combined-namespace}layout-colspan: var(--#{$supple-layout-combined-namespace}layout-columns);
+  display: flex; /* [1] */
+  flex-flow: row wrap;
+  padding: 0; /* [1] */
+  margin-left: 0; /* [1] */
+  list-style: none; /* [1] */
+}
+
+
+/**
+ * Modifier: center align all layout cells
+ */
+.#{$supple-layout-combined-namespace}layout--align-center {
+  justify-content: center;
+}
+
+
+/**
+ * Modifier: right align all layout cells
+ */
+.#{$supple-layout-combined-namespace}layout--align-right {
+  justify-content: flex-end;
+}
+
+
+/**
+ * Modifier: middle-align layout cells
+ */
+.#{$supple-layout-combined-namespace}layout--align-middle {
+  align-items: center;
+}
+
+
+/**
+ * Modifier: bottom-align layout cells
+ */
+.#{$supple-layout-combined-namespace}layout--align-bottom {
+  align-items: flex-end;
+}
+
+
+/**
+ * Modifier: reverse all cells
+ */
+.#{$supple-layout-combined-namespace}layout--reverse {
+  flex-direction: row-reverse;
+}
+
+
+/**
+ * Modifier: allow cells to equal distribute width
+ *
+ * 1. Provide all values to avoid IE10 bug with shorthand flex
+ *    http://git.io/vllC7
+ *
+ *    Use `0%` to avoid bug in IE10/11 with unitless flex basis
+ *    http://git.io/vllWx
+ */
+.#{$supple-layout-combined-namespace}layout--fit {
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    flex: 1 1 0%; /* [1] */
+  }
+}
+
+
+/**
+ * Modifier: all cells match height of tallest cell in a row
+ * 1. The direct child of the flexbox must be a single element when you want
+ *    to use equalheight
+ */
+.#{$supple-layout-combined-namespace}layout--equalheight {
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    display: flex;
+
+    > * {
+      width: 100%; /* [1] */
+    }
+  }
+}
+
+
+/**
+ * Modifier: Gutter
+ */
+.#{$supple-layout-combined-namespace}layout--gutter {
+  @include supple-rem(margin-left, -$supple-layout-gutter);
+
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    @include supple-rem(padding-left, $supple-layout-gutter);
+  }
+}
+
+
+/**
+ * Modifier: Tiny gutter
+ */
+.#{$supple-layout-combined-namespace}layout--gutter-tiny {
+  @include supple-rem(margin-left, -$supple-layout-gutter-tiny);
+
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    @include supple-rem(padding-left, $supple-layout-gutter-tiny);
+  }
+}
+
+
+/**
+ * Modifier: Small gutter
+ */
+.#{$supple-layout-combined-namespace}layout--gutter-small {
+  @include supple-rem(margin-left, -$supple-layout-gutter-small);
+
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    @include supple-rem(padding-left, $supple-layout-gutter-small);
+  }
+}
+
+/**
+ * Modifier: Large gutter
+ */
+.#{$supple-layout-combined-namespace}layout--gutter-large {
+  @include supple-rem(margin-left, -$supple-layout-gutter-large);
+
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    @include supple-rem(padding-left, $supple-layout-gutter-large);
+  }
+}
+
+/**
+ * Modifier: Huge gutter
+ */
+.#{$supple-layout-combined-namespace}layout--gutter-huge {
+  @include supple-rem(margin-left, -$supple-layout-gutter-huge);
+
+  > .#{$supple-layout-combined-namespace}layout__cell {
+    @include supple-rem(padding-left, $supple-layout-gutter-huge);
+  }
+}
+
+
+
+/*  Layout cell
+    ========================================================================= */
+
+/**
+ * No explicit width by default. Rely on combining `layout__cell` with a dimension
+ * utility or a component class that extends 'layout'.
+ *
+ * 1. Set flex items to full width by default
+ * 2. Fix issue where elements with overflow extend past the
+ *    `layout__cell` container
+ */
+.#{$supple-layout-combined-namespace}layout__cell {
+  flex-basis: calc(100% / var(--#{$supple-layout-combined-namespace}layout-columns) * var(--#{$supple-layout-combined-namespace}layout-colspan)); /* [1] */
+  min-width: 0; /* [2] */
+}
+
+
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `layout` object.
+ */
+.#{$supple-layout-combined-namespace}layout__cell--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/**
+ * Modifier: Make a cell shrink wrap its content.
+ */
+.#{$supple-layout-combined-namespace}layout__cell--fit {
+  @include supple-layout-fit;
+}
+
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ */
+.#{$supple-layout-combined-namespace}layout__cell--fill {
+  @include supple-layout-fill;
+}
+
+
+
+/*  Responsive fitters & fillers
+    ========================================================================= */
+
+@if (mixin-exists(supple-breakpoint-has)) {
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fit, '.#{$supple-layout-combined-namespace}layout__cell--fit') {
+    @include supple-layout-fit;
+  }
+
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fill, '.#{$supple-layout-combined-namespace}layout__cell--fill') {
+    @include supple-layout-fill;
+  }
+} @else {
+  @error 'The layout object relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?';
+}

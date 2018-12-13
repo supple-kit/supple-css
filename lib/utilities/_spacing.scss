@@ -1,0 +1,114 @@
+/*  =========================================================================
+    utilities.spacing
+    Utility classes to put specific spacing values onto elements.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-spacing-namespace: $supple-namespace !default;
+$supple-spacing-combined-namespace: #{$supple-spacing-namespace}#{$supple-namespace-utility} !default;
+
+
+/**
+ * The properties that you want to generate spacings for
+ * `key` is the classname, `value` is the property name
+ */
+$supple-spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+
+/**
+ * In which directions you want your spacings to be generated?
+ * `key` is the classname, `value` is the property name
+ */
+$supple-spacing-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+) !default;
+
+
+/**
+ * And which sizes you want to generate?
+ * `key` is the classname, `value` is the value (duh!)
+ */
+$supple-spacing-sizes: (
+  null: $supple-space,
+  '-tiny': $supple-space-tiny,
+  '-small': $supple-space-small,
+  '-large': $supple-space-large,
+  '-huge': $supple-space-huge,
+  '-none': 0
+) !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for
+ * your spacings.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $supple-breakpoint-has-spacing: (lap, desk);
+ *
+ * Or
+ *
+ * $supple-breakpoint-has-spacing: (from: lap, until: desk);
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+$supple-breakpoint-has-spacing: () !default;
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+@mixin supple-render-spacings($modifier: '') {
+  @each $property-namespace, $property in $supple-spacing-properties {
+    @each $direction-namespace, $direction-rules in $supple-spacing-directions {
+      @each $size-namespace, $size in $supple-spacing-sizes {
+        .#{$supple-spacing-combined-namespace}#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
+          @each $direction in $direction-rules {
+            #{$property}#{$direction}: $size !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*  Module
+    ========================================================================= */
+
+@include supple-render-spacings();
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@if (mixin-exists(supple-mq)) {
+  @each $breakpoint in $supple-breakpoint-has-spacing {
+    @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
+      @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+        @include supple-render-spacings('#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+      }
+    } @else {
+      @include supple-mq($breakpoint) {
+        @include supple-render-spacings('#{$supple-responsive-modifier}from-#{$breakpoint}');
+      }
+    }
+  }
+} @else {
+  @error 'The spacing utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?';
+}
