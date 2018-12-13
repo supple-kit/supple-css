@@ -1,14 +1,23 @@
-/*! supple.objects.list-clean | MIT License | github.com/supple-css */
-
 /*  =========================================================================
     objects.list-clean
     Strip appearance from lists by removing their bullets and indents
     ========================================================================= */
 
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-list-clean-namespace: $supple-namespace !default;
+$supple-list-clean-combined-namespace: #{$supple-list-clean-namespace}#{$supple-namespace-object} !default;
+
+
+
 /*  Module
     ========================================================================= */
 
-.o-list-clean {
+.#{$supple-list-clean-combined-namespace}list-clean {
   list-style: none;
   margin-left: 0;
 }
@@ -18,6 +27,6 @@
  * Item specific class
  * declaring this might for instance only be necessary on `dd` childs
  */
-.o-list-clean__item {
+.#{$supple-list-clean-combined-namespace}list-clean__item {
   margin-left: 0;
 }

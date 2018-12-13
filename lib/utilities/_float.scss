@@ -1,5 +1,3 @@
-/*! supple.utilities.float | MIT License | github.com/supple-css */
-
 /*  =========================================================================
     utilities.float
     Makes working with floats a lot more easy.
@@ -11,17 +9,18 @@
 /**
  * Make an element expand to contain floated children.
  * Uses pseudo-elements (micro clearfix).
+ * As per: https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/
  *
  * 1. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.u-cf:before,
-.u-cf:after {
+.u-clearfix:before,
+.u-clearfix:after {
   display: table; /* [1] */
-  content: "";
+  content: '';
 }
 
-.u-cf:after {
+.u-clearfix:after {
   clear: both;
 }
 
