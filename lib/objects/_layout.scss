@@ -30,7 +30,7 @@ $supple-layout-gutter-huge: $supple-space-huge !default;
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-layout-x: ("lap", "desk");
+ * $supple-breakpoint-has-layout-x: (lap, desk);
  *
  * Or
  *
@@ -273,13 +273,13 @@ $supple-breakpoint-has-layout-fill: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-layout-fit, ".#{$supple-layout-combined-namespace}layout__cell--fit") {
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fit, '.#{$supple-layout-combined-namespace}layout__cell--fit') {
     @include supple-layout-fit;
   }
 
-  @include supple-breakpoint-has($supple-breakpoint-has-layout-fill, ".#{$supple-layout-combined-namespace}layout__cell--fill") {
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fill, '.#{$supple-layout-combined-namespace}layout__cell--fill') {
     @include supple-layout-fill;
   }
 } @else {
-  @error "The layout object relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?";
+  @error 'The layout object relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?';
 }

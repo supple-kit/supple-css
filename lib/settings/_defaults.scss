@@ -65,10 +65,10 @@ $supple-line-height-ratio: $supple-line-height/$supple-font-size !default;
     ========================================================================= */
 
 $supple-namespace: null !default;
-$supple-namespace-object: "o-" !default;
-$supple-namespace-component: "c-" !default;
-$supple-namespace-utility: "u-" !default;
-$supple-responsive-modifier: unquote("\\@") !default;
+$supple-namespace-object: 'o-' !default;
+$supple-namespace-component: 'c-' !default;
+$supple-namespace-utility: 'u-' !default;
+$supple-responsive-modifier: unquote('\\@') !default;
 
 
 
@@ -89,7 +89,7 @@ $supple-rem-fallback: false !default;
 /**
  * Shared warnings
  */
-$supple-responsive-warning: "You haven’t included `Sass MQ` and `settings/responsive` in your manifest file. Please add them or add your own responsive classes yourself" !default;
+$supple-responsive-warning: 'You haven’t included `Sass MQ` and `settings/responsive` in your manifest file. Please add them or add your own responsive classes yourself' !default;
 
 
 
@@ -102,11 +102,11 @@ $supple-responsive-warning: "You haven’t included `Sass MQ` and `settings/resp
  */
 @each $_supple-font-globals in $supple-font-size $supple-line-height {
   @if (type-of($_supple-font-globals) == number) {
-    @if (unit($_supple-font-globals) != "px") {
-      @error "`#{$_supple-font-globals}` needs to be a pixel value.";
+    @if (unit($_supple-font-globals) != 'px') {
+      @error '`#{$_supple-font-globals}` needs to be a pixel value.';
     }
   } @else {
-    @error "`#{$_supple-font-globals}` needs to be a number.";
+    @error '`#{$_supple-font-globals}` needs to be a number.';
   }
 }
 
@@ -117,12 +117,12 @@ $supple-responsive-warning: "You haven’t included `Sass MQ` and `settings/resp
 @each $_supple-spacing-unit in $supple-space-factor $supple-space-factor-tiny $supple-space-factor-small $supple-space-factor-large $supple-space-factor-huge {
   @if (type-of($_supple-spacing-unit) == number) {
     @if (unitless($_supple-spacing-unit) == false) {
-      @error "`#{$_supple-spacing-unit}` needs to be unitless.";
+      @error '`#{$_supple-spacing-unit}` needs to be unitless.';
     }
     @if ($_supple-spacing-unit != ceil($_supple-spacing-unit)) {
-      @error "`#{$_supple-spacing-unit}` needs to be an integer.";
+      @error '`#{$_supple-spacing-unit}` needs to be an integer.';
     }
   } @else {
-    @error "`#{$_supple-spacing-unit}` needs to be a number.";
+    @error '`#{$_supple-spacing-unit}` needs to be a number.';
   }
 }

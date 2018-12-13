@@ -46,9 +46,9 @@ $supple-breakpoint-has-hidden: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-hidden, ".#{$supple-hidden-combined-namespace}hidden") {
+  @include supple-breakpoint-has($supple-breakpoint-has-hidden, '.#{$supple-hidden-combined-namespace}hidden') {
     display: none !important;
   }
 } @else {
-  @error "The hidden utility relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?";
+  @error 'The hidden utility relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?';
 }

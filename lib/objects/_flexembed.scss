@@ -77,7 +77,7 @@ $supple-flexembed-ratios: (
 @each $ratio in $supple-flexembed-ratios {
   @each $a, $b in $ratio {
     @if (type-of($a) != number or type-of($b) != number) {
-      @error "`#{$a}` and `#{$b}` need to be numbers.";
+      @error '`#{$a}` and `#{$b}` need to be numbers.';
     }
 
     .#{$supple-flexembed-combined-namespace}flexembed--#{$a}by#{$b} {

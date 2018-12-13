@@ -17,7 +17,7 @@
 .u-clearfix:before,
 .u-clearfix:after {
   display: table; /* [1] */
-  content: "";
+  content: '';
 }
 
 .u-clearfix:after {

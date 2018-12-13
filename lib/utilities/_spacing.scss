@@ -18,8 +18,8 @@ $supple-spacing-combined-namespace: #{$supple-spacing-namespace}#{$supple-namesp
  * `key` is the classname, `value` is the property name
  */
 $supple-spacing-properties: (
-  "padding": "padding",
-  "margin": "margin",
+  'padding': 'padding',
+  'margin': 'margin',
 ) !default;
 
 
@@ -29,10 +29,10 @@ $supple-spacing-properties: (
  */
 $supple-spacing-directions: (
   null: null,
-  "-top": "-top",
-  "-right": "-right",
-  "-bottom": "-bottom",
-  "-left": "-left",
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
 ) !default;
 
 
@@ -42,11 +42,11 @@ $supple-spacing-directions: (
  */
 $supple-spacing-sizes: (
   null: $supple-space,
-  "-tiny": $supple-space-tiny,
-  "-small": $supple-space-small,
-  "-large": $supple-space-large,
-  "-huge": $supple-space-huge,
-  "-none": 0
+  '-tiny': $supple-space-tiny,
+  '-small': $supple-space-small,
+  '-large': $supple-space-large,
+  '-huge': $supple-space-huge,
+  '-none': 0
 ) !default;
 
 
@@ -71,7 +71,7 @@ $supple-breakpoint-has-spacing: () !default;
 /*  Functions/Mixins
     ========================================================================= */
 
-@mixin supple-render-spacings($modifier: "") {
+@mixin supple-render-spacings($modifier: '') {
   @each $property-namespace, $property in $supple-spacing-properties {
     @each $direction-namespace, $direction-rules in $supple-spacing-directions {
       @each $size-namespace, $size in $supple-spacing-sizes {
@@ -92,18 +92,23 @@ $supple-breakpoint-has-spacing: () !default;
 
 @include supple-render-spacings();
 
+
+
+/*  Responsive
+    ========================================================================= */
+
 @if (mixin-exists(supple-mq)) {
   @each $breakpoint in $supple-breakpoint-has-spacing {
-    @if ((nth($breakpoint, 1) == "from" or nth($breakpoint, 1) == "until") and nth($breakpoint, 2)) {
+    @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
       @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
-        @include supple-render-spacings("#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}");
+        @include supple-render-spacings('#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
       }
     } @else {
       @include supple-mq($breakpoint) {
-        @include supple-render-spacings("#{$supple-responsive-modifier}from-#{$breakpoint}");
+        @include supple-render-spacings('#{$supple-responsive-modifier}from-#{$breakpoint}');
       }
     }
   }
 } @else {
-  @error "The spacing utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?";
+  @error 'The spacing utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?';
 }

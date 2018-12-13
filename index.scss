@@ -6,42 +6,42 @@
 /*  Settings
     ========================================================================= */
 
-@import "./lib/settings/defaults";
-@import "./lib/settings/responsive";
+@import './lib/settings/defaults';
+@import './lib/settings/responsive';
 
 
 
 /*  Tools
     ========================================================================= */
 
-@import "./node_modules/sass-mq/mq";
-@import "./lib/tools/functions";
-@import "./lib/tools/mixins";
+@import './node_modules/sass-mq/mq';
+@import './lib/tools/functions';
+@import './lib/tools/mixins';
 
 
 
 /*  Generic
     ========================================================================= */
 
-@import "./lib/generic/normalize";
-@import "./lib/generic/reset";
+@import './lib/generic/normalize';
+@import './lib/generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-@import "./lib/elements/headings";
+@import './lib/elements/headings';
 
 
 
 /*  Objects
     ========================================================================= */
 
-@import "./lib/objects/list-clean";
-@import "./lib/objects/layout";
-@import "./lib/objects/retain";
-@import "./lib/objects/flexembed";
+@import './lib/objects/list-clean';
+@import './lib/objects/layout';
+@import './lib/objects/retain';
+@import './lib/objects/flexembed';
 
 
 
@@ -55,9 +55,9 @@
 /*  Utilities
     ========================================================================= */
 
-@import "./lib/utilities/fractions";
-@import "./lib/utilities/float";
-@import "./lib/utilities/module";
-@import "./lib/utilities/spacing";
-@import "./lib/utilities/visually-hidden";
-@import "./lib/utilities/hidden";
+@import './lib/utilities/fractions';
+@import './lib/utilities/float';
+@import './lib/utilities/module';
+@import './lib/utilities/spacing';
+@import './lib/utilities/visually-hidden';
+@import './lib/utilities/hidden';

@@ -17,9 +17,9 @@ $supple-browser-context: $supple-font-size !default;
  * Converts a px value to a rem unit based on the current browser context
  */
 @function supple-value-to-rem ($value, $warn: true) {
-  @if type-of($value) == string or unitless($value) == true or unit($value) != "px" {
+  @if type-of($value) == string or unitless($value) == true or unit($value) != 'px' {
     @if $warn == true {
-      @warn "You’ve passed in a `$value` which is not in the `px` format. I’ve returned your `#{$value}` unmodified.";
+      @warn 'You’ve passed in a `$value` which is not in the `px` format. I’ve returned your `#{$value}` unmodified.';
     }
     @return $value;
   } @else {

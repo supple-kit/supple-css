@@ -48,7 +48,7 @@ $supple-breakpoint-has-fractions: () !default;
  * You can rename the fraction name & delimiter to your liking
  */
 $supple-fractions-name-fraction: fraction !default;
-$supple-fractions-delimiter: "of" !default;
+$supple-fractions-delimiter: 'of' !default;
 
 
 
@@ -65,7 +65,7 @@ $supple-fractions-delimiter: "of" !default;
  */
 
 /* stylelint-disable max-nesting-depth */
-@mixin supple-fractions-build ($units, $modifier: "") {
+@mixin supple-fractions-build ($units, $modifier: '') {
 
   /**
    * Proportional fractions
@@ -129,16 +129,16 @@ $supple-fractions-delimiter: "of" !default;
 
 @if (mixin-exists(supple-mq)) {
   @each $breakpoint in $supple-breakpoint-has-fractions {
-    @if ((nth($breakpoint, 1) == "from" or nth($breakpoint, 1) == "until") and nth($breakpoint, 2)) {
+    @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
       @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
-        @include supple-fractions-build($supple-fractions, "#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}");
+        @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
       }
     } @else {
       @include supple-mq($breakpoint) {
-        @include supple-fractions-build($supple-fractions, "#{$supple-responsive-modifier}from-#{$breakpoint}");
+        @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}from-#{$breakpoint}');
       }
     }
   }
 } @else {
-  @error "The fractions utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?";
+  @error 'The fractions utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?';
 }

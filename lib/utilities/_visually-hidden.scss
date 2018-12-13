@@ -49,7 +49,7 @@ $supple-breakpoint-has-visually-hidden: () !default;
     @include supple-visually-hidden();
   }
 } @else {
-  @error "The visually-hidden utility relies on the `supple-visually-hidden` mixin. Did you include supple’s mixin file?";
+  @error 'The visually-hidden utility relies on the `supple-visually-hidden` mixin. Did you include supple’s mixin file?';
 }
 
 
@@ -58,9 +58,9 @@ $supple-breakpoint-has-visually-hidden: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-visually-hidden) and mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-visually-hidden, ".#{$supple-visually-hidden-combined-namespace}visually-hidden") {
+  @include supple-breakpoint-has($supple-breakpoint-has-visually-hidden, '.#{$supple-visually-hidden-combined-namespace}visually-hidden') {
     @include supple-visually-hidden();
   }
 } @else {
-  @error "The visually-hidden utility relies on the `supple-visually-hidden` and `supple-breakpoint-has` mixin. Did you include supple’s mixin file?";
+  @error 'The visually-hidden utility relies on the `supple-visually-hidden` and `supple-breakpoint-has` mixin. Did you include supple’s mixin file?';
 }

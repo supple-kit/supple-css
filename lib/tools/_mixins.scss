@@ -7,7 +7,7 @@
     Usage: @include supple-rem(margin, 0 auto 300px, !important);
     ========================================================================= */
 
-@mixin supple-rem ($property, $value, $append: "") {
+@mixin supple-rem ($property, $value, $append: '') {
   // Provide a fallback for non supporting browsers
   @if $supple-rem-fallback == true {
     #{$property}: $value #{$append};
@@ -53,13 +53,13 @@
     ========================================================================= */
 
 @mixin supple-render-module($depth: 2) {
-  $selector-all: "";
+  $selector-all: '';
   @for $step from 1 through $depth {
-    $selector: "";
+    $selector: '';
     @for $i from 1 through $step {
-      $selector: $selector + " > *:last-child";
+      $selector: $selector + ' > *:last-child';
     }
-    $selector-all: $selector-all + $selector + ",";
+    $selector-all: $selector-all + $selector + ',';
   }
 
   #{$selector-all} {
@@ -90,7 +90,7 @@
         @content;
       }
     } @else {
-      @error "#{$direction} is not a valid sass-mq direction";
+      @error '#{$direction} is not a valid sass-mq direction';
     }
   } @else {
     @warn $supple-responsive-warning;
@@ -116,7 +116,7 @@
 @mixin supple-breakpoint-has($breakpoints, $selector) {
   @if ($breakpoints and $selector) {
     @each $breakpoint in $breakpoints {
-      @if ((nth($breakpoint, 1) == "from" or nth($breakpoint, 1) == "until") and nth($breakpoint, 2)) {
+      @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
         @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
           #{$selector}#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)} {
             @content;
@@ -131,7 +131,7 @@
       }
     }
   } @else {
-    @error "$breakpoints and $selector arguments are required";
+    @error '$breakpoints and $selector arguments are required';
   }
 }
 
@@ -149,7 +149,7 @@
 
     You can also modify the line-height by increments, while staying in the
     baseline grid, by setting the `$modifier` parameter. It takes a positive
-    or negative integer, and it will add or remove "lines" to the  generated
+    or negative integer, and it will add or remove 'lines' to the  generated
     line-height. This is the recomended way to do it, unless you really need
     an absolute value. i.e.:
 
@@ -162,11 +162,11 @@
 
 @mixin supple-font-size($font-size, $line-height: auto, $modifier: 0, $important: false) {
   @if (type-of($font-size) == number) {
-    @if (unit($font-size) != "px") {
-      @error "`#{$font-size}` needs to be a pixel value.";
+    @if (unit($font-size) != 'px') {
+      @error '`#{$font-size}` needs to be a pixel value.';
     }
   } @else {
-    @error "`#{$font-size}` needs to be a number.";
+    @error '`#{$font-size}` needs to be a number.';
   }
 
   @if ($important == true) {
@@ -174,12 +174,12 @@
   } @else if ($important == false) {
     $important: null;
   } @else {
-    @error "`#{$important}` needs to be `true` or `false`.";
+    @error '`#{$important}` needs to be `true` or `false`.';
   }
 
   @include supple-rem(font-size, $font-size);
 
-  @if ($line-height == "auto") {
+  @if ($line-height == 'auto') {
     // Define how many grid lines each text line should span.
     // By default, we set it to the minimum number of lines necessary
     // in order to contain the defined font-size, +1 for some breathing room.
@@ -188,10 +188,10 @@
     $line-height: $lines * $supple-baseline;
     line-height: ($line-height / $font-size) $important;
   } @else {
-    @if (type-of($line-height) == number or $line-height == "inherit" or $line-height == "normal") {
+    @if (type-of($line-height) == number or $line-height == 'inherit' or $line-height == 'normal') {
       line-height: $line-height $important;
-    } @else if ($line-height != "none" and $line-height != false) {
-      @error "D’oh! `#{$line-height}` is not a valid value for `$line-height`.";
+    } @else if ($line-height != 'none' and $line-height != false) {
+      @error 'D’oh! `#{$line-height}` is not a valid value for `$line-height`.';
     }
   }
 }
@@ -217,7 +217,7 @@
     ========================================================================= */
 
 @mixin supple-css-lock($property: font-size, $size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
-  @if (unit($size-min) == "px" and unit($size-max) == "px" and unit(map-get($mq-breakpoints, $min-bp)) == "px" and unit(map-get($mq-breakpoints, $max-bp)) == "px") {
+  @if (unit($size-min) == 'px' and unit($size-max) == 'px' and unit(map-get($mq-breakpoints, $min-bp)) == 'px' and unit(map-get($mq-breakpoints, $max-bp)) == 'px') {
     $size-min-rem: supple-value-to-rem($size-min);
     $size-max-rem: supple-value-to-rem($size-max);
     #{$property}: $size-min-rem;
@@ -231,9 +231,9 @@
         #{$property}: $size-max-rem;
       }
     } @else {
-      @warn "$size-min and $size-max are the same, skipping breakpoints";
+      @warn '$size-min and $size-max are the same, skipping breakpoints';
     }
   } @else {
-    @error "$size-min, $size-max, $min-bp and $max-bp should be defined in px.";
+    @error '$size-min, $size-max, $min-bp and $max-bp should be defined in px.';
   }
 }

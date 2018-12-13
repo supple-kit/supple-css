@@ -35,5 +35,5 @@ $supple-module-depth: 2 !default;
     @include supple-render-module($supple-module-depth);
   }
 } @else {
-  @error "The module utility relies on the `supple-render-module` mixin. Did you include supple’s mixin file?";
+  @error 'The module utility relies on the `supple-render-module` mixin. Did you include supple’s mixin file?';
 }
