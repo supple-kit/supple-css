@@ -93,7 +93,7 @@ this layer contains some handy helpers & overrides. This is the most specific la
 * [utilities/_visually-hidden.scss](lib/utilities/_visually-hidden.scss), hides an element visually while still allowing the content to be accessible.
 * [utilities/_hidden.scss](lib/utilities/_hidden.scss), completely remove from the flow and hide it from screenreaders.
 
-(*) This set if utilities is only needed if you want to support browsers without custom property support.
+(*) This set of utilities is only needed if you want to support browsers without custom property support.
 
 All Utilities should be prefixed with `u-`.
 
