@@ -31,7 +31,7 @@
     "postcss": "^7.0.6",
     "postcss-cli": "^6.0.1",
     "stylelint": "^9.9.0",
-    "stylelint-config-supple": "^1.0.0",
+    "stylelint-config-supple": "^2.0.0",
     "stylelint-scss": "^3.4.1"
   },
   "dependencies": {
