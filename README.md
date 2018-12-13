@@ -15,7 +15,7 @@ Use supple if:
 
 ### Size
 
-The core framework including all modules without fallbacks for `custom-properties` weighs about 2.15kB. You can reduce the payload by only include the modules you need, and configure those modules to your needs.
+The core framework including all modules without fallbacks for `custom-properties` weighs about 2.15kB. You can reduce the payload by only including the modules you need, and configure those modules to your needs.
 
 If you want the framework to include all fallbacks for `custom-properties` the framework comes in at 2.48kB.
 
