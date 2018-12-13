@@ -1,0 +1,44 @@
+/*  =========================================================================
+    elements.headings
+    Simple default styles for headings 1 through 6.
+    As per: https://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+$supple-font-alpha:  36px !default;
+$supple-font-beta:  28px !default;
+$supple-font-gamma:  24px !default;
+$supple-font-delta:  20px !default;
+$supple-font-epsilon:  18px !default;
+$supple-font-zeta:  16px !default;
+
+
+
+/*  Module
+    ========================================================================= */
+
+h1 {
+  @include supple-font-size($supple-font-alpha);
+}
+
+h2 {
+  @include supple-font-size($supple-font-beta);
+}
+
+h3 {
+  @include supple-font-size($supple-font-gamma);
+}
+
+h4 {
+  @include supple-font-size($supple-font-delta);
+}
+
+h5 {
+  @include supple-font-size($supple-font-epsilon);
+}
+
+h6 {
+  @include supple-font-size($supple-font-zeta);
+}

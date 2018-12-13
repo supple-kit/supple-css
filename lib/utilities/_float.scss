@@ -1,9 +1,18 @@
-/*! supple.utilities.float | MIT License | github.com/supple-css */
-
 /*  =========================================================================
     utilities.float
     Makes working with floats a lot more easy.
     ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$supple-float-namespace: $supple-namespace !default;
+$supple-float-combined-namespace: #{$supple-float-namespace}#{$supple-namespace-utility} !default;
+
+
 
 /*  Module
     ========================================================================= */
@@ -11,17 +20,18 @@
 /**
  * Make an element expand to contain floated children.
  * Uses pseudo-elements (micro clearfix).
+ * As per: https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/
  *
  * 1. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.u-cf:before,
-.u-cf:after {
+.#{$supple-float-combined-namespace}clearfix:before,
+.#{$supple-float-combined-namespace}clearfix:after {
   display: table; /* [1] */
-  content: "";
+  content: '';
 }
 
-.u-cf:after {
+.#{$supple-float-combined-namespace}clearfix:after {
   clear: both;
 }
 
@@ -29,10 +39,10 @@
 /**
  * Floats
  */
-.u-float--left {
+.#{$supple-float-combined-namespace}float--left {
   float: left !important;
 }
 
-.u-float--right {
+.#{$supple-float-combined-namespace}float--right {
   float: right !important;
 }

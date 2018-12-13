@@ -1,5 +1,3 @@
-/*! supple v1.0.0 | MIT License | github.com/supple-css */
-
 /*  =========================================================================
     Supple
     In-browser CSS framework; Fluid, Variable, supple if you will
@@ -8,39 +6,42 @@
 /*  Settings
     ========================================================================= */
 
-@import "./lib/settings/defaults.css";
+@import './lib/settings/defaults';
+@import './lib/settings/responsive';
 
 
 
 /*  Tools
     ========================================================================= */
 
-/* I ain’t got none */
+@import './node_modules/sass-mq/mq';
+@import './lib/tools/functions';
+@import './lib/tools/mixins';
 
 
 
 /*  Generic
     ========================================================================= */
 
-@import "normalize.css";
-@import "./lib/generic/reset.css";
-@import "./lib/generic/vertical-rhythm.css";
+@import './lib/generic/normalize';
+@import './lib/generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-/* It’s all up to you! */
+@import './lib/elements/headings';
 
 
 
 /*  Objects
     ========================================================================= */
 
-@import "./lib/objects/list-clean.css";
-@import "./lib/objects/layout.css";
-@import "./lib/objects/flexembed.css";
+@import './lib/objects/list-clean';
+@import './lib/objects/layout';
+@import './lib/objects/retain';
+@import './lib/objects/flexembed';
 
 
 
@@ -54,15 +55,9 @@
 /*  Utilities
     ========================================================================= */
 
-@import "./lib/utilities/fractions.css";
-@import "./lib/utilities/fractions@palm.css";
-@import "./lib/utilities/fractions@max-palm.css";
-@import "./lib/utilities/fractions@lap.css";
-@import "./lib/utilities/fractions@max-lap.css";
-@import "./lib/utilities/fractions@desk.css";
-@import "./lib/utilities/fractions@max-desk.css";
-@import "./lib/utilities/fractions@wall.css";
-@import "./lib/utilities/float.css";
-@import "./lib/utilities/module.css";
-@import "./lib/utilities/visually-hidden.css";
-@import "./lib/utilities/hidden.css";
+@import './lib/utilities/fractions';
+@import './lib/utilities/float';
+@import './lib/utilities/module';
+@import './lib/utilities/spacing';
+@import './lib/utilities/visually-hidden';
+@import './lib/utilities/hidden';
