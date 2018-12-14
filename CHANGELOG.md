@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.0.2 - 14-dec-2018
+
+- Added possibility to remove the license header
+
 ## 2.0.1 - 13-dec-2018
 
 - Use rem for spacing utility
