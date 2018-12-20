@@ -34,7 +34,7 @@ If you want to support older browsers (mostly IE11) you’ll need to include the
 ## Available modules
 All supple submodules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
 
-ITCSS stands for Inverted Triangle CSS and it helps you to organize your project CSS files in such way that you can better deal with CSS specifics like global namespace, cascade and selectors specificity.
+ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like global namespace, the cascade and selector specificity.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
