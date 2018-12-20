@@ -1,4 +1,4 @@
-# Supple (S)CSS framework <img src="https://supple-css.github.io/supple/_misc/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
+# Supple (S)CSS framework <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
@@ -28,7 +28,7 @@ If you want to support older browsers (mostly IE11) you’ll need to include the
 ### Browserstack
 Every feature in Supple is tested in all major browsers in browserstack:
 
-[<img src="https://supple-css.github.io/supple/_misc/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
+[<img src="https://supple-css.github.io/supple/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
 
 ## Installation
 
