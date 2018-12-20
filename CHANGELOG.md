@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.0.3 - 20-dec-2018
+
+- Layout cell needs to be 100% width by default, it missed the fallback for older browsers.
+
+## 2.0.2 - 14-dec-2018
+
+- Added possibility to remove the license header
+
 ## 2.0.1 - 13-dec-2018
 
 - Use rem for spacing utility

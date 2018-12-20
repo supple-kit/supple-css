@@ -3,7 +3,7 @@
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
 ## Why use supple:
-> It is a small but powerfull (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://jonathantneal.github.io/css-db/).
+> It is a small but powerfull (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://cssdb.org/).
 
 Supple provides little to no design wich means no undoing other peoples design decisions.
 
@@ -15,7 +15,7 @@ Use supple if:
 
 ### Size
 
-The core framework including all modules without fallbacks for `custom-properties` weighs about 2.15kB. You can reduce the payload by only include the modules you need, and configure those modules to your needs.
+The core framework including all modules without fallbacks for `custom-properties` weighs about 2.15kB. You can reduce the payload by only including the modules you need, and configure those modules to your needs.
 
 If you want the framework to include all fallbacks for `custom-properties` the framework comes in at 2.48kB.
 
@@ -34,7 +34,7 @@ If you want to support older browsers (mostly IE11) you’ll need to include the
 ## Available modules
 All supple submodules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
 
-ITCSS stands for Inverted Triangle CSS and it helps you to organize your project CSS files in such way that you can better deal with CSS specifics like global namespace, cascade and selectors specificity.
+ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like global namespace, the cascade and selector specificity.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
