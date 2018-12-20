@@ -234,8 +234,10 @@ $supple-breakpoint-has-layout-fill: () !default;
  * 1. Set flex items to full width by default
  * 2. Fix issue where elements with overflow extend past the
  *    `layout__cell` container
+ * 3. Fallback for browsers which do not support CSS custom properties
  */
 .#{$supple-layout-combined-namespace}layout__cell {
+  flex-basis: 100%; /* [3] */
   flex-basis: calc(100% / var(--#{$supple-layout-combined-namespace}layout-columns) * var(--#{$supple-layout-combined-namespace}layout-colspan)); /* [1] */
   min-width: 0; /* [2] */
 }
