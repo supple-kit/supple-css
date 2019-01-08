@@ -6,12 +6,6 @@
 /*  Variables
     ========================================================================= */
 
-/**
- * Namespacing
- */
-$supple-float-namespace: $supple-namespace !default;
-$supple-float-combined-namespace: #{$supple-float-namespace}#{$supple-namespace-utility} !default;
-
 
 
 /*  Module
@@ -25,13 +19,13 @@ $supple-float-combined-namespace: #{$supple-float-namespace}#{$supple-namespace-
  * 1. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.#{$supple-float-combined-namespace}clearfix:before,
-.#{$supple-float-combined-namespace}clearfix:after {
+.u-clearfix:before,
+.u-clearfix:after {
   display: table; /* [1] */
   content: '';
 }
 
-.#{$supple-float-combined-namespace}clearfix:after {
+.u-clearfix:after {
   clear: both;
 }
 
@@ -39,10 +33,10 @@ $supple-float-combined-namespace: #{$supple-float-namespace}#{$supple-namespace-
 /**
  * Floats
  */
-.#{$supple-float-combined-namespace}float--left {
+.u-float--left {
   float: left !important;
 }
 
-.#{$supple-float-combined-namespace}float--right {
+.u-float--right {
   float: right !important;
 }

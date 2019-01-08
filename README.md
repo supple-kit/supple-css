@@ -26,7 +26,7 @@ Supple supports all [major browsers which can render CSS custom properties](http
 If you want to support older browsers (mostly IE11) you’ll need to include the [_fractions.scss](lib/utilities/_fractions.scss) utility to support our [_layout.scss](lib/objects/_layout.scss) grid system. Other modules also have some configuration to support older browsers, please refer to their own readme files.
 
 ### Browserstack
-Every feature in Supple is tested in all major browsers in browserstack:
+Every feature in Supple is extensively tested in browserstack:
 
 [<img src="https://supple-css.github.io/supple/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
 
