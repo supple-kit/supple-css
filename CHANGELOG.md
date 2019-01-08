@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 2.1.3 - 08-jan-2019
+
+- Remove namespacing since no-one ever uses it, and it helps with autocompletion in editors
+- Made it possible to generate multiple from & until's
+
 ## 2.0.3 - 20-dec-2018
 
 - Layout cell needs to be 100% width by default, it missed the fallback for older browsers.
