@@ -21,13 +21,6 @@ $supple-retain-sizes: (
 ) !default;
 
 
-/**
- * Namespacing
- */
-$supple-retain-namespace: $supple-namespace !default;
-$supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespace-object} !default;
-
-
 
 /*  Functions/Mixins
     ========================================================================= */
@@ -37,9 +30,9 @@ $supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespac
 /*  Module
     ========================================================================= */
 
-.#{$supple-retain-combined-namespace}retain {
-  --#{$supple-retain-combined-namespace}retain-max-width: 100%;
-  max-width: var(--#{$supple-retain-combined-namespace}retain-max-width);
+.o-retain {
+  --o-retain-max-width: 100%;
+  max-width: var(--o-retain-max-width);
   @include supple-rem(padding-right, $supple-retain-space);
   @include supple-rem(padding-left, $supple-retain-space);
   margin-right: auto;
@@ -50,8 +43,8 @@ $supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespac
 /**
  * Modifier: text
  */
-.#{$supple-retain-combined-namespace}retain--text {
-  --#{$supple-retain-combined-namespace}retain-max-width: #{$supple-retain-text-size};
+.o-retain--text {
+  --o-retain-max-width: #{$supple-retain-text-size};
   padding-right: 0;
   padding-left: 0;
   margin-left: 0;
@@ -62,7 +55,7 @@ $supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespac
 /**
  * Modifier: no-padding
  */
-.#{$supple-retain-combined-namespace}retain--no-padding {
+.o-retain--no-padding {
   padding-right: 0;
   padding-left: 0;
 }
@@ -74,7 +67,7 @@ $supple-retain-combined-namespace: #{$supple-retain-namespace}#{$supple-namespac
     ========================================================================= */
 
 @each $key, $value in $supple-retain-sizes {
-  .#{$supple-retain-combined-namespace}retain--#{$key} {
+  .o-retain--#{$key} {
     @include supple-rem(max-width, $value);
   }
 }

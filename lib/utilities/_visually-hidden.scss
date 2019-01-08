@@ -9,13 +9,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-visually-hidden-namespace: $supple-namespace !default;
-$supple-visually-hidden-combined-namespace: #{$supple-visually-hidden-namespace}#{$supple-namespace-utility} !default;
-
-
-/**
  * Define which namespaced breakpoints you would like to generate for
  * `visually-hidden`. This is handy if you only need `visually-hidden` on, say,
  * desk, or you only need it at mobile sizes. It allows you to only compile
@@ -26,7 +19,10 @@ $supple-visually-hidden-combined-namespace: #{$supple-visually-hidden-namespace}
  *
  * Or
  *
- * $supple-breakpoint-has-visually-hidden: (from: lap, until: desk);
+ * $supple-breakpoint-has-visually-hidden: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
@@ -45,7 +41,7 @@ $supple-breakpoint-has-visually-hidden: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-visually-hidden)) {
-  .#{$supple-visually-hidden-combined-namespace}visually-hidden {
+  .u-visually-hidden {
     @include supple-visually-hidden();
   }
 } @else {
@@ -58,7 +54,7 @@ $supple-breakpoint-has-visually-hidden: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-visually-hidden) and mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-visually-hidden, '.#{$supple-visually-hidden-combined-namespace}visually-hidden') {
+  @include supple-breakpoint-has($supple-breakpoint-has-visually-hidden, '.u-visually-hidden') {
     @include supple-visually-hidden();
   }
 } @else {

@@ -7,13 +7,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-spacing-namespace: $supple-namespace !default;
-$supple-spacing-combined-namespace: #{$supple-spacing-namespace}#{$supple-namespace-utility} !default;
-
-
-/**
  * The properties that you want to generate spacings for
  * `key` is the classname, `value` is the property name
  */
@@ -59,7 +52,10 @@ $supple-spacing-sizes: (
  *
  * Or
  *
- * $supple-breakpoint-has-spacing: (from: lap, until: desk);
+ * $supple-breakpoint-has-spacing: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
@@ -75,7 +71,7 @@ $supple-breakpoint-has-spacing: () !default;
   @each $property-namespace, $property in $supple-spacing-properties {
     @each $direction-namespace, $direction-rules in $supple-spacing-directions {
       @each $size-namespace, $size in $supple-spacing-sizes {
-        .#{$supple-spacing-combined-namespace}#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
+        .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
           @each $direction in $direction-rules {
             @include supple-rem(#{$property}#{$direction}, $size, !important);
           }
@@ -100,8 +96,16 @@ $supple-breakpoint-has-spacing: () !default;
 @if (mixin-exists(supple-mq)) {
   @each $breakpoint in $supple-breakpoint-has-spacing {
     @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
-      @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
-        @include supple-render-spacings('#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+      @if type-of(nth($breakpoint, 2)) == 'list' {
+        @each $point in nth($breakpoint, 2) {
+          @include supple-mq($point, nth($breakpoint, 1)) {
+            @include supple-render-spacings('#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{$point}');
+          }
+        }
+      } @else {
+        @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+          @include supple-render-spacings('#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+        }
       }
     } @else {
       @include supple-mq($breakpoint) {

@@ -7,14 +7,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-layout-namespace: $supple-namespace !default;
-$supple-layout-combined-namespace: #{$supple-layout-namespace}#{$supple-namespace-object} !default;
-$supple-layout-responsive-modifier: $supple-responsive-modifier !default;
-
-
-/**
  * The default gutter
  */
 $supple-layout-gutter: $supple-space !default;
@@ -34,7 +26,10 @@ $supple-layout-gutter-huge: $supple-space-huge !default;
  *
  * Or
  *
- * $supple-breakpoint-has-layout-x: (from: lap, until: desk);
+ * $supple-breakpoint-has-layout-x: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
@@ -82,9 +77,9 @@ $supple-breakpoint-has-layout-fill: () !default;
  * 1. Account for browser defaults of elements that might be the root node of
  *    the component.
  */
-.#{$supple-layout-combined-namespace}layout {
-  --#{$supple-layout-combined-namespace}layout-columns: 12;
-  --#{$supple-layout-combined-namespace}layout-colspan: var(--#{$supple-layout-combined-namespace}layout-columns);
+.o-layout {
+  --o-layout-columns: 12;
+  --o-layout-colspan: var(--o-layout-columns);
   display: flex; /* [1] */
   flex-flow: row wrap;
   padding: 0; /* [1] */
@@ -96,7 +91,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: center align all layout cells
  */
-.#{$supple-layout-combined-namespace}layout--align-center {
+.o-layout--align-center {
   justify-content: center;
 }
 
@@ -104,7 +99,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: right align all layout cells
  */
-.#{$supple-layout-combined-namespace}layout--align-right {
+.o-layout--align-right {
   justify-content: flex-end;
 }
 
@@ -112,7 +107,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: middle-align layout cells
  */
-.#{$supple-layout-combined-namespace}layout--align-middle {
+.o-layout--align-middle {
   align-items: center;
 }
 
@@ -120,7 +115,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: bottom-align layout cells
  */
-.#{$supple-layout-combined-namespace}layout--align-bottom {
+.o-layout--align-bottom {
   align-items: flex-end;
 }
 
@@ -128,7 +123,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: reverse all cells
  */
-.#{$supple-layout-combined-namespace}layout--reverse {
+.o-layout--reverse {
   flex-direction: row-reverse;
 }
 
@@ -142,8 +137,8 @@ $supple-breakpoint-has-layout-fill: () !default;
  *    Use `0%` to avoid bug in IE10/11 with unitless flex basis
  *    http://git.io/vllWx
  */
-.#{$supple-layout-combined-namespace}layout--fit {
-  > .#{$supple-layout-combined-namespace}layout__cell {
+.o-layout--fit {
+  > .o-layout__cell {
     flex: 1 1 0%; /* [1] */
   }
 }
@@ -154,8 +149,8 @@ $supple-breakpoint-has-layout-fill: () !default;
  * 1. The direct child of the flexbox must be a single element when you want
  *    to use equalheight
  */
-.#{$supple-layout-combined-namespace}layout--equalheight {
-  > .#{$supple-layout-combined-namespace}layout__cell {
+.o-layout--equalheight {
+  > .o-layout__cell {
     display: flex;
 
     > * {
@@ -168,10 +163,10 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Gutter
  */
-.#{$supple-layout-combined-namespace}layout--gutter {
+.o-layout--gutter {
   @include supple-rem(margin-left, -$supple-layout-gutter);
 
-  > .#{$supple-layout-combined-namespace}layout__cell {
+  > .o-layout__cell {
     @include supple-rem(padding-left, $supple-layout-gutter);
   }
 }
@@ -180,10 +175,10 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Tiny gutter
  */
-.#{$supple-layout-combined-namespace}layout--gutter-tiny {
+.o-layout--gutter-tiny {
   @include supple-rem(margin-left, -$supple-layout-gutter-tiny);
 
-  > .#{$supple-layout-combined-namespace}layout__cell {
+  > .o-layout__cell {
     @include supple-rem(padding-left, $supple-layout-gutter-tiny);
   }
 }
@@ -192,10 +187,10 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Small gutter
  */
-.#{$supple-layout-combined-namespace}layout--gutter-small {
+.o-layout--gutter-small {
   @include supple-rem(margin-left, -$supple-layout-gutter-small);
 
-  > .#{$supple-layout-combined-namespace}layout__cell {
+  > .o-layout__cell {
     @include supple-rem(padding-left, $supple-layout-gutter-small);
   }
 }
@@ -203,10 +198,10 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Large gutter
  */
-.#{$supple-layout-combined-namespace}layout--gutter-large {
+.o-layout--gutter-large {
   @include supple-rem(margin-left, -$supple-layout-gutter-large);
 
-  > .#{$supple-layout-combined-namespace}layout__cell {
+  > .o-layout__cell {
     @include supple-rem(padding-left, $supple-layout-gutter-large);
   }
 }
@@ -214,10 +209,10 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Huge gutter
  */
-.#{$supple-layout-combined-namespace}layout--gutter-huge {
+.o-layout--gutter-huge {
   @include supple-rem(margin-left, -$supple-layout-gutter-huge);
 
-  > .#{$supple-layout-combined-namespace}layout__cell {
+  > .o-layout__cell {
     @include supple-rem(padding-left, $supple-layout-gutter-huge);
   }
 }
@@ -236,9 +231,9 @@ $supple-breakpoint-has-layout-fill: () !default;
  *    `layout__cell` container
  * 3. Fallback for browsers which do not support CSS custom properties
  */
-.#{$supple-layout-combined-namespace}layout__cell {
+.o-layout__cell {
   flex-basis: 100%; /* [3] */
-  flex-basis: calc(100% / var(--#{$supple-layout-combined-namespace}layout-columns) * var(--#{$supple-layout-combined-namespace}layout-colspan)); /* [1] */
+  flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
   min-width: 0; /* [2] */
 }
 
@@ -248,7 +243,7 @@ $supple-breakpoint-has-layout-fill: () !default;
  * Set a specific unit to be horizontally centered. Doesn't affect
  * any other units. Can still contain a child `layout` object.
  */
-.#{$supple-layout-combined-namespace}layout__cell--center {
+.o-layout__cell--center {
   margin-left: auto;
   margin-right: auto;
 }
@@ -257,7 +252,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Make a cell shrink wrap its content.
  */
-.#{$supple-layout-combined-namespace}layout__cell--fit {
+.o-layout__cell--fit {
   @include supple-layout-fit;
 }
 
@@ -265,7 +260,7 @@ $supple-breakpoint-has-layout-fill: () !default;
 /**
  * Modifier: Make a cell fill the remaining space.
  */
-.#{$supple-layout-combined-namespace}layout__cell--fill {
+.o-layout__cell--fill {
   @include supple-layout-fill;
 }
 
@@ -275,11 +270,11 @@ $supple-breakpoint-has-layout-fill: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-layout-fit, '.#{$supple-layout-combined-namespace}layout__cell--fit') {
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fit, '.o-layout__cell--fit') {
     @include supple-layout-fit;
   }
 
-  @include supple-breakpoint-has($supple-breakpoint-has-layout-fill, '.#{$supple-layout-combined-namespace}layout__cell--fill') {
+  @include supple-breakpoint-has($supple-breakpoint-has-layout-fill, '.o-layout__cell--fill') {
     @include supple-layout-fill;
   }
 } @else {
