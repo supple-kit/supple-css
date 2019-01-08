@@ -26,7 +26,10 @@ $supple-visually-hidden-combined-namespace: #{$supple-visually-hidden-namespace}
  *
  * Or
  *
- * $supple-breakpoint-has-visually-hidden: (from: lap, until: desk);
+ * $supple-breakpoint-has-visually-hidden: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`

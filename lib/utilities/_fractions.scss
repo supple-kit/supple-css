@@ -36,7 +36,10 @@ $supple-fractions: 12 !default;
  *
  * Or
  *
- * $supple-breakpoint-has-fractions: (from: lap, until: desk);
+ * $supple-breakpoint-has-fractions: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
@@ -130,8 +133,16 @@ $supple-fractions-delimiter: 'of' !default;
 @if (mixin-exists(supple-mq)) {
   @each $breakpoint in $supple-breakpoint-has-fractions {
     @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
-      @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
-        @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+      @if type-of(nth($breakpoint, 2)) == 'list' {
+        @each $point in nth($breakpoint, 2) {
+          @include supple-mq($point, nth($breakpoint, 1)) {
+            @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{$point}');
+          }
+        }
+      } @else {
+        @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+          @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+        }
       }
     } @else {
       @include supple-mq($breakpoint) {

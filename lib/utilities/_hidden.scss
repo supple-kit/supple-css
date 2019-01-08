@@ -24,7 +24,10 @@ $supple-hidden-responsive-modifier: $supple-responsive-modifier !default;
  *
  * Or
  *
- * $supple-breakpoint-has-hidden: (from: lap, until: desk);
+ * $supple-breakpoint-has-hidden: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
