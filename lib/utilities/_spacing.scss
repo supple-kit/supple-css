@@ -7,13 +7,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-spacing-namespace: $supple-namespace !default;
-$supple-spacing-combined-namespace: #{$supple-spacing-namespace}#{$supple-namespace-utility} !default;
-
-
-/**
  * The properties that you want to generate spacings for
  * `key` is the classname, `value` is the property name
  */
@@ -78,7 +71,7 @@ $supple-breakpoint-has-spacing: () !default;
   @each $property-namespace, $property in $supple-spacing-properties {
     @each $direction-namespace, $direction-rules in $supple-spacing-directions {
       @each $size-namespace, $size in $supple-spacing-sizes {
-        .#{$supple-spacing-combined-namespace}#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
+        .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
           @each $direction in $direction-rules {
             @include supple-rem(#{$property}#{$direction}, $size, !important);
           }

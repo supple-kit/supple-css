@@ -66,10 +66,6 @@ $supple-line-height-ratio: $supple-line-height/$supple-font-size !default;
     Would you like supple classes to be used with a different namespace?
     ========================================================================= */
 
-$supple-namespace: null !default;
-$supple-namespace-object: 'o-' !default;
-$supple-namespace-component: 'c-' !default;
-$supple-namespace-utility: 'u-' !default;
 $supple-responsive-modifier: unquote('\\@') !default;
 
 

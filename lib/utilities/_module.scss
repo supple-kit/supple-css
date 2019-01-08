@@ -8,13 +8,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-module-namespace: $supple-namespace !default;
-$supple-module-combined-namespace: #{$supple-module-namespace}#{$supple-namespace-utility} !default;
-
-
-/**
  * Depth
  */
 $supple-module-depth: 2 !default;
@@ -31,7 +24,7 @@ $supple-module-depth: 2 !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-render-module)) {
-  .#{$supple-module-combined-namespace}module {
+  .u-module {
     @include supple-render-module($supple-module-depth);
   }
 } @else {

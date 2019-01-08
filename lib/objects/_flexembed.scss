@@ -8,13 +8,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-flexembed-namespace: $supple-namespace !default;
-$supple-flexembed-combined-namespace: #{$supple-flexembed-namespace}#{$supple-namespace-object} !default;
-
-
-/**
  * Spacing
  */
 $supple-flexembed-space: $supple-space !default;
@@ -44,12 +37,12 @@ $supple-flexembed-ratios: (
  * 1. Default cropping is a perfect square, in you own modules you can override
  *    the ratio like this: (16/9)
  */
-.#{$supple-flexembed-combined-namespace}flexembed {
-  --#{$supple-flexembed-combined-namespace}flexembed-ratio: (1/1); /* [1] */
+.o-flexembed {
+  --o-flexembed-ratio: (1/1); /* [1] */
   position: relative;
   display: block;
   height: 0;
-  padding: 0 0 calc(100% / var(--#{$supple-flexembed-combined-namespace}flexembed-ratio));
+  padding: 0 0 calc(100% / var(--o-flexembed-ratio));
   overflow: hidden;
   @include supple-rem(margin-bottom, $supple-flexembed-space);
 }
@@ -57,10 +50,10 @@ $supple-flexembed-ratios: (
 /**
  * The actual embed/item
  */
-.#{$supple-flexembed-combined-namespace}flexembed__item,
-.#{$supple-flexembed-combined-namespace}flexembed > iframe,
-.#{$supple-flexembed-combined-namespace}flexembed > embed,
-.#{$supple-flexembed-combined-namespace}flexembed > object {
+.o-flexembed__item,
+.o-flexembed > iframe,
+.o-flexembed > embed,
+.o-flexembed > object {
   position: absolute;
   left: 0;
   top: 0;
@@ -80,7 +73,7 @@ $supple-flexembed-ratios: (
       @error '`#{$a}` and `#{$b}` need to be numbers.';
     }
 
-    .#{$supple-flexembed-combined-namespace}flexembed--#{$a}by#{$b} {
+    .o-flexembed--#{$a}by#{$b} {
       padding-bottom: 100% / ($a/$b);
     }
   }

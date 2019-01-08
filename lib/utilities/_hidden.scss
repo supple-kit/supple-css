@@ -7,14 +7,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$supple-hidden-namespace: $supple-namespace !default;
-$supple-hidden-combined-namespace: #{$supple-hidden-namespace}#{$supple-namespace-utility} !default;
-$supple-hidden-responsive-modifier: $supple-responsive-modifier !default;
-
-
-/**
  * Define which namespaced breakpoints you would like to generate for `hidden`.
  * This is handy if you only need `hidden` on, say, desk, or you only need it
  * at mobile sizes. It allows you to only compile as much CSS as you need.
@@ -39,7 +31,7 @@ $supple-breakpoint-has-hidden: () !default;
 /*  Module
     ========================================================================= */
 
-.#{$supple-hidden-combined-namespace}hidden {
+.u-hidden {
   display: none !important;
 }
 
@@ -49,7 +41,7 @@ $supple-breakpoint-has-hidden: () !default;
     ========================================================================= */
 
 @if (mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-hidden, '.#{$supple-hidden-combined-namespace}hidden') {
+  @include supple-breakpoint-has($supple-breakpoint-has-hidden, '.u-hidden') {
     display: none !important;
   }
 } @else {
