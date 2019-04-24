@@ -1,7 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 2.1.3 - 08-jan-2019
+## 2.1.1 - 24-apr-2019
+
+- Added `!default` to `$mq-breakpoints` in `settings/_responsive.scss` for easy overwriting
+- Changed pseudo element selector from `:` to `::` for future compatibility
+
+## 2.1.0 - 08-jan-2019
 
 - Remove namespacing since no-one ever uses it, and it helps with autocompletion in editors
 - Made it possible to generate multiple from & until's
