@@ -58,7 +58,7 @@ fieldset,
 figure,
 pre,
 hr {
-  @include supple-rem(margin, 0 0 $supple-space);
+  @include supple-rem(margin, 0 0 $supple-space-base);
 }
 
 
@@ -68,7 +68,7 @@ hr {
 ul,
 ol,
 dd {
-  @include supple-rem(margin-left, $supple-space);
+  @include supple-rem(margin-left, $supple-space-base);
 }
 
 /**

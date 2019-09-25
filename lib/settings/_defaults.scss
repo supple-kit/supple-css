@@ -39,7 +39,7 @@ $supple-space-factor-huge: 12 !default; // 96px
  * It is not recommended that you modify these following variables because it
  * can break your vertical rhythm. But if you want, you can :).
  */
-$supple-space: $supple-baseline * $supple-space-factor !default;
+$supple-space-base: $supple-baseline * $supple-space-factor !default;
 $supple-space-tiny: $supple-baseline * $supple-space-factor-tiny !default;
 $supple-space-small: $supple-baseline * $supple-space-factor-small !default;
 $supple-space-large: $supple-baseline * $supple-space-factor-large !default;
@@ -57,7 +57,7 @@ $supple-static-breakpoint: 1280px !default;
     ========================================================================= */
 
 $supple-font-size: 16px !default;
-$supple-line-height: $supple-space !default;
+$supple-line-height: $supple-space-base !default;
 $supple-line-height-ratio: $supple-line-height/$supple-font-size !default;
 
 
