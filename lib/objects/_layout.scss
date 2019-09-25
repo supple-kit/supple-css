@@ -105,6 +105,14 @@ $supple-breakpoint-has-layout-fill: () !default;
 
 
 /**
+ * Modifier: justify all layout cells
+ */
+.o-layout--align-justify {
+  justify-content: space-between;
+}
+
+
+/**
  * Modifier: middle-align layout cells
  */
 .o-layout--align-middle {
