@@ -7,7 +7,6 @@
     ========================================================================= */
 
 $supple-retain-text-size: 40em !default;
-$supple-retain-text-size-chars: 70ch !default;
 $supple-retain-space: $supple-space-base !default;
 
 
@@ -42,29 +41,10 @@ $supple-retain-sizes: (
 
 
 /**
- * Modifier: left
- */
-.o-retain--left {
-  margin-left: 0;
-}
-
-
-/**
- * Modifier: right
- */
-.o-retain--right {
-  margin-right: 0;
-}
-
-
-/**
  * Modifier: text
  */
 .o-retain--text {
   --o-retain-max-width: #{$supple-retain-text-size};
-  @supports(max-width: $supple-retain-text-size-chars) {
-    max-width: $supple-retain-text-size-chars;
-  }
   padding-right: 0;
   padding-left: 0;
   margin-left: 0;

@@ -9,11 +9,16 @@
 /**
  * The default gutter
  */
-$supple-layout-gutter: $supple-space-base !default;
+$supple-layout-gutter-base: $supple-space-base !default;
 $supple-layout-gutter-tiny: $supple-space-tiny !default;
 $supple-layout-gutter-small: $supple-space-small !default;
 $supple-layout-gutter-large: $supple-space-large !default;
 $supple-layout-gutter-huge: $supple-space-huge !default;
+
+/**
+ * Deprecated gutter variables
+ */
+ $supple-layout-gutter: $supple-layout-gutter-base !important;
 
 
 /**
@@ -162,8 +167,9 @@ $supple-breakpoint-has-layout-fill: () !default;
 
 /**
  * Modifier: Gutter
+ * - Deprecated gutter class: o-layout--gutter
  */
-.o-layout--gutter {
+.o-layout--gutter-base, .o-layout--gutter {
   @include supple-rem(margin-left, -$supple-layout-gutter);
 
   > .o-layout__cell {
@@ -216,7 +222,6 @@ $supple-breakpoint-has-layout-fill: () !default;
     @include supple-rem(padding-left, $supple-layout-gutter-huge);
   }
 }
-
 
 
 /*  Layout cell
