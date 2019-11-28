@@ -17,8 +17,9 @@ $supple-layout-gutter-huge: $supple-space-huge !default;
 
 /**
  * Deprecated gutter variables
+ * Tags: ^deprecated
  */
- $supple-layout-gutter: $supple-layout-gutter-base !important;
+$supple-layout-gutter: $supple-layout-gutter-base !important;
 
 
 /**
@@ -167,7 +168,8 @@ $supple-breakpoint-has-layout-fill: () !default;
 
 /**
  * Modifier: Gutter
- * - Deprecated gutter class: o-layout--gutter
+ * Deprecated gutter class: o-layout--gutter
+ * Tags: ^deprecated
  */
 .o-layout--gutter-base, .o-layout--gutter {
   @include supple-rem(margin-left, -$supple-layout-gutter);

@@ -42,6 +42,9 @@ $supple-retain-sizes: (
 
 /**
  * Modifier: text
+ * Tags: ^refactor, ^deprecated
+ * Deprecated: Will be removed in supple v3
+ *             please use `u-text-retain` in `utilities/_text.scss`
  */
 .o-retain--text {
   --o-retain-max-width: #{$supple-retain-text-size};

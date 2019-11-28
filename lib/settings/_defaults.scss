@@ -35,8 +35,9 @@ $supple-space-factor-huge: 12 !default; // 96px
 
 /**
  * Deprecated spacing factor variables
+ * Tags: ^deprecated
  */
- $supple-space-factor: $supple-space-factor-base !important;
+$supple-space-factor: $supple-space-factor-base !important;
 
 
 /**
@@ -52,8 +53,9 @@ $supple-space-huge: $supple-baseline * $supple-space-factor-huge !default;
 
 /**
  * Deprecated spacing variables
+ * Tags: ^deprecated
  */
- $supple-space: $supple-space-base !important;
+$supple-space: $supple-space-base !important;
 
 
 /**
