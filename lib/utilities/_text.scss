@@ -14,6 +14,5 @@ $supple-text-retain: 70ch !default;
     ========================================================================= */
 
 .u-text-retain {
-  --u-text-retain-max-width: $supple-text-retain;
-  max-width: var(--u-text-retain-max-width);
+  max-width: $supple-text-retain;
 }

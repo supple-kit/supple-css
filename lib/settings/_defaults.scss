@@ -33,12 +33,6 @@ $supple-space-factor-small: 2 !default; // 16px
 $supple-space-factor-large: 6 !default; // 48px
 $supple-space-factor-huge: 12 !default; // 96px
 
-/**
- * Deprecated spacing factor variables
- * Tags: ^deprecated
- */
-$supple-space-factor: $supple-space-factor-base !important;
-
 
 /**
  * Spacing values are determined based on your project’s global baseline grid.
@@ -50,12 +44,6 @@ $supple-space-tiny: $supple-baseline * $supple-space-factor-tiny !default;
 $supple-space-small: $supple-baseline * $supple-space-factor-small !default;
 $supple-space-large: $supple-baseline * $supple-space-factor-large !default;
 $supple-space-huge: $supple-baseline * $supple-space-factor-huge !default;
-
-/**
- * Deprecated spacing variables
- * Tags: ^deprecated
- */
-$supple-space: $supple-space-base !important;
 
 
 /**

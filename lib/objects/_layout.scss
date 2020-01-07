@@ -15,12 +15,6 @@ $supple-layout-gutter-small: $supple-space-small !default;
 $supple-layout-gutter-large: $supple-space-large !default;
 $supple-layout-gutter-huge: $supple-space-huge !default;
 
-/**
- * Deprecated gutter variables
- * Tags: ^deprecated
- */
-$supple-layout-gutter: $supple-layout-gutter-base !important;
-
 
 /**
  * Define which namespaced breakpoints you would like to generate for `fit` & `fill`.
@@ -167,15 +161,13 @@ $supple-breakpoint-has-layout-fill: () !default;
 
 
 /**
- * Modifier: Gutter
- * Deprecated gutter class: o-layout--gutter
- * Tags: ^deprecated
+ * Modifier: Gutter-base
  */
-.o-layout--gutter-base, .o-layout--gutter {
-  @include supple-rem(margin-left, -$supple-layout-gutter);
+.o-layout--gutter-base {
+  @include supple-rem(margin-left, -$supple-layout-gutter-base);
 
   > .o-layout__cell {
-    @include supple-rem(padding-left, $supple-layout-gutter);
+    @include supple-rem(padding-left, $supple-layout-gutter-base);
   }
 }
 
