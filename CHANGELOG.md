@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 3.0.0 - 07-jan-2020
+
+- Changed `$supple-space` to `$supple-space-base` for better find and replace possibilities.
+- Changed `.o-layout--gutter` to `.o-layout--gutter-base` for the same reason.
+- Moved `.o-retain--text` to `u-text-retain` for text truncation.
+- Added `auto` margin to the `$supple-spacing-sizes` map in the spacing utility.
+
 ## 2.1.1 - 24-apr-2019
 
 - Added `!default` to `$mq-breakpoints` in `settings/_responsive.scss` for easy overwriting
