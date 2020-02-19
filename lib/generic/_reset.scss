@@ -8,18 +8,15 @@
  * 1. Set the global `box-sizing` state to `border-box`. As per:
  *    paulirish.com/2012/box-sizing-border-box-ftw
  * 2. Always add the vertical scrollbar to prevent layout shifting
- * 3. Fonts on OSX will look more consistent with other systems that do not
- *    render text using sub-pixel anti-aliasing.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
  * 4. Apply the `$supple-font-size` & `$supple-line-height-ratio`
  */
 html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
-  min-height: 100%;
+  min-height: 100%;  /* [3] */
   font-size: #{($supple-font-size/16px)*1em}; /* [4] */
   line-height: #{$supple-line-height-ratio}; /* [4] */
-  -moz-osx-font-smoothing: grayscale; /* [3] */
-  -webkit-font-smoothing: antialiased; /* [3] */
 }
 
 *,
@@ -70,6 +67,7 @@ ol,
 dd {
   @include supple-rem(margin-left, $supple-space-base);
 }
+
 
 /**
  * Remove extra vertical spacing when nesting lists.
