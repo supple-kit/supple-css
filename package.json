@@ -2,7 +2,7 @@
   "name": "supple",
   "version": "3.0.0",
   "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
-  "main": "index.scss",
+  "main": "src/index.scss",
   "repository": "https://github.com/supple-css/supple.git",
   "author": "Bram Smulders <bram@bramsmulders.com>",
   "license": "MIT",
@@ -16,11 +16,12 @@
     "bem"
   ],
   "scripts": {
-    "test": "npm run lint && npm run build && npm run postcss && npm run gzip",
-    "lint": "./node_modules/.bin/stylelint \"**/*.scss\"",
-    "gzip": "gzip-size test/css/supple.css",
-    "postcss": "postcss -c postcss.config.js -o test/css/supple.css test/css/supple.css",
-    "build": "node-sass index.scss test/css/supple.css  --precision 8"
+    "test": "npm run lint && npm run build && npm run gzip",
+    "lint": "stylelint \"**/*.scss\"",
+    "gzip": "gzip-size test/css/index.css",
+    "postcss": "postcss -c postcss.config.js -o test/css/index.css test/css/index.css",
+    "sass": "node-sass src/ -d -o test/css/ --precision 8",
+    "build": "npm run sass && npm run postcss"
   },
   "browserslist": [
     "> 2%",
