@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 3.1.0 - 20-apr-2020
+
+- Remove mq-base-font-size since it will no longer be included in sass-mq 6
+- Added postcss normalize into the package
+- Cleaned up reset file
+- Added palm breakpoint
+
 ## 3.0.0 - 07-jan-2020
 
 - Changed `$supple-space` to `$supple-space-base` for better find and replace possibilities.
