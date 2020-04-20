@@ -9,6 +9,8 @@
 @import './lib/settings/defaults';
 @import './lib/settings/responsive';
 
+$mq-show-breakpoints: (palm, lap, desk, wall);
+
 
 
 /*  Tools
@@ -23,7 +25,7 @@
 /*  Generic
     ========================================================================= */
 
-@import './lib/generic/normalize';
+@import-normalize;
 @import './lib/generic/reset';
 
 
@@ -48,7 +50,12 @@
 /*  Components
     ========================================================================= */
 
-/* Add your own, yo */
+/**
+ * Test for creating fluid typography with CSS-lock mixin.
+ */
+.c-css-lock {
+  @include supple-css-lock(font-size, 20px, 30px, desk, wall);
+}
 
 
 

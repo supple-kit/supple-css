@@ -1,8 +1,8 @@
 {
   "name": "supple",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
-  "main": "index.scss",
+  "main": "src/index.scss",
   "repository": "https://github.com/supple-css/supple.git",
   "author": "Bram Smulders <bram@bramsmulders.com>",
   "license": "MIT",
@@ -16,15 +16,17 @@
     "bem"
   ],
   "scripts": {
-    "test": "npm run lint && npm run build && npm run postcss && npm run gzip",
-    "lint": "./node_modules/.bin/stylelint \"**/*.scss\"",
-    "gzip": "gzip-size test/css/supple.css",
-    "postcss": "postcss -c postcss.config.js -o test/css/supple.css test/css/supple.css",
-    "build": "node-sass index.scss test/css/supple.css  --precision 8"
+    "test": "npm run lint && npm run build && npm run gzip",
+    "lint": "stylelint \"**/*.scss\"",
+    "gzip": "gzip-size test/css/index.css",
+    "postcss": "postcss -c postcss.config.js -o test/css/index.css test/css/index.css",
+    "sass": "node-sass src/ -d -o test/css/ --precision 8",
+    "build": "npm run sass && npm run postcss"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions"
+    "> 2%",
+    "not op_mini all",
+    "not dead"
   ],
   "devDependencies": {
     "autoprefixer": "^9.7.3",
@@ -34,6 +36,7 @@
     "node-sass": "^4.13.0",
     "postcss": "^7.0.26",
     "postcss-cli": "^6.1.3",
+    "postcss-normalize": "^8.0.1",
     "stylelint": "^12.0.1",
     "stylelint-config-supple": "^2.1.0",
     "stylelint-scss": "^3.13.0"

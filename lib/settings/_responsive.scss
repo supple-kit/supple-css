@@ -6,10 +6,10 @@
 /*  Variables
     ========================================================================= */
 
-$mq-base-font-size: $supple-font-size !default;
 $mq-static-breakpoint: wall !default;
 
 $mq-breakpoints: (
+  palm: 320px,
   lap: 640px,
   desk: 960px,
   wall: $supple-static-breakpoint
