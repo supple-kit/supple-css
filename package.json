@@ -21,7 +21,8 @@
     "gzip": "gzip-size test/css/index.css",
     "postcss": "postcss test/css/**/*.css --replace",
     "sass": "sass src:test/css/ --no-source-map",
-    "build": "npm run sass && npm run postcss"
+    "build": "npm run sass && npm run postcss",
+    "watch": "nodemon -e scss -x \"npm run test\""
   },
   "browserslist": [
     "defaults"
@@ -31,6 +32,7 @@
     "cssnano": "^4.1.10",
     "glob": "^7.1.6",
     "gzip-size-cli": "^3.0.0",
+    "nodemon": "^2.0.3",
     "postcss": "^7.0.27",
     "postcss-cli": "^7.1.1",
     "postcss-normalize": "^9.0.0",
