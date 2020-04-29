@@ -63,18 +63,12 @@ hr {
  * Default indentation value for lists
  */
 ul,
-ol,
-dd {
-  @include supple-rem(margin-left, $supple-space-base);
+ol {
+  @include supple-rem(padding-left, $supple-space-base);
 }
 
-
-/**
- * Remove extra vertical spacing when nesting lists.
- */
-li > ul,
-li > ol {
-  margin-bottom: 0;
+dd {
+  @include supple-rem(margin-left, $supple-space-base);
 }
 
 
@@ -86,9 +80,7 @@ button {
 }
 
 button,
-fieldset,
-ol,
-ul {
+fieldset {
   padding: 0;
 }
 
