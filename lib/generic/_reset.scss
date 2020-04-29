@@ -27,14 +27,18 @@ html {
 
 
 /**
- * Remove default margins from headings
+ * Remove default margins from elements
  */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+button,
+input,
+optgroup,
+select {
   margin: 0;
 }
 
@@ -63,18 +67,12 @@ hr {
  * Default indentation value for lists
  */
 ul,
-ol,
-dd {
-  @include supple-rem(margin-left, $supple-space-base);
+ol {
+  @include supple-rem(padding-left, $supple-space-base);
 }
 
-
-/**
- * Remove extra vertical spacing when nesting lists.
- */
-li > ul,
-li > ol {
-  margin-bottom: 0;
+dd {
+  @include supple-rem(margin-left, $supple-space-base);
 }
 
 
@@ -86,9 +84,7 @@ button {
 }
 
 button,
-fieldset,
-ol,
-ul {
+fieldset {
   padding: 0;
 }
 
@@ -96,6 +92,21 @@ button,
 iframe,
 fieldset {
   border: 0;
+}
+
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
 }
 
 
