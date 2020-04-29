@@ -27,14 +27,18 @@ html {
 
 
 /**
- * Remove default margins from headings
+ * Remove default margins from elements
  */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+button,
+input,
+optgroup,
+select {
   margin: 0;
 }
 
@@ -98,11 +102,11 @@ fieldset {
 button,
 input,
 optgroup,
-select {
+select,
+textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
 }
 
 
