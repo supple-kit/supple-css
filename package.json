@@ -20,7 +20,9 @@
     "lint": "stylelint \"**/*.scss\"",
     "gzip": "gzip-size test/css/index.css",
     "postcss": "postcss -c postcss.config.js -o test/css/index.css test/css/index.css",
-    "sass": "node-sass src/ -d -o test/css/ --precision 8",
+    "sass": "npm run sass:test",
+    "sass:test": "sass src/test.scss test/css/test.css --precision 8",
+    "sass:index": "sass src/index.scss test/css/index.css --precision 8",
     "build": "npm run sass && npm run postcss"
   },
   "browserslist": [
@@ -29,17 +31,17 @@
     "not dead"
   ],
   "devDependencies": {
-    "autoprefixer": "^9.7.3",
+    "autoprefixer": "^9.7.6",
     "cssnano": "^4.1.10",
     "glob": "^7.1.6",
     "gzip-size-cli": "^3.0.0",
-    "node-sass": "^4.13.0",
-    "postcss": "^7.0.26",
-    "postcss-cli": "^6.1.3",
-    "postcss-normalize": "^8.0.1",
-    "stylelint": "^12.0.1",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.1",
+    "postcss-normalize": "^9.0.0",
+    "sass": "^1.26.5",
+    "stylelint": "^13.3.3",
     "stylelint-config-supple": "^2.1.0",
-    "stylelint-scss": "^3.13.0"
+    "stylelint-scss": "^3.17.1"
   },
   "dependencies": {
     "sass-mq": "^5.0.1"
