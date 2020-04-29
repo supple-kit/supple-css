@@ -19,16 +19,12 @@
     "test": "npm run lint && npm run build && npm run gzip",
     "lint": "stylelint \"**/*.scss\"",
     "gzip": "gzip-size test/css/index.css",
-    "postcss": "postcss -c postcss.config.js -o test/css/index.css test/css/index.css",
-    "sass": "npm run sass:test && npm run sass:index",
-    "sass:test": "sass src/test.scss test/css/test.css --precision 8",
-    "sass:index": "sass src/index.scss test/css/index.css --precision 8",
+    "postcss": "postcss test/css/**/*.css --replace",
+    "sass": "sass src:test/css/ --no-source-map",
     "build": "npm run sass && npm run postcss"
   },
   "browserslist": [
-    "> 2%",
-    "not op_mini all",
-    "not dead"
+    "defaults"
   ],
   "devDependencies": {
     "autoprefixer": "^9.7.6",
