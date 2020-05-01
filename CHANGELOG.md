@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.0 - 20-apr-2020
+
+- Confirm to `@csstools/normalize.css` because of some problems with nested lists and buttons. Thus introducing a breaking change.
+- Confirm to new stylelint-config-supple v3
+- Updated code to work with dart-sass, the new default sass parser.
+
 ## 3.1.0 - 20-apr-2020
 
 - Remove mq-base-font-size since it will no longer be included in sass-mq 6
