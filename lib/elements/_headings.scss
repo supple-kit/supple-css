@@ -4,15 +4,22 @@
     As per: https://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use '../tools/mixins';
+
+
+
 /*  Variables
     ========================================================================= */
 
-$supple-font-alpha:  36px !default;
-$supple-font-beta:  28px !default;
-$supple-font-gamma:  24px !default;
-$supple-font-delta:  20px !default;
-$supple-font-epsilon:  18px !default;
-$supple-font-zeta:  16px !default;
+$font-alpha:  36px !default;
+$font-beta:  28px !default;
+$font-gamma:  24px !default;
+$font-delta:  20px !default;
+$font-epsilon:  18px !default;
+$font-zeta:  16px !default;
 
 
 
@@ -20,25 +27,25 @@ $supple-font-zeta:  16px !default;
     ========================================================================= */
 
 h1 {
-  @include supple-font-size($supple-font-alpha);
+  @include mixins.font-size($font-alpha);
 }
 
 h2 {
-  @include supple-font-size($supple-font-beta);
+  @include mixins.font-size($font-beta);
 }
 
 h3 {
-  @include supple-font-size($supple-font-gamma);
+  @include mixins.font-size($font-gamma);
 }
 
 h4 {
-  @include supple-font-size($supple-font-delta);
+  @include mixins.font-size($font-delta);
 }
 
 h5 {
-  @include supple-font-size($supple-font-epsilon);
+  @include mixins.font-size($font-epsilon);
 }
 
 h6 {
-  @include supple-font-size($supple-font-zeta);
+  @include mixins.font-size($font-zeta);
 }
