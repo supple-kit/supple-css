@@ -22,7 +22,7 @@
     "postcss": "postcss test/css/**/*.css --replace",
     "sass": "sass src:test/css/ --no-source-map",
     "build": "npm run sass && npm run postcss",
-    "watch": "nodemon -e scss -x \"npm run test\""
+    "start": "nodemon -e scss -x \"npm run test\""
   },
   "browserslist": [
     "defaults"

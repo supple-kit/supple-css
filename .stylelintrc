@@ -4,8 +4,7 @@
     "stylelint-scss"
   ],
   "ignoreFiles": [
-    "test/css/*",
-    "lib/generic/_normalize.scss"
+    "test/css/*"
   ],
   "rules": {
     "scss/at-function-pattern": "supple-.+",
