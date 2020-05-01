@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.0 - 20-apr-2020
+
+- Confirm to `@csstools/normalize.css` because of some problems with nested lists and buttons. Thus introducing a breaking change.
+- Confirm to new stylelint-config-supple v3
+- Updated code to work with dart-sass, the new default sass parser.
+
+## 3.1.0 - 20-apr-2020
+
+- Remove mq-base-font-size since it will no longer be included in sass-mq 6
+- Added postcss normalize into the package
+- Cleaned up reset file
+- Added palm breakpoint
+
+## 3.0.0 - 07-jan-2020
+
+- Changed `$supple-space` to `$supple-space-base` for better find and replace possibilities.
+- Changed `.o-layout--gutter` to `.o-layout--gutter-base` for the same reason.
+- Moved `.o-retain--text` to `u-text-retain` for text truncation.
+- Added `auto` margin to the `$supple-spacing-sizes` map in the spacing utility.
+
 ## 2.1.1 - 24-apr-2019
 
 - Added `!default` to `$mq-breakpoints` in `settings/_responsive.scss` for easy overwriting

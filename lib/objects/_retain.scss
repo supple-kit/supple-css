@@ -6,8 +6,7 @@
 /*  Variables
     ========================================================================= */
 
-$supple-retain-text-size: 40em !default;
-$supple-retain-space: $supple-space !default;
+$supple-retain-space: $supple-space-base !default;
 
 
 /**
@@ -16,8 +15,7 @@ $supple-retain-space: $supple-space !default;
 $supple-retain-sizes: (
   lap: 640px,
   desk: 960px,
-  wall: $supple-static-breakpoint,
-  text: $supple-retain-text-size
+  wall: $supple-static-breakpoint
 ) !default;
 
 
@@ -37,18 +35,6 @@ $supple-retain-sizes: (
   @include supple-rem(padding-left, $supple-retain-space);
   margin-right: auto;
   margin-left: auto;
-}
-
-
-/**
- * Modifier: text
- */
-.o-retain--text {
-  --o-retain-max-width: #{$supple-retain-text-size};
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 

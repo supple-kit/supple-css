@@ -62,7 +62,6 @@ $supple-fractions-delimiter: 'of' !default;
 
 /* stylelint-disable max-nesting-depth */
 @mixin supple-fractions-build ($units, $modifier: '') {
-
   /**
    * Proportional fractions
    * Specify the proportional width of an object.

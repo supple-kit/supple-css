@@ -1,18 +1,10 @@
 {
   "extends": "stylelint-config-supple",
-  "plugins": [
-    "stylelint-scss"
-  ],
   "ignoreFiles": [
-    "test/css/supple.css",
-    "lib/generic/_normalize.scss"
+    "test/css/*"
   ],
   "rules": {
     "scss/at-function-pattern": "supple-.+",
-    "scss/at-mixin-pattern": "supple-.+",
-    "scss/at-extend-no-missing-placeholder": true,
-    "scss/dollar-variable-colon-space-before": "never",
-    "scss/partial-no-import": true,
-    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/at-mixin-pattern": "supple-.+"
   }
 }

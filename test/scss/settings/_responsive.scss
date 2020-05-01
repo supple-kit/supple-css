@@ -1,16 +1,8 @@
 /*  =========================================================================
     settings.responsive
-    Used in conjunction with Sass MQ: https://sass-mq.github.io/sass-mq/
     ========================================================================= */
 
 /*  Variables
     ========================================================================= */
 
-$mq-static-breakpoint: wall !default;
-
-$mq-breakpoints: (
-  palm: 320px,
-  lap: 640px,
-  desk: 960px,
-  wall: $supple-static-breakpoint
-) !default;
+$mq-show-breakpoints: (palm, lap, desk, wall);

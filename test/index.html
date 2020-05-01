@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <title>Supple CSS test suite</title>
 <meta name="viewport" content="initial-scale=1,width=device-width">
-<link rel="stylesheet" href="css/supple.css">
+<link rel="stylesheet" href="css/test.css">
 <style>
 
   html {
@@ -163,10 +163,24 @@
       <ul>
         <li>Unordered list: item 1</li>
         <li>Unordered list: item 2</li>
+        <li>
+          Unordered list: nested
+          <ul>
+            <li>Unordered list: nested item 1</li>
+            <li>Unordered list: nested item 2</li>
+          </ul>
+        </li>
       </ul>
       <ol>
         <li>Ordered list: item 1</li>
         <li>Ordered list: item 2</li>
+        <li>
+          Ordered list: nested
+          <ol>
+            <li>Ordered list: nested item 1</li>
+            <li>Ordered list: nested item 2</li>
+          </ol>
+        </li>
       </ol>
       <dl>
         <dt>Definition list: Term</dt>
@@ -208,6 +222,14 @@
     <div class="test__run">
       <a href="#_" tabindex="-1">Link content</a>
       <button type="button" tabindex="-1">Button content</button>
+    </div><!-- .test__run -->
+
+    <h3 class="test__describe">CSS-Lock</h3>
+    <h4 class="test__it">scales perfectly between 20px & 30px between desk & wall breakpoints</h4>
+    <div class="test__run">
+      <div class="o-retain  o-retain--lap">
+        <p class="c-css-lock">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias labore fugiat, placeat doloribus ea rerum debitis reiciendis molestiae in impedit dolores natus iure ducimus a odio soluta dignissimos consequuntur perspiciatis?</p>
+      </div>
     </div><!-- .test__run -->
 
   </div><!-- .test -->
@@ -517,10 +539,10 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--gutter</h3>
+    <h3 class="test__describe">.o-layout--gutter-base</h3>
     <h4 class="test__it">supports gutters</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -538,7 +560,7 @@
 
     <h4 class="test__it">doesn't apply gutters to nested layouts</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2;">
+      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2;">
         <div class="o-layout__cell" style="--o-layout-colspan: 1;">
           <div class="fixture-wrap">
             1
@@ -570,11 +592,11 @@
 
     <h4 class="test__it">correctly aligns gutters within nested layouts</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2;">
+      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2;">
         <div class="o-layout__cell" style="--o-layout-colspan: 1;">
           <div class="fixture-wrap">
             1
-            <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2">
+            <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2">
               <div class="o-layout__cell" style="--o-layout-colspan: 1">
                 <div class="fixture-box">1</div>
               </div>
@@ -587,7 +609,7 @@
         <div class="o-layout__cell" style="--o-layout-colspan: 1;">
             <div class="fixture-wrap">
               2
-              <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 2">
+              <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2">
                 <div class="o-layout__cell" style="--o-layout-colspan: 1">
                   <div class="fixture-box">1</div>
                 </div>
@@ -602,7 +624,7 @@
 
     <h4 class="test__it">correctly adds gutters with o-layout--fit</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter  o-layout--fit">
+      <div class="o-layout  o-layout--gutter-base  o-layout--fit">
         <div class="o-layout__cell">
           <div class="fixture-box">1</div>
         </div>
@@ -613,7 +635,7 @@
           <div class="fixture-box">3</div>
         </div>
       </div>
-      <div class="o-layout  o-layout--gutter  o-layout--fit">
+      <div class="o-layout  o-layout--gutter-base  o-layout--fit">
         <div class="o-layout__cell">
           <div class="fixture-box">1</div>
         </div>
@@ -667,7 +689,7 @@
         </div>
       </div>
 
-      <div class="o-layout  o-layout--gutter" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -760,13 +782,6 @@
       </div>
     </div>
 
-    <h3 class="test__describe">.o-retain--text</h3>
-    <h4 class="test__it">Retains paragraphs at an ideal max-width of 40em</h4>
-    <div class="test__run">
-      <p class="o-retain  o-retain--text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a doloremque quasi dolor blanditiis quae quo cum illum unde repellat maxime, facere culpa minima placeat ullam architecto at iure deleniti?
-      </p>
-    </div>
   </div>
 </div>
 
@@ -897,6 +912,20 @@
         </div>
       </div>
     </div><!-- .test__run -->
+
+  </div><!-- .test -->
+</div><!-- .module -->
+
+<div class="module" id="u-text">
+  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/text.css">text</a> utility tests</h2>
+  <div class="test">
+    <h3 class="test__describe">.u-text-retain</h3>
+    <h4 class="test__it">Retains paragraph at an ideal max-width of 70ch</h4>
+    <div class="test__run">
+      <p class="u-text-retain">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a doloremque quasi dolor blanditiis quae quo cum illum unde repellat maxime, facere culpa minima placeat ullam architecto at iure deleniti?
+      </p>
+    </div>
 
   </div><!-- .test -->
 </div><!-- .module -->

@@ -8,18 +8,15 @@
  * 1. Set the global `box-sizing` state to `border-box`. As per:
  *    paulirish.com/2012/box-sizing-border-box-ftw
  * 2. Always add the vertical scrollbar to prevent layout shifting
- * 3. Fonts on OSX will look more consistent with other systems that do not
- *    render text using sub-pixel anti-aliasing.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
  * 4. Apply the `$supple-font-size` & `$supple-line-height-ratio`
  */
 html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
-  min-height: 100%;
+  min-height: 100%;  /* [3] */
   font-size: #{($supple-font-size/16px)*1em}; /* [4] */
   line-height: #{$supple-line-height-ratio}; /* [4] */
-  -moz-osx-font-smoothing: grayscale; /* [3] */
-  -webkit-font-smoothing: antialiased; /* [3] */
 }
 
 *,
@@ -30,14 +27,18 @@ html {
 
 
 /**
- * Remove default margins from headings
+ * Remove default margins from elements
  */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+button,
+input,
+optgroup,
+select {
   margin: 0;
 }
 
@@ -58,7 +59,7 @@ fieldset,
 figure,
 pre,
 hr {
-  @include supple-rem(margin, 0 0 $supple-space);
+  @include supple-rem(margin, 0 0 $supple-space-base);
 }
 
 
@@ -66,17 +67,12 @@ hr {
  * Default indentation value for lists
  */
 ul,
-ol,
-dd {
-  @include supple-rem(margin-left, $supple-space);
+ol {
+  @include supple-rem(padding-left, $supple-space-base);
 }
 
-/**
- * Remove extra vertical spacing when nesting lists.
- */
-li > ul,
-li > ol {
-  margin-bottom: 0;
+dd {
+  @include supple-rem(margin-left, $supple-space-base);
 }
 
 
@@ -88,9 +84,7 @@ button {
 }
 
 button,
-fieldset,
-ol,
-ul {
+fieldset {
   padding: 0;
 }
 
@@ -98,6 +92,21 @@ button,
 iframe,
 fieldset {
   border: 0;
+}
+
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
 }
 
 
