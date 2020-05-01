@@ -3,19 +3,27 @@
     Page-level constraining and wrapping elements.
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use '../settings/defaults';
+@use '../tools/mixins';
+
+
+
 /*  Variables
     ========================================================================= */
 
-$supple-retain-space: $supple-space-base !default;
+$retain-space: defaults.$space-base !default;
 
 
 /**
  * Sizes
  */
-$supple-retain-sizes: (
+$retain-sizes: (
   lap: 640px,
   desk: 960px,
-  wall: $supple-static-breakpoint
+  wall: defaults.$static-breakpoint-size
 ) !default;
 
 
@@ -31,8 +39,8 @@ $supple-retain-sizes: (
 .o-retain {
   --o-retain-max-width: 100%;
   max-width: var(--o-retain-max-width);
-  @include supple-rem(padding-right, $supple-retain-space);
-  @include supple-rem(padding-left, $supple-retain-space);
+  @include mixins.rem(padding-right, $retain-space);
+  @include mixins.rem(padding-left, $retain-space);
   margin-right: auto;
   margin-left: auto;
 }
@@ -52,8 +60,8 @@ $supple-retain-sizes: (
     custom-property support
     ========================================================================= */
 
-@each $key, $value in $supple-retain-sizes {
+@each $key, $value in $retain-sizes {
   .o-retain--#{$key} {
-    @include supple-rem(max-width, $value);
+    @include mixins.rem(max-width, $value);
   }
 }
