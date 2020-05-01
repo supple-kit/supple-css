@@ -6,19 +6,18 @@
 /*  Settings
     ========================================================================= */
 
-@import './lib/settings/defaults';
-@import './lib/settings/responsive';
-
-$mq-show-breakpoints: (palm, lap, desk, wall);
+@import '../lib/settings/defaults';
+@import '../lib/settings/responsive';
+@import '../test/scss/settings/responsive';
 
 
 
 /*  Tools
     ========================================================================= */
 
-@import './node_modules/sass-mq/mq';
-@import './lib/tools/functions';
-@import './lib/tools/mixins';
+@import '../node_modules/sass-mq/mq';
+@import '../lib/tools/functions';
+@import '../lib/tools/mixins';
 
 
 
@@ -26,46 +25,41 @@ $mq-show-breakpoints: (palm, lap, desk, wall);
     ========================================================================= */
 
 @import-normalize;
-@import './lib/generic/reset';
+@import '../lib/generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-@import './lib/elements/headings';
+@import '../lib/elements/headings';
 
 
 
 /*  Objects
     ========================================================================= */
 
-@import './lib/objects/list-clean';
-@import './lib/objects/layout';
-@import './lib/objects/retain';
-@import './lib/objects/flexembed';
+@import '../lib/objects/list-clean';
+@import '../lib/objects/layout';
+@import '../lib/objects/retain';
+@import '../lib/objects/flexembed';
 
 
 
 /*  Components
     ========================================================================= */
 
-/**
- * Test for creating fluid typography with CSS-lock mixin.
- */
-.c-css-lock {
-  @include supple-css-lock(font-size, 20px, 30px, desk, wall);
-}
+@import '../test/scss/components/css-lock';
 
 
 
 /*  Utilities
     ========================================================================= */
 
-@import './lib/utilities/fractions';
-@import './lib/utilities/text';
-@import './lib/utilities/float';
-@import './lib/utilities/module';
-@import './lib/utilities/spacing';
-@import './lib/utilities/visually-hidden';
-@import './lib/utilities/hidden';
+@import '../lib/utilities/fractions';
+@import '../lib/utilities/text';
+@import '../lib/utilities/float';
+@import '../lib/utilities/module';
+@import '../lib/utilities/spacing';
+@import '../lib/utilities/visually-hidden';
+@import '../lib/utilities/hidden';
