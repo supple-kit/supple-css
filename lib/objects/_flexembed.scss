@@ -4,25 +4,34 @@
     retain a specific aspect ratio but adapt to elements of variable widths.
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use 'sass:meta';
+@use '../settings/defaults';
+@use '../tools/mixins';
+
+
+
 /*  Variables
     ========================================================================= */
 
 /**
  * Spacing
  */
-$supple-flexembed-space: $supple-space-base !default;
+$flexembed-space: defaults.$space-base !default;
 
 
 /**
  * Ratio's
  * Define ’em like this:
- * $supple-flexembed-ratios: (
+ * $flexembed-ratios: (
  *   (2:1),
  *   (4:3),
  *   (16:9),
  * );
  */
-$supple-flexembed-ratios: (
+$flexembed-ratios: (
   (2:1),
   (4:3),
   (16:9)
@@ -44,7 +53,7 @@ $supple-flexembed-ratios: (
   height: 0;
   padding: 0 0 calc(100% / var(--o-flexembed-ratio));
   overflow: hidden;
-  @include supple-rem(margin-bottom, $supple-flexembed-space);
+  @include mixins.rem(margin-bottom, $flexembed-space);
 }
 
 /**
@@ -67,9 +76,9 @@ $supple-flexembed-ratios: (
     custom-property support
     ========================================================================= */
 
-@each $ratio in $supple-flexembed-ratios {
+@each $ratio in $flexembed-ratios {
   @each $a, $b in $ratio {
-    @if (type-of($a) != number or type-of($b) != number) {
+    @if (meta.type-of($a) != number or meta.type-of($b) != number) {
       @error '`#{$a}` and `#{$b}` need to be numbers.';
     }
 
