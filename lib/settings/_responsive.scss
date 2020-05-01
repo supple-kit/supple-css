@@ -3,14 +3,35 @@
     Used in conjunction with Sass MQ: https://sass-mq.github.io/sass-mq/
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use '../settings/defaults';
+
+
+
 /*  Variables
     ========================================================================= */
 
-$mq-static-breakpoint: wall !default;
+$static-breakpoint: wall !default;
 
-$mq-breakpoints: (
+$breakpoints: (
   palm: 320px,
   lap: 640px,
   desk: 960px,
-  wall: $supple-static-breakpoint
+  wall: defaults.$static-breakpoint-size
 ) !default;
+
+$show-breakpoints: () !default;
+
+
+
+/*  Load sass-mq framework
+    ========================================================================= */
+
+@use
+  '../../node_modules/sass-mq/mq' with (
+    $mq-breakpoints: $breakpoints,
+    $mq-show-breakpoints: $show-breakpoints,
+    $mq-static-breakpoint: $static-breakpoint,
+  );

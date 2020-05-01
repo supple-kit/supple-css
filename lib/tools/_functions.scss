@@ -2,10 +2,21 @@
     tools.functions
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+
+@use '../settings/defaults';
+
+
+
 /*  Variables
     ========================================================================= */
 
-$supple-browser-context: $supple-font-size !default;
+$browser-context: defaults.$font-size !default;
 
 
 
@@ -16,14 +27,14 @@ $supple-browser-context: $supple-font-size !default;
  * Value to rem
  * Converts a px value to a rem unit based on the current browser context
  */
-@function supple-value-to-rem ($value, $warn: true) {
-  @if type-of($value) == string or unitless($value) == true or unit($value) != 'px' {
+@function value-to-rem ($value, $warn: true) {
+  @if meta.type-of($value) == string or math.is-unitless($value) == true or math.unit($value) != 'px' {
     @if $warn == true {
       @warn 'You’ve passed in a `$value` which is not in the `px` format. I’ve returned your `#{$value}` unmodified.';
     }
     @return $value;
   } @else {
-    @return ($value/$supple-browser-context*1rem);
+    @return ($value/$browser-context * 1rem);
   }
 }
 
@@ -31,7 +42,7 @@ $supple-browser-context: $supple-font-size !default;
 /**
  * A small, internally-used function to remove the units from a given value.
  */
-@function supple-strip-units ($number) {
+@function strip-units ($number) {
   @return $number / ($number * 0 + 1);
 }
 
@@ -39,11 +50,11 @@ $supple-browser-context: $supple-font-size !default;
 /**
  * Find the greatest common factor of two integers
  */
-@function supple-greatest-common-factor ($a, $b) {
+@function greatest-common-factor ($a, $b) {
   @if $b == 0 {
     @return $a;
   } @else {
-    @return supple-greatest-common-factor($b, $a % $b);
+    @return greatest-common-factor($b, $a % $b);
   }
 }
 
@@ -51,9 +62,9 @@ $supple-browser-context: $supple-font-size !default;
 /**
  * Check if a list contains a value
  */
-@function supple-list-contains ($list, $value) {
-  @if type-of($list) == list {
-    @return not not index($list, $value);
+@function list-contains ($list, $value) {
+  @if meta.type-of($list) == list {
+    @return not not string.index($list, $value);
   } @else {
     @return $list == $value;
   }

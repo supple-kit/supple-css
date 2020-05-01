@@ -2,24 +2,37 @@
     tools.mixins
     ========================================================================= */
 
-/*  Rem
-    Converts a set of values to rem values
-    Usage: @include supple-rem(margin, 0 auto 300px, !important);
+/*  Use or forward rules
     ========================================================================= */
 
-@mixin supple-rem ($property, $value, $append: '') {
+@use 'sass:meta';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+@use '../settings/defaults';
+@use 'functions';
+@use '../../node_modules/sass-mq/mq' as sassmq;
+
+
+
+/*  Rem
+    Converts a set of values to rem values
+    Usage: @include rem(margin, 0 auto 300px, !important);
+    ========================================================================= */
+
+@mixin rem ($property, $value, $append: '') {
   // Provide a fallback for non supporting browsers
-  @if $supple-rem-fallback == true {
+  @if defaults.$rem-fallback == true {
     #{$property}: $value #{$append};
   }
-  @if type-of($value) == list {
+  @if meta.type-of($value) == list {
     $all: ();
-    @for $i from 1 through length($value) {
-      $all: append($all, supple-value-to-rem(nth($value, $i), false));
+    @for $i from 1 through list.length($value) {
+      $all: list.append($all, functions.value-to-rem(list.nth($value, $i), false));
     }
     #{$property}: $all #{$append};
   } @else {
-    #{$property}: supple-value-to-rem($value, false) #{$append};
+    #{$property}: functions.value-to-rem($value, false) #{$append};
   }
 }
 
@@ -28,10 +41,10 @@
 /*  Visually-hidden
     Hides an element visually while still allowing the content to be accessible
     to assistive technology, e.g. screen readers.
-    Usage: @include supple-visually-hidden();
+    Usage: @include visually-hidden();
     ========================================================================= */
 
-@mixin supple-visually-hidden {
+@mixin visually-hidden {
   border: 0 !important;
   clip: rect(0 0 0 0) !important;
   clip-path: inset(50%) !important;
@@ -49,10 +62,10 @@
 /*  Render-module
     Removes the `margin-bottom` from the last childs of a module.
     As per: http://css-tricks.com/spacing-the-bottom-of-modules/
-    Usage: @include supple-render-module(4);
+    Usage: @include render-module(4);
     ========================================================================= */
 
-@mixin supple-render-module($depth: 2) {
+@mixin render-module($depth: 2) {
   $selector-all: '';
   @for $step from 1 through $depth {
     $selector: '';
@@ -69,7 +82,7 @@
 
 
 
-/*  mq
+/*  supple-mq
     A little wrapper around sass-mq which alows us to pass in a string based
     direction instead of direction variable.
 
@@ -80,20 +93,16 @@
     ========================================================================= */
 
 @mixin supple-mq($name, $direction: from) {
-  @if (variable-exists(mq-breakpoints) and mixin-exists(mq)) {
-    @if ($direction == from) {
-      @include mq($from: $name) {
-        @content;
-      }
-    } @else if ($direction == until) {
-      @include mq($until: $name) {
-        @content;
-      }
-    } @else {
-      @error '#{$direction} is not a valid sass-mq direction';
+  @if ($direction == from) {
+    @include sassmq.mq($from: $name) {
+      @content;
+    }
+  } @else if ($direction == until) {
+    @include sassmq.mq($until: $name) {
+      @content;
     }
   } @else {
-    @warn $supple-responsive-warning;
+    @error '#{$direction} is not a valid sass-mq direction';
   }
 }
 
@@ -103,39 +112,39 @@
     selector.
 
     Example usage:
-    $supple-breakpoint-has-YOURMODULE: (
+    $breakpoint-has-YOURMODULE: (
       from: lap desk,
       until: desk,
     );
-    @include supple-breakpoint-has($supple-breakpoint-has-YOURMODULE, '.your-selector') {
+    @include breakpoint-has($breakpoint-has-YOURMODULE, '.your-selector') {
       outline: 1px solid #ff0000;
     }
     ========================================================================= */
 
 /* stylelint-disable max-nesting-depth */
-@mixin supple-breakpoint-has($breakpoints, $selector) {
+@mixin breakpoint-has($breakpoints, $selector) {
   @if ($breakpoints and $selector) {
     @each $breakpoint in $breakpoints {
-      @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
+      @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
         // if the second argument is a list, loop over it
-        @if type-of(nth($breakpoint, 2)) == 'list' {
-          @each $point in nth($breakpoint, 2) {
-            @include supple-mq($point, nth($breakpoint, 1)) {
-              #{$selector}#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{$point} {
+        @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
+          @each $point in list.nth($breakpoint, 2) {
+            @include supple-mq($point, list.nth($breakpoint, 1)) {
+              #{$selector}#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point} {
                 @content;
               }
             }
           }
         } @else {
-          @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
-            #{$selector}#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)} {
+          @include supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+            #{$selector}#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)} {
               @content;
             }
           }
         }
       } @else {
         @include supple-mq($breakpoint) {
-          #{$selector}#{$supple-responsive-modifier}from-#{$breakpoint} {
+          #{$selector}#{defaults.$responsive-modifier}from-#{$breakpoint} {
             @content;
           }
         }
@@ -154,11 +163,11 @@
     Generates a rem font-size and a baseline-compatible unitless line-height
     from a pixel font-size value. Basic usage is simply:
 
-      @include supple-font-size(18px);
+      @include font-size(18px);
 
     You can force a specific line-height by passing it as the second argument:
 
-      @include supple-font-size(16px, 1);
+      @include font-size(16px, 1);
 
     You can also modify the line-height by increments, while staying in the
     baseline grid, by setting the `$modifier` parameter. It takes a positive
@@ -167,15 +176,15 @@
     an absolute value. i.e.:
 
       // add 2 lines:
-      @include supple-font-size(24px, $modifier: +2);
+      @include font-size(24px, $modifier: +2);
 
       // subtract 1 line:
-      @include supple-font-size(24px, $modifier: -1);
+      @include font-size(24px, $modifier: -1);
     ========================================================================= */
 
-@mixin supple-font-size($font-size, $line-height: auto, $modifier: 0, $important: false) {
-  @if (type-of($font-size) == number) {
-    @if (unit($font-size) != 'px') {
+@mixin font-size($font-size, $line-height: auto, $modifier: 0, $important: false) {
+  @if (meta.type-of($font-size) == number) {
+    @if (math.unit($font-size) != 'px') {
       @error '`#{$font-size}` needs to be a pixel value.';
     }
   } @else {
@@ -190,18 +199,18 @@
     @error '`#{$important}` needs to be `true` or `false`.';
   }
 
-  @include supple-rem(font-size, $font-size);
+  @include rem(font-size, $font-size);
 
   @if ($line-height == 'auto') {
     // Define how many grid lines each text line should span.
     // By default, we set it to the minimum number of lines necessary
     // in order to contain the defined font-size, +1 for some breathing room.
     // This can be modified with the `$modifier` parameter.
-    $lines: ceil($font-size / $supple-baseline) + $modifier + 1;
-    $line-height: $lines * $supple-baseline;
+    $lines: math.ceil($font-size / defaults.$baseline) + $modifier + 1;
+    $line-height: $lines * defaults.$baseline;
     line-height: ($line-height / $font-size) $important;
   } @else {
-    @if (type-of($line-height) == number or $line-height == 'inherit' or $line-height == 'normal') {
+    @if (meta.type-of($line-height) == number or $line-height == 'inherit' or $line-height == 'normal') {
       line-height: $line-height $important;
     } @else if ($line-height != 'none' and $line-height != false) {
       @error 'D’oh! `#{$line-height}` is not a valid value for `$line-height`.';
@@ -217,30 +226,30 @@
 
     Basic usage:
 
-      @include supple-css-lock(font-size, 18px, 24px);
+      @include css-lock(font-size, 18px, 24px);
 
     This will scale the property perfectly and smooth from 18px
     on `lap` breakpoint to 24px on `desk` breakpoint.
 
     You can also redefine the min- and max breakpoints like this:
 
-      @include supple-css-lock(padding, 18px, 24px, desk, wall);
+      @include css-lock(padding, 18px, 24px, desk, wall);
 
     As per: https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
     ========================================================================= */
 
-@mixin supple-css-lock($property: font-size, $size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
-  @if (unit($size-min) == 'px' and unit($size-max) == 'px' and unit(map-get($mq-breakpoints, $min-bp)) == 'px' and unit(map-get($mq-breakpoints, $max-bp)) == 'px') {
-    $size-min-rem: supple-value-to-rem($size-min);
-    $size-max-rem: supple-value-to-rem($size-max);
+@mixin css-lock($property: font-size, $size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
+  @if (math.unit($size-min) == 'px' and math.unit($size-max) == 'px' and math.unit(map.get(sassmq.$mq-breakpoints, $min-bp)) == 'px' and math.unit(map.get(sassmq.$mq-breakpoints, $max-bp)) == 'px') {
+    $size-min-rem: functions.value-to-rem($size-min);
+    $size-max-rem: functions.value-to-rem($size-max);
     #{$property}: $size-min-rem;
 
     @if ($size-min != $size-max) {
-      @include mq($from: $min-bp) {
-        #{$property}: calc(#{$size-min-rem} + #{supple-strip-units($size-max-rem - $size-min-rem)} * ((100vw - #{(supple-value-to-rem(map-get($mq-breakpoints, $min-bp)))}) / #{supple-strip-units(supple-value-to-rem(map-get($mq-breakpoints, $max-bp) - map-get($mq-breakpoints, $min-bp)))})); // stylelint-disable-line max-line-length
+      @include sassmq.mq($from: $min-bp) {
+        #{$property}: calc(#{$size-min-rem} + #{functions.strip-units($size-max-rem - $size-min-rem)} * ((100vw - #{(functions.value-to-rem(map.get(sassmq.$mq-breakpoints, $min-bp)))}) / #{functions.strip-units(functions.value-to-rem(map.get(sassmq.$mq-breakpoints, $max-bp) - map.get(sassmq.$mq-breakpoints, $min-bp)))})); // stylelint-disable-line max-line-length
       }
 
-      @include mq($from: $max-bp) {
+      @include sassmq.mq($from: $max-bp) {
         #{$property}: $size-max-rem;
       }
     } @else {

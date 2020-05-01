@@ -4,19 +4,27 @@
     suitable for web applications.
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use '../settings/defaults';
+@use '../tools/mixins';
+
+
+
 /**
  * 1. Set the global `box-sizing` state to `border-box`. As per:
  *    paulirish.com/2012/box-sizing-border-box-ftw
  * 2. Always add the vertical scrollbar to prevent layout shifting
  * 3. Ensure the page always fills at least the entire height of the viewport.
- * 4. Apply the `$supple-font-size` & `$supple-line-height-ratio`
+ * 4. Apply the `$font-size` & `$line-height-ratio`
  */
 html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
   min-height: 100%;  /* [3] */
-  font-size: #{($supple-font-size/16px)*1em}; /* [4] */
-  line-height: #{$supple-line-height-ratio}; /* [4] */
+  font-size: #{(defaults.$font-size/16px)*1em}; /* [4] */
+  line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
 
 *,
@@ -59,7 +67,7 @@ fieldset,
 figure,
 pre,
 hr {
-  @include supple-rem(margin, 0 0 $supple-space-base);
+  @include mixins.rem(margin, 0 0 defaults.$space-base);
 }
 
 
@@ -68,11 +76,11 @@ hr {
  */
 ul,
 ol {
-  @include supple-rem(padding-left, $supple-space-base);
+  @include mixins.rem(padding-left, defaults.$space-base);
 }
 
 dd {
-  @include supple-rem(margin-left, $supple-space-base);
+  @include mixins.rem(margin-left, defaults.$space-base);
 }
 
 
