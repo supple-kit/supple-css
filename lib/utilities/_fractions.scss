@@ -5,6 +5,19 @@
     and tables
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use 'sass:meta';
+@use 'sass:math';
+@use 'sass:list';
+@use '../settings/defaults';
+@use '../tools/mixins';
+@use '../tools/functions';
+@use '../../node_modules/sass-mq/mq' as sassmq;
+
+
+
 /*  Variables
     Variables used in this module
     ========================================================================= */
@@ -17,7 +30,7 @@
  * fraction-3-6, and fraction-6-12 classes to specify that an element should
  * take up 50% of its container.
  */
-$supple-fractions: 12 !default;
+$fractions: 12 !default;
 
 
 /**
@@ -25,11 +38,11 @@ $supple-fractions: 12 !default;
  * of the fractions. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-fractions: (lap, desk);
+ * $breakpoint-has-fractions: (lap, desk);
  *
  * Or
  *
- * $supple-breakpoint-has-fractions: (
+ * $breakpoint-has-fractions: (
  *   from: lap,
  *   until: lap desk,
  * );
@@ -37,14 +50,14 @@ $supple-fractions: 12 !default;
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
  */
-$supple-breakpoint-has-fractions: () !default;
+$breakpoint-has-fractions: () !default;
 
 
 /**
  * You can rename the fraction name & delimiter to your liking
  */
-$supple-fractions-name-fraction: fraction !default;
-$supple-fractions-delimiter: 'of' !default;
+$fractions-name-fraction: fraction !default;
+$fractions-delimiter: 'of' !default;
 
 
 
@@ -61,7 +74,7 @@ $supple-fractions-delimiter: 'of' !default;
  */
 
 /* stylelint-disable max-nesting-depth */
-@mixin supple-fractions-build ($units, $modifier: '') {
+@mixin fractions-build ($units, $modifier: '') {
   /**
    * Proportional fractions
    * Specify the proportional width of an object.
@@ -75,7 +88,7 @@ $supple-fractions-delimiter: 'of' !default;
       $denominator-r: 0;
 
       // Find the greatest common factor
-      $gcf: supple-greatest-common-factor($numerator, $denominator);
+      $gcf: functions.greatest-common-factor($numerator, $denominator);
 
       @if $gcf > 1 {
         // Reduced value of $numerator
@@ -86,19 +99,19 @@ $supple-fractions-delimiter: 'of' !default;
 
       // Check if the reduced value of $denominator-r was also supplied in the
       // list of units to be built
-      $canreduce: supple-list-contains($units, $denominator-r);
+      $canreduce: functions.list-contains($units, $denominator-r);
 
       /**
        * Create units based on fractions
        * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
        */
-      .u-#{$supple-fractions-name-fraction}--#{$numerator}#{$supple-fractions-delimiter}#{$denominator}#{$modifier} {
+      .u-#{$fractions-name-fraction}--#{$numerator}#{$fractions-delimiter}#{$denominator}#{$modifier} {
         @if $canreduce {
           // stylelint-disable-next-line scss/at-extend-no-missing-placeholder
-          @extend .u-#{$supple-fractions-name-fraction}--#{$numerator-r}#{$supple-fractions-delimiter}#{$denominator-r}#{$modifier};
+          @extend .u-#{$fractions-name-fraction}--#{$numerator-r}#{$fractions-delimiter}#{$denominator-r}#{$modifier};
         } @else {
           flex-basis: auto !important; /* [1] */
-          width: percentage($numerator / $denominator) !important;
+          width: math.percentage($numerator / $denominator) !important;
         }
       }
     }
@@ -115,33 +128,29 @@ $supple-fractions-delimiter: 'of' !default;
 /**
  * Setup generic fractions
  */
-@include supple-fractions-build($supple-fractions);
+@include fractions-build($fractions);
 
 
 
 /*  Responsive
     ========================================================================= */
 
-@if (mixin-exists(supple-mq)) {
-  @each $breakpoint in $supple-breakpoint-has-fractions {
-    @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
-      @if type-of(nth($breakpoint, 2)) == 'list' {
-        @each $point in nth($breakpoint, 2) {
-          @include supple-mq($point, nth($breakpoint, 1)) {
-            @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{$point}');
-          }
-        }
-      } @else {
-        @include supple-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
-          @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+@each $breakpoint in $breakpoint-has-fractions {
+  @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
+    @if type-of(list.nth($breakpoint, 2)) == 'list' {
+      @each $point in list.nth($breakpoint, 2) {
+        @include mixins.supple-mq($point, list.nth($breakpoint, 1)) {
+          @include fractions-build($fractions, '#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
         }
       }
     } @else {
-      @include supple-mq($breakpoint) {
-        @include supple-fractions-build($supple-fractions, '#{$supple-responsive-modifier}from-#{$breakpoint}');
+      @include mixins.supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+        @include fractions-build($fractions, '#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
       }
     }
+  } @else {
+    @include mixins.supple-mq($breakpoint) {
+      @include fractions-build($fractions, '#{defaults.$responsive-modifier}from-#{$breakpoint}');
+    }
   }
-} @else {
-  @error 'The fractions utility relies on the `supple-mq` mixin. Did you include supple’s mixin file?';
 }

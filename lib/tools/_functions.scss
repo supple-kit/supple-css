@@ -8,6 +8,7 @@
 @use 'sass:math';
 @use 'sass:meta';
 @use 'sass:string';
+@use 'sass:list';
 
 @use '../settings/defaults';
 
@@ -64,7 +65,7 @@ $browser-context: defaults.$font-size !default;
  */
 @function list-contains ($list, $value) {
   @if meta.type-of($list) == list {
-    @return not not string.index($list, $value);
+    @return not not list.index($list, $value);
   } @else {
     @return $list == $value;
   }
