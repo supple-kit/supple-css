@@ -6,42 +6,39 @@
 /*  Settings
     ========================================================================= */
 
-@import '../lib/settings/defaults';
-@import '../lib/settings/responsive';
+@use '../lib/settings/defaults';
+@use '../lib/settings/responsive';
 
 
 
 /*  Tools
     ========================================================================= */
 
-@import '../node_modules/sass-mq/mq';
-@import '../lib/tools/functions';
-@import '../lib/tools/mixins';
+// Import your tools in the modules you need them
 
 
 
 /*  Generic
     ========================================================================= */
 
-@import-normalize;
-@import '../lib/generic/reset';
+@use '../lib/generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-@import '../lib/elements/headings';
+@use '../lib/elements/headings';
 
 
 
 /*  Objects
     ========================================================================= */
 
-@import '../lib/objects/list-clean';
-@import '../lib/objects/layout';
-@import '../lib/objects/retain';
-@import '../lib/objects/flexembed';
+@use '../lib/objects/list-clean';
+@use '../lib/objects/layout';
+@use '../lib/objects/retain';
+@use '../lib/objects/flexembed';
 
 
 
@@ -55,10 +52,10 @@
 /*  Utilities
     ========================================================================= */
 
-@import '../lib/utilities/fractions';
-@import '../lib/utilities/text';
-@import '../lib/utilities/float';
-@import '../lib/utilities/module';
-@import '../lib/utilities/spacing';
-@import '../lib/utilities/visually-hidden';
-@import '../lib/utilities/hidden';
+@use '../lib/utilities/fractions';
+@use '../lib/utilities/text';
+@use '../lib/utilities/float';
+@use '../lib/utilities/module';
+@use '../lib/utilities/spacing';
+@use '../lib/utilities/visually-hidden';
+@use '../lib/utilities/hidden';
