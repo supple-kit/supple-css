@@ -4,6 +4,13 @@
     As per: http://css-tricks.com/spacing-the-bottom-of-modules/
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use '../tools/mixins';
+
+
+
 /*  Variables
     ========================================================================= */
 
@@ -23,10 +30,6 @@ $supple-module-depth: 2 !default;
 /*  Module
     ========================================================================= */
 
-@if (mixin-exists(supple-render-module)) {
-  .u-module {
-    @include supple-render-module($supple-module-depth);
-  }
-} @else {
-  @error 'The module utility relies on the `supple-render-module` mixin. Did you include supple’s mixin file?';
+.u-module {
+  @include mixins.render-module($supple-module-depth);
 }

@@ -57,9 +57,9 @@
     ========================================================================= */
 
 @use '../lib/utilities/fractions';
-// @import '../lib/utilities/text';
-// @import '../lib/utilities/float';
-// @import '../lib/utilities/module';
+@use '../lib/utilities/text';
+@use '../lib/utilities/float';
+@use '../lib/utilities/module';
 // @import '../lib/utilities/spacing';
 // @import '../lib/utilities/visually-hidden';
 // @import '../lib/utilities/hidden';
