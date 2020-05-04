@@ -3,6 +3,13 @@
     Completely remove from the flow and hide it from screenreaders
     ========================================================================= */
 
+/*  Use or forward rules
+    ========================================================================= */
+
+@use '../tools/mixins';
+
+
+
 /*  Variables
     ========================================================================= */
 
@@ -12,11 +19,11 @@
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $supple-breakpoint-has-hidden: (lap, desk);
+ * $breakpoint-has-hidden: (lap, desk);
  *
  * Or
  *
- * $supple-breakpoint-has-hidden: (
+ * $breakpoint-has-hidden: (
  *   from: lap,
  *   until: lap desk,
  * );
@@ -24,7 +31,7 @@
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
  */
-$supple-breakpoint-has-hidden: () !default;
+$breakpoint-has-hidden: (lap, desk) !default;
 
 
 
@@ -40,10 +47,6 @@ $supple-breakpoint-has-hidden: () !default;
 /*  Responsive
     ========================================================================= */
 
-@if (mixin-exists(supple-breakpoint-has)) {
-  @include supple-breakpoint-has($supple-breakpoint-has-hidden, '.u-hidden') {
-    display: none !important;
-  }
-} @else {
-  @error 'The hidden utility relies on the `supple-breakpoint-has` mixin. Did you include supple’s mixin file?';
+@include mixins.breakpoint-has($breakpoint-has-hidden, '.u-hidden') {
+  display: none !important;
 }
