@@ -3,7 +3,9 @@
     Test for creating fluid typography with CSS-lock mixin.
     ========================================================================= */
 
-/*  Use or forward rules
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
     ========================================================================= */
 
 @use '../../../lib/tools/mixins';

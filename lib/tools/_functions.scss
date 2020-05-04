@@ -2,7 +2,9 @@
     tools.functions
     ========================================================================= */
 
-/*  Use or forward rules
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
     ========================================================================= */
 
 @use 'sass:math';

@@ -3,7 +3,9 @@
     Utility classes to put specific spacing values onto elements.
     ========================================================================= */
 
-/*  Use or forward rules
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
     ========================================================================= */
 
 @use 'sass:list';
