@@ -1,0 +1,36 @@
+/*  =========================================================================
+    objects.flexembed.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Spacing
+ */
+$space: defaults.$space-base !default;
+
+
+/**
+ * Ratio's
+ * Define ’em like this:
+ * $ratios: (
+ *   (2:1),
+ *   (4:3),
+ *   (16:9),
+ * );
+ */
+$ratios: (
+  (2:1),
+  (4:3),
+  (16:9)
+) !default;

@@ -9,35 +9,18 @@
     other includes.
     ========================================================================= */
 
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
 @use 'sass:meta';
-@use '../settings/defaults';
-@use '../tools/mixins';
-
-
-
-/*  Variables
-    ========================================================================= */
-
-/**
- * Spacing
- */
-$flexembed-space: defaults.$space-base !default;
-
-
-/**
- * Ratio's
- * Define ’em like this:
- * $flexembed-ratios: (
- *   (2:1),
- *   (4:3),
- *   (16:9),
- * );
- */
-$flexembed-ratios: (
-  (2:1),
-  (4:3),
-  (16:9)
-) !default;
+@use './variables';
+@use '../../tools';
 
 
 
@@ -55,7 +38,7 @@ $flexembed-ratios: (
   height: 0;
   padding: 0 0 calc(100% / var(--o-flexembed-ratio));
   overflow: hidden;
-  @include mixins.rem(margin-bottom, $flexembed-space);
+  @include tools.mixins-rem(margin-bottom, variables.$space);
 }
 
 /**
@@ -78,7 +61,7 @@ $flexembed-ratios: (
     custom-property support
     ========================================================================= */
 
-@each $ratio in $flexembed-ratios {
+@each $ratio in variables.$ratios {
   @each $a, $b in $ratio {
     @if (meta.type-of($a) != number or meta.type-of($b) != number) {
       @error '`#{$a}` and `#{$b}` need to be numbers.';
