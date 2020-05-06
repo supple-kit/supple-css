@@ -1,0 +1,27 @@
+/*  =========================================================================
+    objects.retain.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+$space: defaults.$space-base !default;
+
+
+/**
+ * Sizes
+ */
+$sizes: (
+  lap: 640px,
+  desk: 960px,
+  wall: defaults.$static-breakpoint-size
+) !default;

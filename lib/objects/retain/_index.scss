@@ -8,30 +8,17 @@
     other includes.
     ========================================================================= */
 
-@use '../settings/defaults';
-@use '../tools/mixins';
-
-
-
-/*  Variables
-    ========================================================================= */
-
-$retain-space: defaults.$space-base !default;
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
 
 
 /**
- * Sizes
+ * Use the settings & tools in this sheet
  */
-$retain-sizes: (
-  lap: 640px,
-  desk: 960px,
-  wall: defaults.$static-breakpoint-size
-) !default;
-
-
-
-/*  Functions/Mixins
-    ========================================================================= */
+@use './variables';
+@use '../../tools';
 
 
 
@@ -41,8 +28,8 @@ $retain-sizes: (
 .o-retain {
   --o-retain-max-width: 100%;
   max-width: var(--o-retain-max-width);
-  @include mixins.rem(padding-right, $retain-space);
-  @include mixins.rem(padding-left, $retain-space);
+  @include tools.mixins-rem(padding-right, variables.$space);
+  @include tools.mixins-rem(padding-left, variables.$space);
   margin-right: auto;
   margin-left: auto;
 }
@@ -62,8 +49,8 @@ $retain-sizes: (
     custom-property support
     ========================================================================= */
 
-@each $key, $value in $retain-sizes {
+@each $key, $value in variables.$sizes {
   .o-retain--#{$key} {
-    @include mixins.rem(max-width, $value);
+    @include tools.mixins-rem(max-width, $value);
   }
 }
