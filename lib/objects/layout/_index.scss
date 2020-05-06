@@ -8,78 +8,21 @@
     other includes.
     ========================================================================= */
 
-// @use 'sass:meta';
-@use '../settings/defaults';
-@use '../tools/mixins';
-
-
-
-/*  Variables
-    ========================================================================= */
-
 /**
- * The default gutter
+ * Forward the variables to the parent stylesheet
  */
-$layout-gutter-base: defaults.$space-base !default;
-$layout-gutter-tiny: defaults.$space-tiny !default;
-$layout-gutter-small: defaults.$space-small !default;
-$layout-gutter-large: defaults.$space-large !default;
-$layout-gutter-huge: defaults.$space-huge !default;
+@forward './variables';
 
 
 /**
- * Define which namespaced breakpoints you would like to generate for `fit` & `fill`.
- * This is handy if you only need `fit` on, say, desk, or you only need `fill`
- * at mobile sizes. It allows you to only compile as much CSS as you need.
- * All are empty by default, but you can add breakpoints at will.
- *
- * $breakpoint-has-layout-x: (lap, desk);
- *
- * Or
- *
- * $breakpoint-has-layout-x: (
- *   from: lap,
- *   until: lap desk,
- * );
- *
- * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
- *       in `settings/responsive`
+ * Use the settings & tools in this sheet
  */
-$breakpoint-has-layout-fit: () !default;
-$breakpoint-has-layout-fill: () !default;
+@use './variables';
+@use './tools';
 
 
 
-/*  Functions/Mixins
-    Functions and/or mixins used in this module
-    ========================================================================= */
-
-
-/**
- * Modifier: Make a unit shrink wrap its content.
- */
-@mixin layout-fit () {
-  flex-basis: auto;
-}
-
-
-/**
- * Modifier: Make a cell fill the remaining space.
- *
- * 1. Be explicit to work around IE10 bug with shorthand flex
- * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
- * 3. Fixes issue where a element doesn’t fill the remaining space when the
- *    container has no explicit width.
- */
-@mixin layout-fill () {
-  flex: 1 1 auto; /* [1] */
-  flex-basis: auto; /* [2] */
-  width: 0%; /* [3] */
-}
-
-
-
-/*  Layout root
+/*  Module code
     ========================================================================= */
 
 /**
@@ -130,7 +73,7 @@ $breakpoint-has-layout-fill: () !default;
  * Element modifier: Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
-  @include layout-fit;
+  @include tools.fit;
 }
 
 
@@ -138,7 +81,7 @@ $breakpoint-has-layout-fill: () !default;
  * Element modifier: Make a cell fill the remaining space.
  */
 .o-layout__cell--fill {
-  @include layout-fill;
+  @include tools.fill;
 }
 
 
@@ -218,10 +161,10 @@ $breakpoint-has-layout-fill: () !default;
  * Modifier: Gutter-base
  */
 .o-layout--gutter-base {
-  @include mixins.rem(margin-left, -$layout-gutter-base);
+  @include tools.rem(margin-left, -(variables.$gutter-base));
 
   > .o-layout__cell {
-    @include mixins.rem(padding-left, $layout-gutter-base);
+    @include tools.rem(padding-left, variables.$gutter-base);
   }
 }
 
@@ -230,10 +173,10 @@ $breakpoint-has-layout-fill: () !default;
  * Modifier: Tiny gutter
  */
 .o-layout--gutter-tiny {
-  @include mixins.rem(margin-left, -$layout-gutter-tiny);
+  @include tools.rem(margin-left, -(variables.$gutter-tiny));
 
   > .o-layout__cell {
-    @include mixins.rem(padding-left, $layout-gutter-tiny);
+    @include tools.rem(padding-left, variables.$gutter-tiny);
   }
 }
 
@@ -242,10 +185,10 @@ $breakpoint-has-layout-fill: () !default;
  * Modifier: Small gutter
  */
 .o-layout--gutter-small {
-  @include mixins.rem(margin-left, -$layout-gutter-small);
+  @include tools.rem(margin-left, -(variables.$gutter-small));
 
   > .o-layout__cell {
-    @include mixins.rem(padding-left, $layout-gutter-small);
+    @include tools.rem(padding-left, variables.$gutter-small);
   }
 }
 
@@ -253,10 +196,10 @@ $breakpoint-has-layout-fill: () !default;
  * Modifier: Large gutter
  */
 .o-layout--gutter-large {
-  @include mixins.rem(margin-left, -$layout-gutter-large);
+  @include tools.rem(margin-left, -(variables.$gutter-large));
 
   > .o-layout__cell {
-    @include mixins.rem(padding-left, $layout-gutter-large);
+    @include tools.rem(padding-left, variables.$gutter-large);
   }
 }
 
@@ -264,10 +207,10 @@ $breakpoint-has-layout-fill: () !default;
  * Modifier: Huge gutter
  */
 .o-layout--gutter-huge {
-  @include mixins.rem(margin-left, -$layout-gutter-huge);
+  @include tools.rem(margin-left, -(variables.$gutter-huge));
 
   > .o-layout__cell {
-    @include mixins.rem(padding-left, $layout-gutter-huge);
+    @include tools.rem(padding-left, variables.$gutter-huge);
   }
 }
 
@@ -276,10 +219,10 @@ $breakpoint-has-layout-fill: () !default;
 /*  Responsive fitters & fillers
     ========================================================================= */
 
-@include mixins.breakpoint-has($breakpoint-has-layout-fit, '.o-layout__cell--fit') {
-  @include layout-fit;
+@include tools.breakpoint-has(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
+  @include tools.fit;
 }
 
-@include mixins.breakpoint-has($breakpoint-has-layout-fill, '.o-layout__cell--fill') {
-  @include layout-fill;
+@include tools.breakpoint-has(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
+  @include tools.fill;
 }

@@ -1,0 +1,46 @@
+/*  =========================================================================
+    objects.layout.tools
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward supples generic tools to the parent stylesheet
+ */
+@forward '../../tools/mixins';
+
+
+
+/*  Functions
+    ========================================================================= */
+
+
+
+/*  Mixins
+    ========================================================================= */
+
+/**
+ * Modifier: Make a unit shrink wrap its content.
+ */
+@mixin fit () {
+  flex-basis: auto;
+}
+
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ *
+ * 1. Be explicit to work around IE10 bug with shorthand flex
+ * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+ * 3. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
+ */
+@mixin fill () {
+  flex: 1 1 auto; /* [1] */
+  flex-basis: auto; /* [2] */
+  width: 0%; /* [3] */
+}
