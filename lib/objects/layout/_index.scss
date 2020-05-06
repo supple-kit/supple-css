@@ -161,10 +161,10 @@
  * Modifier: Gutter-base
  */
 .o-layout--gutter-base {
-  @include tools.rem(margin-left, -(variables.$gutter-base));
+  @include tools.mixins-rem(margin-left, -(variables.$gutter-base));
 
   > .o-layout__cell {
-    @include tools.rem(padding-left, variables.$gutter-base);
+    @include tools.mixins-rem(padding-left, variables.$gutter-base);
   }
 }
 
@@ -173,10 +173,10 @@
  * Modifier: Tiny gutter
  */
 .o-layout--gutter-tiny {
-  @include tools.rem(margin-left, -(variables.$gutter-tiny));
+  @include tools.mixins-rem(margin-left, -(variables.$gutter-tiny));
 
   > .o-layout__cell {
-    @include tools.rem(padding-left, variables.$gutter-tiny);
+    @include tools.mixins-rem(padding-left, variables.$gutter-tiny);
   }
 }
 
@@ -185,10 +185,10 @@
  * Modifier: Small gutter
  */
 .o-layout--gutter-small {
-  @include tools.rem(margin-left, -(variables.$gutter-small));
+  @include tools.mixins-rem(margin-left, -(variables.$gutter-small));
 
   > .o-layout__cell {
-    @include tools.rem(padding-left, variables.$gutter-small);
+    @include tools.mixins-rem(padding-left, variables.$gutter-small);
   }
 }
 
@@ -196,10 +196,10 @@
  * Modifier: Large gutter
  */
 .o-layout--gutter-large {
-  @include tools.rem(margin-left, -(variables.$gutter-large));
+  @include tools.mixins-rem(margin-left, -(variables.$gutter-large));
 
   > .o-layout__cell {
-    @include tools.rem(padding-left, variables.$gutter-large);
+    @include tools.mixins-rem(padding-left, variables.$gutter-large);
   }
 }
 
@@ -207,10 +207,10 @@
  * Modifier: Huge gutter
  */
 .o-layout--gutter-huge {
-  @include tools.rem(margin-left, -(variables.$gutter-huge));
+  @include tools.mixins-rem(margin-left, -(variables.$gutter-huge));
 
   > .o-layout__cell {
-    @include tools.rem(padding-left, variables.$gutter-huge);
+    @include tools.mixins-rem(padding-left, variables.$gutter-huge);
   }
 }
 
@@ -219,10 +219,10 @@
 /*  Responsive fitters & fillers
     ========================================================================= */
 
-@include tools.breakpoint-has(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
+@include tools.mixins-breakpoint-has(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
   @include tools.fit;
 }
 
-@include tools.breakpoint-has(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
+@include tools.mixins-breakpoint-has(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
   @include tools.fill;
 }
