@@ -1,7 +1,7 @@
 /*  =========================================================================
     generic.reset
-    A thin layer on top of normalize.css that provides a starting point more
-    suitable for web applications.
+    A thin layer on top of `@csstools/normalize.css` that provides a starting
+    point more suitable for web applications.
     ========================================================================= */
 
 /*  Use rules
@@ -9,8 +9,8 @@
     other includes.
     ========================================================================= */
 
-@use '../settings/defaults';
-@use '../tools/mixins';
+@use '../../settings/defaults';
+@use '../../tools/mixins';
 @import-normalize;
 
 
