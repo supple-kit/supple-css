@@ -9,23 +9,17 @@
     other includes.
     ========================================================================= */
 
-@use '../tools/mixins';
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
 
-
-
-/*  Variables
-    ========================================================================= */
 
 /**
- * Depth
+ * Use the settings & tools in this sheet
  */
-$supple-module-depth: 2 !default;
-
-
-
-/*  Functions/Mixins
-    Functions and/or mixins used in this module
-    ========================================================================= */
+@use './variables';
+@use '../../tools';
 
 
 
@@ -33,5 +27,5 @@ $supple-module-depth: 2 !default;
     ========================================================================= */
 
 .u-module {
-  @include mixins.render-module($supple-module-depth);
+  @include tools.mixins-render-module(variables.$depth);
 }
