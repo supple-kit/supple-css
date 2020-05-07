@@ -1,0 +1,61 @@
+/*  =========================================================================
+    utilities.fractions
+    Sizes in human readable format. These are used in conjunction with other
+    objects and abstractions found in supple, most commonly the layout system
+    and tables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:meta';
+@use 'sass:math';
+@use 'sass:list';
+@use './variables';
+@use './tools';
+
+
+
+/*  Fractions core
+    ========================================================================= */
+
+/**
+ * Setup generic fractions
+ */
+@include tools.build(variables.$fractions);
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $breakpoint in variables.$fractions-in-breakpoint {
+  @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
+    @if type-of(list.nth($breakpoint, 2)) == 'list' {
+      @each $point in list.nth($breakpoint, 2) {
+        @include tools.mixins-supple-mq($point, list.nth($breakpoint, 1)) {
+          @include tools.build($fractions, '#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
+        }
+      }
+    } @else {
+      @include tools.mixins-supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+        @include tools.build($fractions, '#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
+      }
+    }
+  } @else {
+    @include tools.mixins-supple-mq($breakpoint) {
+      @include tools.build($fractions, '#{defaults.$responsive-modifier}from-#{$breakpoint}');
+    }
+  }
+}

@@ -10,7 +10,7 @@
     ========================================================================= */
 
 @use '../../settings/defaults';
-@use '../../tools/mixins';
+@use '../../tools';
 @import-normalize;
 
 
@@ -70,7 +70,7 @@ fieldset,
 figure,
 pre,
 hr {
-  @include mixins.rem(margin, 0 0 defaults.$space-base);
+  @include tools.mixins-rem(margin, 0 0 defaults.$space-base);
 }
 
 
@@ -79,11 +79,11 @@ hr {
  */
 ul,
 ol {
-  @include mixins.rem(padding-left, defaults.$space-base);
+  @include tools.mixins-rem(padding-left, defaults.$space-base);
 }
 
 dd {
-  @include mixins.rem(margin-left, defaults.$space-base);
+  @include tools.mixins-rem(margin-left, defaults.$space-base);
 }
 
 
