@@ -3,10 +3,21 @@
     Some handy-dandy text helpers.
     ========================================================================= */
 
-/*  Variables
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
     ========================================================================= */
 
-$text-retain: 70ch !default;
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
 
 
 
@@ -14,5 +25,5 @@ $text-retain: 70ch !default;
     ========================================================================= */
 
 .u-text-retain {
-  max-width: $text-retain;
+  max-width: variables.$text-retain;
 }
