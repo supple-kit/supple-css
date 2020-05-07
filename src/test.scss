@@ -6,11 +6,11 @@
 /*  Settings
     ========================================================================= */
 
-@use '../lib/settings/defaults';
 @use
-  '../lib/settings/responsive' with (
+  '../lib/settings/defaults' with (
     $show-breakpoints: (palm, lap, desk, wall)
   );
+
 
 
 /*  Tools

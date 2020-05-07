@@ -33,7 +33,7 @@ $space-factor-huge: 12 !default; // 96px
 /**
  * Spacing values are determined based on your project’s global baseline grid.
  * It is not recommended that you modify these following variables because it
- * can break your vertical rhythm. But if you want, you can :).
+ * can break your vertical rhythm.
  */
 $space-base: $baseline * $space-factor-base;
 $space-tiny: $baseline * $space-factor-tiny;
@@ -66,6 +66,34 @@ $responsive-modifier: unquote('\\@') !default;
 
 
 
+/*  Responsive
+    Used in conjunction with Sass MQ: https://sass-mq.github.io/sass-mq/
+    ========================================================================= */
+
+$static-breakpoint: wall !default;
+
+$breakpoints: (
+  palm: 320px,
+  lap: 640px,
+  desk: 960px,
+  wall: $static-breakpoint-size
+) !default;
+
+$show-breakpoints: () !default;
+
+
+/**
+ * Load sass-mq framework
+ */
+@use
+  '../../../node_modules/sass-mq/mq' with (
+    $mq-breakpoints: $breakpoints,
+    $mq-show-breakpoints: $show-breakpoints,
+    $mq-static-breakpoint: $static-breakpoint,
+  );
+
+
+
 /*  Misc
     ========================================================================= */
 
@@ -73,17 +101,6 @@ $responsive-modifier: unquote('\\@') !default;
  * When enabled this setting ensures fallbacks in our rem mixins
  */
 $rem-fallback: false !default;
-
-
-
-/*  Internal
-    A couple of settings which are used internally in supple
-    ========================================================================= */
-
-/**
- * Shared warnings
- */
-$responsive-warning: 'You haven’t included `Sass MQ` and `settings/responsive` in your manifest file. Please add them or add your own responsive classes yourself';
 
 
 
