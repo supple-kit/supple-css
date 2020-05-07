@@ -1,0 +1,41 @@
+/*  =========================================================================
+    utilities.visually-hidden
+    Hides an element visually while still allowing the content to be accessible
+    to assistive technology, e.g. screen readers.
+    As per: https://a11yproject.com/posts/how-to-hide-content
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
+@use '../../tools';
+
+
+
+/*  Module
+    ========================================================================= */
+
+.u-visually-hidden {
+  @include tools.mixins-visually-hidden();
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@include tools.mixins-breakpoint-has(variables.$in-breakpoint, '.u-visually-hidden') {
+  @include tools.mixins-visually-hidden();
+}

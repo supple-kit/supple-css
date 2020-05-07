@@ -28,11 +28,11 @@ $fractions: 12 !default;
  * of the fractions. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $fractions-in-breakpoint: (lap, desk);
+ * $in-breakpoint: (lap, desk);
  *
  * Or
  *
- * $fractions-in-breakpoint: (
+ * $in-breakpoint: (
  *   from: lap,
  *   until: lap desk,
  * );
@@ -40,4 +40,4 @@ $fractions: 12 !default;
  * Note: the name of the breakpoint must exist in the list of `$breakpoints`
  *       in `settings/defaults`
  */
-$fractions-in-breakpoint: () !default;
+$in-breakpoint: () !default;

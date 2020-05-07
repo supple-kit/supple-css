@@ -38,7 +38,7 @@
 /*  Responsive
     ========================================================================= */
 
-@each $breakpoint in variables.$fractions-in-breakpoint {
+@each $breakpoint in variables.$in-breakpoint {
   @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
     @if type-of(list.nth($breakpoint, 2)) == 'list' {
       @each $point in list.nth($breakpoint, 2) {
