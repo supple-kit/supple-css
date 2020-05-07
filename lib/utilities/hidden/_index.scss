@@ -8,7 +8,17 @@
     other includes.
     ========================================================================= */
 
-@use '../tools/mixins';
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
+@use '../../tools';
 
 
 
@@ -21,11 +31,11 @@
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $breakpoint-has-hidden: (lap, desk);
+ * $in-breakpoint: (lap, desk);
  *
  * Or
  *
- * $breakpoint-has-hidden: (
+ * $in-breakpoint: (
  *   from: lap,
  *   until: lap desk,
  * );
@@ -33,7 +43,7 @@
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
  */
-$breakpoint-has-hidden: (lap, desk) !default;
+$in-breakpoint: () !default;
 
 
 
@@ -49,6 +59,6 @@ $breakpoint-has-hidden: (lap, desk) !default;
 /*  Responsive
     ========================================================================= */
 
-@include mixins.breakpoint-has($breakpoint-has-hidden, '.u-hidden') {
+@include tools.mixins-breakpoint-has($in-breakpoint, '.u-hidden') {
   display: none !important;
 }

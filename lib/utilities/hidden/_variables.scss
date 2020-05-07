@@ -1,0 +1,26 @@
+/*  =========================================================================
+    utilities.hidden.variables
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Define which namespaced breakpoints you would like to generate for `hidden`.
+ * This is handy if you only need `hidden` on, say, desk, or you only need it
+ * at mobile sizes. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $in-breakpoint: (lap, desk);
+ *
+ * Or
+ *
+ * $in-breakpoint: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+$in-breakpoint: () !default;
