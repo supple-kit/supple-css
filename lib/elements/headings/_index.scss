@@ -9,19 +9,22 @@
     other includes.
     ========================================================================= */
 
-@use '../tools/mixins';
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
+@use '../../tools';
 
 
 
 /*  Variables
     ========================================================================= */
-
-$font-alpha:  36px !default;
-$font-beta:  28px !default;
-$font-gamma:  24px !default;
-$font-delta:  20px !default;
-$font-epsilon:  18px !default;
-$font-zeta:  16px !default;
 
 
 
@@ -29,25 +32,25 @@ $font-zeta:  16px !default;
     ========================================================================= */
 
 h1 {
-  @include mixins.font-size($font-alpha);
+  @include tools.mixins-font-size(variables.$alpha);
 }
 
 h2 {
-  @include mixins.font-size($font-beta);
+  @include tools.mixins-font-size(variables.$beta);
 }
 
 h3 {
-  @include mixins.font-size($font-gamma);
+  @include tools.mixins-font-size(variables.$gamma);
 }
 
 h4 {
-  @include mixins.font-size($font-delta);
+  @include tools.mixins-font-size(variables.$delta);
 }
 
 h5 {
-  @include mixins.font-size($font-epsilon);
+  @include tools.mixins-font-size(variables.$epsilon);
 }
 
 h6 {
-  @include mixins.font-size($font-zeta);
+  @include tools.mixins-font-size(variables.$zeta);
 }
