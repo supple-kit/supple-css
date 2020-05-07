@@ -1,0 +1,46 @@
+/*  =========================================================================
+    utilities.spacing.tools
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward supples generic tools to the parent stylesheet
+ */
+@forward '../../tools';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:math';
+@use './variables';
+@use '../../tools';
+
+
+
+/*  Functions
+    ========================================================================= */
+
+
+
+/*  Mixins
+    ========================================================================= */
+
+@mixin render($modifier: '') {
+  @each $property-namespace, $property in variables.$properties {
+    @each $direction-namespace, $direction-rules in variables.$directions {
+      @each $size-namespace, $size in variables.$sizes {
+        .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
+          @each $direction in $direction-rules {
+            @include tools.mixins-rem(#{$property}#{$direction}, $size, !important);
+          }
+        }
+      }
+    }
+  }
+}

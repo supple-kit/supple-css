@@ -1,0 +1,73 @@
+/*  =========================================================================
+    utilities.spacing.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * The properties that you want to generate spacings for
+ * `key` is the classname, `value` is the property name
+ */
+$properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+
+/**
+ * In which directions you want your spacings to be generated?
+ * `key` is the classname, `value` is the property name
+ */
+$directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+) !default;
+
+
+/**
+ * And which sizes you want to generate?
+ * `key` is the classname, `value` is the value (duh!)
+ */
+$sizes: (
+  null: defaults.$space-base,
+  '-base': defaults.$space-base,
+  '-tiny': defaults.$space-tiny,
+  '-small': defaults.$space-small,
+  '-large': defaults.$space-large,
+  '-huge': defaults.$space-huge,
+  '-auto': auto,
+  '-none': 0
+) !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for
+ * your spacings.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $in-breakpoint: (lap, desk);
+ *
+ * Or
+ *
+ * $in-breakpoint: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+$in-breakpoint: () !default;

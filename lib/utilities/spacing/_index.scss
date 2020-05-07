@@ -1,8 +1,6 @@
 /*  =========================================================================
-    utilities.fractions
-    Sizes in human readable format. These are used in conjunction with other
-    objects and abstractions found in supple, most commonly the layout system
-    and tables
+    utilities.spacing
+    Utility classes to put specific spacing values onto elements.
     ========================================================================= */
 
 /*  Use rules
@@ -20,19 +18,17 @@
  * Use the settings & tools in this sheet
  */
 @use 'sass:list';
+@use 'sass:meta';
 @use '../../settings/defaults';
 @use './variables';
 @use './tools';
 
 
 
-/*  Fractions core
+/*  Module
     ========================================================================= */
 
-/**
- * Setup generic fractions
- */
-@include tools.build(variables.$fractions);
+@include tools.render();
 
 
 
@@ -41,20 +37,20 @@
 
 @each $breakpoint in variables.$in-breakpoint {
   @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
-    @if type-of(list.nth($breakpoint, 2)) == 'list' {
+    @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
       @each $point in list.nth($breakpoint, 2) {
         @include tools.mixins-supple-mq($point, list.nth($breakpoint, 1)) {
-          @include tools.build(variables.$fractions, '#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
+          @include tools.render('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
         }
       }
     } @else {
       @include tools.mixins-supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
-        @include tools.build(variables.$fractions, '#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
+        @include tools.render('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
       }
     }
   } @else {
     @include tools.mixins-supple-mq($breakpoint) {
-      @include tools.build(variables.$fractions, '#{defaults.$responsive-modifier}from-#{$breakpoint}');
+      @include tools.render('#{defaults.$responsive-modifier}from-#{$breakpoint}');
     }
   }
 }
