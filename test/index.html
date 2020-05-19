@@ -7,6 +7,8 @@
 
   html {
     font-family: sans-serif;
+
+    /* writing-mode: vertical-rl; */
   }
 
   body {
@@ -14,28 +16,28 @@
   }
 
   .page-title {
-    margin-bottom: 1.5rem;
+    margin-block-end: 1.5rem;
     font-size: 3.157em;
   }
 
   .module__title,
   .test__describe,
   .test__it {
-    margin-bottom: 1.5rem;
+    margin-block-end: 1.5rem;
     background-color: #eeeeee;
     padding: 0.75rem 1.5rem;
   }
 
   .test__describe,
   .test__it {
-    border-left: 3px solid #666666;
-    padding-left: calc(1.5rem - 3px);
+    border-inline-start: 3px solid #666666;
+    padding-inline-start: calc(1.5rem - 3px);
   }
 
   .module__title:before,
   .test__describe:before,
   .test__it:before {
-    margin-right: 1.5rem;
+    margin-inline-end: 1.5rem;
     color: #999999;
   }
 
@@ -44,7 +46,7 @@
   }
 
   .module__title {
-    margin-top: 6rem;
+    margin-block-start: 6rem;
     font-size: 2.369em;
     counter-reset: test-describe;
   }
@@ -62,7 +64,7 @@
   }
 
   .test__describe {
-    margin-top: 3rem;
+    margin-block-start: 3rem;
     font-size: 1.777em;
     counter-reset: test-it;
     counter-increment: test-describe;
@@ -73,7 +75,7 @@
   }
 
   .test__it {
-    margin-top: 0.75rem;
+    margin-block-start: 0.75rem;
     font-size: 1.333em;
     counter-increment: test-it;
   }
@@ -85,12 +87,15 @@
   .test__run {}
 
   .test__run--retained {
-    max-width: calc(1.5rem * 21);
+    max-inline-size: calc(1.5rem * 21);
   }
 
   .fixture-box {
-    margin-bottom: 0.75rem;
-    padding: 0 0.75rem;
+    margin-block-end: 0.75rem;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.75rem;
     background: #ee4266;
     line-height: 3rem;
     color: #ffffff;
@@ -99,7 +104,7 @@
   }
 
   .fixture-wrap {
-    margin-bottom: 0.75rem;
+    margin-block-end: 0.75rem;
     border: 1px solid #000000;
     background: rgba(238, 66, 102, 0.3);
   }
@@ -109,7 +114,7 @@
   }
 
   .fixture-box--flatten {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   .box {
@@ -123,7 +128,7 @@
   }
 
   .c-vertical {
-    height: 400px;
+    block-size: 400px;
   }
 </style>
 
@@ -431,10 +436,10 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--align-center</h3>
-    <h4 class="test__it">center-aligns all cells but not their content</h4>
+    <h3 class="test__describe">.o-layout--align-inline-center</h3>
+    <h4 class="test__it">center-aligns all cells on the inline axis but not their content</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--align-center" style="--o-layout-columns: 12;">
+      <div class="o-layout  o-layout--align-inline-center" style="--o-layout-columns: 12;">
         <div class="o-layout__cell" style="--o-layout-colspan: 5;">
           <div class="fixture-box">1</div>
         </div>
@@ -447,10 +452,10 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--align-right</h3>
-    <h4 class="test__it">right-aligns all cells but not their content</h4>
+    <h3 class="test__describe">.o-layout--align-inline-end</h3>
+    <h4 class="test__it">end-aligns all cells on the inline axis but not their content</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--align-right" style="--o-layout-columns: 12;">
+      <div class="o-layout  o-layout--align-inline-end" style="--o-layout-columns: 12;">
         <div class="o-layout__cell" style="--o-layout-colspan: 3;">
           <div class="fixture-box">1</div>
         </div>
@@ -463,10 +468,10 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--align-middle</h3>
-    <h4 class="test__it">middle-aligns all cells</h4>
+    <h3 class="test__describe">.o-layout--align-block-center</h3>
+    <h4 class="test__it">centers-aligns all cells on the block axis</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--align-middle" style="--o-layout-columns: 12;">
+      <div class="o-layout  o-layout--align-block-center" style="--o-layout-columns: 12;">
         <div class="o-layout__cell" style="--o-layout-colspan: 3;">
           <div class="fixture-box">1</div>
         </div>
@@ -482,10 +487,10 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--align-bottom</h3>
-    <h4 class="test__it">bottom-aligns all cells</h4>
+    <h3 class="test__describe">.o-layout--align-block-end</h3>
+    <h4 class="test__it">end-aligns all cells on the block axis</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--align-bottom" style="--o-layout-columns: 12;">
+      <div class="o-layout  o-layout--align-block-end" style="--o-layout-columns: 12;">
         <div class="o-layout__cell" style="--o-layout-colspan: 3;">
           <div class="fixture-box">1</div>
         </div>
@@ -537,10 +542,10 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--equalheight</h3>
-    <h4 class="test__it">equal height columns based on tallest cell</h4>
+    <h3 class="test__describe">.o-layout--equal-block-size</h3>
+    <h4 class="test__it">equal size columns based on the talles cell in the block axis</h4>
     <div class="test__run">
-      <div class="o-layout o-layout--equalheight" style="--o-layout-columns: 3">
+      <div class="o-layout o-layout--equal-block-size" style="--o-layout-columns: 3">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -553,8 +558,8 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout__cell--center</h3>
-    <h4 class="test__it">centers an individual layout cell but not its content</h4>
+    <h3 class="test__describe">.o-layout__cell--align-inline-center</h3>
+    <h4 class="test__it">centers an individual layout cell on the inline axis but not its content</h4>
     <div class="test__run">
       <div class="o-layout" style="--o-layout-columns: 12">
         <div class="o-layout__cell" style="--o-layout-colspan: 6">
@@ -563,16 +568,16 @@
         <div class="o-layout__cell" style="--o-layout-colspan: 6">
           <div class="fixture-box">2</div>
         </div>
-        <div class="o-layout__cell  o-layout__cell--center" style="--o-layout-colspan: 8">
+        <div class="o-layout__cell  o-layout__cell--align-inline-center" style="--o-layout-colspan: 8">
           <div class="fixture-box">3: centered cell</div>
         </div>
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="test__describe">.o-layout--gutter-base</h3>
-    <h4 class="test__it">supports gutters</h4>
+    <h3 class="test__describe">.o-layout--gap-base</h3>
+    <h4 class="test__it">supports gap</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gap-base" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -588,9 +593,9 @@
       </div>
     </div><!-- .test__run -->
 
-    <h4 class="test__it">doesn't apply gutters to nested layouts</h4>
+    <h4 class="test__it">doesn't apply gaps to nested layouts</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2;">
+      <div class="o-layout  o-layout--gap-base" style="--o-layout-columns: 2;">
         <div class="o-layout__cell" style="--o-layout-colspan: 1;">
           <div class="fixture-wrap">
             1
@@ -620,13 +625,13 @@
       </div>
     </div><!-- .test__run -->
 
-    <h4 class="test__it">correctly aligns gutters within nested layouts</h4>
+    <h4 class="test__it">correctly aligns gaps within nested layouts</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2;">
+      <div class="o-layout  o-layout--gap-base" style="--o-layout-columns: 2;">
         <div class="o-layout__cell" style="--o-layout-colspan: 1;">
           <div class="fixture-wrap">
             1
-            <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2">
+            <div class="o-layout  o-layout--gap-base" style="--o-layout-columns: 2">
               <div class="o-layout__cell" style="--o-layout-colspan: 1">
                 <div class="fixture-box">1</div>
               </div>
@@ -639,7 +644,7 @@
         <div class="o-layout__cell" style="--o-layout-colspan: 1;">
             <div class="fixture-wrap">
               2
-              <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 2">
+              <div class="o-layout  o-layout--gap-base" style="--o-layout-columns: 2">
                 <div class="o-layout__cell" style="--o-layout-colspan: 1">
                   <div class="fixture-box">1</div>
                 </div>
@@ -652,9 +657,9 @@
       </div>
     </div><!-- .test__run -->
 
-    <h4 class="test__it">correctly adds gutters with o-layout--fit</h4>
+    <h4 class="test__it">correctly adds gaps with o-layout--fit</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter-base  o-layout--fit">
+      <div class="o-layout  o-layout--gap-base  o-layout--fit">
         <div class="o-layout__cell">
           <div class="fixture-box">1</div>
         </div>
@@ -665,7 +670,7 @@
           <div class="fixture-box">3</div>
         </div>
       </div>
-      <div class="o-layout  o-layout--gutter-base  o-layout--fit">
+      <div class="o-layout  o-layout--gap-base  o-layout--fit">
         <div class="o-layout__cell">
           <div class="fixture-box">1</div>
         </div>
@@ -687,9 +692,9 @@
       </div>
     </div><!-- .test__run -->
 
-    <h4 class="test__it">Supports 5 default gutter sizes</h4>
+    <h4 class="test__it">Supports 5 default gap sizes</h4>
     <div class="test__run">
-      <div class="o-layout  o-layout--gutter-tiny" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gap-tiny" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -704,7 +709,7 @@
         </div>
       </div>
 
-      <div class="o-layout  o-layout--gutter-small" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gap-small" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -719,7 +724,7 @@
         </div>
       </div>
 
-      <div class="o-layout  o-layout--gutter-base" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gap-base" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -734,7 +739,7 @@
         </div>
       </div>
 
-      <div class="o-layout  o-layout--gutter-large" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gap-large" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>
@@ -749,7 +754,7 @@
         </div>
       </div>
 
-      <div class="o-layout  o-layout--gutter-huge" style="--o-layout-columns: 4">
+      <div class="o-layout  o-layout--gap-huge" style="--o-layout-columns: 4">
         <div class="o-layout__cell" style="--o-layout-colspan: 1">
           <div class="fixture-box">1</div>
         </div>

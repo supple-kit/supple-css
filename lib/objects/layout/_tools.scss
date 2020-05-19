@@ -42,5 +42,5 @@
 @mixin fill () {
   flex: 1 1 auto; /* [1] */
   flex-basis: auto; /* [2] */
-  width: 0%; /* [3] */
+  inline-size: 0%; /* [3] */
 }

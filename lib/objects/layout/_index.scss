@@ -37,7 +37,7 @@
   display: flex; /* [1] */
   flex-flow: row wrap;
   padding: 0; /* [1] */
-  margin-left: 0; /* [1] */
+  margin-inline-start: 0; /* [1] */
   list-style: none; /* [1] */
 }
 
@@ -55,22 +55,24 @@
 .o-layout__cell {
   flex-basis: 100%; /* [3] */
   flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
-  min-width: 0; /* [2] */
+  min-inline-size: 0; /* [2] */
 }
 
 /**
- * Element modifier: horizontally center one unit
+ * Element modifier: align-inline-center
+ * horizontally center one unit
  * Set a specific unit to be horizontally centered. Doesn't affect
  * any other units. Can still contain a child `layout` object.
  */
-.o-layout__cell--center {
-  margin-left: auto;
-  margin-right: auto;
+.o-layout__cell--align-inline-center {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 
 
 /**
- * Element modifier: Make a cell shrink wrap its content.
+ * Element modifier: fit
+ * Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
   @include tools.fit;
@@ -78,7 +80,8 @@
 
 
 /**
- * Element modifier: Make a cell fill the remaining space.
+ * Element modifier: fill
+ * Make a cell fill the remaining space.
  */
 .o-layout__cell--fill {
   @include tools.fill;
@@ -86,39 +89,44 @@
 
 
 /**
- * Modifier: center align all layout cells
+ * Modifier: inline-center
+ * center align all layout cells
  */
-.o-layout--align-center {
+.o-layout--align-inline-center {
   justify-content: center;
 }
 
 
 /**
- * Modifier: right align all layout cells
+ * Modifier: align-inline-end
+ * right align all layout cells
  */
-.o-layout--align-right {
+.o-layout--align-inline-end {
   justify-content: flex-end;
 }
 
 
 /**
- * Modifier: middle-align layout cells
+ * Modifier: align-block-center
+ * center-align layout cells on the block axis
  */
-.o-layout--align-middle {
+.o-layout--align-block-center {
   align-items: center;
 }
 
 
 /**
- * Modifier: bottom-align layout cells
+ * Modifier: align-block-end
+ * end-align layout cells on the block axis
  */
-.o-layout--align-bottom {
+.o-layout--align-block-end {
   align-items: flex-end;
 }
 
 
 /**
- * Modifier: reverse all cells
+ * Modifier: reverse
+ * reverse all cells
  */
 .o-layout--reverse {
   flex-direction: row-reverse;
@@ -126,7 +134,8 @@
 
 
 /**
- * Modifier: allow cells to equal distribute width
+ * Modifier: fit
+ * allow cells to equal distribute width
  *
  * 1. Provide all values to avoid IE10 bug with shorthand flex
  *    http://git.io/vllC7
@@ -142,75 +151,81 @@
 
 
 /**
- * Modifier: all cells match height of tallest cell in a row
+ * Modifier: equal-block-size
+ * All cells match the size of tallest cell in a row
  * 1. The direct child of the flexbox must be a single element when you want
- *    to use equalheight
+ *    to use equal-block-size
  */
-.o-layout--equalheight {
+.o-layout--equal-block-size {
   > .o-layout__cell {
     display: flex;
 
     > * {
-      width: 100%; /* [1] */
+      inline-size: 100%; /* [1] */
     }
   }
 }
 
 
 /**
- * Modifier: Gutter-base
+ * Modifier: gap-base
+ * Gap-base
  */
-.o-layout--gutter-base {
-  @include tools.mixins-rem(margin-left, -(variables.$gutter-base));
+.o-layout--gap-base {
+  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-base));
 
   > .o-layout__cell {
-    @include tools.mixins-rem(padding-left, variables.$gutter-base);
+    @include tools.mixins-rem(padding-inline-start, variables.$gap-base);
   }
 }
 
 
 /**
- * Modifier: Tiny gutter
+ * Modifier: gap-tiny
+ * Tiny gap
  */
-.o-layout--gutter-tiny {
-  @include tools.mixins-rem(margin-left, -(variables.$gutter-tiny));
+.o-layout--gap-tiny {
+  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-tiny));
 
   > .o-layout__cell {
-    @include tools.mixins-rem(padding-left, variables.$gutter-tiny);
+    @include tools.mixins-rem(padding-inline-start, variables.$gap-tiny);
   }
 }
 
 
 /**
- * Modifier: Small gutter
+ * Modifier: gap-small
+ * Small gap
  */
-.o-layout--gutter-small {
-  @include tools.mixins-rem(margin-left, -(variables.$gutter-small));
+.o-layout--gap-small {
+  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-small));
 
   > .o-layout__cell {
-    @include tools.mixins-rem(padding-left, variables.$gutter-small);
+    @include tools.mixins-rem(padding-inline-start, variables.$gap-small);
   }
 }
 
 /**
- * Modifier: Large gutter
+ * Modifier: gap-large
+ * Large gap
  */
-.o-layout--gutter-large {
-  @include tools.mixins-rem(margin-left, -(variables.$gutter-large));
+.o-layout--gap-large {
+  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-large));
 
   > .o-layout__cell {
-    @include tools.mixins-rem(padding-left, variables.$gutter-large);
+    @include tools.mixins-rem(padding-inline-start, variables.$gap-large);
   }
 }
 
 /**
- * Modifier: Huge gutter
+ * Modifier: gap-huge
+ * Huge gap
  */
-.o-layout--gutter-huge {
-  @include tools.mixins-rem(margin-left, -(variables.$gutter-huge));
+.o-layout--gap-huge {
+  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-huge));
 
   > .o-layout__cell {
-    @include tools.mixins-rem(padding-left, variables.$gutter-huge);
+    @include tools.mixins-rem(padding-inline-start, variables.$gap-huge);
   }
 }
 
