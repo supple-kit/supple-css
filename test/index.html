@@ -53,7 +53,13 @@
     content: counter(module);
   }
 
-  .test {}
+  .test {
+    display: none;
+  }
+
+  .module:target .test {
+    display: block;
+  }
 
   .test__describe {
     margin-top: 3rem;
@@ -132,10 +138,12 @@
 <h2>Table of contents</h2>
 <ol>
   <li><a href="#generic">generic</a></li>
+  <li><a href="#o-list-clean">list-clean object</a></li>
   <li><a href="#o-layout">layout object</a></li>
   <li><a href="#o-retain">retain object</a></li>
   <li><a href="#o-flexembed">flexembed object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
+  <li><a href="#u-text">text utility</a></li>
   <li><a href="#u-float">float utility</a></li>
   <li><a href="#u-module">module utility</a></li>
   <li><a href="#u-visually-hidden">visually-hidden utility</a></li>
@@ -143,7 +151,7 @@
 </ol>
 
 <div class="module" id="generic">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/generic/">generic</a> tests</h2>
+  <h2 class="module__title"><a href="#generic">generic</a> tests</h2>
   <div class="test">
     <h3 class="test__describe">h1-h6</h3>
     <h4 class="test__it">have no margin</h4>
@@ -236,7 +244,7 @@
 </div><!-- .module -->
 
 <div class="module" id="o-list-clean">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/list-clean.css">list-clean</a> object tests</h2>
+  <h2 class="module__title"><a href="#o-list-clean">list-clean</a> object tests</h2>
   <div class="test">
     <h3 class="test__describe">.o-list-clean</h3>
     <h4 class="test__it">Cleans up list styles and paddings but preserves them in nested lists</h4>
@@ -258,7 +266,7 @@
 </div>
 
 <div class="module" id="o-layout">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/layout.css">layout</a> object tests</h2>
+  <h2 class="module__title"><a href="#o-layout">layout</a> object tests</h2>
   <div class="test">
     <h3 class="test__describe">.o-layout</h3>
     <h4 class="test__it">renders cells at full-width by default</h4>
@@ -762,7 +770,7 @@
 </div><!-- .module -->
 
 <div class="module" id="o-retain">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/retain.css">retain</a> object tests</h2>
+  <h2 class="module__title"><a href="#o-retain">retain</a> object tests</h2>
   <div class="test">
     <h3 class="test__describe">.o-retain</h3>
     <h4 class="test__it">Is padded at both sides</h4>
@@ -808,7 +816,7 @@
 </div>
 
 <div class="module" id="o-flexembed">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/objects/flexembed.css">flexembed</a> object tests</h2>
+  <h2 class="module__title"><a href="#o-flexembed">flexembed</a> object tests</h2>
   <div class="test">
     <h3 class="test__describe">.o-flexembed</h3>
     <h4 class="test__it">renders 1:1 (iframe)</h4>
@@ -882,7 +890,7 @@
 </div><!-- .module -->
 
 <div class="module" id="u-fractions">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/fractions.css">fractions</a> utility tests</h2>
+  <h2 class="module__title"><a href="#u-fractions">fractions</a> utility tests</h2>
   <div class="test">
     <h3 class="test__describe">.u-fraction--Xof12</h3>
     <h4 class="test__it">sizes to 1/12 of the parent container</h4>
@@ -939,7 +947,7 @@
 </div><!-- .module -->
 
 <div class="module" id="u-text">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/text.css">text</a> utility tests</h2>
+  <h2 class="module__title"><a href="#u-text">text</a> utility tests</h2>
   <div class="test">
     <h3 class="test__describe">.u-text-retain</h3>
     <h4 class="test__it">Retains paragraph at an ideal max-width of 70ch</h4>
@@ -953,7 +961,7 @@
 </div><!-- .module -->
 
 <div class="module" id="u-float">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/float.css">float</a> utility tests</h2>
+  <h2 class="module__title"><a href="#u-float">float</a> utility tests</h2>
   <div class="test">
     <h3 class="test__describe">.u-clearfix</h3>
     <h4 class="test__it">the container should clear the floated images</h4>
@@ -990,8 +998,7 @@
 </div><!-- .module -->
 
 <div class="module" id="u-module">
-  <h2 class="module__title">
-    <a href="https://github.com/supple-css/supple/blob/master/lib/utilities/module.css">module</a> utility tests</h2>
+  <h2 class="module__title"><a href="#u-module">module</a> utility tests</h2>
   <div class="test">
     <h3 class="test__describe">.u-module</h3>
     <h4 class="test__it">The margin-bottom from the last child should be cleared</h4>
@@ -1015,7 +1022,7 @@
 </div><!-- .module -->
 
 <div class="module" id="u-visually-hidden">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/visually-hidden.css">visually-hidden</a> utility tests</h2>
+  <h2 class="module__title"><a href="#u-visually-hidden">visually-hidden</a> utility tests</h2>
   <div class="test">
     <h3 class="test__describe">.u-visually-hidden</h3>
     <h4 class="test__it">renders as visually hidden but still available to screenreaders</h4>
@@ -1027,7 +1034,7 @@
 </div><!-- .module -->
 
 <div class="module" id="u-hidden">
-  <h2 class="module__title"><a href="https://github.com/supple-css/supple/blob/master/lib/utilities/hidden.css">hidden</a> utility tests</h2>
+  <h2 class="module__title"><a href="#u-hidden">hidden</a> utility tests</h2>
   <div class="test">
     <h3 class="test__describe">.u-hidden</h3>
     <h4 class="test__it">renders as hidden</h4>
