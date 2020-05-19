@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 4.0.1 - 19-may-2020
+
+- Fixed a bug in `o-list-clean` where it resets margin-left but should reset padding-left.
+
 ## 4.0.0 - 20-apr-2020
 
 - Confirm to `@csstools/normalize.css` because of some problems with nested lists and buttons. Thus introducing a breaking change.
