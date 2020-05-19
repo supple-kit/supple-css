@@ -6,10 +6,9 @@
 /*  Settings
     ========================================================================= */
 
-@use
-  '../lib/settings/defaults' with (
-    $show-breakpoints: (palm, lap, desk, wall)
-  );
+@use '../lib/settings/defaults' with (
+  $show-breakpoints: (palm, lap, desk, wall)
+);
 
 
 

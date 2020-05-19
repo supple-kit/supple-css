@@ -85,12 +85,11 @@ $show-breakpoints: () !default;
 /**
  * Load sass-mq framework
  */
-@use
-  '../../../node_modules/sass-mq/mq' with (
-    $mq-breakpoints: $breakpoints,
-    $mq-show-breakpoints: $show-breakpoints,
-    $mq-static-breakpoint: $static-breakpoint,
-  );
+@use '../../../node_modules/sass-mq/mq' with (
+  $mq-breakpoints: $breakpoints,
+  $mq-show-breakpoints: $show-breakpoints,
+  $mq-static-breakpoint: $static-breakpoint,
+);
 
 
 
