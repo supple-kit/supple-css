@@ -77,7 +77,7 @@
           @extend .u-fraction--#{$numerator-r}of#{$denominator-r}#{$modifier};
         } @else {
           flex-basis: auto !important; /* [1] */
-          width: math.percentage($numerator / $denominator) !important;
+          inline-size: math.percentage($numerator / $denominator) !important;
         }
       }
     }
