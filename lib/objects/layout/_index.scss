@@ -49,7 +49,8 @@
  *
  * 1. Set flex items to full width by default
  * 2. Fix issue where elements with overflow extend past the
- *    `layout__cell` container
+ *    `layout__cell` container. As per:
+ *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
  */
 .o-layout__cell {
   flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
