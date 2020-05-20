@@ -34,7 +34,7 @@
 .o-layout {
   --o-layout-columns: 12;
   --o-layout-colspan: var(--o-layout-columns);
-  display: flex; /* [1] */
+  display: flex;
   flex-flow: row wrap;
   padding: 0; /* [1] */
   margin-inline-start: 0; /* [1] */
@@ -50,10 +50,8 @@
  * 1. Set flex items to full width by default
  * 2. Fix issue where elements with overflow extend past the
  *    `layout__cell` container
- * 3. Fallback for browsers which do not support CSS custom properties
  */
 .o-layout__cell {
-  flex-basis: 100%; /* [3] */
   flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
   min-inline-size: 0; /* [2] */
 }
@@ -136,16 +134,10 @@
 /**
  * Modifier: fit
  * allow cells to equal distribute width
- *
- * 1. Provide all values to avoid IE10 bug with shorthand flex
- *    http://git.io/vllC7
- *
- *    Use `0%` to avoid bug in IE10/11 with unitless flex basis
- *    http://git.io/vllWx
  */
 .o-layout--fit {
   > .o-layout__cell {
-    flex: 1 1 0%; /* [1] */
+    flex: 1;
   }
 }
 

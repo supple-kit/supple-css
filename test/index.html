@@ -125,6 +125,7 @@
     overflow: auto;
     white-space: pre;
     word-wrap: normal;
+    margin-block-end: 0;
   }
 
   .c-vertical {
@@ -431,7 +432,7 @@
           <div class="fixture-box">shrink to content width</div>
         </div>
         <div class="o-layout__cell  o-layout__cell--fill">
-          <div class="fixture-box">fill</div>
+          <div class="fixture-box">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
         </div>
       </div>
     </div><!-- .test__run -->
@@ -525,7 +526,7 @@
           <div class="fixture-box">1</div>
         </div>
         <div class="o-layout__cell">
-          <div class="fixture-box">2</div>
+          <div class="fixture-box"><pre class="preformatted">2 This is some really long content that should be scrolled when the container is too small.</pre></div>
         </div>
         <div class="o-layout__cell">
           <div class="fixture-box">3</div>
