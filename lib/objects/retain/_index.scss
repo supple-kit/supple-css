@@ -25,13 +25,17 @@
 /*  Module
     ========================================================================= */
 
+/**
+ * Block: retain
+ * 1. Center align
+ */
 .o-retain {
-  --o-retain-max-width: 100%;
-  max-width: var(--o-retain-max-width);
-  @include tools.mixins-rem(padding-right, variables.$space);
-  @include tools.mixins-rem(padding-left, variables.$space);
-  margin-right: auto;
-  margin-left: auto;
+  --o-retain-max-inline-size: 100%;
+  max-inline-size: var(--o-retain-max-inline-size);
+  @include tools.mixins-rem(padding-inline-end, variables.$space);
+  @include tools.mixins-rem(padding-inline-start, variables.$space);
+  margin-inline-end: auto; /* [1] */
+  margin-inline-start: auto; /* [1] */
 }
 
 
@@ -39,8 +43,8 @@
  * Modifier: no-padding
  */
 .o-retain--no-padding {
-  padding-right: 0;
-  padding-left: 0;
+  padding-inline-end: 0;
+  padding-inline-start: 0;
 }
 
 
@@ -51,6 +55,6 @@
 
 @each $key, $value in variables.$sizes {
   .o-retain--#{$key} {
-    @include tools.mixins-rem(max-width, $value);
+    @include tools.mixins-rem(max-inline-size, $value);
   }
 }
