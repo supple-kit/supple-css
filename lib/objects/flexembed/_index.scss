@@ -35,10 +35,13 @@
   --o-flexembed-ratio: (1/1); /* [1] */
   position: relative;
   display: block;
-  height: 0;
-  padding: 0 0 calc(100% / var(--o-flexembed-ratio));
+  block-size: 0;
+  padding-block-start: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-block-end: calc(100% / var(--o-flexembed-ratio));
   overflow: hidden;
-  @include tools.mixins-rem(margin-bottom, variables.$space);
+  @include tools.mixins-rem(margin-block-end, variables.$space);
 }
 
 /**
@@ -49,10 +52,10 @@
 .o-flexembed > embed,
 .o-flexembed > object {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 
@@ -68,7 +71,7 @@
     }
 
     .o-flexembed--#{$a}by#{$b} {
-      padding-bottom: 100% / ($a/$b);
+      padding-block-end: 100% / ($a/$b);
     }
   }
 }
