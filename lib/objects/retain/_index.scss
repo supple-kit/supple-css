@@ -55,6 +55,6 @@
 
 @each $key, $value in variables.$sizes {
   .o-retain--#{$key} {
-    @include tools.mixins-rem(max-inline-size, $value);
+    --o-retain-max-inline-size: #{tools.functions-value-to-rem($value)};
   }
 }

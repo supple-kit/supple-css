@@ -71,7 +71,7 @@
     }
 
     .o-flexembed--#{$a}by#{$b} {
-      padding-block-end: 100% / ($a/$b);
+      --o-flexembed-ratio: (#{$a}/#{$b});
     }
   }
 }
