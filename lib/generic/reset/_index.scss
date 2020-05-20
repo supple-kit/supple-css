@@ -25,7 +25,7 @@
 html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
-  min-height: 100%;  /* [3] */
+  min-block-size: 100%;  /* [3] */
   font-size: #{(defaults.$font-size/16px)*1em}; /* [4] */
   line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
@@ -70,7 +70,10 @@ fieldset,
 figure,
 pre,
 hr {
-  @include tools.mixins-rem(margin, 0 0 defaults.$space-base);
+  margin-block-start: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
 }
 
 
@@ -79,11 +82,11 @@ hr {
  */
 ul,
 ol {
-  @include tools.mixins-rem(padding-left, defaults.$space-base);
+  @include tools.mixins-rem(padding-inline-start, defaults.$space-base);
 }
 
 dd {
-  @include tools.mixins-rem(margin-left, defaults.$space-base);
+  @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
 }
 
 
@@ -148,6 +151,6 @@ textarea {
  * 2. Render `alt` visually offset when images don't load
  */
 img {
-  max-width: 100%; /* [1] */
+  max-inline-size: 100%; /* [1] */
   font-style: italic; /* [2] */
 }
