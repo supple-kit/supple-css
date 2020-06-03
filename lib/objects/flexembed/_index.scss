@@ -1,7 +1,8 @@
 /*  =========================================================================
-    objects.flexembed
-    For use with multi-media embeds, such as videos or slideshows, that need to
-    retain a specific aspect ratio but adapt to elements of variable widths.
+    objects.aspect-ratio
+    For use with multi-media embeds such as videos, images or slideshows,
+    that need to retain a specific aspect ratio but adapt to elements
+    of variable widths.
     ========================================================================= */
 
 /*  Use rules
@@ -31,29 +32,20 @@
  * 1. Default cropping is a perfect square, in you own modules you can override
  *    the ratio like this: (16/9)
  */
-.o-flexembed {
-  --o-flexembed-ratio: (1/1); /* [1] */
+.o-aspect-ratio {
+  --aspect-ratio: (1/1); /* [1] */
   position: relative;
   display: block;
   block-size: 0;
-  padding-block-start: 0;
-  padding-inline-start: 0;
-  padding-inline-end: 0;
-  padding-block-end: calc(100% / var(--o-flexembed-ratio));
-  overflow: hidden;
+  padding-block-end: calc(100% / var(--aspect-ratio));
   @include tools.mixins-rem(margin-block-end, variables.$space);
 }
 
 /**
  * The actual embed/item
  */
-.o-flexembed__item,
-.o-flexembed > iframe,
-.o-flexembed > embed,
-.o-flexembed > object {
+.o-aspect-ratio__item {
   position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
   inline-size: 100%;
   block-size: 100%;
 }
@@ -70,8 +62,8 @@
       @error '`#{$a}` and `#{$b}` need to be numbers.';
     }
 
-    .o-flexembed--#{$a}by#{$b} {
-      --o-flexembed-ratio: (#{$a}/#{$b});
+    .o-aspect-ratio--#{$a}by#{$b} {
+      --aspect-ratio: (#{$a}/#{$b});
     }
   }
 }
