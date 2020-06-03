@@ -11,21 +11,33 @@
 
 @use '../../settings/defaults';
 @use '../../tools';
-@import-normalize;
 
 
 
 /**
- * 1. Set the global `box-sizing` state to `border-box`. As per:
- *    paulirish.com/2012/box-sizing-border-box-ftw
+ * Set the global `box-sizing` state to `border-box`. As per:
+ * paulirish.com/2012/box-sizing-border-box-ftw
+ */
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+
+/**
+ * 1. Ensure the page always fills at least the entire height of the viewport.
  * 2. Always add the vertical scrollbar to prevent layout shifting
- * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 3. Smooth anchor scrolling
  * 4. Apply the `$font-size` & `$line-height-ratio`
  */
 html {
-  box-sizing: border-box; /* [1] */
+  min-block-size: 100vh;  /* [1] */
   overflow-y: scroll; /* [2] */
-  min-block-size: 100%;  /* [3] */
+  scroll-behavior: smooth; /* [3] */
   font-size: #{(defaults.$font-size/16px)*1em}; /* [4] */
   line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
@@ -40,16 +52,14 @@ html {
 /**
  * Remove default margins from elements
  */
+body,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-button,
-input,
-optgroup,
-select {
+input {
   margin: 0;
 }
 
@@ -115,12 +125,19 @@ fieldset {
  */
 button,
 input,
-optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+  font: inherit;
+}
+
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */ /* stylelint-disable-line font-family-no-duplicate-names */
+  font-size: 1em; /* 2 */
 }
 
 
@@ -151,6 +168,26 @@ textarea {
  * 2. Render `alt` visually offset when images don't load
  */
 img {
+  display: block;
   max-inline-size: 100%; /* [1] */
   font-style: italic; /* [2] */
+}
+
+
+/**
+ * Remove all animations and transitions for people that prefer not to see them
+ * 1. Do not remove the animation altogether, but make it super-fast. This has
+ *    several benefits:
+ *    - Preserves the end state of an animation/transition
+ *    - Preserves the possibility to listen to `animationend` and
+ *      `transitionend` events.
+ * 2. Only one animation cycle
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important; /* [1] */
+    animation-iteration-count: 1 !important; /* [2] */
+    transition-duration: 0.01ms !important; /* [1] */
+    scroll-behavior: auto !important;
+  }
 }
