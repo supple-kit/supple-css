@@ -42,12 +42,6 @@ html {
   line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit; /* [1] */
-}
-
 
 /**
  * Remove default margins from elements
