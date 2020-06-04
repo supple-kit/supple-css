@@ -30,6 +30,7 @@
 }
 
 .c-test__title {
+  @include tools.mixins-font-size(40px);
   @include tools.mixins-rem(margin-block-start, defaults.$space-base);
   @include tools.mixins-rem(margin-block-end, defaults.$space-base);
   @include tools.mixins-rem(padding, defaults.$space-base);
@@ -50,6 +51,7 @@
 }
 
 .c-test__describe {
+  @include tools.mixins-font-size(32px);
   @include tools.mixins-rem(margin-block-start, defaults.$space-large);
   @include tools.mixins-rem(margin-block-end, defaults.$space-base);
   counter-reset: test__it;
@@ -61,6 +63,7 @@
 }
 
 .c-test__it {
+  @include tools.mixins-font-size(24px);
   @include tools.mixins-rem(margin-block-start, defaults.$space-base);
   @include tools.mixins-rem(margin-block-end, defaults.$space-base);
 
