@@ -31,6 +31,7 @@
     ========================================================================= */
 
 @use '../lib/elements/headings';
+@use '../test/scss/elements/toplevel';
 
 
 
@@ -47,6 +48,9 @@
 /*  Components
     ========================================================================= */
 
+@use '../test/scss/components/test';
+@use '../test/scss/components/fixture-box';
+@use '../test/scss/components/preformatted';
 @use '../test/scss/components/css-lock';
 
 

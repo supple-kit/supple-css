@@ -1,0 +1,90 @@
+/*  =========================================================================
+    components.test
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    Variables, mixins & other includes.
+    ========================================================================= */
+
+@use '../../../lib/tools';
+@use '../../../lib/settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+
+
+/*  Module
+    ========================================================================= */
+
+.c-test {
+  counter-reset: test__describe;
+}
+
+.c-test__title {
+  @include tools.mixins-rem(margin-block-start, defaults.$space-base);
+  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
+  @include tools.mixins-rem(padding, defaults.$space-base);
+  color: #999999;
+  background: #eeeeee;
+}
+
+.c-test__describe,
+.c-test__it {
+  @include tools.mixins-rem(padding-block-start, defaults.$space-small);
+  @include tools.mixins-rem(padding-block-end, defaults.$space-small);
+  @include tools.mixins-rem(padding-inline-start, defaults.$space-base);
+  @include tools.mixins-rem(padding-inline-end, defaults.$space-base);
+  border-left: 5px solid #666666;
+  font-weight: bold;
+  color: #666666;
+  background: #eeeeee;
+}
+
+.c-test__describe {
+  @include tools.mixins-rem(margin-block-start, defaults.$space-large);
+  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
+  counter-reset: test__it;
+
+  &::before {
+    content: counter(test__describe);
+    counter-increment: test__describe;
+  }
+}
+
+.c-test__it {
+  @include tools.mixins-rem(margin-block-start, defaults.$space-base);
+  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
+
+  &::before {
+    content: counter(test__describe) '.' counter(test__it);
+    counter-increment: test__it;
+  }
+}
+
+
+.c-test__describe::before,
+.c-test__it::before {
+  display: inline-block;
+  @include tools.mixins-rem(margin-inline-end, defaults.$space-small);
+  @include tools.mixins-rem(min-inline-size, defaults.$space-large);
+  text-transform: uppercase;
+  color: #999999;
+}
+
+
+.c-test__run {
+  // empty for reference
+}
+
+.c-test__run--retained {
+  @include tools.mixins-rem(max-inline-size, defaults.$space-base * 21);
+}

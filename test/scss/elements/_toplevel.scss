@@ -1,0 +1,35 @@
+/*  =========================================================================
+    elements.toplevel
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    These can include variables, mixins & other includes.
+    ========================================================================= */
+
+@use '../../../lib/tools';
+@use '../../../lib/settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+
+
+/*  Module
+    ========================================================================= */
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+}
+
+body {
+  @include tools.mixins-rem(padding-inline-start, defaults.$space-small);
+  @include tools.mixins-rem(padding-inline-end, defaults.$space-small);
+}
