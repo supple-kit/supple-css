@@ -34,10 +34,11 @@
 .o-layout {
   --o-layout-columns: 12;
   --o-layout-colspan: var(--o-layout-columns);
+  --o-layout-gap: 0;
   display: flex;
   flex-flow: row wrap;
   padding: 0; /* [1] */
-  margin-inline-start: 0; /* [1] */
+  margin-inline-start: calc(-1 * var(--o-layout-gap)); /* [1] */
   list-style: none; /* [1] */
 }
 
@@ -55,6 +56,7 @@
 .o-layout__cell {
   flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
   min-inline-size: 0; /* [2] */
+  padding-inline-start: var(--o-layout-gap);
 }
 
 /**
@@ -169,11 +171,7 @@
  * Gap-base
  */
 .o-layout--gap-base {
-  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-base));
-
-  > .o-layout__cell {
-    @include tools.mixins-rem(padding-inline-start, variables.$gap-base);
-  }
+  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-base)};
 }
 
 
@@ -182,11 +180,7 @@
  * Tiny gap
  */
 .o-layout--gap-tiny {
-  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-tiny));
-
-  > .o-layout__cell {
-    @include tools.mixins-rem(padding-inline-start, variables.$gap-tiny);
-  }
+  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-tiny)};
 }
 
 
@@ -195,11 +189,7 @@
  * Small gap
  */
 .o-layout--gap-small {
-  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-small));
-
-  > .o-layout__cell {
-    @include tools.mixins-rem(padding-inline-start, variables.$gap-small);
-  }
+  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-small)};
 }
 
 /**
@@ -207,11 +197,7 @@
  * Large gap
  */
 .o-layout--gap-large {
-  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-large));
-
-  > .o-layout__cell {
-    @include tools.mixins-rem(padding-inline-start, variables.$gap-large);
-  }
+  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-large)};
 }
 
 /**
@@ -219,11 +205,7 @@
  * Huge gap
  */
 .o-layout--gap-huge {
-  @include tools.mixins-rem(margin-inline-start, -(variables.$gap-huge));
-
-  > .o-layout__cell {
-    @include tools.mixins-rem(padding-inline-start, variables.$gap-huge);
-  }
+  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-huge)};
 }
 
 
