@@ -2,7 +2,7 @@
 
 Layout makes use of `flexbox` & Custom Properties to provide for a flexible, fluid & extensible layout system. You can horizontally(on the inline axis) arrange items or even use it as a full fledged  traditional grid system.
 
-If you want to arrange items over 2 dimensions (horizontal & vertical) we recommend using the [mesh object](../mesh).
+If you want to arrange items over 2 dimensions (horizontal & vertical) we recommend using [objects.mesh](../mesh).
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
