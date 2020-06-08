@@ -4,11 +4,15 @@ Layout makes use of `flexbox` & Custom Properties to provide for a flexible, flu
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
-## Installation
-Make sure you've installed/downloaded the Supple CSS library:
+## Table of contents
 
-* [npm](https://www.npmjs.com/package/supple): `npm install supple`
-* Download: [zip](https://github.com/supple-css/supple/releases/latest)
+* [Features](#features)
+* [Use](#use)
+* [Available classes](#available-classes)
+* [Configurable variables](#configurable-variables)
+* [Installation](#installation)
+* [Testing](#testing)
+* [Browser support](#browser-support)
 
 ## Features
 
@@ -21,79 +25,10 @@ Make sure you've installed/downloaded the Supple CSS library:
 * Cell width is controlled independently of layout gap.
 * Infinite nesting.
 
-## Available classes
-
-**On the `.o-layout` block**
-
-* `.o-layout`: core layout block
-* `.o-layout--align-inline-center`: center align _all_ layout cells over the inline axis
-* `.o-layout--align-inline-end`: align all layout cells to the end of the inline axis
-* `.o-layout--align-block-center`: center-align layout cells on the block axis
-* `.o-layout--align-block-end`: end-align layout cells on the block axis
-* `.o-layout--reverse`: reverse all cells in order
-* `.o-layout--fill`: evenly distribute space amongst all child cells
-* `.o-layout--fit`: fit all cells to their content
-* `.o-layout--equal-block-size`: All cells match the size of tallest cell in a row on the block axis
-* `.o-layout--gap-base`: adds a base gutter between cells
-* `.o-layout--gap-tiny`: adds a tiny gutter between cells
-* `.o-layout--gap-small`: adds a small gutter between cells
-* `.o-layout--gap-large`: adds a large gutter between cells
-* `.o-layout--gap-huge`: adds a huge gutter between cells
-
-**On the `.o-layout__cell` element**
-* `.o-layout__cell`: Core layout cell element
-* `.o-layout__cell--align-inline-center`: Center one cell on the inline axis
-* `.o-layout__cell--fit`: Make a cell shrink wrap its content
-* `.o-layout__cell--fill`: Make a cell fill the remaining space.
-
-## Configurable variables
-There are multiple ways to configure the layout object. The Custom properties are calculated at run-time, the SCSS variables will allow you to change things on build-time.
-
-### Custom properties
-
-**On the `.o-layout` block**
-
-* `--o-layout-columns`: The number of columns you want to have, defaults to `12`
-* `--o-layout-gap`: The width of the gutter applied between the cells, defaults to `0`
-
-**On the `.o-layout__cell` element**
-
-* `--o-layout-colspan`: The amount of columns this cell will span, defaults to `--o-layout-columns`
-
-### SCSS
-
-* `$gap-base`: base width of the gutter, defaults to `defaults.$space-base`
-* `$gap-tiny`: tiny width of the gutter, defaults to `defaults.$space-tiny`
-* `$gap-small`: small width of the gutter, defaults to `defaults.$space-small`
-* `$gap-large`: large width of the gutter, defaults to `defaults.$space-large`
-* `$gap-huge`: huge width of the gutter, defaults to `defaults.$space-huge`
-* `$fit-in-breakpoint`: a list of breakpoints where `o-layout__cell-fit` is generated for,  defaults to `()`
-* `$fill-in-breakpoint`: a list of breakpoints where `o-layout__cell-fill` is generated for,  defaults to `()`
-
-You can overwrite the SCSS variables the following ways:
-
-```scss
-// in your manifest file, eg. `styles.scss`
-@use '~supple/lib/objects/layout' with (
-  $fit-in-breakpoint: (lap, desk),
-  $gap-small: 1rem,
-);
-```
-or
-```scss
-// in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/objects/layout/variables' with (
-  $fit-in-breakpoint: (lap, desk),
-  $gap-small: 1rem,
-);
-
-// in your manifest file, eg. `styles.scss`
-@use '~supple/lib/objects/layout';
-```
 
 ## Use
 
-A simple layout is easy to create. A layout container can have any number of child cells. When used with `.o-layout--fit` space is evenly distributed without need for `--o-layout-colspan` or sizing utilities.
+A simple layout is easy to create. A layout container can have any number of child cells. When used with `.o-layout--fill` space is evenly distributed without need for `--o-layout-colspan` or sizing utilities.
 
 **Note** `.o-layout` only accepts `.o-layout__cell` as direct descendants. This keeps our layout nicely separated from other components.
 
@@ -142,7 +77,7 @@ For more granular control over layout make use of modifiers, custom properties o
   </div>
 </div>
 ```
-**Note** Off course this specific use of custom properties is pure for example purposes. It is advised to overwrite the custom properties in your own components inestad of inline styles.
+**Note** Of course this specific use of custom properties(through inline styles) is pure for example purposes. It is advised to overwrite the custom properties in your own components instead of inline styles.
 
 
 Fit cells to their content and allow others to fill the remaining space.
@@ -154,7 +89,7 @@ Fit cells to their content and allow others to fill the remaining space.
 </div>
 ```
 
-You can nest layouts in any context. Keep in mind that the dimensions will be relative to the layouts width, and not the width of the whole application.
+You can nest layouts in any context. Keep in mind that the dimensions will be relative to the width of `o-layout`, and not the width of the whole application.
 
 ```html
 <div class="o-layout">
@@ -167,8 +102,89 @@ You can nest layouts in any context. Keep in mind that the dimensions will be re
 </div>
 ```
 
+
+## Available classes
+
+**On the `.o-layout` block**
+
+* `.o-layout`: core layout block
+* `.o-layout--align-inline-center`: center align _all_ layout cells over the inline axis
+* `.o-layout--align-inline-end`: align all layout cells to the end of the inline axis
+* `.o-layout--align-block-center`: center-align layout cells on the block axis
+* `.o-layout--align-block-end`: end-align layout cells on the block axis
+* `.o-layout--reverse`: reverse all cells in order
+* `.o-layout--fill`: evenly distribute space amongst all child cells
+* `.o-layout--fit`: fit all cells to their content
+* `.o-layout--equal-block-size`: All cells match the size of tallest cell in a row on the block axis
+* `.o-layout--gap-base`: adds a base gutter between cells
+* `.o-layout--gap-tiny`: adds a tiny gutter between cells
+* `.o-layout--gap-small`: adds a small gutter between cells
+* `.o-layout--gap-large`: adds a large gutter between cells
+* `.o-layout--gap-huge`: adds a huge gutter between cells
+
+**On the `.o-layout__cell` element**
+* `.o-layout__cell`: Core layout cell element
+* `.o-layout__cell--align-inline-center`: Center one cell on the inline axis
+* `.o-layout__cell--fit`: Make a cell shrink wrap its content
+* `.o-layout__cell--fill`: Make a cell fill the remaining space.
+
+
+## Configurable variables
+There are multiple ways to configure the layout object. The Custom properties are calculated at run-time, the SCSS variables will allow you to change things on build-time.
+
+### Custom properties
+
+**On the `.o-layout` block**
+
+* `--o-layout-columns`: The number of columns you want to have, defaults to `12`
+* `--o-layout-gap`: The width of the gutter applied between the cells, defaults to `0`
+
+**On the `.o-layout__cell` element**
+
+* `--o-layout-colspan`: The amount of columns this cell will span, defaults to `--o-layout-columns`
+
+### SCSS
+
+* `$gap-base`: base width of the gutter, defaults to `defaults.$space-base`
+* `$gap-tiny`: tiny width of the gutter, defaults to `defaults.$space-tiny`
+* `$gap-small`: small width of the gutter, defaults to `defaults.$space-small`
+* `$gap-large`: large width of the gutter, defaults to `defaults.$space-large`
+* `$gap-huge`: huge width of the gutter, defaults to `defaults.$space-huge`
+* `$fit-in-breakpoint`: a list of breakpoints where `o-layout__cell-fit` is generated for,  defaults to `()`
+* `$fill-in-breakpoint`: a list of breakpoints where `o-layout__cell-fill` is generated for,  defaults to `()`
+
+You can overwrite the SCSS variables the following ways:
+
+```scss
+// in your manifest file, eg. `styles.scss`
+@use '~supple/lib/objects/layout' with (
+  $fit-in-breakpoint: (lap, desk),
+  $gap-small: 1rem,
+);
+```
+or
+```scss
+// in your own variable file, eg. `_vars.scss`
+@use '~supple/lib/objects/layout/variables' with (
+  $fit-in-breakpoint: (lap, desk),
+  $gap-small: 1rem,
+);
+
+// in your manifest file, eg. `styles.scss`
+@use '~supple/lib/objects/layout';
+```
+
+
+## Installation
+Make sure you've installed/downloaded the Supple CSS library:
+
+* [npm](https://www.npmjs.com/package/supple): `npm install supple`
+* Download: [zip](https://github.com/supple-css/supple/releases/latest)
+
+
 ## Testing
 Basic visual tests are in [test.html](./test.html).
+
 
 ## Browser support
 
