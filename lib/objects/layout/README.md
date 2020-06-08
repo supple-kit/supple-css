@@ -1,4 +1,4 @@
-# Supple CSS objects.layout
+# Supple CSS | objects.layout
 
 Layout makes use of `flexbox` & Custom Properties to provide for a flexible, fluid & extensible layout system.
 
@@ -142,7 +142,7 @@ For more granular control over layout make use of modifiers, custom properties o
   </div>
 </div>
 ```
-**Note** Off course this specific use of custom properties is pure for example purposes. It is advised to overwrite the custom properties in your own components.
+**Note** Off course this specific use of custom properties is pure for example purposes. It is advised to overwrite the custom properties in your own components inestad of inline styles.
 
 
 Fit cells to their content and allow others to fill the remaining space.
