@@ -18,7 +18,7 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
-@use './tools';
+@use '../../tools';
 
 
 
@@ -74,16 +74,20 @@
  * Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
-  @include tools.fit;
+  flex-basis: auto;
 }
 
 
 /**
  * Element modifier: fill
  * Make a cell fill the remaining space.
+ *
+ * 1. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
  */
 .o-layout__cell--fill {
-  @include tools.fill;
+  flex: auto;
+  inline-size: 0%; /* [1] */
 }
 
 
@@ -227,10 +231,23 @@
 /*  Responsive fitters & fillers
     ========================================================================= */
 
+/**
+ * Element modifier: fit
+ * Make a cell shrink wrap its content.
+ */
 @include tools.mixins-breakpoint-has(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
-  @include tools.fit;
+  flex-basis: auto;
 }
 
+
+/**
+ * Element modifier: fill
+ * Make a cell fill the remaining space.
+ *
+ * 1. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
+ */
 @include tools.mixins-breakpoint-has(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
-  @include tools.fill;
+  flex: auto;
+  inline-size: 0%; /* [1] */
 }
