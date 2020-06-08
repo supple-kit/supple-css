@@ -33,7 +33,6 @@
  */
 .o-layout {
   --o-layout-columns: 12;
-  --o-layout-colspan: var(--o-layout-columns);
   --o-layout-gap: 0;
   display: flex;
   flex-flow: row wrap;
@@ -54,6 +53,7 @@
  *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
  */
 .o-layout__cell {
+  --o-layout-colspan: var(--o-layout-columns);
   flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
   min-inline-size: 0; /* [2] */
   padding-inline-start: var(--o-layout-gap);
@@ -61,7 +61,7 @@
 
 /**
  * Element modifier: align-inline-center
- * horizontally center one unit
+ * center one cell on the inline axis
  * Set a specific unit to be horizontally centered. Doesn't affect
  * any other units. Can still contain a child `layout` object.
  */
@@ -95,7 +95,7 @@
 
 /**
  * Modifier: inline-center
- * center align all layout cells
+ * center align all layout cells over the inline axis
  */
 .o-layout--align-inline-center {
   justify-content: center;
@@ -104,7 +104,7 @@
 
 /**
  * Modifier: align-inline-end
- * right align all layout cells
+ * align all layout cells to the end of the inline axis
  */
 .o-layout--align-inline-end {
   justify-content: flex-end;
@@ -139,12 +139,22 @@
 
 
 /**
- * Modifier: fit
+ * Modifier: fill
  * allow cells to equal distribute width
+ */
+.o-layout--fill {
+  > .o-layout__cell {
+    flex: 1;
+  }
+}
+
+/**
+ * Modifier: fit
+ * fit all cells to their content
  */
 .o-layout--fit {
   > .o-layout__cell {
-    flex: 1;
+    flex-basis: auto;
   }
 }
 
