@@ -62,7 +62,7 @@ For more granular control over layout make use of modifiers, custom properties o
 <div class="o-layout">
   <div class="o-layout__cell  o-layout__cell--fit">Fit to content</div>
   <div class="o-layout__cell  o-layout__cell--fill">Take up remaining space</div>
-  <div class="o-layout__cell  o-layout__cell--align-inline-center">Center aign single cell</div>
+  <div class="o-layout__cell  o-layout__cell--align-inline-center">Center align a single cell</div>
 </div>
 ```
 
