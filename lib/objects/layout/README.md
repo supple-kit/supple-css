@@ -1,6 +1,8 @@
 # Supple CSS | objects.layout
 
-Layout makes use of `flexbox` & Custom Properties to provide for a flexible, fluid & extensible layout system.
+Layout makes use of `flexbox` & Custom Properties to provide for a flexible, fluid & extensible layout system. You can horizontally(inline axis) arrange items relative to eachother or even use it a full fledged  traditional horizontal grid system.
+
+If you want to arrange items over 2 dimensions (horizontal & vertical) we recommend using the [mesh object](../mesh).
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
@@ -43,51 +45,52 @@ A simple layout is easy to create. A layout container can have any number of chi
 
 For more granular control over layout make use of modifiers, custom properties or sizing utilities.
 
+### Modifiers on `o-layout`
+
 ```html
-<div
-  class="o-layout [o-layout--align-inline-center|o-layout--align-inline-end|o-layout--align-block-center|o-layout--align-block-end|o-layout--fill|o-layout--fit|o-layout--equal-block-size]"
-  style="--o-layout-columns: 10;"
->
-  <div
-    class="o-layout__cell"
-    style="--o-layout-colspan: 4;"
-  >
-    Spans 4 columns
-  </div>
-
-  <div
-    class="o-layout__cell"
-    style="--o-layout-colspan: 2;"
-  >
-    Spans 2 columns
-  </div>
-
-  <div
-    class="o-layout__cell"
-    style="--o-layout-colspan: 2;"
-  >
-    Spans 2 columns
-  </div>
-
-  <div
-    class="o-layout__cell"
-    style="--o-layout-colspan: 2;"
-  >
-    Spans 2 columns
-  </div>
+<div class="o-layout [o-layout--align-inline-center|o-layout--align-inline-end|o-layout--align-block-center|o-layout--align-block-end|o-layout--fill|o-layout--fit|o-layout--equal-block-size|o-layout--gap-base|o-layout--gap-tiny|o-layout--gap-small|o-layout--gap-large|o-layout--gap-huge]">
+  <div class="o-layout__cell"></div>
+  <div class="o-layout__cell"></div>
+  <div class="o-layout__cell"></div>
+  <div class="o-layout__cell"></div>
 </div>
 ```
-**Note** Of course this specific use of custom properties(through inline styles) is pure for example purposes. It is advised to overwrite the custom properties in your own components instead of inline styles.
 
-
-Fit cells to their content and allow others to fill the remaining space.
+### Modifiers on `o-layout__cell`
 
 ```html
 <div class="o-layout">
   <div class="o-layout__cell  o-layout__cell--fit">Fit to content</div>
   <div class="o-layout__cell  o-layout__cell--fill">Take up remaining space</div>
+  <div class="o-layout__cell  o-layout__cell--align-inline-center">Center aign single cell</div>
 </div>
 ```
+
+### Custom properties
+
+```html
+<div style="--o-layout-columns: 10;">
+  <div class="o-layout__cell" style="--o-layout-colspan: 4;">
+    Spans 4 of 10 columns
+  </div>
+
+  <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+    Spans 1 of 10 columns
+  </div>
+
+  <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+    Spans 3 of 10 columns
+  </div>
+
+  <div class="o-layout__cell" style="--o-layout-colspan: 2;">
+    Spans 2 of 10 columns
+  </div>
+</div>
+```
+
+**Note** Of course this specific use of custom properties(through inline styles) is pure for example purposes. It is advised to overwrite the custom properties in your own components instead of inline styles.
+
+### Nesting
 
 You can nest layouts in any context. Keep in mind that the dimensions will be relative to the width of `o-layout`, and not the width of the whole application.
 
