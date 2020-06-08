@@ -35,7 +35,7 @@ A simple layout is easy to create. A layout container can have any number of chi
 **Note** `.o-layout` only accepts `.o-layout__cell` as direct descendants. This keeps our layout nicely separated from other components.
 
 ```html
-<div class="o-layout o-layout--fill  o-layout--gap-base">
+<div class="o-layout  o-layout--fill  o-layout--gap-base">
   <div class="o-layout__cell"><!-- content --></div>
   <div class="o-layout__cell"><!-- content --></div>
   <div class="o-layout__cell"><!-- content --></div>
