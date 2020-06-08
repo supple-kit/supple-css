@@ -146,7 +146,7 @@ There are multiple ways to configure the layout object. The Custom properties ar
 
 * `--o-layout-colspan`: The amount of columns this cell will span, defaults to `--o-layout-columns`
 
-### SCSS
+### SCSS variables
 
 * `$gap-base`: base width of the gutter, defaults to `defaults.$space-base`
 * `$gap-tiny`: tiny width of the gutter, defaults to `defaults.$space-tiny`
