@@ -133,7 +133,7 @@ You can nest layouts in any context. Keep in mind that the dimensions will be re
 
 
 ## Configurable variables
-There are multiple ways to configure the layout object. The Custom properties are calculated at run-time, the SCSS variables will allow you to change things on build-time.
+There are multiple ways to configure the layout object. The Custom properties are calculated at run-time, the SCSS variables will allow you to change things at build-time.
 
 ### Custom properties
 
