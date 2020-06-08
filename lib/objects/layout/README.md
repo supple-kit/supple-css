@@ -48,7 +48,7 @@ For more granular control over layout make use of modifiers, custom properties o
 ### Modifiers on `o-layout`
 
 ```html
-<div class="o-layout [o-layout--align-inline-center|o-layout--align-inline-end|o-layout--align-block-center|o-layout--align-block-end|o-layout--fill|o-layout--fit|o-layout--equal-block-size|o-layout--gap-base|o-layout--gap-tiny|o-layout--gap-small|o-layout--gap-large|o-layout--gap-huge]">
+<div class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--equal-block-size  |  o-layout--gap-base  |  o-layout--gap-tiny  |  o-layout--gap-small  |  o-layout--gap-large  |  o-layout--gap-huge]">
   <div class="o-layout__cell"></div>
   <div class="o-layout__cell"></div>
   <div class="o-layout__cell"></div>
@@ -69,7 +69,7 @@ For more granular control over layout make use of modifiers, custom properties o
 ### Custom properties
 
 ```html
-<div style="--o-layout-columns: 10;">
+<div style="--o-layout-columns: 10; --o-layout-gap: 3rem;">
   <div class="o-layout__cell" style="--o-layout-colspan: 4;">
     Spans 4 of 10 columns
   </div>
