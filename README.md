@@ -77,7 +77,7 @@ This layer is concerned with styling non-cosmetic design patterns, or 'objects'.
 * [objects/_list-clean.css](lib/objects/_list-clean.scss), strip appearance from lists by removing their bullets and indents
 * [objects/layout](lib/objects/layout), fluid and nestable layout system based on flexbox.
 * [objects/aspect-ratio](lib/objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
-* [objects/_retain.scss](lib/objects/_retain.scss), page-level constraining and wrapping elements
+* [objects/retain](lib/objects/retain), page-level constraining and wrapping elements
 
 All Objects should be prefixed with `o-`.
 
