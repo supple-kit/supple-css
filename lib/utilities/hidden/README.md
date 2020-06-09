@@ -1,6 +1,6 @@
-# Supple CSS | utilities.visually-hidden
+# Supple CSS | utilities.hidden
 
-Hides an element visually while still allowing the content to be accessible to assistive technology, e.g. screen readers.
+Hides an element completely from flow and screenreaders.
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
@@ -18,7 +18,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 ```html
 <button>
   This button has text that is
-  <span class="u-visually-hidden">hidden visually but still available for screenreaders etc.</span>
+  <span class="u-hidden">totally hidden from flow, view and assistive technology</span>
 </button>
 ```
 
@@ -28,35 +28,35 @@ When you set breakpoints in `$in-breakpoint` you can use them like this:
 ```html
 <button>
   This button has text that is
-  <span class="u-visually-hidden@from-lap">Hidden visually from lap breakpoint but still available for screenreaders etc.</span>
+  <span class="u-hidden@from-lap">totally hidden from flow, view and assistive technology</span>
 </button>
 ```
 
 ## Available classes
 
-**On the `.o-visually-hidden` block**
+**On the `.o-hidden` block**
 
-* `.o-visually-hidden`: core visually hidden block
-* `.o-visually-hidden@[from|until]-[BREAKPOINT-NAME]`: applies visually-hidden at the given breakpoint. (available in `$in-breakpoint` SCSS setting)
+* `.o-hidden`: core visually hidden block
+* `.o-hidden@[from|until]-[BREAKPOINT-NAME]`: applies hidden at the given breakpoint. (available in `$in-breakpoint` SCSS setting)
 
 ## Configurable variables
 
 ### SCSS variables
 
-* `$in-breakpoint`: a list of breakpoints where `.o-visually-hidden@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
+* `$in-breakpoint`: a list of breakpoints where `.o-hidden@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
 
 You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/visually-hidden' with (
+@use '~supple/lib/utilities/hidden' with (
   $in-breakpoint: (lap, desk),
 );
 ```
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/utilities/visually-hidden/variables' with (
+@use '~supple/lib/utilities/hidden/variables' with (
   $in-breakpoint: (
     from: lap,
     until: lap desk,
@@ -64,7 +64,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/visually-hidden';
+@use '~supple/lib/utilities/hidden';
 ```
 
 

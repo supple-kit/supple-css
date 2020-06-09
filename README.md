@@ -96,7 +96,7 @@ this layer contains some handy helpers & overrides. This is the most specific la
 * [utilities/_module.scss](lib/utilities/_module.scss), removes the `margin-bottom` from the last childs of a module.
 * [utilities/_spacing.scss](lib/utilities/_spacing.scss), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](lib/utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
-* [utilities/_hidden.scss](lib/utilities/_hidden.scss), completely remove from the flow and hide it from screenreaders.
+* [utilities/hidden](lib/utilities/hidden), completely remove from the flow and hide it from screenreaders.
 
 (*) This set of utilities is only needed if you want to support browsers without custom property support.
 
