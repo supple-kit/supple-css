@@ -62,7 +62,7 @@ There are multiple ways to configure the retain object. The Custom properties ar
 
 ### Custom properties
 
-**On the `.o-aspect-ratio` block**
+**On the `.o-retain` block**
 
 * `--size`: The size where you want to retain to, defaults to `100%`
 
