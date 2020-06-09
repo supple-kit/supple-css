@@ -150,9 +150,8 @@
   <li><a href="../lib/objects/retain/test.html">retain object</a></li>
   <li><a href="../lib/objects/aspect-ratio/test.html">aspect-ratio object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
-  <li><a href="#u-text">text utility</a></li>
-  <li><a href="#u-clearfix">clearfix utility</a></li>
-  <li><a href="#u-module">module utility</a></li>
+  <li><a href="../lib/utilities/clearfix/test.html">clearfix utility</a></li>
+  <li><a href="../lib/utilities/module/test.html">module utility</a></li>
   <li><a href="../lib/utilities/visually-hidden/test.html">visually-hidden utility</a></li>
   <li><a href="../lib/utilities/visually-hidden/test.html">hidden utility</a></li>
 </ol>
@@ -161,9 +160,6 @@
 <ol>
   <li><a href="#generic">generic</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
-  <li><a href="#u-text">text utility</a></li>
-  <li><a href="#u-clearfix">clearfix utility</a></li>
-  <li><a href="#u-module">module utility</a></li>
 </ol>
 
 <div class="module" id="generic">
@@ -352,44 +348,5 @@
   </div><!-- .test -->
 </div><!-- .module -->
 
-<div class="module" id="u-clearfix">
-  <h2 class="module__title"><a href="#u-clearfix">clearfix</a> utility tests</h2>
-  <div class="test">
-    <h3 class="test__describe">.u-clearfix</h3>
-    <h4 class="test__it">the container should clear the floated images</h4>
-    <div class="test__run">
-      <div class="fixture-wrap  u-clearfix">
-        <img style="float: left;" src="//placehold.it/120x120" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus numquam repellendus repellat eaque illum, praesentium facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut doloribus adipisci.</p>
-        <img style="float: right;" src="//placehold.it/120x120" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus asperiores minima porro nemo, perferendis magni molestias rem illum, inventore fuga sunt! Amet, quisquam voluptatum hic modi doloribus rerum eveniet sint?</p>
-      </div>
-    </div><!-- .test__run -->
-  </div><!-- .test -->
-</div><!-- .module -->
-
-<div class="module" id="u-module">
-  <h2 class="module__title"><a href="#u-module">module</a> utility tests</h2>
-  <div class="test">
-    <h3 class="test__describe">.u-module</h3>
-    <h4 class="test__it">The margin-bottom from the last child should be cleared</h4>
-    <div class="test__run">
-      <div class="fixture-wrap  box  u-module">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus numquam repellendus repellat eaque
-          illum, praesentium facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut doloribus
-          adipisci.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus asperiores minima porro nemo, perferendis magni
-          molestias rem illum, inventore fuga sunt! Amet, quisquam voluptatum hic modi doloribus rerum eveniet sint?</p>
-
-        <ul>
-          <li>List item 1</li>
-          <li>List item 2</li>
-          <li>List item 3</li>
-        </ul>
-      </div>
-    </div><!-- .test__run -->
-
-  </div><!-- .test -->
-</div><!-- .module -->
 
 <script src="//cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
