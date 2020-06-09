@@ -33,11 +33,11 @@
  *    the ratio like this: (16/9)
  */
 .o-aspect-ratio {
-  --aspect-ratio: (1/1); /* [1] */
+  --ratio: (1/1); /* [1] */
   position: relative;
   display: block;
   block-size: 0;
-  padding-block-end: calc(100% / var(--aspect-ratio));
+  padding-block-end: calc(100% / var(--ratio));
   @include tools.mixins-rem(margin-block-end, variables.$space);
 }
 
@@ -63,7 +63,7 @@
     }
 
     .o-aspect-ratio--#{$a}by#{$b} {
-      --aspect-ratio: (#{$a}/#{$b});
+      --ratio: (#{$a}/#{$b});
     }
   }
 }
