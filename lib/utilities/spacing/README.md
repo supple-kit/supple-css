@@ -15,7 +15,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 * [Browser support](#browser-support)
 
 ## Use
-This utility generates a lot of classes so i'm showing only the most used ones.
+This utility generates a lot of classes so I’m showing only the most used ones.
 
 ```html
 <div class="u-margin">
@@ -73,7 +73,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/visually-hidden' with (
+@use '~supple/lib/utilities/spacing' with (
   $in-breakpoint: (lap, desk),
   $sizes: (
     '-base': defaults.$space-base,
@@ -83,18 +83,18 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/utilities/visually-hidden/variables' with (
+@use '~supple/lib/utilities/spacing/variables' with (
   $in-breakpoint: (
     from: lap,
     until: lap desk,
   ),
   $directions: (
-    '-block': defaults.$space-base,
+    '-block': '-block',
   )
 );
 
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/visually-hidden';
+@use '~supple/lib/utilities/spacing';
 ```
 
 
