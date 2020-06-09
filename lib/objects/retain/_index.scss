@@ -30,8 +30,8 @@
  * 1. Center align
  */
 .o-retain {
-  --o-retain-max-inline-size: 100%;
-  max-inline-size: var(--o-retain-max-inline-size);
+  --size: 100%;
+  max-inline-size: var(--size);
   @include tools.mixins-rem(padding-inline-end, variables.$space);
   @include tools.mixins-rem(padding-inline-start, variables.$space);
   margin-inline-end: auto; /* [1] */
@@ -55,6 +55,6 @@
 
 @each $key, $value in variables.$sizes {
   .o-retain--#{$key} {
-    --o-retain-max-inline-size: #{tools.functions-value-to-rem($value)};
+    --size: #{tools.functions-value-to-rem($value)};
   }
 }
