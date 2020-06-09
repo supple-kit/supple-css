@@ -69,7 +69,7 @@ For more granular control over layout make use of modifiers, custom properties o
 ### Custom properties
 
 ```html
-<div style="--columns: 10; --gap: 3rem;">
+<div class="o-layout" style="--columns: 10; --gap: 3rem;">
   <div class="o-layout__cell" style="--colspan: 4;">
     Spans 4 of 10 columns
   </div>
