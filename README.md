@@ -94,7 +94,7 @@ this layer contains some handy helpers & overrides. This is the most specific la
 * [utilities/_fractions.scss](lib/utilities/_fractions.scss), sizes in human readable format (*).
 * [utilities/clearfix](lib/utilities/clearfix), Clears floats.
 * [utilities/module](lib/utilities/module), removes the `margin-bottom` from the last childs of a module.
-* [utilities/_spacing.scss](lib/utilities/_spacing.scss), utility classes to put specific spacing values onto elements.
+* [utilities/spacing](lib/utilities/spacing), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](lib/utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
 * [utilities/hidden](lib/utilities/hidden), completely remove from the flow and hide it from screenreaders.
 

@@ -30,8 +30,10 @@ $properties: (
  */
 $directions: (
   null: null,
+  '-block': '-block',
   '-block-start': '-block-start',
   '-block-end': '-block-end',
+  '-inline': '-inline',
   '-inline-start': '-inline-start',
   '-inline-end': '-inline-end',
 ) !default;
