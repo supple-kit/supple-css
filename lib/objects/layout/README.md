@@ -105,6 +105,20 @@ You can nest layouts in any context. Keep in mind that the dimensions will be re
 </div>
 ```
 
+### responsive modifiers
+When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you can use them like this:
+
+```html
+<div class="o-layout">
+  <div class="o-layout__cell  o-layout__cell--fit@from-lap">
+    100% and from lap breakpoint it will fit to content
+  </div>
+  <div class="o-layout__cell  o-layout__cell--fill@from-lap">
+    100% and from lap breakpoint it will fill remaining space
+  </div>
+</div>
+```
+
 
 ## Available classes
 
@@ -130,6 +144,7 @@ You can nest layouts in any context. Keep in mind that the dimensions will be re
 * `.o-layout__cell--align-inline-center`: Center one cell on the inline axis
 * `.o-layout__cell--fit`: Make a cell shrink wrap its content
 * `.o-layout__cell--fill`: Make a cell fill the remaining space.
+* `.o-layout__cell--[fit|fill]@[from|until]-[BREAKPOINT-NAME]`: applies `fit` or `fill` at the given breakpoint. (available in `$[fit|fill]-in-breakpoint` SCSS setting)
 
 
 ## Configurable variables
