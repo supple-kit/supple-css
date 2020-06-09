@@ -1,6 +1,6 @@
 # Supple CSS | objects.list-clean
 
-Strips a list of al its list-like cosmetics.
+Strip appearance from lists by removing their bullets and indents.
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 

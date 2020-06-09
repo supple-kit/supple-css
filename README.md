@@ -74,7 +74,7 @@ Elements are most likely the last layer in which we'd find element-based selecto
 ### Objects
 This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
 
-* [objects/_list-clean.css](lib/objects/_list-clean.scss), strip appearance from lists by removing their bullets and indents
+* [objects/list-clean](lib/objects/list-clean), strip appearance from lists by removing their bullets and indents
 * [objects/layout](lib/objects/layout), fluid and nestable layout system based on flexbox.
 * [objects/aspect-ratio](lib/objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
 * [objects/retain](lib/objects/retain), page-level constraining and wrapping elements
