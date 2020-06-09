@@ -34,16 +34,16 @@ When you set breakpoints in `$in-breakpoint` you can use them like this:
 
 ## Available classes
 
-**On the `.o-visually-hidden` block**
+**On the `.u-visually-hidden` block**
 
-* `.o-visually-hidden`: core visually hidden block
-* `.o-visually-hidden@[from|until]-[BREAKPOINT-NAME]`: applies visually-hidden at the given breakpoint. (available in `$in-breakpoint` SCSS setting)
+* `.u-visually-hidden`: core visually hidden block
+* `.u-visually-hidden@[from|until]-[BREAKPOINT-NAME]`: applies visually-hidden at the given breakpoint. (available in `$in-breakpoint` SCSS setting)
 
 ## Configurable variables
 
 ### SCSS variables
 
-* `$in-breakpoint`: a list of breakpoints where `.o-visually-hidden@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
+* `$in-breakpoint`: a list of breakpoints where `.u-visually-hidden@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
 
 You can overwrite the SCSS variables the following ways:
 
