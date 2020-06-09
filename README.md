@@ -92,8 +92,8 @@ All Components should be prefixed with `c-`.
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
 * [utilities/_fractions.scss](lib/utilities/_fractions.scss), sizes in human readable format (*).
-* [utilities/_float.scss](lib/utilities/_float.scss), makes working with floats a lot more easy.
-* [utilities/_module.scss](lib/utilities/_module.scss), removes the `margin-bottom` from the last childs of a module.
+* [utilities/clearfix](lib/utilities/clearfix), Clears floats.
+* [utilities/module](lib/utilities/module), removes the `margin-bottom` from the last childs of a module.
 * [utilities/_spacing.scss](lib/utilities/_spacing.scss), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](lib/utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
 * [utilities/hidden](lib/utilities/hidden), completely remove from the flow and hide it from screenreaders.

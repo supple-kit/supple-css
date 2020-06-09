@@ -1,6 +1,6 @@
 # Supple CSS | utilities.clearfix
 
-Clears floats
+Clears floats.
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
