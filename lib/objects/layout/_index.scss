@@ -32,12 +32,12 @@
  *    the component.
  */
 .o-layout {
-  --o-layout-columns: 12;
-  --o-layout-gap: 0;
+  --columns: 12;
+  --gap: 0;
   display: flex;
   flex-flow: row wrap;
   padding: 0; /* [1] */
-  margin-inline-start: calc(-1 * var(--o-layout-gap)); /* [1] */
+  margin-inline-start: calc(-1 * var(--gap)); /* [1] */
   list-style: none; /* [1] */
 }
 
@@ -53,10 +53,10 @@
  *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
  */
 .o-layout__cell {
-  --o-layout-colspan: var(--o-layout-columns);
-  flex-basis: calc(100% / var(--o-layout-columns) * var(--o-layout-colspan)); /* [1] */
+  --colspan: var(--columns);
+  flex-basis: calc(100% / var(--columns) * var(--colspan)); /* [1] */
   min-inline-size: 0; /* [2] */
-  padding-inline-start: var(--o-layout-gap);
+  padding-inline-start: var(--gap);
 }
 
 /**
@@ -181,7 +181,7 @@
  * Gap-base
  */
 .o-layout--gap-base {
-  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-base)};
+  --gap: #{tools.functions-value-to-rem(variables.$gap-base)};
 }
 
 
@@ -190,7 +190,7 @@
  * Tiny gap
  */
 .o-layout--gap-tiny {
-  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-tiny)};
+  --gap: #{tools.functions-value-to-rem(variables.$gap-tiny)};
 }
 
 
@@ -199,7 +199,7 @@
  * Small gap
  */
 .o-layout--gap-small {
-  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-small)};
+  --gap: #{tools.functions-value-to-rem(variables.$gap-small)};
 }
 
 /**
@@ -207,7 +207,7 @@
  * Large gap
  */
 .o-layout--gap-large {
-  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-large)};
+  --gap: #{tools.functions-value-to-rem(variables.$gap-large)};
 }
 
 /**
@@ -215,7 +215,7 @@
  * Huge gap
  */
 .o-layout--gap-huge {
-  --o-layout-gap: #{tools.functions-value-to-rem(variables.$gap-huge)};
+  --gap: #{tools.functions-value-to-rem(variables.$gap-huge)};
 }
 
 

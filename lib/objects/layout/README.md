@@ -30,7 +30,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ## Use
 
-A simple layout is easy to create. A layout container can have any number of child cells. When used with `.o-layout--fill` space is evenly distributed without need for `--o-layout-colspan` or sizing utilities.
+A simple layout is easy to create. A layout container can have any number of child cells. When used with `.o-layout--fill` space is evenly distributed without need for `--colspan` or sizing utilities.
 
 **Note** `.o-layout` only accepts `.o-layout__cell` as direct descendants. This keeps our layout nicely separated from other components.
 
@@ -69,20 +69,20 @@ For more granular control over layout make use of modifiers, custom properties o
 ### Custom properties
 
 ```html
-<div style="--o-layout-columns: 10; --o-layout-gap: 3rem;">
-  <div class="o-layout__cell" style="--o-layout-colspan: 4;">
+<div style="--columns: 10; --gap: 3rem;">
+  <div class="o-layout__cell" style="--colspan: 4;">
     Spans 4 of 10 columns
   </div>
 
-  <div class="o-layout__cell" style="--o-layout-colspan: 1;">
+  <div class="o-layout__cell" style="--colspan: 1;">
     Spans 1 of 10 columns
   </div>
 
-  <div class="o-layout__cell" style="--o-layout-colspan: 3;">
+  <div class="o-layout__cell" style="--colspan: 3;">
     Spans 3 of 10 columns
   </div>
 
-  <div class="o-layout__cell" style="--o-layout-colspan: 2;">
+  <div class="o-layout__cell" style="--colspan: 2;">
     Spans 2 of 10 columns
   </div>
 </div>
@@ -139,12 +139,12 @@ There are multiple ways to configure the layout object. The Custom properties ar
 
 **On the `.o-layout` block**
 
-* `--o-layout-columns`: The number of columns you want to have, defaults to `12`
-* `--o-layout-gap`: The width of the gutter applied between the cells, defaults to `0`
+* `--columns`: The number of columns you want to have, defaults to `12`
+* `--gap`: The width of the gutter applied between the cells, defaults to `0`
 
 **On the `.o-layout__cell` element**
 
-* `--o-layout-colspan`: The amount of columns this cell will span, defaults to `--o-layout-columns`
+* `--colspan`: The amount of columns this cell will span, defaults to `--columns`
 
 ### SCSS variables
 
