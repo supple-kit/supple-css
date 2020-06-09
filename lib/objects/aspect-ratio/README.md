@@ -22,7 +22,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 
 ## Use
-By default the aspect ratio container has a aspect ratio of 1:1, a perfect square.
+By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 **Note** `.o-aspect-ratio` only accepts `.o-aspect-ratio__item` as direct descendant.
 
