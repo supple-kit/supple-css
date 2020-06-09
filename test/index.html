@@ -146,28 +146,24 @@
 <h2>Table of contents</h2>
 <ol>
   <li><a href="#generic">generic</a></li>
-  <li><a href="#o-list-clean">list-clean object</a></li>
   <li><a href="../lib/objects/layout/test.html">layout object</a></li>
-  <li><a href="#o-retain">retain object</a></li>
+  <li><a href="../lib/objects/retain/test.html">retain object</a></li>
   <li><a href="../lib/objects/aspect-ratio/test.html">aspect-ratio object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
   <li><a href="#u-text">text utility</a></li>
   <li><a href="#u-clearfix">clearfix utility</a></li>
   <li><a href="#u-module">module utility</a></li>
-  <li><a href="#u-visually-hidden">visually-hidden utility</a></li>
+  <li><a href="../lib/utilities/visually-hidden/test.html">visually-hidden utility</a></li>
   <li><a href="#u-hidden">hidden utility</a></li>
 </ol>
 
 <h2>Table of contents</h2>
 <ol>
   <li><a href="#generic">generic</a></li>
-  <li><a href="#o-list-clean">list-clean object</a></li>
-  <li><a href="#o-retain">retain object</a></li>
   <li><a href="#u-fractions">fractions utility</a></li>
   <li><a href="#u-text">text utility</a></li>
   <li><a href="#u-clearfix">clearfix utility</a></li>
   <li><a href="#u-module">module utility</a></li>
-  <li><a href="#u-visually-hidden">visually-hidden utility</a></li>
   <li><a href="#u-hidden">hidden utility</a></li>
 </ol>
 
@@ -286,60 +282,6 @@
   </div>
 </div>
 
-<div class="module" id="o-retain">
-  <h2 class="module__title"><a href="#o-retain">retain</a> object tests</h2>
-  <div class="test">
-    <h3 class="test__describe">.o-retain</h3>
-    <h4 class="test__it">Is padded at both sides</h4>
-    <div class="test__run">
-      <div class="o-retain">
-        <div class="fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h4 class="test__it">supports dynamic sizes (eg.: --o-retain-max-inline-size: 400px)</h4>
-    <div class="test__run">
-      <div class="o-retain" style="--o-retain-max-inline-size: 400px;">
-        <div class="fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h3 class="test__describe">.o-retain--no-padding</h3>
-    <h4 class="test__it">Is not padded at both sides</h4>
-    <div class="test__run">
-      <div class="o-retain  o-retain--no-padding">
-        <div class="fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h3 class="test__describe">.o-retain--lap</h3>
-    <h4 class="test__it">Is retained at 640px</h4>
-    <div class="test__run">
-      <div class="o-retain  o-retain--lap">
-        <div class="fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h3 class="test__describe">.o-retain--desk</h3>
-    <h4 class="test__it">Is retained at 960px</h4>
-    <div class="test__run">
-      <div class="o-retain  o-retain--desk">
-        <div class="fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h3 class="test__describe">.o-retain--wall</h3>
-    <h4 class="test__it">Is retained at 1280px</h4>
-    <div class="test__run">
-      <div class="o-retain  o-retain--wall">
-        <div class="fixture-box">Retained</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
 <div class="module" id="u-fractions">
   <h2 class="module__title"><a href="#u-fractions">fractions</a> utility tests</h2>
   <div class="test">
@@ -446,18 +388,6 @@
           <li>List item 3</li>
         </ul>
       </div>
-    </div><!-- .test__run -->
-
-  </div><!-- .test -->
-</div><!-- .module -->
-
-<div class="module" id="u-visually-hidden">
-  <h2 class="module__title"><a href="#u-visually-hidden">visually-hidden</a> utility tests</h2>
-  <div class="test">
-    <h3 class="test__describe">.u-visually-hidden</h3>
-    <h4 class="test__it">renders as visually hidden but still available to screenreaders</h4>
-    <div class="test__run">
-      <div class="u-visually-hidden">This should not be seen but still be available to screenreaders</div>
     </div><!-- .test__run -->
 
   </div><!-- .test -->
