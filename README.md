@@ -23,7 +23,6 @@ If you want the framework to include all fallbacks for `custom-properties` the f
 ## Browser support
 Supple supports all [major browsers which can render CSS custom properties](http://caniuse.com/#feat=css-variables).
 
-If you want to support older browsers (mostly IE11) you’ll need to include the [_fractions.scss](lib/utilities/_fractions.scss) utility to support our [_layout.scss](lib/objects/_layout.scss) grid system. Other modules also have some configuration to support older browsers, please refer to their own readme files.
 
 ### Browserstack
 Every feature in Supple is extensively tested in browserstack:
@@ -137,7 +136,6 @@ It is advised that you will use supple code throughout your own styles, a ***sam
 @import "components/navigation.main";
 
 /* Utilities */
-@import "node_modules/supple/lib/utilities/fractions";
 @import "node_modules/supple/lib/utilities/module";
 @import "node_modules/supple/lib/utilities/visually-hidden";
 @import "node_modules/supple/lib/utilities/hidden";
