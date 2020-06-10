@@ -16,11 +16,11 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 This utility generates set of classes mostly used by supple's users. You can add classes to your liking by adding them to the configuration variables. Below you find some examples of how you can use this utility.
 
 ```html
-<div class="u-margin">
+<div class="u-margin-base">
   Applies margin on all sides with the value of `defaults.$space-base`
 </div>
 
-<div class="u-margin-inline-start">
+<div class="u-margin-inline-start-base">
   Applies margin at the start of the inline axis with the value of `defaults.$space-base`
 </div>
 
@@ -32,7 +32,7 @@ This utility generates set of classes mostly used by supple's users. You can add
   Applies margin at the end of the inline axis with the value of `auto`
 </div>
 
-<div class="u-padding-block">
+<div class="u-padding-block-base">
   Applies padding at the start and end of the block axis with the value of `defaults.$space-base`
 </div>
 
@@ -46,7 +46,7 @@ The are a lot more combinations possible, please check [the variables SCSS file]
 When you set breakpoints in `$in-breakpoint` you can use them like this:
 
 ```html
-<div class="u-padding-block-start-none@until-palm  u-padding-block-start@from-desk">
+<div class="u-padding-block-start-none@until-palm  u-padding-block-start-base@from-desk">
   Applies padding at the start of the block axis with the value of `0` until `palm` breakpoint.
   Applies padding at the start of the block axis with the value of `defaults.$space-base` from `palm` breakpoint.
 </div>

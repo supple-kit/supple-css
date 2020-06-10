@@ -77,10 +77,10 @@ $directions: (
      '-t': defaults.$space-tiny, // generates `u-m-t` with value of `defaults.$space-tiny`
      '-a': auto // generates `u-m-a` with value of `auto`
    );
- * By default it's only `defaults.$space-base` and `-none` we generate
+ * By default it's only `-base` and `-none` we generate
  */
 $sizes: (
-  null: defaults.$space-base,
+  '-base': defaults.$space-base,
   '-none': 0
 ) !default;
 
@@ -90,14 +90,14 @@ $sizes: (
  * your spacings.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $in-breakpoint: (lap, desk);
+   $in-breakpoint: (lap, desk);
  *
  * Or
  *
- * $in-breakpoint: (
- *   from: lap,
- *   until: lap desk,
- * );
+   $in-breakpoint: (
+     from: lap,
+     until: lap desk,
+   );
  *
  * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
  *       in `settings/responsive`
