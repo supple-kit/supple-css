@@ -15,7 +15,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 * [Browser support](#browser-support)
 
 ## Use
-This utility generates a lot of classes so I’m showing only the most used ones.
+This utility generates set of classes mostly used by supple's users. You can add classes to your liking by adding them to the configuration variables. Below you find some examples of how you can use this utility.
 
 ```html
 <div class="u-margin">
