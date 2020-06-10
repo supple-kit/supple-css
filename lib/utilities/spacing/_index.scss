@@ -1,6 +1,15 @@
 /*  =========================================================================
     utilities.spacing
     Utility classes to put specific spacing values onto elements.
+    The loop can generate us a suite of classes like:
+
+    .u-margin-block-start {}
+    .u-padding-inline-start-large {}
+    .u-margin-inline-end-small {}
+    .u-padding {}
+    .u-padding-inline-end-none {}
+    .u-padding-inline {}
+    .u-padding-block-small {}
     ========================================================================= */
 
 /*  Use rules

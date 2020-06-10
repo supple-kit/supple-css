@@ -17,9 +17,22 @@
 /**
  * The properties that you want to generate spacings for
  * `key` is the classname, `value` is the property name
+ *
+ * Example
+   $properties: (
+     'padding': 'padding', // generates `u-padding`
+     'margin': 'margin', // generates `u-margin`
+   );
+ *
+ * or
+   $properties: (
+     'p': 'padding', // generates `u-p`
+     'm': 'margin', // generates `u-m`
+     'i': 'inset', // generates `u-i`
+   );
+ * By default it's only margins we generate
  */
 $properties: (
-  'padding': 'padding',
   'margin': 'margin',
 ) !default;
 
@@ -27,30 +40,47 @@ $properties: (
 /**
  * In which directions you want your spacings to be generated?
  * `key` is the classname, `value` is the property name
+ *
+ * Example
+   $directions: (
+     null: null, // generates `u-margin`
+     '-block': '-block-start' '-block-end', // generates `u-margin-block-end` class with start & end properties
+     '-block-end': '-block-end', // generates `u-margin-block-end`
+     '-inline-start': '-inline-start' // generates `u-margin-inline-start`
+   );
+ *
+ * or
+   $directions: (
+     '-b-e': '-block-end', // generates `u-m-b-e`
+     '-i-s': '-inline-start', // generates `u-m-i-s`
+   );
+ * By default it's only block-end margins we generate
  */
 $directions: (
-  null: null,
-  '-block': '-block',
-  '-block-start': '-block-start',
   '-block-end': '-block-end',
-  '-inline': '-inline',
-  '-inline-start': '-inline-start',
-  '-inline-end': '-inline-end',
 ) !default;
 
 
 /**
  * And which sizes you want to generate?
  * `key` is the classname, `value` is the value (duh!)
+ *
+ * Example
+   $sizes: (
+     null: null, // generates `u-margin` with value of `defaults.$space-base`
+     '-tiny': defaults.$space-tiny, // generates `u-margin-tiny` with value of `defaults.$space-tiny`
+     '-auto': auto // generates `u-margin-auto` with value of `auto`
+   );
+ *
+ * or
+   $sizes: (
+     '-t': defaults.$space-tiny, // generates `u-m-t` with value of `defaults.$space-tiny`
+     '-a': auto // generates `u-m-a` with value of `auto`
+   );
+ * By default it's only `defaults.$space-base` and `-none` we generate
  */
 $sizes: (
   null: defaults.$space-base,
-  '-base': defaults.$space-base,
-  '-tiny': defaults.$space-tiny,
-  '-small': defaults.$space-small,
-  '-large': defaults.$space-large,
-  '-huge': defaults.$space-huge,
-  '-auto': auto,
   '-none': 0
 ) !default;
 

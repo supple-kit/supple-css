@@ -62,12 +62,89 @@ When you set breakpoints in `$in-breakpoint` you can use them like this:
 
 ### SCSS variables
 
-* `$properties`: a list of properties, defaults to `('padding': 'padding', 'margin': 'margin')` where the key is the classname and value is the property.
-* `$directions`: a list of directions, defaults to `(null: null, '-block': '-block', '-block-start': '-block-start', '-block-end': '-block-end', '-inline': '-inline', '-inline-start': '-inline-start', '-inline-end': '-inline-end')` where the key is the classname and value is the property.
-* `$sizes`: a list of sizes, defaults to `(null: defaults.$space-base, '-base': defaults.$space-base, '-tiny': defaults.$space-tiny, '-small': defaults.$space-small, '-large': defaults.$space-large, '-huge': defaults.$space-huge, '-auto': auto, '-none': 0)` where the key is the classname and value is the value.
-* `$in-breakpoint`: a list of breakpoints where `.u-[PROPERTY]-[DIRECTION]-[SIZE]@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
+#### `$properties`
 
-**Note** With those defaults there will be a LOT of classes generated, it is advised to alter the defaults so you only generate what you use in your project.
+The properties that you want to generate spacings for. `key` is the classname, `value` is the property name.
+
+**example:**
+```scss
+$properties: (
+  'padding': 'padding', // generates `u-padding`
+  'margin': 'margin', // generates `u-margin`
+);
+
+// or
+
+$properties: (
+  'p': 'padding', // generates `u-p`
+  'm': 'margin', // generates `u-m`
+  'i': 'inset', // generates `u-i`
+);
+```
+**defaults to:**
+```scss
+$properties: (
+  'margin': 'margin',
+);
+```
+
+#### `$directions`
+
+In which directions you want your spacings to be generated? `key` is the classname, `value` is the property name.
+
+**Example:**
+```scss
+$directions: (
+  null: null, // generates `u-margin`
+  '-block': '-block-start' '-block-end', // generates `u-margin-block-end` class with start & end properties
+  '-block-end': '-block-end', // generates `u-margin-block-end`
+  '-inline-start': '-inline-start' // generates `u-margin-inline-start`
+);
+
+// or
+
+$directions: (
+  '-b-e': '-block-end', // generates `u-m-b-e`
+  '-i-s': '-inline-start', // generates `u-m-i-s`
+);
+```
+
+**Defaults to:**
+```scss
+$directions: (
+  '-block-end': '-block-end',
+);
+```
+
+#### `$sizes`
+
+And which sizes you want to generate? `key` is the classname, `value` is the value (duh!)
+
+**Example:**
+```scss
+$sizes: (
+  null: null, // generates `u-margin` with value of `defaults.$space-base`
+  '-tiny': defaults.$space-tiny, // generates `u-margin-tiny` with value of `defaults.$space-tiny`
+  '-auto': auto // generates `u-margin-auto` with value of `auto`
+);
+
+// or
+
+$sizes: (
+  '-t': defaults.$space-tiny, // generates `u-m-t` with value of `defaults.$space-tiny`
+  '-a': auto // generates `u-m-a` with value of `auto`
+);
+```
+**Defaults to:**
+```scss
+$sizes: (
+  null: defaults.$space-base,
+  '-none': 0
+);
+```
+
+#### `$in-breakpoint`
+a list of breakpoints where `.u-[PROPERTY]-[DIRECTION]-[SIZE]@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
 
 You can overwrite the SCSS variables the following ways:
 
@@ -75,6 +152,10 @@ You can overwrite the SCSS variables the following ways:
 // in your manifest file, eg. `styles.scss`
 @use '~supple/lib/utilities/spacing' with (
   $in-breakpoint: (lap, desk),
+  $properties: (
+    'm': 'margin',
+    'p': 'padding',
+  ),
   $sizes: (
     '-base': defaults.$space-base,
   )
