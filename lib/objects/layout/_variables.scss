@@ -15,6 +15,13 @@
     ========================================================================= */
 
 /**
+ * Number of default columns, can be overwritten per component with custom
+ * properties.
+ */
+$columns: defaults.$columns !default;
+
+
+/**
  * The default gap
  */
 $gap-base: defaults.$space-base !default;

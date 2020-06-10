@@ -1,0 +1,56 @@
+/*  =========================================================================
+    utilities.colspan
+    Classes provide a colspan custom property for use in objects or
+    components which can handle colspans eg. `object.layout` or `object.mesh`.
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    These can include variables, mixins & other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:list';
+@use '../../settings/defaults';
+@use './variables';
+@use './tools';
+
+
+
+/*  Module
+    ========================================================================= */
+
+@include tools.build();
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $breakpoint in variables.$in-breakpoint {
+  @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
+    @if type-of(list.nth($breakpoint, 2)) == 'list' {
+      @each $point in list.nth($breakpoint, 2) {
+        @include tools.mixins-supple-mq($point, list.nth($breakpoint, 1)) {
+          @include tools.build('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
+        }
+      }
+    } @else {
+      @include tools.mixins-supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+        @include tools.build('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
+      }
+    }
+  } @else {
+    @include tools.mixins-supple-mq($breakpoint) {
+      @include tools.build('#{defaults.$responsive-modifier}from-#{$breakpoint}');
+    }
+  }
+}
