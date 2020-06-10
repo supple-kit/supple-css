@@ -91,14 +91,12 @@ All Components should be prefixed with `c-`.
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [utilities/_fractions.scss](lib/utilities/_fractions.scss), sizes in human readable format (*).
+* [utilities/colspan.scss](lib/utilities/colspan.scss), provides a colspan custom property for use in objects or components.
 * [utilities/clearfix](lib/utilities/clearfix), Clears floats.
 * [utilities/module](lib/utilities/module), removes the `margin-bottom` from the last childs of a module.
 * [utilities/spacing](lib/utilities/spacing), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](lib/utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
 * [utilities/hidden](lib/utilities/hidden), completely remove from the flow and hide it from screenreaders.
-
-(*) This set of utilities is only needed if you want to support browsers without custom property support.
 
 All Utilities should be prefixed with `u-`.
 
