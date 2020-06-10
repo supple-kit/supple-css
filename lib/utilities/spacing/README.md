@@ -2,8 +2,6 @@
 
 Utility classes to put specific spacing values onto elements. These include margin & padding by default but can be extended with say `inset` for positioning. Use these **only** to tweak layout on a micro level.
 
-**Note** By default there will be a LOT of classes generated, it is advised to alter the defaults so you only generate what you use in your project. Check out [Configurable variables](#configurable-variables) for more info.
-
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ## Table of contents
@@ -42,7 +40,7 @@ This utility generates set of classes mostly used by supple's users. You can add
   Applies padding at the start of the block axis with the value of `0`
 </div>
 ```
-The are a lot more combinations possible, please check [the SCSS file](./_index.scss) for more options.
+The are a lot more combinations possible, please check [the variables SCSS file](./_variables.scss) for more options.
 
 ### responsive modifiers
 When you set breakpoints in `$in-breakpoint` you can use them like this:
