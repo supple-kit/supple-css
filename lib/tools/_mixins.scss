@@ -22,7 +22,7 @@
     Usage: @include rem(margin, 0 auto 300px, !important);
     ========================================================================= */
 
-@mixin rem ($property, $value, $append: '') {
+@mixin rem($property, $value, $append: '') {
   // Provide a fallback for non supporting browsers
   @if defaults.$rem-fallback == true {
     #{$property}: $value #{$append};

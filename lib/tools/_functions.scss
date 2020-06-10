@@ -48,27 +48,3 @@ $browser-context: defaults.$font-size !default;
 @function strip-units ($number) {
   @return $number / ($number * 0 + 1);
 }
-
-
-/**
- * Find the greatest common factor of two integers
- */
-@function greatest-common-factor ($a, $b) {
-  @if $b == 0 {
-    @return $a;
-  } @else {
-    @return greatest-common-factor($b, $a % $b);
-  }
-}
-
-
-/**
- * Check if a list contains a value
- */
-@function list-contains ($list, $value) {
-  @if meta.type-of($list) == list {
-    @return not not list.index($list, $value);
-  } @else {
-    @return $list == $value;
-  }
-}
