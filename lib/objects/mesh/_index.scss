@@ -1,0 +1,26 @@
+/*  =========================================================================
+    objects.mesh
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    These can include variables, mixins & other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Module
+    ========================================================================= */
+
+.o-mesh {
+  --columns: #{defaults.$columns};
+  --template-columns: repeat(var(--o-mesh-columns), 1fr);
+  --column-start: 1;
+  --column-end: -1;
+  --gap: 0;
+  display: grid;
+  grid-template-columns: var(--template-columns);
+  gap: var(--gap);
+}
