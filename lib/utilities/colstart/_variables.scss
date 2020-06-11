@@ -1,0 +1,40 @@
+/*  =========================================================================
+    utilities.colstart.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Columns, makes it easy to create several proportional columns
+ */
+$columns: defaults.$columns !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each
+ * of the colstarts. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $in-breakpoint: (lap, desk);
+ *
+ * Or
+ *
+ * $in-breakpoint: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
+ *
+ * Note: the name of the breakpoint must exist in the list of `$breakpoints`
+ *       in `settings/defaults`
+ */
+$in-breakpoint: () !default;
