@@ -10,8 +10,6 @@
 @use '../../settings/defaults';
 @use '../../tools';
 
-$rows: 6;
-
 
 
 /*  Module
@@ -42,9 +40,9 @@ $rows: 6;
  * Element: cell
  */
 .o-mesh__cell {
-  --column-start: 0;
+  --colstart: 0;
   --colspan: 1;
-  grid-column-start: var(--column-start);
+  grid-column-start: var(--colstart);
   grid-column-end: span var(--colspan);
 }
 
@@ -53,6 +51,6 @@ $rows: 6;
  * element modifier: row
  */
 .o-mesh__cell--row {
-  --column-start: 0;
+  --colstart: 0;
   --colspan: 12;
 }
