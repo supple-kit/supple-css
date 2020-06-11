@@ -7,7 +7,16 @@
     These can include variables, mixins & other includes.
     ========================================================================= */
 
-@use '../../settings/defaults';
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
 @use '../../tools';
 
 
@@ -19,7 +28,7 @@
  * Block: mesh
  */
 .o-mesh {
-  --columns: #{defaults.$columns};
+  --columns: #{variables.$columns};
   --template-columns: repeat(var(--columns), 1fr);
   --gap: 0;
   display: grid;
@@ -32,7 +41,39 @@
  * Modifier: gap-base
  */
 .o-mesh--gap-base {
-  --gap: #{tools.functions-value-to-rem(defaults.$space-base)};
+  --gap: #{tools.functions-value-to-rem(variables.$gap-base)};
+}
+
+
+/**
+ * Modifier: gap-small
+ */
+.o-mesh--gap-small {
+  --gap: #{tools.functions-value-to-rem(variables.$gap-small)};
+}
+
+
+/**
+ * Modifier: gap-tiny
+ */
+.o-mesh--gap-tiny {
+  --gap: #{tools.functions-value-to-rem(variables.$gap-tiny)};
+}
+
+
+/**
+ * Modifier: gap-large
+ */
+.o-mesh--gap-large {
+  --gap: #{tools.functions-value-to-rem(variables.$gap-large)};
+}
+
+
+/**
+ * Modifier: gap-huge
+ */
+.o-mesh--gap-huge {
+  --gap: #{tools.functions-value-to-rem(variables.$gap-huge)};
 }
 
 
