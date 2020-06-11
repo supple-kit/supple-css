@@ -8,19 +8,51 @@
     ========================================================================= */
 
 @use '../../settings/defaults';
+@use '../../tools';
+
+$rows: 6;
 
 
 
 /*  Module
     ========================================================================= */
 
+/**
+ * Block: mesh
+ */
 .o-mesh {
   --columns: #{defaults.$columns};
-  --template-columns: repeat(var(--o-mesh-columns), 1fr);
-  --column-start: 1;
-  --column-end: -1;
+  --template-columns: repeat(var(--columns), 1fr);
   --gap: 0;
   display: grid;
   grid-template-columns: var(--template-columns);
   gap: var(--gap);
+}
+
+
+/**
+ * Modifier: gap-base
+ */
+.o-mesh--gap-base {
+  --gap: #{tools.functions-value-to-rem(defaults.$space-base)};
+}
+
+
+/**
+ * Element: cell
+ */
+.o-mesh__cell {
+  --column-start: 0;
+  --colspan: 1;
+  grid-column-start: var(--column-start);
+  grid-column-end: span var(--colspan);
+}
+
+
+/**
+ * element modifier: row
+ */
+.o-mesh__cell--row {
+  --column-start: 0;
+  --colspan: 12;
 }
