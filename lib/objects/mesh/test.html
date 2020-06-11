@@ -12,13 +12,139 @@
     <h1 class="c-test__title">Supple CSS: objects.mesh tests</h1>
 
     <h2 class="c-test__describe">.o-mesh</h3>
-
     <h3 class="c-test__it">renders cells at full-width by default</h4>
     <div class="c-test__run">
       <div class="o-mesh">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-4  u-colstart-2 ]">1</div>
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell  o-mesh__cell--row ]">1</div>
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-4  u-colstart-8 ]">1</div>
+      </div>
+    </div><!-- .c-test__run -->
+
+    <h2 class="c-test__describe">.o-mesh--gap-X</h3>
+    <h3 class="c-test__it">supports gap</h4>
+    <div class="c-test__run">
+      <div class="o-mesh  o-mesh--gap-base">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">5</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">6</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">7</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">8</div>
+      </div>
+    </div><!-- .c-test__run -->
+
+    <h3 class="c-test__it">supports `--row-gap` & `--column-gap` custom properties</h4>
+    <div class="c-test__run">
+      <div class="o-mesh" style="--row-gap: 0.75rem; --column-gap: 3rem;">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">5</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">6</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">7</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">8</div>
+      </div>
+    </div><!-- .c-test__run -->
+
+    <h3 class="c-test__it">doesn't apply gaps directly to nested meshes</h4>
+    <div class="c-test__run">
+      <div class="o-mesh  o-mesh--gap-base">
+        <div class="c-fixture-box--wrap [ o-mesh__cell ]  [ u-colspan-6 ]">
+          1
+          <div class="o-mesh">
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">5</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">6</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">7</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">8</div>
+          </div>
+        </div>
+        <div class="c-fixture-box--wrap  [ o-mesh__cell ]  [ u-colspan-6 ]">
+          2
+          <div class="o-mesh">
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">5</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">6</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">7</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">8</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .c-test__run -->
+
+    <h3 class="c-test__it">correctly aligns gaps within nested meshes</h4>
+    <div class="c-test__run">
+      <div class="o-mesh  o-mesh--gap-base">
+        <div class="c-fixture-box--wrap [ o-mesh__cell ]  [ u-colspan-6 ]">
+          1
+          <div class="o-mesh  o-mesh--gap-tiny">
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">5</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">6</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">7</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">8</div>
+          </div>
+        </div>
+        <div class="c-fixture-box--wrap  [ o-mesh__cell ]  [ u-colspan-6 ]">
+          2
+          <div class="o-mesh  o-mesh--gap-tiny">
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">5</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">6</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">7</div>
+            <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">8</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .c-test__run -->
+
+    <h3 class="c-test__it">supports 5 default gap sizes</h4>
+    <div class="c-test__run">
+      <div class="[ o-mesh  o-mesh--gap-tiny ]  [ u-margin-block-end-base ]">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+      </div>
+      <div class="[ o-mesh  o-mesh--gap-small ]  [ u-margin-block-end-base ]">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+      </div>
+      <div class="[ o-mesh  o-mesh--gap-base ]  [ u-margin-block-end-base ]">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+      </div>
+      <div class="[ o-mesh  o-mesh--gap-large ]  [ u-margin-block-end-base ]">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
+      </div>
+      <div class="[ o-mesh  o-mesh--gap-huge ]  [ u-margin-block-end-base ]">
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">2</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">3</div>
+        <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">4</div>
       </div>
     </div><!-- .c-test__run -->
 
