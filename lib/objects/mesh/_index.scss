@@ -31,9 +31,11 @@
   --columns: #{variables.$columns};
   --template-columns: repeat(var(--columns), 1fr);
   --gap: 0;
+  --row-gap: var(--gap);
+  --column-gap: var(--gap);
   display: grid;
   grid-template-columns: var(--template-columns);
-  gap: var(--gap);
+  gap: var(--row-gap) var(--column-gap);
 }
 
 
