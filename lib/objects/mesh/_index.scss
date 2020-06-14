@@ -30,8 +30,8 @@
 .o-mesh {
   --columns: #{variables.$columns};
   --gap: 0;
-  --row-gap: var(--gap);
-  --column-gap: var(--gap);
+  --block-gap: var(--gap);
+  --inline-gap: var(--gap);
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   gap: var(--row-gap) var(--column-gap);
