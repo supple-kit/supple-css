@@ -177,47 +177,13 @@
 
 
 /**
- * Modifier: gap-base
- * Gap-base
+ * Modifier: gap-X
  */
-.o-layout--gap-base {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-base)};
+@each $key, $value in variables.$gaps {
+  .o-layout--gap-#{$key} {
+    --gap: #{tools.functions-value-to-rem($value)};
+  }
 }
-
-
-/**
- * Modifier: gap-tiny
- * Tiny gap
- */
-.o-layout--gap-tiny {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-tiny)};
-}
-
-
-/**
- * Modifier: gap-small
- * Small gap
- */
-.o-layout--gap-small {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-small)};
-}
-
-/**
- * Modifier: gap-large
- * Large gap
- */
-.o-layout--gap-large {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-large)};
-}
-
-/**
- * Modifier: gap-huge
- * Huge gap
- */
-.o-layout--gap-huge {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-huge)};
-}
-
 
 
 /*  Responsive fitters & fillers

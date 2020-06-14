@@ -48,7 +48,7 @@ For more granular control over layout make use of modifiers, custom properties o
 ### Modifiers on `o-layout`
 
 ```html
-<div class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--equal-block-size  |  o-layout--gap-base  |  o-layout--gap-tiny  |  o-layout--gap-small  |  o-layout--gap-large  |  o-layout--gap-huge]">
+<div class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--equal-block-size  |  o-layout--gap-base]">
   <div class="o-layout__cell"></div>
   <div class="o-layout__cell"></div>
   <div class="o-layout__cell"></div>
@@ -134,10 +134,6 @@ When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you ca
 * `.o-layout--fit`: fit all cells to their content
 * `.o-layout--equal-block-size`: All cells match the size of tallest cell in a row on the block axis
 * `.o-layout--gap-base`: adds a base gutter between cells
-* `.o-layout--gap-tiny`: adds a tiny gutter between cells
-* `.o-layout--gap-small`: adds a small gutter between cells
-* `.o-layout--gap-large`: adds a large gutter between cells
-* `.o-layout--gap-huge`: adds a huge gutter between cells
 
 **On the `.o-layout__cell` element**
 * `.o-layout__cell`: Core layout cell element
@@ -163,11 +159,7 @@ There are multiple ways to configure the layout object. The Custom properties ar
 
 ### SCSS variables
 
-* `$gap-base`: base width of the gutter, defaults to `defaults.$space-base`
-* `$gap-tiny`: tiny width of the gutter, defaults to `defaults.$space-tiny`
-* `$gap-small`: small width of the gutter, defaults to `defaults.$space-small`
-* `$gap-large`: large width of the gutter, defaults to `defaults.$space-large`
-* `$gap-huge`: huge width of the gutter, defaults to `defaults.$space-huge`
+* `$gaps`: a list of gaps where possible `.o-layout--gap-X` are generated from, defaults to `('base': defaults.$space-base)`
 * `$fit-in-breakpoint`: a list of breakpoints where `o-layout__cell-fit` is generated for,  defaults to `()`
 * `$fill-in-breakpoint`: a list of breakpoints where `o-layout__cell-fill` is generated for,  defaults to `()`
 
@@ -177,7 +169,10 @@ You can overwrite the SCSS variables the following ways:
 // in your manifest file, eg. `styles.scss`
 @use '~supple/lib/objects/layout' with (
   $fit-in-breakpoint: (lap, desk),
-  $gap-small: 1rem,
+  $gaps: (
+    'base': defaults.$space-base,
+    'tiny': defaults.$space-tiny,
+  ),
 );
 ```
 or
@@ -185,7 +180,10 @@ or
 // in your own variable file, eg. `_vars.scss`
 @use '~supple/lib/objects/layout/variables' with (
   $fit-in-breakpoint: (lap, desk),
-  $gap-small: 1rem,
+  $gaps: (
+    'tiny': defaults.$space-tiny,
+    'huge': defaults.$space-huge,
+  ),
 );
 
 // in your manifest file, eg. `styles.scss`

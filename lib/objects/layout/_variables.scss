@@ -22,13 +22,11 @@ $columns: defaults.$columns !default;
 
 
 /**
- * The default gap
+ * The `gap` map
  */
-$gap-base: defaults.$space-base !default;
-$gap-tiny: defaults.$space-tiny !default;
-$gap-small: defaults.$space-small !default;
-$gap-large: defaults.$space-large !default;
-$gap-huge: defaults.$space-huge !default;
+$gaps: (
+  'base': defaults.$space-base,
+) !default;
 
 
 /**
