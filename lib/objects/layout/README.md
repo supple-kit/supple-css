@@ -66,6 +66,14 @@ For more granular control over layout make use of modifiers, custom properties o
 </div>
 ```
 
+### Works with `u-colspan-X` on `o-layout__cell`
+
+```html
+<div class="o-layout">
+  <div class="o-layout__cell  u-colspan-5">Spans 5 of 12 columns</div>
+</div>
+```
+
 ### Custom properties
 
 ```html
@@ -160,8 +168,8 @@ There are multiple ways to configure the layout object. The Custom properties ar
 ### SCSS variables
 
 * `$gaps`: a list of gaps where possible `.o-layout--gap-X` are generated from, defaults to `('base': defaults.$space-base)`
-* `$fit-in-breakpoint`: a list of breakpoints where `o-layout__cell-fit` is generated for,  defaults to `()`
-* `$fill-in-breakpoint`: a list of breakpoints where `o-layout__cell-fill` is generated for,  defaults to `()`
+* `$fit-in-breakpoint`: a list of breakpoints where `o-layout__cell--fit` is generated for,  defaults to `()`
+* `$fill-in-breakpoint`: a list of breakpoints where `o-layout__cell--fill` is generated for,  defaults to `()`
 
 You can overwrite the SCSS variables the following ways:
 
