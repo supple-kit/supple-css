@@ -34,7 +34,7 @@
   --inline-gap: var(--gap);
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
-  gap: var(--row-gap) var(--column-gap);
+  gap: var(--block-gap) var(--inline-gap);
 }
 
 
