@@ -40,42 +40,12 @@
 
 
 /**
- * Modifier: gap-base
+ * Modifier: gap-X
  */
-.o-mesh--gap-base {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-base)};
-}
-
-
-/**
- * Modifier: gap-small
- */
-.o-mesh--gap-small {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-small)};
-}
-
-
-/**
- * Modifier: gap-tiny
- */
-.o-mesh--gap-tiny {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-tiny)};
-}
-
-
-/**
- * Modifier: gap-large
- */
-.o-mesh--gap-large {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-large)};
-}
-
-
-/**
- * Modifier: gap-huge
- */
-.o-mesh--gap-huge {
-  --gap: #{tools.functions-value-to-rem(variables.$gap-huge)};
+@each $key, $value in variables.$gaps {
+  .o-mesh--gap-#{$key} {
+    --gap: #{tools.functions-value-to-rem($value)};
+  }
 }
 
 
@@ -84,16 +54,17 @@
  */
 .o-mesh__cell {
   --colstart: 0;
-  --colspan: 1;
+  --colspan: 12;
   grid-column-start: var(--colstart);
   grid-column-end: span var(--colspan);
 }
 
 
 /**
- * element modifier: row
+ * Element modifier: row
+ * 1. Overwrite any previously set column start
  */
 .o-mesh__cell--row {
-  --colstart: 0;
+  --colstart: 0; /* [1] */
   --colspan: 12;
 }
