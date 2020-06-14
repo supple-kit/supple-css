@@ -31,6 +31,17 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 </div>
 ```
 
+```html
+<div class="o-mesh">
+  <div class="o-mesh__cell  u-colspan-7">
+    spans 7 of 12 columns
+  </div>
+  <div class="o-mesh__cell  u-colspan-5">
+    spans 5 of 12 columns
+  </div>
+</div>
+```
+
 
 ## Available classes
 By default we generate classes for 12 columns but it can be configured with the `$columns` setting.
