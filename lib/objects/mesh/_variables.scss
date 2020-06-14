@@ -30,6 +30,12 @@ $gaps: (
 
 
 /**
+ * Flow inline-size
+ */
+$flow-min-inline-size: 200px !default;
+
+
+/**
  * Define which namespaced breakpoints you would like to generate for `row`.
  * This is handy if you only need `row` on, say, desk, or you only need `row`
  * at mobile sizes. It allows you to only compile as much CSS as you need.

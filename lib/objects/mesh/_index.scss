@@ -29,13 +29,31 @@
  */
 .o-mesh {
   --columns: #{variables.$columns};
-  --template-columns: repeat(var(--columns), 1fr);
   --gap: 0;
   --row-gap: var(--gap);
   --column-gap: var(--gap);
   display: grid;
-  grid-template-columns: var(--template-columns);
+  grid-template-columns: repeat(var(--columns), 1fr);
   gap: var(--row-gap) var(--column-gap);
+}
+
+
+/**
+ * Modifier: flow
+ * Fluid width columns that break into more or less columns as space is available, with no media queries
+ */
+.o-mesh--flow {
+  --min-inline-size: #{tools.functions-value-to-rem(variables.$flow-min-inline-size)};
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
+}
+
+
+/**
+ * Modifier: dense
+ * Attempt to fill in holes earlier in the grid if smaller items come up later
+ */
+.o-mesh--dense {
+  grid-auto-flow: dense;
 }
 
 
@@ -54,7 +72,7 @@
  */
 .o-mesh__cell {
   --colstart: 0;
-  --colspan: 12;
+  --colspan: 1;
   grid-column-start: var(--colstart);
   grid-column-end: span var(--colspan);
 }
