@@ -45,7 +45,7 @@ This layer is the first layer and holds any global settings for your project. It
 
 **NOTE**: Any variable that does not need to be accessed globally should belong in the module to which it relates.
 
-* [settings/_defaults.scss](lib/settings/_defaults.scss), supples core settings.
+* [settings/defaults](lib/settings/defaults), supples core settings.
 * [settings/_responsive.scss](lib/settings/_responsive.scss), breakpoint settings based on [Sass MQ](https://sass-mq.github.io/sass-mq/).
 
 ### Tools
