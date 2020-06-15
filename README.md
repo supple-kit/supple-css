@@ -115,8 +115,6 @@ Below are some examples on how to use and structure the framework:
     desk: 960px,
   ),
 );
-
-@forward 'node-modules/supple/lib/settings/defaults' as defaults-*;
 ```
 
 ```javascript
@@ -129,10 +127,11 @@ import './index.scss';
 ```scss
 // components/index.scss
 @use 'settings/your-own-vars';
+@use 'node-modules/supple/lib/settings/defaults';
 @use 'node-modules/supple/lib/tools/mixins';
 
 .your-own-component {
-  @include tools.mixins-rem(margin-inline-start, your-own-vars.defaults-space-base);
+  @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
   transition-timing-function: your-own-vars.$animation-timing-function;
 }
 
