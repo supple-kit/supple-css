@@ -6,56 +6,65 @@
 /*  Settings
     ========================================================================= */
 
-@use '../lib/settings/defaults';
+@use '../../lib/settings/defaults' with (
+  $show-breakpoints: (palm, lap, desk, wall)
+);
 
 
 
 /*  Tools
     ========================================================================= */
 
-// Import your tools in the modules you need them
+// @import '../../lib/tools/functions';
+// @use '../../lib/tools/mixins';
 
 
 
 /*  Generic
     ========================================================================= */
 
-@use '../lib/generic/reset';
+@use '../../lib/generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-@use '../lib/elements/headings';
+@use '../../lib/elements/headings';
+@use 'elements/toplevel';
 
 
 
 /*  Objects
     ========================================================================= */
 
-@use '../lib/objects/list-clean';
-@use '../lib/objects/layout';
-@use '../lib/objects/mesh';
-@use '../lib/objects/retain';
-@use '../lib/objects/aspect-ratio';
+@use '../../lib/objects/list-clean';
+@use '../../lib/objects/layout';
+@use '../../lib/objects/mesh';
+@use '../../lib/objects/retain';
+@use '../../lib/objects/aspect-ratio';
 
 
 
 /*  Components
     ========================================================================= */
 
-/* Add your own, yo */
+@use 'components/test';
+@use 'components/fixture-box';
+@use 'components/preformatted';
+@use 'components/css-lock';
 
 
 
 /*  Utilities
     ========================================================================= */
 
-@use '../lib/utilities/colspan';
-@use '../lib/utilities/colstart';
-@use '../lib/utilities/clearfix';
-@use '../lib/utilities/module';
-@use '../lib/utilities/spacing';
-@use '../lib/utilities/visually-hidden';
-@use '../lib/utilities/hidden';
+@use '../../lib/utilities/colspan';
+@use '../../lib/utilities/colstart';
+@use '../../lib/utilities/clearfix';
+@use '../../lib/utilities/module';
+@use '../../lib/utilities/spacing';
+@use '../../lib/utilities/visually-hidden';
+@use '../../lib/utilities/hidden';
+
+@use '../../lib/tools/mixins';

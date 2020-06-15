@@ -20,7 +20,7 @@
     "lint": "stylelint \"**/*.scss\"",
     "gzip": "gzip-size test/css/index.css",
     "postcss": "postcss test/css/**/*.css --replace",
-    "sass": "sass src:test/css/ --no-source-map",
+    "sass": "sass lib/index.scss:test/css/index.css test/scss/test.scss:test/css/test.css --no-source-map",
     "build": "npm run sass && npm run postcss",
     "start": "nodemon -e scss -x \"npm run test\""
   },

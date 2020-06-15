@@ -6,65 +6,56 @@
 /*  Settings
     ========================================================================= */
 
-@use '../lib/settings/defaults' with (
-  $show-breakpoints: (palm, lap, desk, wall)
-);
+@use 'settings/defaults';
 
 
 
 /*  Tools
     ========================================================================= */
 
-// @import '../lib/tools/functions';
-// @use '../lib/tools/mixins';
+// Import your tools in the modules you need them
 
 
 
 /*  Generic
     ========================================================================= */
 
-@use '../lib/generic/reset';
+@use 'generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-@use '../lib/elements/headings';
-@use '../test/scss/elements/toplevel';
+@use 'elements/headings';
 
 
 
 /*  Objects
     ========================================================================= */
 
-@use '../lib/objects/list-clean';
-@use '../lib/objects/layout';
-@use '../lib/objects/mesh';
-@use '../lib/objects/retain';
-@use '../lib/objects/aspect-ratio';
+@use 'objects/list-clean';
+@use 'objects/layout';
+@use 'objects/mesh';
+@use 'objects/retain';
+@use 'objects/aspect-ratio';
 
 
 
 /*  Components
     ========================================================================= */
 
-@use '../test/scss/components/test';
-@use '../test/scss/components/fixture-box';
-@use '../test/scss/components/preformatted';
-@use '../test/scss/components/css-lock';
+/* Add your own, yo */
 
 
 
 /*  Utilities
     ========================================================================= */
 
-@use '../lib/utilities/colspan';
-@use '../lib/utilities/colstart';
-@use '../lib/utilities/clearfix';
-@use '../lib/utilities/module';
-@use '../lib/utilities/spacing';
-@use '../lib/utilities/visually-hidden';
-@use '../lib/utilities/hidden';
-
-@use '../lib/tools/mixins';
+@use 'utilities/colspan';
+@use 'utilities/colstart';
+@use 'utilities/clearfix';
+@use 'utilities/module';
+@use 'utilities/spacing';
+@use 'utilities/visually-hidden';
+@use 'utilities/hidden';
