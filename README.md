@@ -47,8 +47,7 @@ This layer is the first layer and holds any global settings for your project. It
 ### Tools
 The tools layer houses your globally available tooling, mixins and functions.
 
-* [tools/_functions.scss](lib/tools/_functions.scss).
-* [tools/_mixins.scss](lib/tools/_mixins.scss).
+* [tools](lib/tools).
 
 **NOTE**: Any mixin or function that does not need to be accessed globally should belong in the module template to which it relates.
 
