@@ -15,10 +15,7 @@ Use supple if:
 
 ### Size
 
-The core framework including all modules without fallbacks for `custom-properties` weighs about 2.15kB. You can reduce the payload by only including the modules you need, and configure those modules to your needs.
-
-If you want the framework to include all fallbacks for `custom-properties` the framework comes in at 2.48kB.
-
+The core framework including all modules without fallbacks for `custom-properties` weighs about 1.5kB. You can reduce the payload by only including the modules you need, and configure those modules to your needs.
 
 ## Browser support
 Supple supports all [major browsers which can render CSS custom properties](http://caniuse.com/#feat=css-variables).
@@ -46,7 +43,6 @@ This layer is the first layer and holds any global settings for your project. It
 **NOTE**: Any variable that does not need to be accessed globally should belong in the module to which it relates.
 
 * [settings/defaults](lib/settings/defaults), supples core settings.
-* [settings/_responsive.scss](lib/settings/_responsive.scss), breakpoint settings based on [Sass MQ](https://sass-mq.github.io/sass-mq/).
 
 ### Tools
 The tools layer houses your globally available tooling, mixins and functions.
@@ -57,10 +53,8 @@ The tools layer houses your globally available tooling, mixins and functions.
 **NOTE**: Any mixin or function that does not need to be accessed globally should belong in the module template to which it relates.
 
 ### Generic
-It contains ground-zero styles like [Normalize.css](http://necolas.github.io/normalize.css/), global box-sizing rules, CSS resets and so on.
+It contains ground-zero styles like global box-sizing rules, CSS resets and so on.
 
-* [generic/_normalize.scss](lib/generic/_normalize.scss), to flatten cross browser inconsistencies.
-    * **Note:** *Although supple has a prepackaged version of normalize.css it is encouraged to include the latest version from [normalize.css](http://necolas.github.io/normalize.css/).*
 * [generic/_reset.scss](lib/generic/_reset.scss), a thin layer on top of normalize.css that provides a starting point more suitable for web applications.
 
 ### Elements
@@ -74,9 +68,10 @@ Elements are most likely the last layer in which we'd find element-based selecto
 This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
 
 * [objects/list-clean](lib/objects/list-clean), strip appearance from lists by removing their bullets and indents
-* [objects/layout](lib/objects/layout), fluid and nestable layout system based on flexbox.
-* [objects/aspect-ratio](lib/objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
 * [objects/retain](lib/objects/retain), page-level constraining and wrapping elements
+* [objects/layout](lib/objects/layout), arrange items horizontally on the inline-axis with flexbox.
+* [objects/mesh](lib/objects/mesh), fluid & extensible grid system based on CSS grid.
+* [objects/aspect-ratio](lib/objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
 
 All Objects should be prefixed with `o-`.
 
@@ -90,7 +85,8 @@ All Components should be prefixed with `c-`.
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [utilities/colspan.scss](lib/utilities/colspan.scss), provides a colspan custom property for use in objects or components.
+* [utilities/colspan](lib/utilities/colspan), provides a colspan custom property for use in objects or components.
+* [utilities/colstart](lib/utilities/colstart), provides a column start custom property for use in objects or components.
 * [utilities/clearfix](lib/utilities/clearfix), Clears floats.
 * [utilities/module](lib/utilities/module), removes the `margin-bottom` from the last childs of a module.
 * [utilities/spacing](lib/utilities/spacing), utility classes to put specific spacing values onto elements.
