@@ -55,7 +55,7 @@ The tools layer houses your globally available tooling, mixins and functions.
 ### Generic
 It contains ground-zero styles like global box-sizing rules, CSS resets and so on.
 
-* [generic/_reset.scss](lib/generic/_reset.scss), a thin layer on top of normalize.css that provides a starting point more suitable for web applications.
+* [generic/reset](lib/generic/reset), A reset of sensible defaults suitable for web applications.
 
 ### Elements
 These are bare, unclassed HTML elements. The Elements layer binds onto HTML element (or 'type') selectors only.
