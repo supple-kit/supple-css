@@ -23,10 +23,6 @@
     ========================================================================= */
 
 @mixin rem($property, $value, $append: '') {
-  // Provide a fallback for non supporting browsers
-  @if defaults.$rem-fallback == true {
-    #{$property}: $value #{$append};
-  }
   @if meta.type-of($value) == list {
     $all: ();
     @for $i from 1 through list.length($value) {
@@ -84,6 +80,25 @@
 
 
 
+/*  Wrappers to sass-mq
+    ========================================================================= */
+
+@mixin mq($args...) {
+  @include sassmq.mq($args...) {
+    @content;
+  }
+}
+
+@mixin add-breakpoint($args...) {
+  @include sassmq.mq-add-breakpoint($args...);
+}
+
+@mixin show-breakpoints($args...) {
+  @include sassmq.mq-show-breakpoints($args...);
+}
+
+
+
 /*  supple-mq
     A little wrapper around sass-mq which alows us to pass in a string based
     direction instead of direction variable.
@@ -96,11 +111,11 @@
 
 @mixin supple-mq($name, $direction: from) {
   @if ($direction == from) {
-    @include sassmq.mq($from: $name) {
+    @include mq($from: $name) {
       @content;
     }
   } @else if ($direction == until) {
-    @include sassmq.mq($until: $name) {
+    @include mq($until: $name) {
       @content;
     }
   } @else {
@@ -241,17 +256,17 @@
     ========================================================================= */
 
 @mixin css-lock($property: font-size, $size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
-  @if (math.unit($size-min) == 'px' and math.unit($size-max) == 'px' and math.unit(map.get(sassmq.$mq-breakpoints, $min-bp)) == 'px' and math.unit(map.get(sassmq.$mq-breakpoints, $max-bp)) == 'px') {
+  @if (math.unit($size-min) == 'px' and math.unit($size-max) == 'px' and math.unit(map.get(defaults.$breakpoints, $min-bp)) == 'px' and math.unit(map.get(defaults.$breakpoints, $max-bp)) == 'px') {
     $size-min-rem: functions.value-to-rem($size-min);
     $size-max-rem: functions.value-to-rem($size-max);
     #{$property}: $size-min-rem;
 
     @if ($size-min != $size-max) {
-      @include sassmq.mq($from: $min-bp) {
-        #{$property}: calc(#{$size-min-rem} + #{functions.strip-units($size-max-rem - $size-min-rem)} * ((100vw - #{(functions.value-to-rem(map.get(sassmq.$mq-breakpoints, $min-bp)))}) / #{functions.strip-units(functions.value-to-rem(map.get(sassmq.$mq-breakpoints, $max-bp) - map.get(sassmq.$mq-breakpoints, $min-bp)))})); // stylelint-disable-line max-line-length
+      @include mq($from: $min-bp) {
+        #{$property}: calc(#{$size-min-rem} + #{functions.strip-units($size-max-rem - $size-min-rem)} * ((100vw - #{(functions.value-to-rem(map.get(defaults.$breakpoints, $min-bp)))}) / #{functions.strip-units(functions.value-to-rem(map.get(defaults.$breakpoints, $max-bp) - map.get(defaults.$breakpoints, $min-bp)))})); // stylelint-disable-line max-line-length
       }
 
-      @include sassmq.mq($from: $max-bp) {
+      @include mq($from: $max-bp) {
         #{$property}: $size-max-rem;
       }
     } @else {
