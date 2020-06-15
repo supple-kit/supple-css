@@ -19,7 +19,7 @@
 /*  Variables
     ========================================================================= */
 
-$browser-context: defaults.$font-size !default;
+$browser-context: defaults.$font-size;
 
 
 
@@ -45,6 +45,6 @@ $browser-context: defaults.$font-size !default;
 /**
  * A small, internally-used function to remove the units from a given value.
  */
-@function strip-units ($number) {
-  @return $number / ($number * 0 + 1);
+@function strip-units ($value) {
+  @return $value / ($value * 0 + 1);
 }
