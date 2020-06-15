@@ -124,22 +124,22 @@
 }
 
 
-/*  breakpoint-has
+/*  in-breakpoint
     A little helper mixin to quickly create responsive variants of a certain
     selector.
 
     Example usage:
-    $breakpoint-has-YOURMODULE: (
+    $YOURMODULE-in-breakpoint: (
       from: lap desk,
       until: desk,
     );
-    @include breakpoint-has($breakpoint-has-YOURMODULE, '.your-selector') {
+    @include in-breakpoint($YOURMODULE-in-breakpoint, '.your-selector') {
       outline: 1px solid #ff0000;
     }
     ========================================================================= */
 
 /* stylelint-disable max-nesting-depth */
-@mixin breakpoint-has($breakpoints, $selector) {
+@mixin in-breakpoint($breakpoints, $selector) {
   @if ($breakpoints and $selector) {
     @each $breakpoint in $breakpoints {
       @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {

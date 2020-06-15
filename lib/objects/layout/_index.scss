@@ -193,7 +193,7 @@
  * Element modifier: fit
  * Make a cell shrink wrap its content.
  */
-@include tools.mixins-breakpoint-has(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
+@include tools.mixins-in-breakpoint(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
   flex-basis: auto;
 }
 
@@ -205,7 +205,7 @@
  * 1. Fixes issue where a element doesn’t fill the remaining space when the
  *    container has no explicit width.
  */
-@include tools.mixins-breakpoint-has(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
+@include tools.mixins-in-breakpoint(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
   flex: auto;
   inline-size: 0%; /* [1] */
 }

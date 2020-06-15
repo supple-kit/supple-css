@@ -102,7 +102,7 @@
  * Element modifier: row
  * 1. Overwrite any previously set column start
  */
-@include tools.mixins-breakpoint-has(variables.$row-in-breakpoint, '.o-mesh__cell--row') {
+@include tools.mixins-in-breakpoint(variables.$row-in-breakpoint, '.o-mesh__cell--row') {
   --colstart: 0; /* [1] */
   --colspan: 12;
 }

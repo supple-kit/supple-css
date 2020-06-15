@@ -59,6 +59,6 @@ $in-breakpoint: () !default;
 /*  Responsive
     ========================================================================= */
 
-@include tools.mixins-breakpoint-has($in-breakpoint, '.u-hidden') {
+@include tools.mixins-in-breakpoint($in-breakpoint, '.u-hidden') {
   display: none !important;
 }

@@ -36,6 +36,6 @@
 /*  Responsive
     ========================================================================= */
 
-@include tools.mixins-breakpoint-has(variables.$in-breakpoint, '.u-visually-hidden') {
+@include tools.mixins-in-breakpoint(variables.$in-breakpoint, '.u-visually-hidden') {
   @include tools.mixins-visually-hidden();
 }
