@@ -26,6 +26,9 @@
 
 /**
  * Block: mesh
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
  */
 .o-mesh {
   --columns: #{variables.$columns};
@@ -35,6 +38,9 @@
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   gap: var(--block-gap) var(--inline-gap);
+  padding: 0; /* [1] */
+  margin-inline-start: 0; /* [1] */
+  list-style: none; /* [1] */
 }
 
 
