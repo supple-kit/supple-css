@@ -11,8 +11,8 @@
   <div class="c-test">
     <h1 class="c-test__title">Supple CSS: objects.mesh tests</h1>
 
-    <h2 class="c-test__describe"><code>.o-mesh</code></h3>
-    <h3 class="c-test__it">renders cells at 1 column by default</h4>
+    <h2 class="c-test__describe"><code>.o-mesh</code></h2>
+    <h3 class="c-test__it">renders cells at 1 column by default</h3>
     <div class="c-test__run">
       <div class="o-mesh">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]">1</div>
@@ -20,7 +20,7 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h3 class="c-test__it">Accepts <code>--columns</code> custom property (ie. <code>--columns: 2;</code>)</h4>
+    <h3 class="c-test__it">Accepts <code>--columns</code> custom property (ie. <code>--columns: 2;</code>)</h3>
     <div class="c-test__run">
       <div class="o-mesh" style="--columns: 2;">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]">1</div>
@@ -28,8 +28,8 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h2 class="c-test__describe"><code>.o-mesh--flow</code></h3>
-    <h3 class="c-test__it">Fluid width columns that break into more or less columns as space is available, with no media queries</h4>
+    <h2 class="c-test__describe"><code>.o-mesh--flow</code></h2>
+    <h3 class="c-test__it">Fluid width columns that break into more or less columns as space is available, with no media queries</h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--flow">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]">1</div>
@@ -41,7 +41,7 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h3 class="c-test__it">Accepts <code>--min-inline-size</code> custom property.</h4>
+    <h3 class="c-test__it">Accepts <code>--min-inline-size</code> custom property.</h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--flow" style="--min-inline-size: 600px;">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]">1</div>
@@ -53,7 +53,7 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h3 class="c-test__it">Plays nicely with <code>.u-colspan-X</code></h4>
+    <h3 class="c-test__it">Plays nicely with <code>.u-colspan-X</code></h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--flow">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]">1</div>
@@ -65,8 +65,8 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h2 class="c-test__describe"><code>.o-mesh--dense</code></h3>
-    <h3 class="c-test__it">Fills in holes earlier in the grid if smaller items come up later</h4>
+    <h2 class="c-test__describe"><code>.o-mesh--dense</code></h2>
+    <h3 class="c-test__it">Fills in holes earlier in the grid if smaller items come up later</h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--flow  o-mesh--dense">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]">1</div>
@@ -82,8 +82,8 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h2 class="c-test__describe"><code>.o-mesh--gap-X</code></h3>
-    <h3 class="c-test__it">supports gap</h4>
+    <h2 class="c-test__describe"><code>.o-mesh--gap-X</code></h2>
+    <h3 class="c-test__it">supports gap</h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--gap-base">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
@@ -97,7 +97,7 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h3 class="c-test__it">supports <code>--block-gap</code> & <code>--inline-gap</code> custom properties</h4>
+    <h3 class="c-test__it">supports <code>--block-gap</code> & <code>--inline-gap</code> custom properties</h3>
     <div class="c-test__run">
       <div class="o-mesh" style="--block-gap: 0.75rem; --inline-gap: 3rem;">
         <div class="[ c-fixture-box  c-fixture-box--flatten ]  [ o-mesh__cell ]  [ u-colspan-3 ]">1</div>
@@ -111,7 +111,7 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h3 class="c-test__it">doesn't apply gaps directly to nested meshes</h4>
+    <h3 class="c-test__it">doesn't apply gaps directly to nested meshes</h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--gap-base">
         <div class="c-fixture-box--wrap [ o-mesh__cell ]  [ u-colspan-6 ]">
@@ -143,7 +143,7 @@
       </div>
     </div><!-- .c-test__run -->
 
-    <h3 class="c-test__it">correctly aligns gaps within nested meshes</h4>
+    <h3 class="c-test__it">correctly aligns gaps within nested meshes</h3>
     <div class="c-test__run">
       <div class="o-mesh  o-mesh--gap-base">
         <div class="c-fixture-box--wrap [ o-mesh__cell ]  [ u-colspan-6 ]">
