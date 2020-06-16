@@ -13,7 +13,7 @@
 @use 'sass:map';
 @use '../settings/defaults';
 @use 'functions';
-@use '../../node_modules/sass-mq/mq' as sassmq;
+@use '../vendor/sass-mq/mq' as sassmq;
 
 
 

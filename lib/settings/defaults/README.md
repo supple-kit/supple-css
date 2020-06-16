@@ -161,7 +161,7 @@ $show-breakpoints: (lap, wall);
 $media-type: all;
 ```
 
-**Note** Supple's responsive system is underpinned by [Sass-MQ](https://sass-mq.github.io/sass-mq/). Supple only provides mixin wrappers and config options which in turn are being fed directly to Sass-MQ. If you have any problems, please raise an issue [here](https://github.com/sass-mq/sass-mq/issues).
+**Note** Supple's responsive system is underpinned by [Sass-MQ 5.0.1](https://sass-mq.github.io/sass-mq/). Supple only provides mixin wrappers and config options which in turn are being fed directly to Sass-MQ. If you have any problems, please raise an issue [here](https://github.com/sass-mq/sass-mq/issues).
 
 
 ### Namespace

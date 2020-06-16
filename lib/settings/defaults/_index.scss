@@ -102,7 +102,7 @@ $media-type: all !default;
 /**
  * Load sass-mq framework
  */
-@use '../../../node_modules/sass-mq/mq' with (
+@use '../../vendor/sass-mq/mq' with (
   $mq-responsive: $responsive,
   $mq-breakpoints: $breakpoints,
   $mq-static-breakpoint: $static-breakpoint-name,
