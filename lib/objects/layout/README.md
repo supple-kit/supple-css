@@ -48,7 +48,7 @@ For more granular control over layout make use of modifiers, custom properties o
 ### Modifiers on `o-layout`
 
 ```html
-<div class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--equal-block-size  |  o-layout--gap-base]">
+<div class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--stretch  |  o-layout--gap-base]">
   <div class="o-layout__cell"></div>
   <div class="o-layout__cell"></div>
   <div class="o-layout__cell"></div>
@@ -140,7 +140,7 @@ When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you ca
 * `.o-layout--reverse`: reverse all cells in order
 * `.o-layout--fill`: evenly distribute space amongst all child cells
 * `.o-layout--fit`: fit all cells to their content
-* `.o-layout--equal-block-size`: All cells match the size of tallest cell in a row on the block axis
+* `.o-layout--stretch`: All cells match the size of tallest cell in a row on the block axis
 * `.o-layout--gap-base`: adds a base gutter between cells
 
 **On the `.o-layout__cell` element**
