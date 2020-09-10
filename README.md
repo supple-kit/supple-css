@@ -14,14 +14,14 @@ Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework i
 * [Getting started](#getting-started)
 
 ## Why use supple:
-> It is a small but powerfull (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilises new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties, .
+> It is a small but powerful (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilises new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties, .
 
 Supple provides little to no design wich means no undoing other peoples design decisions.
 
 ## Features
 A grasp of Supple's featureset:
 
-* Sensible, powerfull reset for web applications.
+* Sensible, powerful reset for web applications.
 * Suite of functions and mixins for speedy development.
 * CSS Grid & Flexbox objects  for creating layouts.
 * Objects for reusable solutions to common features.

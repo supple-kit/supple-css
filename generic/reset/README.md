@@ -1,6 +1,6 @@
 # Supple CSS | generic.reset
 
-A reset of sensible defaults, roughly based on Andy Bell's exellent [A Modern CSS Reset](https://hankchizljaw.com/wrote/a-modern-css-reset/). Combined with Supple's vertical rhythm it provides a powerfull reset for web applications.
+A reset of sensible defaults, roughly based on Andy Bell's excellent [A Modern CSS Reset](https://hankchizljaw.com/wrote/a-modern-css-reset/). Combined with Supple's vertical rhythm it provides a powerful reset for web applications.
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 

@@ -63,7 +63,7 @@ Massive overhaul, v2 is by any means not compatible with v1 codebases.
 - Added vertical layout mode.
 - Formatted flexembed fallbacks a bit more consistent.
 - Removed `@apply` rules because the spec is abandoned.
-- Update readme with helpfull information.
+- Update readme with helpful information.
 
 First major release 🔥.
 
