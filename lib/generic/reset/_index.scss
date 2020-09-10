@@ -47,37 +47,29 @@ html {
  * Remove default margins from elements
  */
 body,
+hgroup,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-input {
-  margin: 0;
-}
-
-
-/**
- * Removes unwanted margins & applies vertical rhythm to designated elements
- * As per: http://csswizardry.com/2012/06/single-direction-margin-declarations
- */
-hgroup,
-ul,
-ol,
-dl,
-blockquote,
 p,
 address,
 table,
 fieldset,
-figure,
 pre,
-hr {
-  margin-block-start: 0;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+hr,
+dl,
+dd,
+input {
+  margin: 0;
 }
 
 
