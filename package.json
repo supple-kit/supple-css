@@ -22,7 +22,7 @@
     "postcss": "postcss _test/css/**/*.css --replace",
     "sass": "sass index.scss:_test/css/index.css _test/scss/test.scss:_test/css/test.css --no-source-map",
     "build": "npm run sass && npm run postcss",
-    "serve": "browser-sync start --server --files '_test/css/*.css, ./**/*.html' --index 'test.html'" ,
+    "serve": "browser-sync start --server --files '_test/css/*.css, ./**/*.html' --index 'test.html'",
     "watch": "nodemon -e scss -x \"npm run test\"",
     "start": "concurrently 'npm run serve' 'npm run watch'"
   },
@@ -30,7 +30,7 @@
     "defaults"
   ],
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
+    "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.12",
     "concurrently": "^5.3.0",
     "cssnano": "^4.1.10",
@@ -38,10 +38,10 @@
     "gzip-size-cli": "^3.0.0",
     "nodemon": "^2.0.4",
     "postcss": "^7.0.32",
-    "postcss-cli": "^7.1.1",
-    "sass": "^1.26.8",
-    "stylelint": "^13.6.0",
+    "postcss-cli": "^7.1.2",
+    "sass": "^1.26.10",
+    "stylelint": "^13.7.0",
     "stylelint-config-supple": "^3.0.3",
-    "stylelint-scss": "^3.17.2"
+    "stylelint-scss": "^3.18.0"
   }
 }
