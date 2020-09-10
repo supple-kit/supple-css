@@ -143,7 +143,7 @@ All Supple's modules are created based on the [ITCSS](https://www.creativebloq.c
 
 ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like global namespace, the cascade and selector specificity. I advise you to read ITCSS documentation to fully grasp the ideas about the methodology.
 
-**Note** every module has its own readme on how to use the module. In the below list you can click tthrough to the connected documentation.
+**Note** every module has its own readme on how to use the module. In the list below you can click through to the connected documentation.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
