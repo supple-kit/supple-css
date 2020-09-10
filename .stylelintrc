@@ -2,6 +2,6 @@
   "extends": "stylelint-config-supple",
   "ignoreFiles": [
     "_test/css/*",
-    "lib/vendor/**/*"
+    "vendor/**/*"
   ]
 }

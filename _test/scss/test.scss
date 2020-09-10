@@ -6,7 +6,7 @@
 /*  Settings
     ========================================================================= */
 
-@use '../../lib/settings/defaults' with (
+@use '../../settings/defaults' with (
   $show-breakpoints: (palm, lap, desk, wall)
 );
 
@@ -15,22 +15,22 @@
 /*  Tools
     ========================================================================= */
 
-// @import '../../lib/tools/functions';
-// @use '../../lib/tools/mixins';
+// @import '../../tools/functions';
+// @use '../../tools/mixins';
 
 
 
 /*  Generic
     ========================================================================= */
 
-@use '../../lib/generic/reset';
+@use '../../generic/reset';
 
 
 
 /*  Elements
     ========================================================================= */
 
-@use '../../lib/elements/headings';
+@use '../../elements/headings';
 @use 'elements/toplevel';
 
 
@@ -38,12 +38,12 @@
 /*  Objects
     ========================================================================= */
 
-@use '../../lib/objects/list-clean';
-@use '../../lib/objects/layout';
-@use '../../lib/objects/mesh';
-@use '../../lib/objects/retain';
-@use '../../lib/objects/aspect-ratio';
-@use '../../lib/objects/flow';
+@use '../../objects/list-clean';
+@use '../../objects/layout';
+@use '../../objects/mesh';
+@use '../../objects/retain';
+@use '../../objects/aspect-ratio';
+@use '../../objects/flow';
 
 
 
@@ -60,12 +60,12 @@
 /*  Utilities
     ========================================================================= */
 
-@use '../../lib/utilities/colspan';
-@use '../../lib/utilities/colstart';
-@use '../../lib/utilities/clearfix';
-@use '../../lib/utilities/module';
-@use '../../lib/utilities/spacing';
-@use '../../lib/utilities/visually-hidden';
-@use '../../lib/utilities/hidden';
+@use '../../utilities/colspan';
+@use '../../utilities/colstart';
+@use '../../utilities/clearfix';
+@use '../../utilities/module';
+@use '../../utilities/spacing';
+@use '../../utilities/visually-hidden';
+@use '../../utilities/hidden';
 
-@use '../../lib/tools/mixins';
+@use '../../tools/mixins';
