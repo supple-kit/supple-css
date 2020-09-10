@@ -49,14 +49,14 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/visually-hidden' with (
+@use 'node_modules/supple/lib/utilities/visually-hidden' with (
   $in-breakpoint: (lap, desk),
 );
 ```
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/utilities/visually-hidden/variables' with (
+@use 'node_modules/supple/lib/utilities/visually-hidden/variables' with (
   $in-breakpoint: (
     from: lap,
     until: lap desk,
@@ -64,7 +64,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/visually-hidden';
+@use 'node_modules/supple/lib/utilities/visually-hidden';
 ```
 
 

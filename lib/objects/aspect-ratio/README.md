@@ -81,7 +81,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/objects/aspect-ratio' with (
+@use 'node_modules/supple/lib/objects/aspect-ratio' with (
   $ratios: (
     (4:3),
     (16:9),
@@ -91,7 +91,7 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/objects/aspect-ratio/variables' with (
+@use 'node_modules/supple/lib/objects/aspect-ratio/variables' with (
   $ratios: (
     (4:3),
     (16:9),
@@ -99,7 +99,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/objects/aspect-ratio';
+@use 'node_modules/supple/lib/objects/aspect-ratio';
 ```
 
 

@@ -51,7 +51,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/colstart' with (
+@use 'node_modules/supple/lib/utilities/colstart' with (
   $columns: 10,
   $fit-in-breakpoint: (lap, desk),
 );
@@ -59,12 +59,12 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/utilities/colstart/variables' with (
+@use 'node_modules/supple/lib/utilities/colstart/variables' with (
   $fit-in-breakpoint: (lap, desk),
 );
 
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/utilities/colstart';
+@use 'node_modules/supple/lib/utilities/colstart';
 ```
 
 
