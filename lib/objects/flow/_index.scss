@@ -37,7 +37,7 @@
     ========================================================================= */
 
 .o-flow {
-  --flow-gap: #{functions.value-to-rem(variables.$size)};
+  --flow-gap: #{functions.value-to-rem(variables.$gap)};
 
   > * + * {
     margin-block-start: var(--flow-gap);
@@ -45,8 +45,8 @@
 }
 
 
-@each $size-namespace, $size in variables.$sizes {
+@each $size-namespace, $gap-size in variables.$gap-sizes {
   .o-flow--#{$size-namespace} {
-    --flow-gap: #{functions.value-to-rem($size)};
+    --flow-gap: #{functions.value-to-rem($gap-size)};
   }
 }
