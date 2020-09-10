@@ -179,6 +179,8 @@ This layer is concerned with styling non-cosmetic design patterns, or 'objects'.
 * [objects/layout](lib/objects/layout), arrange items horizontally on the inline-axis with flexbox.
 * [objects/mesh](lib/objects/mesh), fluid & extensible grid system based on CSS grid.
 * [objects/aspect-ratio](lib/objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
+* [objects/flow](lib/objects/flow), Create flow and rhythm between elements.
+
 
 All Objects are prefixed with `o-`.
 

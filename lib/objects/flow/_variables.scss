@@ -1,0 +1,35 @@
+/*  =========================================================================
+    objects.flow.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Gap size, can be overwritten per component with custom
+ * properties.
+ */
+$size: defaults.$space-base !default;
+
+
+/**
+ * Which sizes you want to generate?
+ * `key` is the classname, `value` is the value (duh!)
+ *
+ * Example
+   $sizes: (
+     'tiny': defaults.$space-tiny, // generates `u-flow--tiny` with value of `defaults.$space-tiny`
+   );
+ *
+ * By default the map is empty
+ */
+$sizes: () !default;
