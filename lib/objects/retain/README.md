@@ -42,7 +42,7 @@ By default the retain container has a width of 100% and is padded on both sides.
 ### Custom properties
 
 ```html
-<div class="o-retain" style="--size: 30em">
+<div class="o-retain" style="--size: 30em;">
   <!-- any content -->
 </div>
 ```

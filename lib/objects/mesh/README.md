@@ -78,7 +78,7 @@ For more granular control over mesh make use of modifiers, custom properties or 
     Spans 4 of 10 columns
   </div>
 
-  <div class="o-mesh__cell" style="--colspan: 1;  --colstart: 5;">
+  <div class="o-mesh__cell" style="--colspan: 1; --colstart: 5;">
     Spans 1 of 10 columns starts at column 5
   </div>
 
