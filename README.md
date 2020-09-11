@@ -14,14 +14,14 @@ Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework i
 * [Getting started](#getting-started)
 
 ## Why use supple:
-> It is a small but powerfull (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilises new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties, .
+> It is a small but powerful (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilises new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties, .
 
 Supple provides little to no design wich means no undoing other peoples design decisions.
 
 ## Features
 A grasp of Supple's featureset:
 
-* Sensible, powerfull reset for web applications.
+* Sensible, powerful reset for web applications.
 * Suite of functions and mixins for speedy development.
 * CSS Grid & Flexbox objects  for creating layouts.
 * Objects for reusable solutions to common features.
@@ -143,7 +143,7 @@ All Supple's modules are created based on the [ITCSS](https://www.creativebloq.c
 
 ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like global namespace, the cascade and selector specificity. I advise you to read ITCSS documentation to fully grasp the ideas about the methodology.
 
-**Note** every module has its own readme on how to use the module. In the below list you can click tthrough to the connected documentation.
+**Note** every module has its own readme on how to use the module. In the list below you can click through to the connected documentation.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
