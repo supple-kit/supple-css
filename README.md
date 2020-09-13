@@ -37,7 +37,7 @@ Supple supports all major browsers which can render the following features:
 * [custom properties](https://caniuse.com/#feat=css-variables)
 * [logical properties](https://caniuse.com/#feat=css-logical-props)
 * [CSS Grid Layout](https://caniuse.com/#feat=css-grid)
-* [CSS Flexible Box Layout(flexbox)](https://caniuse.com/#feat=flexbox)
+* [CSS Flexible Box Layout (flexbox)](https://caniuse.com/#feat=flexbox)
 
 Basically that comes down to:
 
@@ -125,7 +125,7 @@ import './index.scss';
 ```
 
 ```scss
-// components/index.scss
+// components/your-own-component/index.scss
 @use 'settings/your-own-vars';
 @use 'node-modules/supple/settings/defaults';
 @use 'node-modules/supple/tools/mixins';
