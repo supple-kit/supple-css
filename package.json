@@ -2,7 +2,7 @@
   "name": "supple",
   "version": "4.0.0",
   "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
-  "main": "lib/index.scss",
+  "main": "index.scss",
   "repository": "https://github.com/supple-css/supple.git",
   "author": "Bram Smulders <bram@bramsmulders.com>",
   "license": "MIT",

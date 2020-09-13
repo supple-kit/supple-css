@@ -71,19 +71,19 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/objects/flow' with (
+@use 'node_modules/supple/objects/flow' with (
   $gap: 12px,
 );
 ```
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use '~supple/lib/objects/flow/variables' with (
+@use 'node_modules/supple/objects/flow/variables' with (
   $gap: 12px,
 );
 
 // in your manifest file, eg. `styles.scss`
-@use '~supple/lib/objects/flow';
+@use 'node_modules/supple/objects/flow';
 ```
 
 
