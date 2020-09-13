@@ -169,7 +169,7 @@ These are bare, unclassed HTML elements. The Elements layer binds onto HTML elem
 
 Elements are most likely the last layer in which we'd find element-based selectors, and is very rarely added to or changed after initial setup. Once we have defined element-level styles, all additions and deviations should be implemented using classes.
 
-* **[elements/headings/_index.scss](elements/_headings/_index.scss), a simple heading level structure**.
+* **[elements/headings/_index.scss](elements/headings/_index.scss), a simple heading level structure**.
 
 ### Objects
 This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
