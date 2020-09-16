@@ -175,7 +175,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/lib/objects/layout' with (
+@use 'node_modules/supple/objects/layout' with (
   $fit-in-breakpoint: (lap, desk),
   $gaps: (
     'base': defaults.$space-base,
@@ -186,7 +186,7 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/supple/lib/objects/layout/variables' with (
+@use 'node_modules/supple/objects/layout/variables' with (
   $fit-in-breakpoint: (lap, desk),
   $gaps: (
     'tiny': defaults.$space-tiny,
@@ -195,7 +195,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/lib/objects/layout';
+@use 'node_modules/supple/objects/layout';
 ```
 
 

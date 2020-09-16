@@ -75,7 +75,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/lib/objects/retain' with (
+@use 'node_modules/supple/objects/retain' with (
   $sizes: (
     lap: 640px,
     desk: 960px,
@@ -85,7 +85,7 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/supple/lib/objects/retain/variables' with (
+@use 'node_modules/supple/objects/retain/variables' with (
   $sizes: (
     lap: 640px,
     desk: 960px,
@@ -93,7 +93,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/lib/objects/retain';
+@use 'node_modules/supple/objects/retain';
 ```
 
 

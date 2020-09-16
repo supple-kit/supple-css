@@ -17,7 +17,7 @@ You can override the default variables like this:
 
 ```scss
 // in you own settings file eg. `_vars.scss` or from you manifest file eg. `styles.scss`
-@use 'node_modules/supple/lib/settings/defaults' with (
+@use 'node_modules/supple/settings/defaults' with (
   $columns: 10,
   $baseline: 6px,
   $space-factor-large: 10,
@@ -28,7 +28,7 @@ And when you need the variables in your own module you can use them like this:
 
 ```scss
 // Use defaults and make variables available through `defaults.` prefix.
-@use 'node_modules/supple/lib/settings/defaults';
+@use 'node_modules/supple/settings/defaults';
 
 .your-module {
   --columns: #{defaults.$columns};
@@ -37,9 +37,9 @@ And when you need the variables in your own module you can use them like this:
 // or in combination with tools
 
 // Use defaults and make variables available through `defaults.` prefix.
-@use 'node_modules/supple/lib/settings/defaults';
+@use 'node_modules/supple/settings/defaults';
 // Use tools and make tools available through the `tools.` prefix.
-@use 'node_modules/supple/lib/tools';
+@use 'node_modules/supple/tools';
 
 .your-module__element {
   @include tools.mixins-rem(margin-inline-start, defaults.$columns);

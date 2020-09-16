@@ -37,7 +37,7 @@ Supple supports all major browsers which can render the following features:
 * [custom properties](https://caniuse.com/#feat=css-variables)
 * [logical properties](https://caniuse.com/#feat=css-logical-props)
 * [CSS Grid Layout](https://caniuse.com/#feat=css-grid)
-* [CSS Flexible Box Layout(flexbox)](https://caniuse.com/#feat=flexbox)
+* [CSS Flexible Box Layout (flexbox)](https://caniuse.com/#feat=flexbox)
 
 Basically that comes down to:
 
@@ -70,14 +70,14 @@ Below are some examples on how to use and structure the framework:
 ```scss
 // styles.scss
 @use 'settings/your-own-vars';
-@use 'node-modules/supple/lib/objects/mesh';
+@use 'node-modules/supple/objects/mesh';
 @use 'components/your-own-component';
-@use 'node-modules/supple/lib/utilities/colspan';
+@use 'node-modules/supple/utilities/colspan';
 ```
 
 ```scss
 // settings/_your-own-vars.scss
-@use 'node-modules/supple/lib/settings/defaults' with (
+@use 'node-modules/supple/settings/defaults' with (
   $font-size: 20px,
   $columns: 10,
   $breakpoints: (
@@ -86,16 +86,16 @@ Below are some examples on how to use and structure the framework:
   ),
 );
 
-@use 'node-modules/supple/lib/objects/mesh/variables' with (
+@use 'node-modules/supple/objects/mesh/variables' with (
   $columns: 24,
 );
 ```
 
 ```scss
 // components/_your-own-component.scss
-@use 'node-modules/supple/lib/settings/defaults';
+@use 'node-modules/supple/settings/defaults';
 @use 'settings/your-own-vars';
-@use 'node-modules/supple/lib/tools/mixins';
+@use 'node-modules/supple/tools/mixins';
 
 .your-own-component {
   @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
@@ -107,7 +107,7 @@ Below are some examples on how to use and structure the framework:
 
 ```scss
 // settings/_your-own-vars.scss
-@use 'node-modules/supple/lib/settings/defaults' with (
+@use 'node-modules/supple/settings/defaults' with (
   $font-size: 20px,
   $columns: 10,
   $breakpoints: (
@@ -125,10 +125,10 @@ import './index.scss';
 ```
 
 ```scss
-// components/index.scss
+// components/your-own-component/index.scss
 @use 'settings/your-own-vars';
-@use 'node-modules/supple/lib/settings/defaults';
-@use 'node-modules/supple/lib/tools/mixins';
+@use 'node-modules/supple/settings/defaults';
+@use 'node-modules/supple/tools/mixins';
 
 .your-own-component {
   @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
@@ -148,38 +148,38 @@ ITCSS stands for Inverted Triangle CSS and it helps you organize your project's 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
 
-* [settings/defaults](lib/settings/defaults), supples core settings.
+* [settings/defaults](settings/defaults), supples core settings.
 
 **NOTE**: Any variable that does not need to be accessed globally should belong in the module to which it relates.
 
 ### Tools
 The tools layer houses your globally available tooling, mixins and functions.
 
-* [tools](lib/tools).
+* [tools](tools).
 
 **NOTE**: Any mixin or function that does not need to be accessed globally should belong in the module template to which it relates.
 
 ### Generic
 It contains ground-zero styles like global box-sizing rules, CSS resets and so on.
 
-* [generic/reset](lib/generic/reset), A reset of sensible defaults suitable for web applications.
+* [generic/reset](generic/reset), A reset of sensible defaults suitable for web applications.
 
 ### Elements
 These are bare, unclassed HTML elements. The Elements layer binds onto HTML element (or 'type') selectors only.
 
 Elements are most likely the last layer in which we'd find element-based selectors, and is very rarely added to or changed after initial setup. Once we have defined element-level styles, all additions and deviations should be implemented using classes.
 
-* **[elements/_headings.scss](lib/elements/_headings.scss), a simple heading level structure**.
+* **[elements/headings/_index.scss](elements/headings/_index.scss), a simple heading level structure**.
 
 ### Objects
 This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
 
-* [objects/list-clean](lib/objects/list-clean), strip appearance from lists by removing their bullets and indents
-* [objects/retain](lib/objects/retain), page-level constraining and wrapping elements
-* [objects/layout](lib/objects/layout), arrange items horizontally on the inline-axis with flexbox.
-* [objects/mesh](lib/objects/mesh), fluid & extensible grid system based on CSS grid.
-* [objects/aspect-ratio](lib/objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
-* [objects/flow](lib/objects/flow), Create flow and rhythm between elements.
+* [objects/list-clean](objects/list-clean), strip appearance from lists by removing their bullets and indents
+* [objects/retain](objects/retain), page-level constraining and wrapping elements
+* [objects/layout](objects/layout), arrange items horizontally on the inline-axis with flexbox.
+* [objects/mesh](objects/mesh), fluid & extensible grid system based on CSS grid.
+* [objects/aspect-ratio](objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
+* [objects/flow](objects/flow), Create flow and rhythm between elements.
 
 
 All Objects are prefixed with `o-`.
@@ -194,13 +194,13 @@ All Components are prefixed with `c-`.
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [utilities/colspan](lib/utilities/colspan), provides a colspan custom property for use in objects or components.
-* [utilities/colstart](lib/utilities/colstart), provides a column start custom property for use in objects or components.
-* [utilities/clearfix](lib/utilities/clearfix), Clears floats.
-* [utilities/module](lib/utilities/module), removes the `margin-bottom` from the last childs of a module.
-* [utilities/spacing](lib/utilities/spacing), utility classes to put specific spacing values onto elements.
-* [utilities/visually-hidden](lib/utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
-* [utilities/hidden](lib/utilities/hidden), completely remove from the flow and hide it from screenreaders.
+* [utilities/colspan](utilities/colspan), provides a colspan custom property for use in objects or components.
+* [utilities/colstart](utilities/colstart), provides a column start custom property for use in objects or components.
+* [utilities/clearfix](utilities/clearfix), Clears floats.
+* [utilities/module](utilities/module), removes the `margin-bottom` from the last childs of a module.
+* [utilities/spacing](utilities/spacing), utility classes to put specific spacing values onto elements.
+* [utilities/visually-hidden](utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
+* [utilities/hidden](utilities/hidden), completely remove from the flow and hide it from screenreaders.
 
 All Utilities are prefixed with `u-`.
 
