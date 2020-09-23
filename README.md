@@ -28,7 +28,7 @@ If you want to support older browsers (mostly IE11) you’ll need to include the
 ### Browserstack
 Every feature in Supple is extensively tested in browserstack:
 
-[<img src="https://supple-css.github.io/supple/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
+[<img src="https://supple-kit.github.io/supple-css/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
 
 ## Installation
 
