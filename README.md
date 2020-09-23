@@ -1,6 +1,6 @@
-# Supple (S)CSS framework <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
+# Supple (S)CSS framework <img src="https://supple-kit.github.io/supple-css/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
 
-[![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
+[![npm (scoped)](https://img.shields.io/npm/v/@supple-kit/supple-css)](https://github.com/supple-kit/supple-css/releases) [![npm](https://img.shields.io/github/license/supple-kit/supple-css)](https://github.com/supple-kit/supple-css/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-kit/supple-css/blob/master/CHANGELOG.md)
 
 ## Why use supple:
 > It is a small but powerfull (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://cssdb.org/).
@@ -32,7 +32,7 @@ Every feature in Supple is extensively tested in browserstack:
 
 ## Installation
 
-* npm: `npm install supple --save`
+* npm: `npm install @supple-kit/supple-css --save`
 
 **Note**: It is advised to add [postcss-autoprefixer](https://github.com/postcss/autoprefixer) to automatically generate vendor prefixes.
 
