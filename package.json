@@ -41,7 +41,7 @@
     "postcss-cli": "^7.1.2",
     "sass": "^1.26.10",
     "stylelint": "^13.7.0",
-    "stylelint-config-supple": "^3.0.3",
+    "@supple-kit/stylelint-config-supple": "^3.0.3",
     "stylelint-scss": "^3.18.0"
   }
 }
