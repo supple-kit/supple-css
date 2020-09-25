@@ -7,6 +7,7 @@
     other includes.
     ========================================================================= */
 
+@use 'sass:map';
 @use 'sass:math';
 @use 'sass:meta';
 @use 'sass:string';
@@ -39,6 +40,30 @@ $browser-context: defaults.$font-size;
   } @else {
     @return ($value/$browser-context * 1rem);
   }
+}
+
+
+/**
+ * Get space-factor
+ */
+@function get-space-factor($name: 'base') {
+  @return map.get(defaults.$space-factors, $name);
+}
+
+
+/**
+ * Get space
+ */
+@function get-space($name: 'base') {
+  @return defaults.$baseline * get-space-factor($name);
+}
+
+
+/**
+ * Space
+ */
+@function space($name: 'base') {
+  @return value-to-rem(get-space($name));
 }
 
 

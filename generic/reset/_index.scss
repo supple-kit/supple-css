@@ -11,6 +11,7 @@
 
 @use '../../settings/defaults';
 @use '../../tools';
+@use '../../tools/functions';
 
 
 
@@ -78,11 +79,11 @@ input {
  */
 ul,
 ol {
-  @include tools.mixins-rem(padding-inline-start, defaults.$space-base);
+  padding-inline-start: functions.space('base');
 }
 
 dd {
-  @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
+  margin-inline-start: functions.space('base');
 }
 
 
