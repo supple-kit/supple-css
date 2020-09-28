@@ -18,16 +18,15 @@
  * Gap size, can be overwritten per component with custom
  * properties.
  */
-$gap: defaults.$space-base !default;
+$gap: 'base' !default;
 
 
 /**
  * Which gap modifiers you want to generate?
- * `key` is the classname, `value` is the value (duh!)
  *
  * Example
    $gap-sizes: (
-     'tiny': defaults.$space-tiny, // generates `u-flow--tiny` with value of `defaults.$space-tiny`
+     'tiny'
    );
  *
  * By default the map is empty

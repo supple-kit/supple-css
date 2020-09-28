@@ -52,14 +52,19 @@ There are multiple ways to configure the flow object. The Custom properties are 
 #### `$gap`
 The mount of spacing you want to generate on the main block axis.
 
+**Defaults to:**
+```scss
+$gap: 'base';
+```
+
 #### `$gap-sizes`
 
-And which size modifiers you want to generate? `key` is the classname, `value` is the value (duh!)
+And which size modifiers you want to generate?
 
 **Example:**
 ```scss
 $gap-sizes: (
-  'tiny': defaults.$space-tiny, // generates `o-flow--tiny` with value of `defaults.$space-tiny`
+  'tiny'
 );
 ```
 **Defaults to:**
@@ -72,14 +77,14 @@ You can overwrite the SCSS variables the following ways:
 ```scss
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/supple/objects/flow' with (
-  $gap: 12px,
+  $gap: 'tiny',
 );
 ```
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
 @use 'node_modules/supple/objects/flow/variables' with (
-  $gap: 12px,
+  $gap: 'tiny',
 );
 
 // in your manifest file, eg. `styles.scss`
