@@ -18,7 +18,8 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
-@use '../../tools';
+@use '../../tools/mixins';
+@use '../../tools/space';
 
 
 
@@ -179,9 +180,9 @@
 /**
  * Modifier: gap-X
  */
-@each $key, $value in variables.$gaps {
-  .o-layout--gap-#{$key} {
-    --gap: #{tools.functions-value-to-rem($value)};
+@each $gap in variables.$gaps {
+  .o-layout--gap-#{$gap} {
+    --gap: #{space.get($gap)};
   }
 }
 
@@ -193,7 +194,7 @@
  * Element modifier: fit
  * Make a cell shrink wrap its content.
  */
-@include tools.mixins-in-breakpoint(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
+@include mixins.in-breakpoint(variables.$fit-in-breakpoint, '.o-layout__cell--fit') {
   flex-basis: auto;
 }
 
@@ -205,7 +206,7 @@
  * 1. Fixes issue where a element doesn’t fill the remaining space when the
  *    container has no explicit width.
  */
-@include tools.mixins-in-breakpoint(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
+@include mixins.in-breakpoint(variables.$fill-in-breakpoint, '.o-layout__cell--fill') {
   flex: auto;
   inline-size: 0%; /* [1] */
 }
