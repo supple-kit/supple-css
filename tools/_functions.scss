@@ -44,30 +44,6 @@ $browser-context: defaults.$font-size;
 
 
 /**
- * Get space-factor
- */
-@function get-space-factor($name: 'base') {
-  @return map.get(defaults.$space-factors, $name);
-}
-
-
-/**
- * Get space
- */
-@function get-space($name: 'base') {
-  @return defaults.$baseline * get-space-factor($name);
-}
-
-
-/**
- * Space
- */
-@function space($name: 'base') {
-  @return value-to-rem(get-space($name));
-}
-
-
-/**
  * A small, internally-used function to remove the units from a given value.
  */
 @function strip-units ($value) {

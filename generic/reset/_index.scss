@@ -11,7 +11,7 @@
 
 @use '../../settings/defaults';
 @use '../../tools';
-@use '../../tools/functions';
+@use '../../tools/space';
 
 
 
@@ -79,11 +79,11 @@ input {
  */
 ul,
 ol {
-  padding-inline-start: functions.space('base');
+  padding-inline-start: space.get();
 }
 
 dd {
-  margin-inline-start: functions.space('base');
+  margin-inline-start: space.get();
 }
 
 
