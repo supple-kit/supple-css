@@ -157,7 +157,7 @@ There are multiple ways to configure the mesh object. The Custom properties are 
 
 ### SCSS variables
 
-* `$gaps`: a list of gaps where possible `.o-mesh--gap-X` are generated from, defaults to `('base': defaults.$space-base)`
+* `$gaps`: a list of gaps where possible `.o-mesh--gap-X` are generated from, defaults to `('base')`
 * `$row-in-breakpoint`: a list of breakpoints where `o-mesh__cell--row` is generated for,  defaults to `()`
 
 You can overwrite the SCSS variables the following ways:
@@ -167,8 +167,8 @@ You can overwrite the SCSS variables the following ways:
 @use 'node_modules/supple/objects/mesh' with (
   $row-in-breakpoint: (lap, desk),
   $gaps: (
-    'base': defaults.$space-base,
-    'tiny': defaults.$space-tiny,
+    'base',
+    'tiny',
   ),
 );
 ```
@@ -178,8 +178,8 @@ or
 @use 'node_modules/supple/objects/mesh/variables' with (
   $row-in-breakpoint: (lap, desk),
   $gaps: (
-    'tiny': defaults.$space-tiny,
-    'huge': defaults.$space-huge,
+    'tiny',
+    'huge',
   ),
 );
 
