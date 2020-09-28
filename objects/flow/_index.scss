@@ -45,8 +45,8 @@
 }
 
 
-@each $gap-namespace in variables.$gap-sizes {
-  .o-flow--#{$gap-namespace} {
-    --flow-gap: #{space.get($gap-namespace)};
+@each $gap in variables.$gaps {
+  .o-flow--#{$gap} {
+    --flow-gap: #{space.get($gap)};
   }
 }
