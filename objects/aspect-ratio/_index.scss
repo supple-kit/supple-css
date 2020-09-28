@@ -21,7 +21,6 @@
  */
 @use 'sass:meta';
 @use './variables';
-@use '../../tools';
 
 
 
@@ -38,7 +37,6 @@
   display: block;
   block-size: 0;
   padding-block-end: calc(100% / var(--ratio));
-  @include tools.mixins-rem(margin-block-end, variables.$space);
 }
 
 /**
