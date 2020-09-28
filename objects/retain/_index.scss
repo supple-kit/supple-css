@@ -18,7 +18,8 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
-@use '../../tools';
+@use '../../tools/functions';
+@use '../../tools/space';
 
 
 
@@ -32,8 +33,8 @@
 .o-retain {
   --size: 100%;
   max-inline-size: var(--size);
-  @include tools.mixins-rem(padding-inline-end, variables.$space);
-  @include tools.mixins-rem(padding-inline-start, variables.$space);
+  padding-inline-start: space.get(variables.$space);
+  padding-inline-end: space.get(variables.$space);
   margin-inline-end: auto; /* [1] */
   margin-inline-start: auto; /* [1] */
 }
@@ -55,6 +56,6 @@
 
 @each $key, $value in variables.$sizes {
   .o-retain--#{$key} {
-    --size: #{tools.functions-value-to-rem($value)};
+    --size: #{functions.value-to-rem($value)};
   }
 }
