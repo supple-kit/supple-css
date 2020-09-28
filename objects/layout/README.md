@@ -141,7 +141,7 @@ When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you ca
 * `.o-layout--fill`: evenly distribute space amongst all child cells
 * `.o-layout--fit`: fit all cells to their content
 * `.o-layout--stretch`: All cells match the size of tallest cell in a row on the block axis
-* `.o-layout--gap-base`: adds a base gutter between cells
+* `.o-layout--gap-[SPACE]`: adds a base gutter between cells
 
 **On the `.o-layout__cell` element**
 * `.o-layout__cell`: Core layout cell element
@@ -167,7 +167,7 @@ There are multiple ways to configure the layout object. The Custom properties ar
 
 ### SCSS variables
 
-* `$gaps`: a list of gaps where possible `.o-layout--gap-X` are generated from, defaults to `('base': defaults.$space-base)`
+* `$gaps`: a list of gaps where possible `.o-layout--gap-X` are generated from, defaults to `('base')`
 * `$fit-in-breakpoint`: a list of breakpoints where `o-layout__cell--fit` is generated for,  defaults to `()`
 * `$fill-in-breakpoint`: a list of breakpoints where `o-layout__cell--fill` is generated for,  defaults to `()`
 
@@ -178,8 +178,8 @@ You can overwrite the SCSS variables the following ways:
 @use 'node_modules/supple/objects/layout' with (
   $fit-in-breakpoint: (lap, desk),
   $gaps: (
-    'base': defaults.$space-base,
-    'tiny': defaults.$space-tiny,
+    'base',
+    'tiny',
   ),
 );
 ```
@@ -189,8 +189,8 @@ or
 @use 'node_modules/supple/objects/layout/variables' with (
   $fit-in-breakpoint: (lap, desk),
   $gaps: (
-    'tiny': defaults.$space-tiny,
-    'huge': defaults.$space-huge,
+    'tiny',
+    'huge',
   ),
 );
 
