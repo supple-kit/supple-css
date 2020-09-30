@@ -20,7 +20,10 @@ You can override the default variables like this:
 @use 'node_modules/supple/settings/defaults' with (
   $columns: 10,
   $baseline: 6px,
-  $space-factor-large: 10,
+  $space-factors: (
+    'base': 3,
+    'tiny': 1,
+  ),
 );
 ```
 
@@ -64,39 +67,43 @@ $baseline: 6px; // Creates 6px baseline
 $baseline: 8px !default;
 ```
 
-### Spacing
-The following variables multiply the `$baseline` to new spacing variables for more consistency and transparency.
+### `$space-factors`
+The following map keys multiply the `$baseline` to consistent and transparent spacing rules.
 
 **example:**
 ```scss
-$space-factor-base: 4; // 4*8px = 32px
-$space-factor-tiny: 2; // 2*8px = 16px
-$space-factor-small: 3; // 3*8px = 24px
-$space-factor-large: 6; // 6*8px = 48px
-$space-factor-huge: 12; // 12*8px = 96px
+$space-factors: (
+  'base': 4, // 4*8px = 32px
+  'tiny': 2, // 2*8px = 16px
+  'small': 3, // 3*8px = 24px
+  'large': 6, // 6*8px = 48px
+  'huge': 12, // 12*8px = 96px
+);
 ```
 
 **defaults to:**
 ```scss
-$space-factor-base: 3 !default; // 24px
-$space-factor-tiny: 1 !default; // 8px
-$space-factor-small: 2 !default; // 16px
-$space-factor-large: 6 !default; // 48px
-$space-factor-huge: 12 !default; // 96px
+$space-factors: (
+  'tiny': 1, // 1*8px = 8px
+  'small': 2, // 2*8px = 16px
+  'base': 3, // 3*8px = 24px
+  'large': 6, // 6*8px = 48px
+  'huge': 12, // 12*8px = 96px
+) !default;
 ```
 
-These multiplication factors are converted under the hood to our `$space-X` variables:
+These multiplication factors are converted to a `rem` value and available through our `space.get()` function:
 
 ```scss
-$space-base: $baseline * $space-factor-base;
-$space-tiny: $baseline * $space-factor-tiny;
-$space-small: $baseline * $space-factor-small;
-$space-large: $baseline * $space-factor-large;
-$space-huge: $baseline * $space-factor-huge;
-```
-These variables are used throughout supple to ensure a consistent vertical rhythm. You can also use these variables inside your own modules.
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 
-**Note** these spacing variables are not directly overwritable, so you have to alter the `$space-factor-X` variables to change the `$space-X` variables.
+.your-selector {
+  margin-block-end: space.get('base');
+}
+```
+This map is used throughout supple to ensure a consistent vertical rhythm. You can also use `space.get()` inside your own modules.
+
+**Note** `$space-factors` needs to contain atleast one entry named 'base' since supple-css internally relies on this.
 
 ### Typography
 You can set the base font-size and line-height of the application:
@@ -110,7 +117,7 @@ $line-height: 4 * $baseline; // 4 * 8px = 32px
 **defaults to:**
 ```scss
 $font-size: 16px !default;
-$line-height: $space-base !default; // 3 * 8px = 24px
+$line-height: map.get($space-factors, 'base') * $baseline !default; // 3 * 8px = 24px
 ```
 
 ### Grid

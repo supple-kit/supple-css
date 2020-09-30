@@ -32,11 +32,11 @@ $baseline: 8px !default;
  * Each value should be an unitless integer.
  */
 $space-factors: (
-  'tiny': 1,
-  'small': 2,
-  'base': 3,
-  'large': 6,
-  'huge': 12,
+  'tiny': 1, // 1*8px = 8px
+  'small': 2, // 2*8px = 16px
+  'base': 3, // 3*8px = 24px
+  'large': 6, // 6*8px = 48px
+  'huge': 12, // 12*8px = 96px
 ) !default;
 
 
