@@ -2,46 +2,8 @@
     tools.functions
     ========================================================================= */
 
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
-
-@use 'sass:map';
-@use 'sass:math';
-@use 'sass:meta';
-@use 'sass:string';
-@use 'sass:list';
-
-@use '../settings/defaults';
-
-
-
-/*  Variables
-    ========================================================================= */
-
-$browser-context: defaults.$font-size;
-
-
-
 /*  Functions
     ========================================================================= */
-
-/**
- * Value to rem
- * Converts a px value to a rem unit based on the current browser context
- */
-@function value-to-rem ($value, $warn: true) {
-  @if meta.type-of($value) == string or math.is-unitless($value) == true or math.unit($value) != 'px' {
-    @if $warn == true {
-      @warn 'You’ve passed in a `$value` which is not in the `px` format. I’ve returned your `#{$value}` unmodified.';
-    }
-    @return $value;
-  } @else {
-    @return ($value/$browser-context * 1rem);
-  }
-}
-
 
 /**
  * A small, internally-used function to remove the units from a given value.

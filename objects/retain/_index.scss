@@ -20,6 +20,7 @@
 @use './variables';
 @use '../../tools/functions';
 @use '../../tools/space';
+@use '../../tools/rem';
 
 
 
@@ -56,6 +57,6 @@
 
 @each $key, $value in variables.$sizes {
   .o-retain--#{$key} {
-    --size: #{functions.value-to-rem($value)};
+    --size: #{rem.convert($value)};
   }
 }

@@ -9,7 +9,7 @@
 
 @use 'sass:map';
 @use '../settings/defaults';
-@use './functions';
+@use './rem';
 
 
 
@@ -31,5 +31,5 @@
  * Get `rem`mified space
  */
 @function get($name: 'base') {
-  @return functions.value-to-rem(defaults.$baseline * get-factor($name));
+  @return rem.convert(defaults.$baseline * get-factor($name));
 }

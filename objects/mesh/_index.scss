@@ -20,6 +20,7 @@
 @use '../../tools/functions';
 @use '../../tools/mixins';
 @use '../../tools/space';
+@use '../../tools/rem';
 
 
 
@@ -51,7 +52,7 @@
  * Fluid width columns that break into more or less columns as space is available, with no media queries
  */
 .o-mesh--flow {
-  --min-inline-size: #{functions.value-to-rem(variables.$flow-min-inline-size)};
+  --min-inline-size: #{rem.convert(variables.$flow-min-inline-size)};
   grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
 }
 
