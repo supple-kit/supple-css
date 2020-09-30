@@ -3,7 +3,7 @@
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
 ## Introduction
-Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework in its truest sense. It's based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology and is suited very well for **component-based UI development**. Supple CSS plays well with React, Angular, Vue, Svelte and every other component-based approach to UI development.
+Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework in its truest sense. It's based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology and is suited very well for **component-based UI development**. Supple CSS plays well with React, Angular, Vue, Svelte, and every other component-based approach to UI development.
 
 ## Table of contents
 
@@ -14,22 +14,22 @@ Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework i
 * [Getting started](#getting-started)
 
 ## Why use supple:
-> It is a small but powerful (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilises new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties, .
+> It is a small but powerful (S)CSS framework designed especially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilizes new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties.
 
-Supple provides little to no design wich means no undoing other peoples design decisions.
+Supple provides little to no design which means no undoing other people’s design decisions.
 
 ## Features
-A grasp of Supple's featureset:
+A grasp of Supple's features:
 
 * Sensible, powerful reset for web applications.
 * Suite of functions and mixins for speedy development.
-* CSS Grid & Flexbox objects  for creating layouts.
+* CSS Grid & Flexbox objects for creating layouts.
 * Objects for reusable solutions to common features.
-* Variety of utility classes for the most common problems like visually hiding, spacing and more.
+* Variety of utility classes for the most common problems like visually hiding, spacing, and more.
 
 ### Size
 
-The framework including all modules weighs less than **1.5kB**. With this small payload you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
+The framework including all modules weighs less than **1.5kB**. With this small payload, you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
 
 ## Browser support
 Supple supports all major browsers which can render the following features:
@@ -59,11 +59,11 @@ Supple is built with the latest version of [Sass](https://sass-lang.com/) so you
 * npm: `npm install supple --save`
 
 ## Getting started
-The framework is very design-free. this means that the style and design of your site is left entirely up to you. Because Supple gives you lots of customisable foundations you only need to add the final layer: **UI**.
+The framework is very design-free. this means that the style and design of your site are left entirely up to you. Because Supple gives you lots of customizable foundations you only need to add the final layer: **UI**.
 
 Supple is built using the [Sass module system](https://css-tricks.com/introducing-sass-modules/) and it is advised to structure your application the same way.
 
-Below are some examples on how to use and structure the framework:
+Below are some examples of how to use and structure the framework:
 
 ### With 1 manifest file, eg. `styles.scss`
 
@@ -103,7 +103,7 @@ Below are some examples on how to use and structure the framework:
 }
 ```
 
-### In a component based setup like React, Vue, Svelte etc.
+### In a component-based setup like React, Vue, Svelte, etc.
 
 ```scss
 // settings/_your-own-vars.scss
@@ -141,9 +141,9 @@ import './index.scss';
 ## Available modules
 All Supple's modules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
 
-ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like global namespace, the cascade and selector specificity. I advise you to read ITCSS documentation to fully grasp the ideas about the methodology.
+ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like a global namespace, the cascade, and selector specificity. I advise you to read ITCSS documentation to fully grasp the ideas about the methodology.
 
-**Note** every module has its own readme on how to use the module. In the list below you can click through to the connected documentation.
+**Note** every module has its readme on how to use the module. In the list below you can click through to the connected documentation.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
@@ -153,14 +153,14 @@ This layer is the first layer and holds any global settings for your project. It
 **NOTE**: Any variable that does not need to be accessed globally should belong in the module to which it relates.
 
 ### Tools
-The tools layer houses your globally available tooling, mixins and functions.
+The tools layer houses your globally available tooling, mixins, and functions.
 
 * [tools](tools).
 
 **NOTE**: Any mixin or function that does not need to be accessed globally should belong in the module template to which it relates.
 
 ### Generic
-It contains ground-zero styles like global box-sizing rules, CSS resets and so on.
+It contains ground-zero styles like global box-sizing rules, CSS resets, and so on.
 
 * [generic/reset](generic/reset), A reset of sensible defaults suitable for web applications.
 
@@ -172,7 +172,7 @@ Elements are most likely the last layer in which we'd find element-based selecto
 * **[elements/headings/_index.scss](elements/headings/_index.scss), a simple heading level structure**.
 
 ### Objects
-This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
+This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something like a `.o-retain` element to `.o-layout` systems.
 
 * [objects/list-clean](objects/list-clean), strip appearance from lists by removing their bullets and indents
 * [objects/retain](objects/retain), page-level constraining and wrapping elements
@@ -185,11 +185,11 @@ This layer is concerned with styling non-cosmetic design patterns, or 'objects'.
 All Objects are prefixed with `o-`.
 
 ### Components
-This layer contains our recognisable components, chunks of UI.
+This layer contains our recognizable components, chunks of UI.
 
 All Components are prefixed with `c-`.
 
-**NOTE**: Because supple is a design-free framework this layer is completely empty. You can add your own components to your project.
+**NOTE**: Because supple is a design-free framework this layer is empty. You can add your own components to your project.
 
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
@@ -197,7 +197,7 @@ this layer contains some handy helpers & overrides. This is the most specific la
 * [utilities/colspan](utilities/colspan), provides a colspan custom property for use in objects or components.
 * [utilities/colstart](utilities/colstart), provides a column start custom property for use in objects or components.
 * [utilities/clearfix](utilities/clearfix), Clears floats.
-* [utilities/module](utilities/module), removes the `margin-bottom` from the last childs of a module.
+* [utilities/module](utilities/module), removes the `margin-bottom` from the `last-childs` of a module.
 * [utilities/spacing](utilities/spacing), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
 * [utilities/hidden](utilities/hidden), completely remove from the flow and hide it from screenreaders.
@@ -213,7 +213,7 @@ Every feature in Supple is extensively tested in browserstack:
 
 ## Credits
 
-Supple is derived by the ideas of many other developers:
+Supple is derived from the ideas of many other developers:
 
 * [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff.
 * [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS.
