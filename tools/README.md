@@ -322,7 +322,7 @@ The property will start scaling and stop scaling exactly where you want.
 ## Installation
 Make sure you've installed/downloaded the Supple CSS library:
 
-* [npm](https://www.npmjs.com/package/supple): `npm install supple`
+* [npm](https://www.npmjs.com/package/supple): `npm install @supple-kit/supple-css`
 * Download: [zip](https://github.com/supple-css/supple/releases/latest)
 
 

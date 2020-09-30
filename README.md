@@ -56,7 +56,7 @@ Supple is built with the latest version of [Sass](https://sass-lang.com/) so you
 
 ### Install
 
-* npm: `npm install supple --save`
+* npm: `npm install @supple-kit/supple-css --save`
 
 ## Getting started
 The framework is very design-free. this means that the style and design of your site are left entirely up to you. Because Supple gives you lots of customizable foundations you only need to add the final layer: **UI**.
