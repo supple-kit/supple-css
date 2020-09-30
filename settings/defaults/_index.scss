@@ -31,12 +31,6 @@ $baseline: 8px !default;
  * How many lines should our spacing units span?
  * Each value should be an unitless integer.
  */
-$space-factor-base: 3 !default; // 24px
-$space-factor-tiny: 1 !default; // 8px
-$space-factor-small: 2 !default; // 16px
-$space-factor-large: 6 !default; // 48px
-$space-factor-huge: 12 !default; // 96px
-
 $space-factors: (
   'tiny': 1,
   'small': 2,
@@ -44,18 +38,6 @@ $space-factors: (
   'large': 6,
   'huge': 12,
 ) !default;
-
-
-/**
- * Spacing values are determined based on your project’s global baseline grid.
- * You cannot change following variables because it can break your
- * vertical rhythm.
- */
-$space-base: $baseline * $space-factor-base;
-$space-tiny: $baseline * $space-factor-tiny;
-$space-small: $baseline * $space-factor-small;
-$space-large: $baseline * $space-factor-large;
-$space-huge: $baseline * $space-factor-huge;
 
 
 
@@ -183,5 +165,5 @@ $shouldBeUnitlessIntegers: (
  * Check if `$space-factors` has the mandatory `base` entry
  */
 @if not map.has-key($space-factors, 'base') {
-  @error '`$space-factors` needs to contain atleast one 'base' entry since supple-css internally relies on this.';
+  @error '`$space-factors` needs to contain atleast one entry named 'base' since supple-css internally relies on this.';
 }
