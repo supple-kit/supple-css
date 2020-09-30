@@ -220,5 +220,6 @@ Supple is derived by the ideas of many other developers:
 * [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS.
 * [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things.
 * [Machiel Hulsbosch](http://www.hulsbos.ch/) for the supple logo.
+* [Joris Hulsbosch](https://me.portfolioris.nl/) for general advice and in-field testing.
 
 And probably more…
