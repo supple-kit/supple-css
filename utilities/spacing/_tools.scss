@@ -19,7 +19,7 @@
  */
 @use 'sass:math';
 @use './variables';
-@use '../../tools';
+@use '../../tools/space';
 
 
 
@@ -33,13 +33,9 @@
 
 @mixin render($modifier: '') {
   @each $property-namespace, $property in variables.$properties {
-    @each $direction-namespace, $direction-rules in variables.$directions {
-      @each $size-namespace, $size in variables.$sizes {
-        .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
-          @each $direction in $direction-rules {
-            @include tools.mixins-rem(#{$property}#{$direction}, $size, !important);
-          }
-        }
+    @each $size in variables.$sizes {
+      .u-#{$property-namespace}--#{$size}#{$modifier} {
+        #{$property}: space.get($size);
       }
     }
   }

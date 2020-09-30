@@ -16,28 +16,20 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 This utility generates set of classes mostly used by supple's users. You can add classes to your liking by adding them to the configuration variables. Below you find some examples of how you can use this utility.
 
 ```html
-<div class="u-margin-base">
+<div class="u-margin--base">
   Applies margin on all sides with the value of `defaults.$space-base`
 </div>
 
-<div class="u-margin-inline-start-base">
+<div class="u-margin-inline-start--base">
   Applies margin at the start of the inline axis with the value of `defaults.$space-base`
 </div>
 
-<div class="u-margin-inline-start-large">
+<div class="u-margin-inline-start--large">
   Applies margin at the start of the inline axis with the value of `defaults.$space-large`
 </div>
 
-<div class="u-margin-inline-end-auto">
-  Applies margin at the end of the inline axis with the value of `auto`
-</div>
-
-<div class="u-padding-block-base">
+<div class="u-padding-block--base">
   Applies padding at the start and end of the block axis with the value of `defaults.$space-base`
-</div>
-
-<div class="u-padding-block-start-none">
-  Applies padding at the start of the block axis with the value of `0`
 </div>
 ```
 The are a lot more combinations possible, please check [the variables SCSS file](./_variables.scss) for more options.
@@ -46,15 +38,15 @@ The are a lot more combinations possible, please check [the variables SCSS file]
 When you set breakpoints in `$in-breakpoint` you can use them like this:
 
 ```html
-<div class="u-padding-block-start-none@until-palm  u-padding-block-start-base@from-desk">
-  Applies padding at the start of the block axis with the value of `0` until `palm` breakpoint.
-  Applies padding at the start of the block axis with the value of `defaults.$space-base` from `palm` breakpoint.
+<div class="u-padding-block-start--tiny@until-palm  u-padding-block-start--base@from-desk">
+  Applies padding at the start of the block axis with the `tiny` spacing value until `palm` breakpoint.
+  Applies padding at the start of the block axis with the value of `base` spacing value from `palm` breakpoint.
 </div>
 ```
 
 ## Available classes
 
-* `.u-[PROPERTY]-[DIRECTION]-[SIZE]`: core visually hidden block
+* `.u-[PROPERTY]--[SIZE]`: core visually hidden block
 
 ## Configurable variables
 
@@ -82,67 +74,30 @@ $properties: (
 **defaults to:**
 ```scss
 $properties: (
-  'margin': 'margin',
-);
-```
-
-#### `$directions`
-
-In which directions you want your spacings to be generated? `key` is the classname, `value` is the property name.
-
-**Example:**
-```scss
-$directions: (
-  null: null, // generates `u-margin`
-  '-block': '-block-start' '-block-end', // generates `u-margin-block-end` class with start & end properties
-  '-block-end': '-block-end', // generates `u-margin-block-end`
-  '-inline-start': '-inline-start' // generates `u-margin-inline-start`
-);
-
-// or
-
-$directions: (
-  '-b-e': '-block-end', // generates `u-m-b-e`
-  '-i-s': '-inline-start', // generates `u-m-i-s`
-);
-```
-
-**Defaults to:**
-```scss
-$directions: (
-  '-block-end': '-block-end',
+  'margin-block-end': 'margin-block-end',
 );
 ```
 
 #### `$sizes`
 
-And which sizes you want to generate? `key` is the classname, `value` is the value (duh!)
+And which sizes you want to generate? The names must be present in `defaults.$space-factors` in `settings/_defaults.scss`.
 
 **Example:**
 ```scss
 $sizes: (
-  null: null, // generates `u-margin` with value of `defaults.$space-base`
-  '-tiny': defaults.$space-tiny, // generates `u-margin-tiny` with value of `defaults.$space-tiny`
-  '-auto': auto // generates `u-margin-auto` with value of `auto`
-);
-
-// or
-
-$sizes: (
-  '-t': defaults.$space-tiny, // generates `u-m-t` with value of `defaults.$space-tiny`
-  '-a': auto // generates `u-m-a` with value of `auto`
+  'tiny',
+  'base'
 );
 ```
 **Defaults to:**
 ```scss
 $sizes: (
-  null: defaults.$space-base,
-  '-none': 0
+  'base'
 );
 ```
 
 #### `$in-breakpoint`
-a list of breakpoints where `.u-[PROPERTY]-[DIRECTION]-[SIZE]@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
+a list of breakpoints where `.u-[PROPERTY]--[SIZE]@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
 
 You can overwrite the SCSS variables the following ways:
 
@@ -155,7 +110,7 @@ You can overwrite the SCSS variables the following ways:
     'p': 'padding',
   ),
   $sizes: (
-    '-base': defaults.$space-base,
+    'base',
   )
 );
 ```
@@ -167,8 +122,9 @@ or
     from: lap,
     until: lap desk,
   ),
-  $directions: (
-    '-block': '-block',
+  $sizes: (
+    'tiny',
+    'large',
   )
 );
 
