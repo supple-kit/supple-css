@@ -164,7 +164,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/objects/mesh' with (
+@use 'node_modules/@supple-kit/supple-css/objects/mesh' with (
   $row-in-breakpoint: (lap, desk),
   $gaps: (
     'base',
@@ -175,7 +175,7 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/supple/objects/mesh/variables' with (
+@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with (
   $row-in-breakpoint: (lap, desk),
   $gaps: (
     'tiny',
@@ -184,7 +184,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/objects/mesh';
+@use 'node_modules/@supple-kit/supple-css/objects/mesh';
 ```
 
 

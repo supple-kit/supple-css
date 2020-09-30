@@ -14,7 +14,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 Import this reset before any other stylesheets that generate CSS like this:
 
 ```scss
-@use 'node_modules/supple/generic/reset';
+@use 'node_modules/@supple-kit/supple-css/generic/reset';
 ```
 
 

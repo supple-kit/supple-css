@@ -103,7 +103,7 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/utilities/spacing' with (
+@use 'node_modules/@supple-kit/supple-css/utilities/spacing' with (
   $in-breakpoint: (lap, desk),
   $properties: (
     'm': 'margin',
@@ -117,7 +117,7 @@ You can overwrite the SCSS variables the following ways:
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/supple/utilities/spacing/variables' with (
+@use 'node_modules/@supple-kit/supple-css/utilities/spacing/variables' with (
   $in-breakpoint: (
     from: lap,
     until: lap desk,
@@ -129,7 +129,7 @@ or
 );
 
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/utilities/spacing';
+@use 'node_modules/@supple-kit/supple-css/utilities/spacing';
 ```
 
 

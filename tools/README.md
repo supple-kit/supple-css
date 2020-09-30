@@ -16,8 +16,8 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 ## Use
 
 ```scss
-@use 'node_modules/supple/tools/functions';
-@use 'node_modules/supple/tools/mixins';
+@use 'node_modules/@supple-kit/supple-css/tools/functions';
+@use 'node_modules/@supple-kit/supple-css/tools/mixins';
 
 .your-module {
   @include mixins.mq($from: name) {
@@ -27,7 +27,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 ```
 Or alternatively you can just include `_tools.scss` and use it like this:
 ```scss
-@use 'node_modules/supple/tools';
+@use 'node_modules/@supple-kit/supple-css/tools';
 
 .your-module {
   @include tools.mixins-mq($from: name) {
@@ -76,7 +76,7 @@ Remove the units from a given value.
 
 #### Usage
 ```scss
-@use 'node_modules/supple/settings/defaults';
+@use 'node_modules/@supple-kit/supple-css/settings/defaults';
 
 .selector::after {
   content: #{tools.strip-units(defaults.$space-base)};
@@ -103,7 +103,7 @@ Converts a set of values to rem values
 
 #### Usage
 ```scss
-@use 'node_modules/supple/settings/defaults';
+@use 'node_modules/@supple-kit/supple-css/settings/defaults';
 
 .selector {
   @include tools.mixins-rem(margin-block-start, defaults.$space-base);

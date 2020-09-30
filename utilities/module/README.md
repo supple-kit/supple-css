@@ -47,19 +47,19 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/utilities/module' with (
+@use 'node_modules/@supple-kit/supple-css/utilities/module' with (
   $depth: 4,
 );
 ```
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/supple/utilities/module/variables' with (
+@use 'node_modules/@supple-kit/supple-css/utilities/module/variables' with (
   $depth: 3,
 );
 
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/supple/utilities/module';
+@use 'node_modules/@supple-kit/supple-css/utilities/module';
 ```
 
 
