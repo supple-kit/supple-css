@@ -70,14 +70,14 @@ Below are some examples of how to use and structure the framework:
 ```scss
 // styles.scss
 @use 'settings/your-own-vars';
-@use 'node-modules/supple/objects/mesh';
+@use 'node_modules/@supple-kit/supple-css/objects/mesh';
 @use 'components/your-own-component';
-@use 'node-modules/supple/utilities/colspan';
+@use 'node_modules/@supple-kit/supple-css/utilities/colspan';
 ```
 
 ```scss
 // settings/_your-own-vars.scss
-@use 'node-modules/supple/settings/defaults' with (
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
   $font-size: 20px,
   $columns: 10,
   $breakpoints: (
@@ -86,16 +86,16 @@ Below are some examples of how to use and structure the framework:
   ),
 );
 
-@use 'node-modules/supple/objects/mesh/variables' with (
+@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with (
   $columns: 24,
 );
 ```
 
 ```scss
 // components/_your-own-component.scss
-@use 'node-modules/supple/settings/defaults';
+@use 'node_modules/@supple-kit/supple-css/settings/defaults';
 @use 'settings/your-own-vars';
-@use 'node-modules/supple/tools/mixins';
+@use 'node_modules/@supple-kit/supple-css/tools/mixins';
 
 .your-own-component {
   @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
@@ -107,7 +107,7 @@ Below are some examples of how to use and structure the framework:
 
 ```scss
 // settings/_your-own-vars.scss
-@use 'node-modules/supple/settings/defaults' with (
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
   $font-size: 20px,
   $columns: 10,
   $breakpoints: (
@@ -127,8 +127,8 @@ import './index.scss';
 ```scss
 // components/your-own-component/index.scss
 @use 'settings/your-own-vars';
-@use 'node-modules/supple/settings/defaults';
-@use 'node-modules/supple/tools/mixins';
+@use 'node_modules/@supple-kit/supple-css/settings/defaults';
+@use 'node_modules/@supple-kit/supple-css/tools/mixins';
 
 .your-own-component {
   @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
