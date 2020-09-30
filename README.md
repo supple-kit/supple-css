@@ -94,11 +94,11 @@ Below are some examples of how to use and structure the framework:
 ```scss
 // components/_your-own-component.scss
 @use 'node_modules/@supple-kit/supple-css/settings/defaults';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 @use 'settings/your-own-vars';
-@use 'node_modules/@supple-kit/supple-css/tools/mixins';
 
 .your-own-component {
-  @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
+  margin-inline-start: space.get('base');
   transition-timing-function: your-own-vars.$animation-timing-function;
 }
 ```
@@ -128,10 +128,10 @@ import './index.scss';
 // components/your-own-component/index.scss
 @use 'settings/your-own-vars';
 @use 'node_modules/@supple-kit/supple-css/settings/defaults';
-@use 'node_modules/@supple-kit/supple-css/tools/mixins';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 
 .your-own-component {
-  @include tools.mixins-rem(margin-inline-start, defaults.$space-base);
+  margin-inline-start: space.get('base');
   transition-timing-function: your-own-vars.$animation-timing-function;
 }
 
