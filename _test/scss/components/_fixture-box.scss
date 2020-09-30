@@ -8,6 +8,7 @@
     ========================================================================= */
 
 @use '../../../tools';
+@use '../../../tools/space';
 @use '../../../settings/defaults';
 
 
@@ -26,9 +27,9 @@
     ========================================================================= */
 
 .c-fixture-box {
-  @include tools.mixins-rem(margin-block-end, defaults.$space-small);
-  @include tools.mixins-rem(padding-inline-start, defaults.$space-small);
-  @include tools.mixins-rem(padding-inline-end, defaults.$space-small);
+  margin-block-end: space.get('small');
+  padding-inline-start: space.get('small');
+  padding-inline-end: space.get('small');
   border: 1px solid #000000;
   background: #ee4266;
   line-height: 3rem;
@@ -37,11 +38,11 @@
 }
 
 .c-fixture-box--double-height {
-  @include tools.mixins-rem(line-height, defaults.$space-huge);
+  line-height: space.get('huge');
 }
 
 .c-fixture-box--wrap {
-  @include tools.mixins-rem(margin-block-end, defaults.$space-small);
+  margin-block-end: space.get('small');
   border: 1px solid #000000;
   background: rgba(238, 66, 102, 0.3);
 }

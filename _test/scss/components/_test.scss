@@ -8,6 +8,7 @@
     ========================================================================= */
 
 @use '../../../tools';
+@use '../../../tools/space';
 @use '../../../settings/defaults';
 
 
@@ -31,19 +32,19 @@
 
 .c-test__title {
   @include tools.mixins-font-size(40px);
-  @include tools.mixins-rem(margin-block-start, defaults.$space-base);
-  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
-  @include tools.mixins-rem(padding, defaults.$space-base);
+  margin-block-start: space.get('base');
+  margin-block-end: space.get('base');
+  padding: space.get('base');
   color: #999999;
   background: #eeeeee;
 }
 
 .c-test__describe,
 .c-test__it {
-  @include tools.mixins-rem(padding-block-start, defaults.$space-small);
-  @include tools.mixins-rem(padding-block-end, defaults.$space-small);
-  @include tools.mixins-rem(padding-inline-start, defaults.$space-base);
-  @include tools.mixins-rem(padding-inline-end, defaults.$space-base);
+  padding-block-start: space.get('small');
+  padding-block-end: space.get('small');
+  padding-inline-start: space.get('base');
+  padding-inline-end: space.get('base');
   border-left: 5px solid #666666;
   font-weight: bold;
   color: #666666;
@@ -52,8 +53,8 @@
 
 .c-test__describe {
   @include tools.mixins-font-size(32px);
-  @include tools.mixins-rem(margin-block-start, defaults.$space-large);
-  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
+  margin-block-start: space.get('large');
+  margin-block-end: space.get('base');
   counter-reset: test__it;
 
   &::before {
@@ -64,8 +65,8 @@
 
 .c-test__it {
   @include tools.mixins-font-size(24px);
-  @include tools.mixins-rem(margin-block-start, defaults.$space-base);
-  @include tools.mixins-rem(margin-block-end, defaults.$space-base);
+  margin-block-start: space.get('base');
+  margin-block-end: space.get('base');
 
   &::before {
     content: counter(test__describe) '.' counter(test__it);
@@ -77,8 +78,8 @@
 .c-test__describe::before,
 .c-test__it::before {
   display: inline-block;
-  @include tools.mixins-rem(margin-inline-end, defaults.$space-small);
-  @include tools.mixins-rem(min-inline-size, defaults.$space-large);
+  margin-inline-end: space.get('base');
+  min-inline-size: space.get('large');
   text-transform: uppercase;
   color: #999999;
 }
@@ -89,5 +90,5 @@
 }
 
 .c-test__run--retained {
-  @include tools.mixins-rem(max-inline-size, defaults.$space-base * 21);
+  max-inline-size: space.get('base') * 21;
 }

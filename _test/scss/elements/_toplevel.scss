@@ -7,7 +7,7 @@
     These can include variables, mixins & other includes.
     ========================================================================= */
 
-@use '../../../tools';
+@use '../../../tools/space';
 @use '../../../settings/defaults';
 
 
@@ -30,6 +30,6 @@ html {
 }
 
 body {
-  @include tools.mixins-rem(padding-inline-start, defaults.$space-small);
-  @include tools.mixins-rem(padding-inline-end, defaults.$space-small);
+  padding-inline-start: space.get('base');
+  padding-inline-end: space.get('base');
 }
