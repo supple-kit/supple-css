@@ -20,7 +20,9 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
-@use '../../tools';
+@use '../../tools/mixins';
+@use '../../tools/responsive';
+
 
 
 
@@ -28,7 +30,7 @@
     ========================================================================= */
 
 .u-visually-hidden {
-  @include tools.mixins-visually-hidden();
+  @include mixins.visually-hidden();
 }
 
 
@@ -36,6 +38,6 @@
 /*  Responsive
     ========================================================================= */
 
-@include tools.mixins-in-breakpoint(variables.$in-breakpoint, '.u-visually-hidden') {
-  @include tools.mixins-visually-hidden();
+@include responsive.in-breakpoint(variables.$in-breakpoint, '.u-visually-hidden') {
+  @include mixins.visually-hidden();
 }

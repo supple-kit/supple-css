@@ -14,6 +14,7 @@
 @use '../settings/defaults';
 @use 'functions';
 @use 'rem';
+@use 'responsive';
 @use '../vendor/sass-mq/mq' as sassmq;
 
 
@@ -36,102 +37,6 @@
   white-space: nowrap !important;
   inline-size: 1px !important;
 }
-
-
-
-/*  Wrappers to sass-mq
-    ========================================================================= */
-
-@mixin mq($args...) {
-  @include sassmq.mq($args...) {
-    @content;
-  }
-}
-
-@mixin add-breakpoint($args...) {
-  @include sassmq.mq-add-breakpoint($args...);
-}
-
-@mixin show-breakpoints($args...) {
-  @include sassmq.mq-show-breakpoints($args...);
-}
-
-
-
-/*  supple-mq
-    A little wrapper around sass-mq which alows us to pass in a string based
-    direction instead of direction variable.
-
-    Example usage:
-    @include supple-mq(wall, until) {
-      outline: 1px solid #ff0000;
-    }
-    ========================================================================= */
-
-@mixin supple-mq($name, $direction: from) {
-  @if ($direction == from) {
-    @include mq($from: $name) {
-      @content;
-    }
-  } @else if ($direction == until) {
-    @include mq($until: $name) {
-      @content;
-    }
-  } @else {
-    @error '#{$direction} is not a valid sass-mq direction';
-  }
-}
-
-
-/*  in-breakpoint
-    A little helper mixin to quickly create responsive variants of a certain
-    selector.
-
-    Example usage:
-    $YOURMODULE-in-breakpoint: (
-      from: lap desk,
-      until: desk,
-    );
-    @include in-breakpoint($YOURMODULE-in-breakpoint, '.your-selector') {
-      outline: 1px solid #ff0000;
-    }
-    ========================================================================= */
-
-/* stylelint-disable max-nesting-depth */
-@mixin in-breakpoint($breakpoints, $selector) {
-  @if ($breakpoints and $selector) {
-    @each $breakpoint in $breakpoints {
-      @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
-        // if the second argument is a list, loop over it
-        @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
-          @each $point in list.nth($breakpoint, 2) {
-            @include supple-mq($point, list.nth($breakpoint, 1)) {
-              #{$selector}#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point} {
-                @content;
-              }
-            }
-          }
-        } @else {
-          @include supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
-            #{$selector}#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)} {
-              @content;
-            }
-          }
-        }
-      } @else {
-        @include supple-mq($breakpoint) {
-          #{$selector}#{defaults.$responsive-modifier}from-#{$breakpoint} {
-            @content;
-          }
-        }
-      }
-    }
-  } @else {
-    @error '$breakpoints and $selector arguments are required';
-  }
-}
-
-/* stylelint-enable */
 
 
 
@@ -220,11 +125,11 @@
     #{$property}: $size-min-rem;
 
     @if ($size-min != $size-max) {
-      @include mq($from: $min-bp) {
+      @include responsive.mq($from: $min-bp) {
         #{$property}: calc(#{$size-min-rem} + #{functions.strip-units($size-max-rem - $size-min-rem)} * ((100vw - #{(rem.convert(map.get(defaults.$breakpoints, $min-bp)))}) / #{functions.strip-units(rem.convert(map.get(defaults.$breakpoints, $max-bp) - map.get(defaults.$breakpoints, $min-bp)))})); // stylelint-disable-line max-line-length
       }
 
-      @include mq($from: $max-bp) {
+      @include responsive.mq($from: $max-bp) {
         #{$property}: $size-max-rem;
       }
     } @else {

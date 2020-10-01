@@ -18,7 +18,7 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
-@use '../../tools';
+@use '../../tools/responsive';
 
 
 
@@ -59,6 +59,6 @@ $in-breakpoint: () !default;
 /*  Responsive
     ========================================================================= */
 
-@include tools.mixins-in-breakpoint($in-breakpoint, '.u-hidden') {
+@include responsive.in-breakpoint($in-breakpoint, '.u-hidden') {
   display: none !important;
 }
