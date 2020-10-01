@@ -39,29 +39,6 @@
 
 
 
-/*  Render-module
-    Removes the `margin-bottom` from the last childs of a module.
-    As per: http://css-tricks.com/spacing-the-bottom-of-modules/
-    Usage: @include render-module(4);
-    ========================================================================= */
-
-@mixin render-module($depth: 2) {
-  $selector-all: '';
-  @for $step from 1 through $depth {
-    $selector: '';
-    @for $i from 1 through $step {
-      $selector: $selector + ' > *:last-child';
-    }
-    $selector-all: $selector-all + $selector + ',';
-  }
-
-  #{$selector-all} {
-    margin-block-end: 0 !important;
-  }
-}
-
-
-
 /*  Wrappers to sass-mq
     ========================================================================= */
 

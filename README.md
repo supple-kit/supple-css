@@ -197,7 +197,6 @@ this layer contains some handy helpers & overrides. This is the most specific la
 * [utilities/colspan](utilities/colspan), provides a colspan custom property for use in objects or components.
 * [utilities/colstart](utilities/colstart), provides a column start custom property for use in objects or components.
 * [utilities/clearfix](utilities/clearfix), Clears floats.
-* [utilities/module](utilities/module), removes the `margin-bottom` from the `last-childs` of a module.
 * [utilities/spacing](utilities/spacing), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
 * [utilities/hidden](utilities/hidden), completely remove from the flow and hide it from screenreaders.
