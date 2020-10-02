@@ -8,7 +8,7 @@
     other includes.
     ========================================================================= */
 
-@use '../../../tools/mixins';
+@use '../../../tools/lock';
 
 
 
@@ -26,5 +26,5 @@
     ========================================================================= */
 
 .c-css-lock {
-  @include mixins.css-lock(font-size, 20px, 30px, desk, wall);
+  @include lock.generate(font-size, 20px, 30px, desk, wall);
 }
