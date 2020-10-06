@@ -26,6 +26,7 @@
 @use 'sass:meta';
 @use '../../settings/defaults';
 @use './variables';
+@use '../../tools/responsive';
 @use './tools';
 
 
@@ -44,17 +45,17 @@
   @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
     @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
       @each $point in list.nth($breakpoint, 2) {
-        @include tools.mixins-supple-mq($point, list.nth($breakpoint, 1)) {
+        @include responsive.supple-mq($point, list.nth($breakpoint, 1)) {
           @include tools.render('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
         }
       }
     } @else {
-      @include tools.mixins-supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+      @include responsive.supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
         @include tools.render('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
       }
     }
   } @else {
-    @include tools.mixins-supple-mq($breakpoint) {
+    @include responsive.supple-mq($breakpoint) {
       @include tools.render('#{defaults.$responsive-modifier}from-#{$breakpoint}');
     }
   }

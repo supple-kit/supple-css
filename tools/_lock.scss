@@ -14,7 +14,7 @@
 @use 'sass:map';
 @use 'responsive';
 @use 'rem';
-@use 'functions';
+@use '_internal/functions';
 @use '../settings/defaults';
 
 

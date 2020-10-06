@@ -1,8 +1,0 @@
-/*  =========================================================================
-    tools
-    Tools manifest file, forwards our functions & mixins to
-    parent stylesheets
-    ========================================================================= */
-
-@forward './functions' as functions-*;
-@forward './mixins' as mixins-*;

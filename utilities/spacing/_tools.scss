@@ -9,15 +9,8 @@
     ========================================================================= */
 
 /**
- * Forward supples generic tools to the parent stylesheet
- */
-@forward '../../tools';
-
-
-/**
  * Use the settings & tools in this sheet
  */
-@use 'sass:math';
 @use './variables';
 @use '../../tools/space';
 

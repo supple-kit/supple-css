@@ -41,11 +41,11 @@ $flow-min-inline-size: 200px !default;
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will:
  *
- * $X-in-breakpoint: (lap, desk);
+ * $row-in-breakpoint: (lap, desk);
  *
  * Or
  *
- * $X-in-breakpoint: (
+ * $row-in-breakpoint: (
  *   from: lap,
  *   until: lap desk,
  * );

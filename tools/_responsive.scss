@@ -8,6 +8,8 @@
     These can include variables, mixins & other includes.
     ========================================================================= */
 
+@use 'sass:list';
+@use '../settings/defaults';
 @use '../vendor/sass-mq/mq' as sassmq;
 
 
