@@ -14,109 +14,104 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 * [Browser support](#browser-support)
 
 ## Use
-
+Supple’s tools are categorised so you need to `@use` only the tools you want:
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/functions';
-@use 'node_modules/@supple-kit/supple-css/tools/mixins';
+@use 'node_modules/@supple-kit/supple-css/tools/rem';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 .your-module {
-  @include mixins.mq($from: name) {
-    margin-inline-start: functions.value-to-rem(24px);
-  }
-}
-```
-Or alternatively you can just include `_tools.scss` and use it like this:
-```scss
-@use 'node_modules/@supple-kit/supple-css/tools';
-
-.your-module {
-  @include tools.mixins-mq($from: name) {
-    margin-inline-start: tools.functions-value-to-rem(24px);
+  @include responsive.mq($from: name) {
+    margin-inline-start: rem.get('tiny');
   }
 }
 ```
 
-## Available functions
 
-### `value-to-rem`
+## Space
+This layer contains everything space related. You can `@use` this tool in your own component like this:
+```scss
+@use 'node_modules/@supple-kit/supple-css/tools/space';
+```
+
+### function: `space.get()`
+Returns the spacing value converted to `rem` units. The `$name` must be present in `defaults.$space-factors` and will be multiplied by `defaults.$baseline`.
+
+#### Arguments
+| Name | Description | Type | Default       |
+| - | - | - | - |
+| `$name` | name of space variable | `String` | 'base' |
+
+#### Usage
+```scss
+.selector {
+  margin-inline-start: space.get('tiny');
+  margin-inline-end: space.get('large');
+}
+// with default settings becomes
+.selector {
+  margin-inline-start: 0.5rem;
+  margin-inline-end: 3rem;
+}
+```
+
+### function: `space.get-factor()`
+Returns the spacing-factor value. The `$name` must be present in `defaults.$space-factors`.
+
+#### Arguments
+| Name | Description | Type | Default       |
+| - | - | - | - |
+| `$name` | name of space variable | `String` | 'base' |
+
+#### Usage
+```scss
+.selector {
+  margin-inline-start: calc(#{space.get-factor('small')} * #{defaults.$baseline});
+}
+// with default settings becomes
+.selector {
+  margin-inline-start: calc(2 * 8px);
+}
+```
+
+
+## Rem
+This layer is used to convert any `px` value to `rem`. You can `@use` this tool in your own component like this:
+```scss
+@use 'node_modules/@supple-kit/supple-css/tools/rem';
+```
+
+### function: `rem.convert()`
 Converts `px` values to `rem`. If you pass in another format instead of `px` it will gracefully return the original value.
 
 #### Arguments
 
 | Name | Description | Type | Default       |
 | - | - | - | - |
-| `$value` | a pixel value | `Number` | - |
-| `$warn` | Warn about other formats being passed | `px` | - |
-
-
-#### Usage
-```scss
-.selector {
-  margin-inline-start: functions.value-to-rem(12px);
-  margin-inline-end: functions.value-to-rem(auto);
-  padding-block-end: functions.value-to-rem(100%, true); // $warn = true
-}
-// with default settings becomes
-.selector {
-  margin-inline-start: 0.75rem;
-  margin-inline-end: auto;
-  padding-block-end: 100%; // Warning: You’ve passed in a `$value` which is not in the `px` format. I’ve returned your `100%` unmodified.
-}
-```
-
-### `strip-units`
-Remove the units from a given value.
-
-#### Arguments
-
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$value` | any value | `Number` | - |
-
-
-#### Usage
-```scss
-@use 'node_modules/@supple-kit/supple-css/settings/defaults';
-
-.selector::after {
-  content: #{tools.strip-units(defaults.$space-base)};
-}
-// with default settings becomes:
-.selector::after {
-  content: 24;
-}
-```
-
-## Available mixins
-
-### `rem`
-Converts a set of values to rem values
-
-#### Arguments
-
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$property` | property name | string | - |
 | `$value` | value to be converted to `rem` | `Number` | - |
-| `$append` | append extra information to the value | string | - |
-
 
 #### Usage
 ```scss
-@use 'node_modules/@supple-kit/supple-css/settings/defaults';
-
 .selector {
-  @include tools.mixins-rem(margin-block-start, defaults.$space-base);
-  @include tools.mixins-rem(margin-block, defaults.$space-base 0.5vw);
-  @include tools.mixins-rem(margin-inline, defaults.$space-base auto, !important);
+  margin-block-start: rem.convert(24px);
+  margin-block: rem.convert(24px 0.5vw);
+  margin-inline: rem.convert(24px auto 12px 50%);
 }
 // with default settings becomes:
 .selector {
-  margin-block-start: 24px;
-  margin-block: 24px 0.5vw;
-  margin-inline: 24px auto !important;
+  margin-block-start: 1.5rem;
+  margin-block: 1.5rem 0.5vw;
+  margin-inline: 1.5rem auto 0.75rem 50%;
 }
 ```
+
+
+
+
+
+
+
+
+
 
 
 ### `visually-hidden`
@@ -139,31 +134,6 @@ Hides an element visually while still allowing the content to be accessible to a
   position: absolute !important;
   white-space: nowrap !important;
   inline-size: 1px !important;
-}
-```
-
-### `render-module`
-Removes the `margin-bottom` from the last childs of a module.
-As per: http://css-tricks.com/spacing-the-bottom-of-modules/
-
-#### Arguments
-
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$depth` | nesting depth of `:last-child` | `Number` | 2 |
-
-
-#### Usage
-```scss
-.selector {
-  @include mixins.render-module(4);
-}
-// becomes:
-.selector > :last-child,
-.selector > :last-child > :last-child,
-.selector > :last-child > :last-child > :last-child,
-.selector > :last-child > :last-child > :last-child > :last-child {
-  margin-block-end: 0 !important;
 }
 ```
 
