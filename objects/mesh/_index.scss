@@ -91,20 +91,8 @@
  * 1. Overwrite any previously set column start
  */
 .o-mesh__cell--row {
-  --colstart: 0; /* [1] */
-  --colspan: 12;
-}
-
-
-
-/*  Responsive
-    ========================================================================= */
-
-/**
- * Element modifier: row
- * 1. Overwrite any previously set column start
- */
-@include responsive.in-breakpoint(variables.$row-in-breakpoint, '.o-mesh__cell--row') {
-  --colstart: 0; /* [1] */
-  --colspan: 12;
+  @include responsive.in-breakpoint-new(variables.$row-in-breakpoint) {
+    --colstart: 0; /* [1] */
+    --colspan: 12;
+  }
 }

@@ -30,14 +30,7 @@
     ========================================================================= */
 
 .u-visually-hidden {
-  @include a11y.visually-hidden();
-}
-
-
-
-/*  Responsive
-    ========================================================================= */
-
-@include responsive.in-breakpoint(variables.$in-breakpoint, '.u-visually-hidden') {
-  @include a11y.visually-hidden();
+  @include responsive.in-breakpoint-new(variables.$in-breakpoint) {
+    @include a11y.visually-hidden();
+  }
 }

@@ -11,6 +11,7 @@
 @use 'sass:list';
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:meta';
 @use '../settings/defaults';
 @use '../vendor/sass-mq/mq' as sassmq;
 @use '_internal/functions';
@@ -121,6 +122,38 @@
       outline: 1px solid #ff0000;
     }
     ========================================================================= */
+
+
+@mixin in-breakpoint-new($breakpoints) {
+  @content;
+
+  @each $breakpoint in $breakpoints {
+    @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
+      // if the second argument is a list, loop over it
+      @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
+        @each $point in list.nth($breakpoint, 2) {
+          @include supple-mq($point, list.nth($breakpoint, 1)) {
+            &#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point} {
+              @content;
+            }
+          }
+        }
+      } @else {
+        @include supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+          &#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)} {
+            @content;
+          }
+        }
+      }
+    } @else {
+      @include supple-mq($breakpoint) {
+        &#{defaults.$responsive-modifier}from-#{$breakpoint} {
+          @content;
+        }
+      }
+    }
+  }
+}
 
 /* stylelint-disable max-nesting-depth */
 @mixin in-breakpoint($breakpoints, $selector) {

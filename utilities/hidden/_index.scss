@@ -26,14 +26,7 @@
     ========================================================================= */
 
 .u-hidden {
-  display: none !important;
-}
-
-
-
-/*  Responsive
-    ========================================================================= */
-
-@include responsive.in-breakpoint(variables.$in-breakpoint, '.u-hidden') {
-  display: none !important;
+  @include responsive.in-breakpoint-new(variables.$in-breakpoint) {
+    display: none !important;
+  }
 }
