@@ -21,8 +21,8 @@ Import this reset before any other stylesheets that generate CSS like this:
 ## Installation
 Make sure you've installed/downloaded the Supple CSS library:
 
-* [npm](https://www.npmjs.com/package/supple): `npm install @supple-kit/supple-css`
-* Download: [zip](https://github.com/supple-css/supple/releases/latest)
+* [npm](https://www.npmjs.com/package/@supple-kit/supple-css): `npm install @supple-kit/supple-css`
+* Download: [zip](https://github.com/supple-kit/supple-css/releases/latest)
 
 
 ## Testing
