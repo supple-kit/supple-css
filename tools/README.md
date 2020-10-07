@@ -218,7 +218,7 @@ Supples wrapper for the [sass-mq mq mixin](https://sass-mq.github.io/sass-mq/#un
 }
 ```
 
-### Mixin: `responsive.clamp()`
+### function: `responsive.clamp()`
 Perfect smooth scaling between any 2 values over any viewport range.
 The property will start scaling and stop scaling exactly where you want.
 
@@ -226,7 +226,6 @@ The property will start scaling and stop scaling exactly where you want.
 
 | Name | Description | Type | Default       |
 | - | - | - | - |
-| `$property` | property name | `String` | 'font-size' |
 | `$size-min` | Minimum size in pixels | `Number` | 16px |
 | `$size-max` | Maximum size in pixels | `Number` | 20px |
 | `$min-bp` | Minimum breakpoint name  | `String` | lap |
@@ -235,40 +234,20 @@ The property will start scaling and stop scaling exactly where you want.
 #### Usage
 ```scss
 .selector {
-  @include responsive.clamp(font-size, 18px, 24px);
+  font-size: responsive.clamp(18px, 24px);
 }
 // You can also redefine the min- and max breakpoints like this
 .selector-defined-breakpoints {
-  @include responsive.clamp(font-size, 20px, 30px, desk, wall);
+  font-size: responsive.clamp(20px, 30px, desk, wall);
 }
 
 // with default settings becomes:
 .selector {
-  font-size: 1.125rem;
-}
-@media (min-width: 40em) {
-  .selector {
-    font-size: calc(1.125rem + 0.375 * (100vw - 40rem) / 20);
-  }
-}
-@media (min-width: 60em) {
-  .selector {
-    font-size: 1.5rem;
-  }
+  font-size: clamp(1.125rem, .375rem + 1.875vw, 1.5rem);
 }
 
 .selector-defined-breakpoints {
-  font-size: 1.25rem;
-}
-@media (min-width: 60em) {
-  .selector-defined-breakpoints {
-    font-size: calc(1.25rem + 0.625 * (100vw - 60rem) / 20);
-  }
-}
-@media (min-width: 80em) {
-  .selector-defined-breakpoints {
-    font-size: 1.875rem;
-  }
+  font-size: clamp(1.25rem, -.625rem + 3.125vw, 1.875rem);
 }
 ```
 

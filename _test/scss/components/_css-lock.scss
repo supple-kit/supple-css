@@ -26,5 +26,13 @@
     ========================================================================= */
 
 .c-css-lock {
-  @include responsive.clamp(font-size, 20px, 30px, desk, wall);
+  font-size: responsive.clamp(20px, 30px, desk, wall);
+}
+
+.selector {
+  font-size: responsive.clamp(18px, 24px);
+}
+// You can also redefine the min- and max breakpoints like this
+.selector-defined-breakpoints {
+  font-size: responsive.clamp(20px, 30px, desk, wall);
 }
