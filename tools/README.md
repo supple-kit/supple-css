@@ -7,21 +7,26 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 ## Table of contents
 
 * [Use](#use)
-* [Available functions](#available-functions)
-* [Available mixins](#available-mixins)
+* Modules
+  * [Space](#space)
+  * [Rem](#rem)
+  * [Accessibility](#accessibility)
+  * [Typography](#typography)
+  * [Responsive](#responsive)
 * [Installation](#installation)
 * [Testing](#testing)
 * [Browser support](#browser-support)
 
+
 ## Use
-Supple’s tools are categorised so you need to `@use` only the tools you want:
+Supple’s tools are categorised so you only need to `@use` the tools you want:
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/rem';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 .your-module {
   @include responsive.mq($from: name) {
-    margin-inline-start: rem.get('tiny');
+    margin-inline-start: space.get('tiny');
   }
 }
 ```
@@ -76,6 +81,7 @@ Returns the spacing-factor value. The `$name` must be present in `defaults.$spac
 
 ## Rem
 This layer is used to convert any `px` value to `rem`. You can `@use` this tool in your own component like this:
+
 ```scss
 @use 'node_modules/@supple-kit/supple-css/tools/rem';
 ```
@@ -105,22 +111,20 @@ Converts `px` values to `rem`. If you pass in another format instead of `px` it 
 ```
 
 
+## Accessibility
+This layer contains some accessibility helper mixins. You can `@use` this tool in your own component like this:
 
+```scss
+@use 'node_modules/@supple-kit/supple-css/tools/a11y';
+```
 
-
-
-
-
-
-
-
-### `visually-hidden`
+### Mixin: `a11y.visually-hidden`
 Hides an element visually while still allowing the content to be accessible to assistive technology, e.g. screen readers.
 
 #### Usage
 ```scss
 .selector {
-  @include mixins.visually-hidden;
+  @include a11y.visually-hidden;
 }
 // becomes:
 .selector {
@@ -138,63 +142,15 @@ Hides an element visually while still allowing the content to be accessible to a
 ```
 
 
-### `mq`
-Supples wrapper for the [sass-mq mq mixin](https://sass-mq.github.io/sass-mq/#undefined-mixin-mq). For documentation please refer to the [sass-mq docs](https://sass-mq.github.io/sass-mq).
+## Typography
+This layer contains all the functions & mixins regarding to typography.
+You can `@use` this tool in your own component like this:
 
-#### Usage
 ```scss
-.selector {
-  @include mixins.mq($from: lap) {
-    outline: 1px solid #ff0000;
-  }
-}
-// with default settings becomes:
-@media (min-width: 40em) {
-  .selector {
-    margin-block-end: 0 !important;
-  }
-}
+@use 'node_modules/@supple-kit/supple-css/tools/typography';
 ```
 
-### `in-breakpoint`
-A little helper mixin to quickly create responsive variants of a certain selector.
-
-#### Arguments
-
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$breakpoints` | list of breakpoints | `Map` | - |
-| `$selector` | css selector | `string` | - |
-
-
-#### Usage
-```scss
-$YOURMODULE-in-breakpoint: (
-  from: lap desk,
-  until: desk,
-);
-@include in-breakpoint($YOURMODULE-in-breakpoint, '.your-selector') {
-  outline: 1px solid #ff0000;
-}
-// becomes:
-@media (min-width: 40em) {
-  .your-selector\@from-lap {
-    outline: qpx solid #ff0000;
-  }
-}
-@media (min-width: 60em) {
-  .your-selector\@from-desk {
-    outline: qpx solid #ff0000;
-  }
-}
-@media (max-width: 59.99em) {
-  .your-selector\@until-desk {
-    outline: qpx solid #ff0000;
-  }
-}
-```
-
-### `font-size`
+### Mixin `typography.font-size`
 Generates a rem font-size and a baseline-compatible unitless line-height from a pixel font-size value.
 
 #### Arguments
@@ -209,21 +165,21 @@ Generates a rem font-size and a baseline-compatible unitless line-height from a 
 #### Usage
 ```scss
 .selector {
-  @include mixins.font-size($font-size: 18px);
+  @include typography.font-size($font-size: 18px);
 }
 // add 2 lines of `$baseline`
 .selector-modifier {
-  @include mixins.font-size($font-size: 18px, $modifier: +2);
+  @include typography.font-size($font-size: 18px, $modifier: +2);
 }
 // Self define line-height
 .selector-line-height {
-  @include mixins.font-size($font-size: 18px, $line-height: 1);
+  @include typography.font-size($font-size: 18px, $line-height: 1);
 }
 
 // with default settings becomes:
 .selector {
   font-size: 1.125rem;
-  line-height: 1.7777777778; // 24px
+  line-height: 1.7777777778; // 32px
 }
 .selector-modifier{
   font-size: 1.125rem;
@@ -235,7 +191,34 @@ Generates a rem font-size and a baseline-compatible unitless line-height from a 
 }
 ```
 
-### `css-lock`
+
+## Responsive
+This layer contains all the tools for responsive web design.
+You can `@use` this tool in your own component like this:
+
+```scss
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+```
+
+### Mixin: `responsive.mq()`
+Supples wrapper for the [sass-mq mq mixin](https://sass-mq.github.io/sass-mq/#undefined-mixin-mq). For documentation please refer to the [sass-mq docs](https://sass-mq.github.io/sass-mq).
+
+#### Usage
+```scss
+.selector {
+  @include responsive.mq($from: lap) {
+    outline: 1px solid #ff0000;
+  }
+}
+// with default settings becomes:
+@media (min-width: 40em) {
+  .selector {
+    margin-block-end: 0 !important;
+  }
+}
+```
+
+### Mixin: `responsive.clamp()`
 Perfect smooth scaling between any 2 values over any viewport range.
 The property will start scaling and stop scaling exactly where you want.
 
@@ -252,11 +235,11 @@ The property will start scaling and stop scaling exactly where you want.
 #### Usage
 ```scss
 .selector {
-  @include css-lock(font-size, 18px, 24px);
+  @include responsive.clamp(font-size, 18px, 24px);
 }
 // You can also redefine the min- and max breakpoints like this
 .selector-defined-breakpoints {
-  @include mixins.css-lock(font-size, 20px, 30px, desk, wall);
+  @include responsive.clamp(font-size, 20px, 30px, desk, wall);
 }
 
 // with default settings becomes:
@@ -288,6 +271,45 @@ The property will start scaling and stop scaling exactly where you want.
   }
 }
 ```
+
+### Mixin: `responsive.in-breakpoint()`
+A little helper mixin to quickly create responsive variants of a certain selector.
+
+#### Arguments
+
+| Name | Description | Type | Default       |
+| - | - | - | - |
+| `$breakpoints` | list of breakpoints | `Map` | - |
+| `$selector` | css selector | `string` | - |
+
+
+#### Usage
+```scss
+$YOURMODULE-in-breakpoint: (
+  from: lap desk,
+  until: desk,
+);
+@include responsive.in-breakpoint($YOURMODULE-in-breakpoint, '.your-selector') {
+  outline: 1px solid #ff0000;
+}
+// becomes:
+@media (min-width: 40em) {
+  .your-selector\@from-lap {
+    outline: 1px solid #ff0000;
+  }
+}
+@media (min-width: 60em) {
+  .your-selector\@from-desk {
+    outline: 1px solid #ff0000;
+  }
+}
+@media (max-width: 59.99em) {
+  .your-selector\@until-desk {
+    outline: 1px solid #ff0000;
+  }
+}
+```
+
 
 ## Installation
 Make sure you've installed/downloaded the Supple CSS library:

@@ -1,5 +1,5 @@
 /*  =========================================================================
-    tools.font-size
+    tools.typography
     ========================================================================= */
 
 /*  Use/Forward rules
@@ -18,11 +18,11 @@
     Generates a rem font-size and a baseline-compatible unitless line-height
     from a pixel font-size value. Basic usage is simply:
 
-      @include font-size(18px);
+      @include typography.font-size(18px);
 
     You can force a specific line-height by passing it as the second argument:
 
-      @include font-size(16px, 1);
+      @include typography.font-size(16px, 1);
 
     You can also modify the line-height by increments, while staying in the
     baseline grid, by setting the `$modifier` parameter. It takes a positive
@@ -31,13 +31,13 @@
     an absolute value. i.e.:
 
       // add 2 lines:
-      @include font-size(24px, $modifier: +2);
+      @include typography.font-size(24px, $modifier: +2);
 
       // subtract 1 line:
-      @include font-size(24px, $modifier: -1);
+      @include typography.font-size(24px, $modifier: -1);
     ========================================================================= */
 
-@mixin get($font-size, $line-height: auto, $modifier: 0, $important: false) {
+@mixin font-size($font-size, $line-height: auto, $modifier: 0, $important: false) {
   @if (meta.type-of($font-size) == number) {
     @if (math.unit($font-size) != 'px') {
       @error '`#{$font-size}` needs to be a pixel value.';

@@ -8,7 +8,7 @@
     ========================================================================= */
 
 @use '../../../tools/space';
-@use '../../../tools/font-size';
+@use '../../../tools/typography';
 @use '../../../settings/defaults';
 
 
@@ -31,7 +31,7 @@
 }
 
 .c-test__title {
-  @include font-size.get(40px);
+  @include typography.font-size(40px);
   margin-block-start: space.get('base');
   margin-block-end: space.get('base');
   padding: space.get('base');
@@ -52,7 +52,7 @@
 }
 
 .c-test__describe {
-  @include font-size.get(32px);
+  @include typography.font-size(32px);
   margin-block-start: space.get('large');
   margin-block-end: space.get('base');
   counter-reset: test__it;
@@ -64,7 +64,7 @@
 }
 
 .c-test__it {
-  @include font-size.get(24px);
+  @include typography.font-size(24px);
   margin-block-start: space.get('base');
   margin-block-end: space.get('base');
 

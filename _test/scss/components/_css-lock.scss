@@ -8,7 +8,7 @@
     other includes.
     ========================================================================= */
 
-@use '../../../tools/lock';
+@use '../../../tools/responsive';
 
 
 
@@ -26,5 +26,5 @@
     ========================================================================= */
 
 .c-css-lock {
-  @include lock.generate(font-size, 20px, 30px, desk, wall);
+  @include responsive.clamp(font-size, 20px, 30px, desk, wall);
 }
