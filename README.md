@@ -127,14 +127,12 @@ import './index.scss';
 ```scss
 // components/your-own-component/index.scss
 @use 'settings/your-own-vars';
-@use 'node_modules/@supple-kit/supple-css/settings/defaults';
 @use 'node_modules/@supple-kit/supple-css/tools/space';
 
 .your-own-component {
   margin-inline-start: space.get('base');
   transition-timing-function: your-own-vars.$animation-timing-function;
 }
-
 ```
 
 

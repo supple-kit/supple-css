@@ -70,7 +70,7 @@ There are multiple ways to configure the retain object. The Custom properties ar
 ### SCSS variables
 
 * `$space`: wich spacing name you want to use for the padding, defaults to `base`
-* `$sizes`: list of sizes you want to create `o-retain--X` for, defaults to `(lap: 640px, desk: 960px, wall: defaults.$static-breakpoint-size)`
+* `$sizes`: list of sizes you want to create `o-retain--X` for, defaults to `(lap: 640px, desk: 960px, wall: 1280px)`
 
 You can overwrite the SCSS variables the following ways:
 

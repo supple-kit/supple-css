@@ -143,11 +143,6 @@ Working with breakpoints is pretty straightforward. You can add as many breakpoi
 // Responsive mode
 $responsive: true;
 
-// Define the breakpoint from $breakpoints that should be used as the target width for
-// the fixed-width layout (i.e. when $responsive is set to 'false') in a old-ie.scss.
-// This variable is also used in `objects.retain` in the `wall` modifier
-$static-breakpoint-size: 1280px;
-
 // the name of the static breakpoint
 $static-breakpoint-name: wall;
 
@@ -158,7 +153,7 @@ $breakpoints: (
   palm: 320px,
   lap: 640px,
   desk: 960px,
-  $static-breakpoint-name: $static-breakpoint-size
+  wall: 1280px
 );
 
 // Show breakpoints in the top right corner, for debug purposes

@@ -70,7 +70,6 @@ $responsive: true !default;
 /**
  * Static breakpoint variable/name for use in retainers & breakpoints
  */
-$static-breakpoint-size: 1280px !default;
 $static-breakpoint-name: wall !default;
 
 
@@ -81,7 +80,7 @@ $breakpoints: (
   palm: 320px,
   lap: 640px,
   desk: 960px,
-  $static-breakpoint-name: $static-breakpoint-size
+  wall: 1280px
 ) !default;
 
 
