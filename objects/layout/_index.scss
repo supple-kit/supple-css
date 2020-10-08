@@ -35,10 +35,11 @@
 .o-layout {
   --columns: #{variables.$columns};
   --gap: 0;
+  --layout-gap: var(--gap);
   display: flex;
   flex-flow: row wrap;
   padding: 0; /* [1] */
-  margin-inline-start: calc(-1 * var(--gap)); /* [1] */
+  margin-inline-start: calc(-1 * var(--layout-gap)); /* [1] */
   list-style: none; /* [1] */
 }
 
@@ -57,7 +58,7 @@
   --colspan: var(--columns);
   flex-basis: calc(100% / var(--columns) * var(--colspan)); /* [1] */
   min-inline-size: 0; /* [2] */
-  padding-inline-start: var(--gap);
+  padding-inline-start: var(--layout-gap);
 }
 
 /**
@@ -186,6 +187,6 @@
  */
 @each $gap in variables.$gaps {
   .o-layout--gap-#{$gap} {
-    --gap: #{space.get($gap)};
+    --layout-gap: #{space.get($gap)};
   }
 }

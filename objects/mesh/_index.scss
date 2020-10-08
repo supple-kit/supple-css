@@ -35,8 +35,9 @@
 .o-mesh {
   --columns: #{variables.$columns};
   --gap: 0;
-  --block-gap: var(--gap);
-  --inline-gap: var(--gap);
+  --mesh-gap: var(--gap);
+  --block-gap: var(--mesh-gap);
+  --inline-gap: var(--mesh-gap);
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   gap: var(--block-gap) var(--inline-gap);
@@ -70,7 +71,7 @@
  */
 @each $gap in variables.$gaps {
   .o-mesh--gap-#{$gap} {
-    --gap: #{space.get($gap)};
+    --mesh-gap: #{space.get($gap)};
   }
 }
 
