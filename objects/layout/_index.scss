@@ -53,12 +53,15 @@
  * 2. Fix issue where elements with overflow extend past the
  *    `layout__cell` container. As per:
  *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
+ * 3. Calculate the offset
  */
 .o-layout__cell {
   --colspan: var(--columns);
+  --offset: 0;
   flex-basis: calc(100% / var(--columns) * var(--colspan)); /* [1] */
   min-inline-size: 0; /* [2] */
   padding-inline-start: var(--layout-gap);
+  margin-inline-start: calc(100% / var(--columns) * var(--offset)); /* [3] */
 }
 
 /**

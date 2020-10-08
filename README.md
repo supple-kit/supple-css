@@ -29,7 +29,7 @@ A grasp of Supple's features:
 
 ### Size
 
-The framework including all modules weighs less than **1.35kB**(GZIP-ed). With this small payload, you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
+The framework including all modules weighs less than **1.45kB**(GZIP-ed). With this small payload, you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
 
 ## Browser support
 Supple supports all major browsers which can render the following features:

@@ -96,6 +96,9 @@
 @use '../../utilities/colstart' with (
   $in-breakpoint: (lap, desk),
 );
+@use '../../utilities/offset' with (
+  $in-breakpoint: (lap, desk),
+);
 @use '../../utilities/clearfix';
 @use '../../utilities/spacing' with (
   $in-breakpoint: (

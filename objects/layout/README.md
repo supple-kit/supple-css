@@ -74,6 +74,14 @@ For more granular control over layout make use of modifiers, custom properties o
 </div>
 ```
 
+### Works with `u-offset-X` on `o-layout__cell`
+
+```html
+<div class="o-layout">
+  <div class="o-layout__cell  u-colspan-8  u-offset-5">Offsets 5 of 12 columns</div>
+</div>
+```
+
 ### Custom properties
 
 ```html
@@ -90,8 +98,8 @@ For more granular control over layout make use of modifiers, custom properties o
     Spans 3 of 10 columns
   </div>
 
-  <div class="o-layout__cell" style="--colspan: 2;">
-    Spans 2 of 10 columns
+  <div class="o-layout__cell" style="--colspan: 2; --offset: 2;">
+    Spans 2 of 10 columns and offsets 2 of 10 columns
   </div>
 </div>
 ```
@@ -165,6 +173,7 @@ There are multiple ways to configure the layout object. The Custom properties ar
 **On the `.o-layout__cell` element**
 
 * `--colspan`: The amount of columns this cell will span, defaults to `--columns`
+* `--offset`: The amount of columns this cell will offset, defaults to `0`
 
 ### SCSS variables
 
