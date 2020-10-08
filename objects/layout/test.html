@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test objects.layout - Supple CSS</title>
+  <link rel="stylesheet" href="../../../_test/css/test.css">
+</head>
+<body>
+
+  <div class="c-test">
+    <h1 class="c-test__title">Supple CSS: objects.layout tests</h1>
+
+    <h2 class="c-test__describe">.o-layout</h2>
+
+    <h3 class="c-test__it">renders cells at full-width by default</h3>
+    <div class="c-test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">2</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">removes inter-cell whitespace</h3>
+    <div class="c-test__run">
+      <div class="o-layout" style="--columns: 4">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">4</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">handles overflowing elements</h3>
+    <div class="c-test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">
+            <pre class="c-preformatted">This is some really long content that should be scrolled when the container is too small.</pre>
+          </div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">automatically wraps cells across multiple lines when they don't fit a single row</h3>
+    <div class="c-test__run">
+      <div class="o-layout" style="--columns: 4">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">6</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">7</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">8</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">arranges cells of different heights into clear rows</h3>
+    <div class="c-test__run">
+      <div class="o-layout" style="--columns: 4">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box  c-fixture-box--double-height">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box  c-fixture-box--double-height">3</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box  c-fixture-box--double-height">6</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">7</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box  c-fixture-box--double-height">8</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">supports nested layouts</h3>
+    <div class="c-test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box--wrap">
+            1
+            <div class="o-layout" style="--columns: 4">
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">2</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">3</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">supports .o-layout__cell--fill on cells with no width</h3>
+    <div class="c-test__run">
+      <div class="o-layout" style="--columns: 4">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">1/4</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+          <div class="c-fixture-box">fill</div>
+        </div>
+      </div>
+
+      <div class="o-layout" style="--columns: 12">
+        <div class="o-layout__cell" style="--colspan: 2">
+          <div class="c-fixture-box">2/12</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+          <div class="c-fixture-box">fill</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 2">
+          <div class="c-fixture-box">2/12</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">supports o-layout__cell--fit and o-layout__cell--fill</h3>
+    <div class="c-test__run">
+      <div class="o-layout" style="--columns: 4">
+        <div class="o-layout__cell  o-layout__cell--fit">
+          <div class="c-fixture-box">shrink to content width</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--fill">
+          <div class="c-fixture-box">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">supports u-columns-X</h3>
+    <div class="c-test__run">
+      <div class="o-layout  u-columns-10">
+        <div class="o-layout__cell  u-colspan-2">
+          <div class="c-fixture-box">colspan 2 of 10</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-3">
+          <div class="c-fixture-box">colspan 3 of 10</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-5">
+          <div class="c-fixture-box">colspan 5 of 10</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-2">
+          <div class="c-fixture-box">colspan 2 of 10</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">supports u-colspan-X</h3>
+    <div class="c-test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell  u-colspan-2">
+          <div class="c-fixture-box">colspan 2</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-3">
+          <div class="c-fixture-box">colspan 3</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-5">
+          <div class="c-fixture-box">colspan 5</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-2">
+          <div class="c-fixture-box">colspan 2</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">supports u-offset-X</h3>
+    <div class="c-test__run">
+      <div class="o-layout">
+        <div class="o-layout__cell  u-colspan-2  u-offset-3">
+          <div class="c-fixture-box">colspan 2, offset 3</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-3  u-offset-1">
+          <div class="c-fixture-box">colspan 3, offset 1</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-5  u-offset-2">
+          <div class="c-fixture-box">colspan 5, offset 2</div>
+        </div>
+        <div class="o-layout__cell  u-colspan-2">
+          <div class="c-fixture-box">colspan 2</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--align-inline-center</h2>
+    <h3 class="c-test__it">center-aligns all cells on the inline axis but not their content</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--align-inline-center" style="--columns: 12;">
+        <div class="o-layout__cell" style="--colspan: 5;">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 5;">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 5;">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--align-inline-end</h2>
+    <h3 class="c-test__it">end-aligns all cells on the inline axis but not their content</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--align-inline-end" style="--columns: 12;">
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--align-block-center</h2>
+    <h3 class="c-test__it">centers-aligns all cells on the block axis</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--align-block-center" style="--columns: 12;">
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box  c-fixture-box--double-height">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--align-block-end</h2>
+    <h3 class="c-test__it">end-aligns all cells on the block axis</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--align-block-end" style="--columns: 12;">
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box  c-fixture-box--double-height">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 3;">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--fill</h2>
+    <h3 class="c-test__it">evenly distribute space between cells without sizing classes or colspan properties</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--fill">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+      <div class="o-layout  o-layout--fill">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box"><pre class="c-preformatted">2 This is some really long content that should be scrolled when the container is too small.</pre></div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">6</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--fit</h2>
+    <h3 class="c-test__it">fit all cells to their content</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--fit">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+      <div class="o-layout  o-layout--fit">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">2 a bit longer</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">6</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--stretch</h2>
+    <h3 class="c-test__it">equal size columns based on the talles cell in the block axis</h3>
+    <div class="c-test__run">
+      <div class="o-layout o-layout--stretch" style="--columns: 3">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">2<br>line 2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout__cell--align-inline-center</h2>
+    <h3 class="c-test__it">centers an individual layout cell on the inline axis but not its content</h3>
+    <div class="c-test__run">
+      <div class="o-layout" style="--columns: 12">
+        <div class="o-layout__cell" style="--colspan: 6">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 6">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell  o-layout__cell--align-inline-center" style="--colspan: 8">
+          <div class="c-fixture-box">3: centered cell</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h2 class="c-test__describe">.o-layout--gap-X</h2>
+    <h3 class="c-test__it">supports gap (.o-layout--gap-base)</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--gap-base" style="--columns: 4">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">4</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">doesn't apply gaps to nested layouts</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--gap-base" style="--columns: 2;">
+        <div class="o-layout__cell" style="--colspan: 1;">
+          <div class="c-fixture-box--wrap">
+            1
+            <div class="o-layout" style="--columns: 2">
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1;">
+          <div class="c-fixture-box--wrap">
+            2
+            <div class="o-layout" style="--columns: 2">
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">correctly aligns gaps within nested layouts</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--gap-base" style="--columns: 2;">
+        <div class="o-layout__cell" style="--colspan: 1;">
+          <div class="c-fixture-box--wrap">
+            1
+            <div class="o-layout  o-layout--gap-base" style="--columns: 2">
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1;">
+          <div class="c-fixture-box--wrap">
+            2
+            <div class="o-layout  o-layout--gap-base" style="--columns: 2">
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">1</div>
+              </div>
+              <div class="o-layout__cell" style="--colspan: 1">
+                <div class="c-fixture-box">2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+    <h3 class="c-test__it">correctly adds gaps with o-layout--fill</h3>
+    <div class="c-test__run">
+      <div class="o-layout  o-layout--gap-base  o-layout--fill">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+      <div class="o-layout  o-layout--gap-base  o-layout--fill">
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">2</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">3</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">4</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">5</div>
+        </div>
+        <div class="o-layout__cell">
+          <div class="c-fixture-box">6</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
+  </div><!-- .test -->
+</body>
+</html>

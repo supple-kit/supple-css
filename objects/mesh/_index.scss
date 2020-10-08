@@ -1,0 +1,99 @@
+/*  =========================================================================
+    objects.mesh
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    These can include variables, mixins & other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
+@use '../../tools/space';
+@use '../../tools/rem';
+@use '../../tools/responsive';
+
+
+
+/*  Module
+    ========================================================================= */
+
+/**
+ * Block: mesh
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ */
+.o-mesh {
+  --columns: #{variables.$columns};
+  --gap: 0;
+  --mesh-gap: var(--gap);
+  --block-gap: var(--mesh-gap);
+  --inline-gap: var(--mesh-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--block-gap) var(--inline-gap);
+  padding: 0; /* [1] */
+  margin-inline-start: 0; /* [1] */
+  list-style: none; /* [1] */
+}
+
+
+/**
+ * Modifier: flow
+ * Fluid width columns that break into more or less columns as space is available, with no media queries
+ */
+.o-mesh--flow {
+  --min-inline-size: #{rem.convert(variables.$flow-min-inline-size)};
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
+}
+
+
+/**
+ * Modifier: dense
+ * Attempt to fill in holes earlier in the grid if smaller items come up later
+ */
+.o-mesh--dense {
+  grid-auto-flow: dense;
+}
+
+
+/**
+ * Modifier: gap-X
+ */
+@each $gap in variables.$gaps {
+  .o-mesh--gap-#{$gap} {
+    --mesh-gap: #{space.get($gap)};
+  }
+}
+
+
+/**
+ * Element: cell
+ */
+.o-mesh__cell {
+  --colstart: 0;
+  --colspan: 1;
+  grid-column-start: var(--colstart);
+  grid-column-end: span var(--colspan);
+}
+
+
+/**
+ * Element modifier: row
+ * 1. Overwrite any previously set column start
+ */
+.o-mesh__cell--row {
+  @include responsive.in-breakpoint(variables.$row-in-breakpoint) {
+    --colstart: 0; /* [1] */
+    --colspan: 12;
+  }
+}

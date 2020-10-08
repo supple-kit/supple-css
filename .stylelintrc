@@ -1,10 +1,7 @@
 {
-  "extends": "stylelint-config-supple",
+  "extends": "@supple-kit/stylelint-config-supple",
   "ignoreFiles": [
-    "test/css/*"
-  ],
-  "rules": {
-    "scss/at-function-pattern": "supple-.+",
-    "scss/at-mixin-pattern": "supple-.+"
-  }
+    "_test/css/*",
+    "vendor/**/*"
+  ]
 }

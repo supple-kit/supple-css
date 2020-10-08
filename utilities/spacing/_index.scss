@@ -1,0 +1,62 @@
+/*  =========================================================================
+    utilities.spacing
+    Utility classes to put specific spacing values onto elements.
+    The loop can generate us a suite of classes like:
+
+    .u-padding-inline-start--large {}
+    .u-margin-inline-end--small {}
+    .u-padding-block--base {}
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:list';
+@use 'sass:meta';
+@use '../../settings/defaults';
+@use './variables';
+@use '../../tools/responsive';
+@use './tools';
+
+
+
+/*  Module
+    ========================================================================= */
+
+@include tools.render();
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $breakpoint in variables.$in-breakpoint {
+  @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
+    @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
+      @each $point in list.nth($breakpoint, 2) {
+        @include responsive.supple-mq($point, list.nth($breakpoint, 1)) {
+          @include tools.render('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
+        }
+      }
+    } @else {
+      @include responsive.supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
+        @include tools.render('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
+      }
+    }
+  } @else {
+    @include responsive.supple-mq($breakpoint) {
+      @include tools.render('#{defaults.$responsive-modifier}from-#{$breakpoint}');
+    }
+  }
+}

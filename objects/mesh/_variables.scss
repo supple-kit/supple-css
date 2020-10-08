@@ -1,0 +1,56 @@
+/*  =========================================================================
+    objects.mesh.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Number of default columns, can be overwritten per component with custom
+ * properties.
+ */
+$columns: defaults.$columns !default;
+
+
+/**
+ * The `gap` map
+ */
+$gaps: (
+  'base',
+) !default;
+
+
+/**
+ * Flow inline-size
+ */
+$flow-min-inline-size: 200px !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for `row`.
+ * This is handy if you only need `row` on, say, desk, or you only need `row`
+ * at mobile sizes. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will:
+ *
+ * $row-in-breakpoint: (lap, desk);
+ *
+ * Or
+ *
+ * $row-in-breakpoint: (
+ *   from: lap,
+ *   until: lap desk,
+ * );
+ *
+ * Note: the name of the breakpoint must exist in the list of `$breakpoints`
+ *       in `settings/responsive`
+ */
+$row-in-breakpoint: () !default;

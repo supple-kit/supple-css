@@ -1,0 +1,28 @@
+/*  =========================================================================
+    objects.list-clean
+    Strip appearance from lists by removing their bullets and indents
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+
+
+
+
+/*  Module
+    ========================================================================= */
+
+.o-list-clean {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+
+/**
+ * Item specific class
+ * declaring this might for instance only be necessary on `dd` childs
+ */
+.o-list-clean__item {
+  margin-inline-start: 0;
+}

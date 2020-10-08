@@ -1,161 +1,224 @@
-# Supple (S)CSS framework <img src="https://supple-css.github.io/supple/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
+# Supple (S)CSS framework <img src="https://supple-kit.github.io/supple-css/supple-logo.svg" alt="supple Logo" width="90" height="90" align="right">
 
 [![npm (scoped)](https://img.shields.io/npm/v/supple.svg)](https://github.com/supple-css/supple/releases) [![npm](https://img.shields.io/npm/l/supple.svg)](https://github.com/supple-css/supple/blob/master/LICENSE) [![changelog](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/supple-css/supple/blob/master/CHANGELOG.md)
 
+## Introduction
+Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework in its truest sense. It's based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology and is suited very well for **component-based UI development**. Supple CSS plays well with React, Angular, Vue, Svelte, and every other component-based approach to UI development.
+
+## Table of contents
+
+* [Why use Supple](#why-use-supple)
+* [Features](#features)
+* [Browser support](#browser-support)
+* [Installation](#installation)
+* [Getting started](#getting-started)
+
 ## Why use supple:
-> It is a small but powerfull (S)CSS framework designed specially with the latest browsers in mind. The framework is made with an eye on the future. It uses custom properties for configuration and utilises new [CSS webstandards](https://cssdb.org/).
+> It is a small but powerful (S)CSS framework designed especially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilizes new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties.
 
-Supple provides little to no design wich means no undoing other peoples design decisions.
+Supple provides little to no design which means no undoing other people’s design decisions.
 
-Use supple if:
+## Features
+A grasp of Supple's features:
 
-* You appreciate the value of Object Oriented code and the need for scalability and reuse.
-* You need a powerful library of defaults & objects.
-* You need a framework that is robust and evolves constantly.
+* Sensible, powerful reset for web applications.
+* Suite of functions and mixins for speedy development.
+* CSS Grid & Flexbox objects for creating layouts.
+* Objects for reusable solutions to common features.
+* Variety of utility classes for the most common problems like visually hiding, spacing, and more.
 
 ### Size
 
-The core framework including all modules without fallbacks for `custom-properties` weighs about 2.15kB. You can reduce the payload by only including the modules you need, and configure those modules to your needs.
-
-If you want the framework to include all fallbacks for `custom-properties` the framework comes in at 2.48kB.
-
+The framework including all modules weighs less than **1.5kB**(GZIP-ed). With this small payload, you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
 
 ## Browser support
-Supple supports all [major browsers which can render CSS custom properties](http://caniuse.com/#feat=css-variables).
+Supple supports all major browsers which can render the following features:
 
-If you want to support older browsers (mostly IE11) you’ll need to include the [_fractions.scss](lib/utilities/_fractions.scss) utility to support our [_layout.scss](lib/objects/_layout.scss) grid system. Other modules also have some configuration to support older browsers, please refer to their own readme files.
+* [custom properties](https://caniuse.com/#feat=css-variables)
+* [logical properties](https://caniuse.com/#feat=css-logical-props)
+* [CSS Grid Layout](https://caniuse.com/#feat=css-grid)
+* [CSS Flexible Box Layout (flexbox)](https://caniuse.com/#feat=flexbox)
 
-### Browserstack
-Every feature in Supple is extensively tested in browserstack:
+Basically that comes down to:
 
-[<img src="https://supple-css.github.io/supple/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
+* Google Chrome (latest)
+* Opera (latest)
+* Firefox (latest)
+* Safari (latest)
+* Edge (latest chromium based)
+* iOS (latest)
+
 
 ## Installation
 
-* npm: `npm install supple --save`
+### Prerequisites
+Supple is built with the latest version of [Sass](https://sass-lang.com/) so your build-pipeline must be equipped with [Dart Sass](https://sass-lang.com/dart-sass).
 
-**Note**: It is advised to add [postcss-autoprefixer](https://github.com/postcss/autoprefixer) to automatically generate vendor prefixes.
+### Install
+
+* npm: `npm install @supple-kit/supple-css --save`
+
+## Getting started
+The framework is very design-free. this means that the style and design of your site are left entirely up to you. Because Supple gives you lots of customizable foundations you only need to add the final layer: **UI**.
+
+Supple is built using the [Sass module system](https://css-tricks.com/introducing-sass-modules/) and it is advised to structure your application the same way.
+
+Below are some examples of how to use and structure the framework:
+
+### With 1 manifest file, eg. `styles.scss`
+
+```scss
+// styles.scss
+@use 'settings/your-own-vars';
+@use 'node_modules/@supple-kit/supple-css/objects/mesh';
+@use 'components/your-own-component';
+@use 'node_modules/@supple-kit/supple-css/utilities/colspan';
+```
+
+```scss
+// settings/_your-own-vars.scss
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $font-size: 20px,
+  $columns: 10,
+  $breakpoints: (
+    lap: 320px,
+    desk: 960px,
+  ),
+);
+
+@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with (
+  $columns: 24,
+);
+```
+
+```scss
+// components/_your-own-component.scss
+@use 'node_modules/@supple-kit/supple-css/settings/defaults';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
+@use 'settings/your-own-vars';
+
+.your-own-component {
+  margin-inline-start: space.get('base');
+  transition-timing-function: your-own-vars.$animation-timing-function;
+}
+```
+
+### In a component-based setup like React, Vue, Svelte, etc.
+
+```scss
+// settings/_your-own-vars.scss
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $font-size: 20px,
+  $columns: 10,
+  $breakpoints: (
+    lap: 320px,
+    desk: 960px,
+  ),
+);
+```
+
+```javascript
+// components/your-own-component/index.js
+import './index.scss';
+
+// rest of your javascript code
+```
+
+```scss
+// components/your-own-component/index.scss
+@use 'settings/your-own-vars';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
+
+.your-own-component {
+  margin-inline-start: space.get('base');
+  transition-timing-function: your-own-vars.$animation-timing-function;
+}
+```
+
 
 ## Available modules
-All supple submodules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
+All Supple's modules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
 
-ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like global namespace, the cascade and selector specificity.
+ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like a global namespace, the cascade, and selector specificity. I advise you to read ITCSS documentation to fully grasp the ideas about the methodology.
+
+**Note** every module has its readme on how to use the module. In the list below you can click through to the connected documentation.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
 
+* [settings/defaults](settings/defaults), supples core settings.
+
 **NOTE**: Any variable that does not need to be accessed globally should belong in the module to which it relates.
 
-* [settings/_defaults.scss](lib/settings/_defaults.scss), supples core settings.
-* [settings/_responsive.scss](lib/settings/_responsive.scss), breakpoint settings based on [Sass MQ](https://sass-mq.github.io/sass-mq/).
-
 ### Tools
-The tools layer houses your globally available tooling, mixins and functions.
+The tools layer houses your globally available tooling, mixins, and functions.
 
-* [tools/_functions.scss](lib/tools/_functions.scss).
-* [tools/_mixins.scss](lib/tools/_mixins.scss).
+* [tools](tools).
 
 **NOTE**: Any mixin or function that does not need to be accessed globally should belong in the module template to which it relates.
 
 ### Generic
-It contains ground-zero styles like [Normalize.css](http://necolas.github.io/normalize.css/), global box-sizing rules, CSS resets and so on.
+It contains ground-zero styles like global box-sizing rules, CSS resets, and so on.
 
-* [generic/_normalize.scss](lib/generic/_normalize.scss), to flatten cross browser inconsistencies.
-    * **Note:** *Although supple has a prepackaged version of normalize.css it is encouraged to include the latest version from [normalize.css](http://necolas.github.io/normalize.css/).*
-* [generic/_reset.scss](lib/generic/_reset.scss), a thin layer on top of normalize.css that provides a starting point more suitable for web applications.
+* [generic/reset](generic/reset), A reset of sensible defaults suitable for web applications.
 
 ### Elements
 These are bare, unclassed HTML elements. The Elements layer binds onto HTML element (or 'type') selectors only.
 
 Elements are most likely the last layer in which we'd find element-based selectors, and is very rarely added to or changed after initial setup. Once we have defined element-level styles, all additions and deviations should be implemented using classes.
 
-* [elements/_headings.scss](lib/elements/_headings.scss), a simple heading level structure.
+* **[elements/headings/_index.scss](elements/headings/_index.scss), a simple heading level structure**.
 
 ### Objects
-This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
+This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something like a `.o-retain` element to `.o-layout` systems.
 
-* [objects/_list-clean.css](lib/objects/_list-clean.scss), strip appearance from lists by removing their bullets and indents
-* [objects/_layout.scss](lib/objects/_layout.scss), fluid and nestable layout system based on flexbox.
-* [objects/_flexembed.scss](lib/objects/_flexembed.scss), retain a specific aspect ratio but adapt to elements of variable widths
-* [objects/_retain.scss](lib/objects/_retain.scss), page-level constraining and wrapping elements
+* [objects/list-clean](objects/list-clean), strip appearance from lists by removing their bullets and indents
+* [objects/retain](objects/retain), page-level constraining and wrapping elements
+* [objects/layout](objects/layout), arrange items horizontally on the inline-axis with flexbox.
+* [objects/mesh](objects/mesh), fluid & extensible grid system based on CSS grid.
+* [objects/aspect-ratio](objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
+* [objects/flow](objects/flow), Create flow and rhythm between elements.
 
-All Objects should be prefixed with `o-`.
+
+All Objects are prefixed with `o-`.
 
 ### Components
-This layer contains our recognisable components, chunks of UI.
+This layer contains our recognizable components, chunks of UI.
 
-All Components should be prefixed with `c-`.
+All Components are prefixed with `c-`.
 
-**NOTE**: Because supple is a design-free framework this layer is completely empty. You can add your own components to your project.
+**NOTE**: Because supple is a design-free framework this layer is empty. You can add your own components to your project.
 
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [utilities/_fractions.scss](lib/utilities/_fractions.scss), sizes in human readable format (*).
-* [utilities/_float.scss](lib/utilities/_float.scss), makes working with floats a lot more easy.
-* [utilities/_module.scss](lib/utilities/_module.scss), removes the `margin-bottom` from the last childs of a module.
-* [utilities/_spacing.scss](lib/utilities/_spacing.scss), utility classes to put specific spacing values onto elements.
-* [utilities/_visually-hidden.scss](lib/utilities/_visually-hidden.scss), hides an element visually while still allowing the content to be accessible.
-* [utilities/_hidden.scss](lib/utilities/_hidden.scss), completely remove from the flow and hide it from screenreaders.
+* [utilities/columns](utilities/columns), provides a columns custom property for use in objects or components.
+* [utilities/colspan](utilities/colspan), provides a colspan custom property for use in objects or components.
+* [utilities/colstart](utilities/colstart), provides a column start custom property for use in objects or components.
+* [utilities/offset](utilities/offset), provides a offset custom property for use in objects or components.
+* [utilities/clearfix](utilities/clearfix), Clears floats.
+* [utilities/spacing](utilities/spacing), utility classes to put specific spacing values onto elements.
+* [utilities/visually-hidden](utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
+* [utilities/hidden](utilities/hidden), completely remove from the flow and hide it from screenreaders.
 
-(*) This set of utilities is only needed if you want to support browsers without custom property support.
+All Utilities are prefixed with `u-`.
 
-All Utilities should be prefixed with `u-`.
 
-## Getting started
-Supple is a very design-free framework. This means that the style and design of your site is left entirely up to you.
-Because supple gives you lots of customisable foundations, you need to add the final layer: **UI**.
+## Browserstack
+Every feature in Supple is extensively tested in browserstack:
 
-It is advised that you will use supple code throughout your own styles, a ***sample*** `styles.scss` file would look like this:
+[<img src="https://supple-kit.github.io/supple-css/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
 
-```scss
-/* Settings */
-@import "node_modules/supple/lib/settings/defaults";
-@import "settings/vars";
-@import "settings/colors";
-
-/* Tools */
-@import "node_modules/supple/lib/tools/functions";
-@import "node_modules/supple/lib/tools/mixins";
-
-/* Generic */
-@import "normalize";
-@import "node_modules/supple/lib/generic/reset";
-
-/* Elements */
-@import "node_modules/supple/lib/elements/headings";
-@import "elements/links";
-
-/* Objects */
-@import "node_modules/supple/lib/objects/list-clean";
-@import "node_modules/supple/lib/objects/layout";
-@import "node_modules/supple/lib/objects/flexembed";
-@import "objects/box";
-@import "objects/media";
-
-/* Components */
-@import "components/buttons";
-@import "components/masthead";
-@import "components/navigation.main";
-
-/* Utilities */
-@import "node_modules/supple/lib/utilities/fractions";
-@import "node_modules/supple/lib/utilities/module";
-@import "node_modules/supple/lib/utilities/visually-hidden";
-@import "node_modules/supple/lib/utilities/hidden";
-@import "utilities/visibility";
-@import "utilities/text";
-```
-The file [index.scss](index.scss) is added as a reference file on how you could implement the smaller modules.
 
 ## Credits
 
-Supple is derived by the ideas of many other developers:
+Supple is derived from the ideas of many other developers:
 
 * [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff.
 * [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS.
 * [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS.
 * [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things.
 * [Machiel Hulsbosch](http://www.hulsbos.ch/) for the supple logo.
+* [Joris Hulsbosch](https://me.portfolioris.nl/) for general advice and in-field testing.
 
 And probably more…
