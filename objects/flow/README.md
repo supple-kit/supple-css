@@ -45,7 +45,7 @@ There are multiple ways to configure the flow object. The Custom properties are 
 
 **On the `.o-flow` block**
 
-* `--flow-gap`: The amount of space you want to have, defaults to `defaults.$space-base`.
+* `--flow-gap`: The amount of space you want to have, defaults to `space.get('base')`.
 
 ### SCSS variables
 

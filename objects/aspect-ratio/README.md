@@ -75,7 +75,6 @@ There are multiple ways to configure the aspect-ratio object. The Custom propert
 ### SCSS variables
 
 * `$ratios`: a list of ratios where `.o-aspect-ratio--XbyX` is generated for, defaults to: `((2:1), (4:3), (16:9))`
-* `$space`: defines the `margin-block-end` space to create a nice vertical rhythm, defaults to `defaults.$space-base`
 
 You can overwrite the SCSS variables the following ways:
 

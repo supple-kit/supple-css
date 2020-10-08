@@ -17,19 +17,19 @@ This utility generates set of classes mostly used by supple's users. You can add
 
 ```html
 <div class="u-margin--base">
-  Applies margin on all sides with the value of `defaults.$space-base`
+  Applies margin on all sides with the value of `space.get('base')`
 </div>
 
 <div class="u-margin-inline-start--base">
-  Applies margin at the start of the inline axis with the value of `defaults.$space-base`
+  Applies margin at the start of the inline axis with the value of `space.get('base')`
 </div>
 
 <div class="u-margin-inline-start--large">
-  Applies margin at the start of the inline axis with the value of `defaults.$space-large`
+  Applies margin at the start of the inline axis with the value of `space.get('large')`
 </div>
 
 <div class="u-padding-block--base">
-  Applies padding at the start and end of the block axis with the value of `defaults.$space-base`
+  Applies padding at the start and end of the block axis with the value of `space.get('base')`
 </div>
 ```
 The are a lot more combinations possible, please check [the variables SCSS file](./_variables.scss) for more options.
