@@ -29,7 +29,7 @@ A grasp of Supple's features:
 
 ### Size
 
-The framework including all modules weighs less than **1.45kB**(GZIP-ed). With this small payload, you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
+The framework including all modules weighs less than **1.5kB**(GZIP-ed). With this small payload, you have the power to build an entire website without even writing a single line of CSS. You can reduce the payload even further by only including the modules you need, and configure those modules to your needs.
 
 ## Browser support
 Supple supports all major browsers which can render the following features:
@@ -192,6 +192,7 @@ All Components are prefixed with `c-`.
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
+* [utilities/columns](utilities/columns), provides a columns custom property for use in objects or components.
 * [utilities/colspan](utilities/colspan), provides a colspan custom property for use in objects or components.
 * [utilities/colstart](utilities/colstart), provides a column start custom property for use in objects or components.
 * [utilities/offset](utilities/offset), provides a offset custom property for use in objects or components.

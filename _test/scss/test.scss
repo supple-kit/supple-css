@@ -90,6 +90,9 @@
 /*  Utilities
     ========================================================================= */
 
+@use '../../utilities/columns' with (
+  $in-breakpoint: (lap, desk),
+);
 @use '../../utilities/colspan' with (
   $in-breakpoint: (lap, desk),
 );

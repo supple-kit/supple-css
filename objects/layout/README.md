@@ -66,6 +66,14 @@ For more granular control over layout make use of modifiers, custom properties o
 </div>
 ```
 
+### Works with `u-columns-X` on `o-layout`
+
+```html
+<div class="o-layout  u-columns-10">
+  <div class="o-layout__cell  u-colspan-5">Spans 5 of 10 columns</div>
+</div>
+```
+
 ### Works with `u-colspan-X` on `o-layout__cell`
 
 ```html

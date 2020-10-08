@@ -54,6 +54,14 @@ For more granular control over mesh make use of modifiers, custom properties or 
 </div>
 ```
 
+### Works with `u-columns-X` on `o-layout`
+
+```html
+<div class="o-mesh  u-columns-10">
+  <div class="o-mesh__cell  u-colspan-5">Spans 5 of 10 columns</div>
+</div>
+```
+
 ### Modifiers on `o-mesh__cell`
 
 ```html
