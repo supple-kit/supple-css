@@ -26,7 +26,7 @@
     ========================================================================= */
 
 .u-hidden {
-  @include responsive.in-breakpoint-new(variables.$in-breakpoint) {
+  @include responsive.in-breakpoint(variables.$in-breakpoint) {
     display: none !important;
   }
 }

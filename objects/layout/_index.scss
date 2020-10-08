@@ -77,7 +77,7 @@
  * Make a cell shrink wrap its content.
  */
 .o-layout__cell--fit {
-  @include responsive.in-breakpoint-new(variables.$fit-in-breakpoint) {
+  @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
     flex-basis: auto;
   }
 }
@@ -91,7 +91,7 @@
  *    container has no explicit width.
  */
 .o-layout__cell--fill {
-  @include responsive.in-breakpoint-new(variables.$fill-in-breakpoint) {
+  @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
     flex: auto;
     inline-size: 0%; /* [1] */
   }

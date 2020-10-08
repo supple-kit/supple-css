@@ -253,13 +253,13 @@ The property will start scaling and stop scaling exactly where you want.
 
 ### Mixin: `responsive.in-breakpoint()`
 A little helper mixin to quickly create responsive variants of a certain selector.
+The mixin's `@content` will be also applied to the parent selector.
 
 #### Arguments
 
 | Name | Description | Type | Default       |
 | - | - | - | - |
 | `$breakpoints` | list of breakpoints | `Map` | - |
-| `$selector` | css selector | `string` | - |
 
 
 #### Usage
@@ -268,8 +268,10 @@ $YOURMODULE-in-breakpoint: (
   from: lap desk,
   until: desk,
 );
-@include responsive.in-breakpoint($YOURMODULE-in-breakpoint, '.your-selector') {
-  outline: 1px solid #ff0000;
+.your-selector {
+  @include responsive.in-breakpoint($YOURMODULE-in-breakpoint) {
+    outline: 1px solid #ff0000;
+  }
 }
 // becomes:
 @media (min-width: 40em) {
