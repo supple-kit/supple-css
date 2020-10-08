@@ -160,6 +160,7 @@ There are multiple ways to configure the layout object. The Custom properties ar
 
 * `--columns`: The number of columns you want to have, defaults to `12`
 * `--gap`: The width of the gutter applied between the cells, defaults to `0`
+* `--layout-gap`: Actual gap variable to be used when in conflict with other objects, defaults to `var(--gap)`.
 
 **On the `.o-layout__cell` element**
 

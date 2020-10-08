@@ -143,8 +143,9 @@ There are multiple ways to configure the mesh object. The Custom properties are 
 
 * `--columns`: The number of columns you want to have, defaults to `12`
 * `--gap`: The width of the gutter applied between the cells, defaults to `0`
-* `--block-gap`: The space of the gutter applied between the cells on the block axis, defaults to `--gap`
-* `--inline-gap`: The space of the gutter applied between the cells on the inline axis, defaults to `--gap`
+* `--layout-gap`: Actual gap variable to be used when in conflict with other objects, defaults to `var(--gap)`.
+* `--block-gap`: The space of the gutter applied between the cells on the block axis, defaults to `var(--layout-gap)`
+* `--inline-gap`: The space of the gutter applied between the cells on the inline axis, defaults to `var(--layout-gap)`
 
 **On the `.o-mesh--flow` modifier**
 
