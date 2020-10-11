@@ -180,6 +180,21 @@ $responsive-modifier: unquote('\\@') !default;
 ```
 
 
+### Technology
+Sometimes 3rd party technologies don't play nice with some supple modules.
+The settings you find in this category enables us to use supple with technologies like css-modules.
+
+**Example:**
+```scss
+$css-modules: true;
+```
+
+**Defaults:**
+```scss
+$css-modules: false !default;
+```
+
+
 ## Installation
 Make sure you've installed/downloaded the Supple CSS library: [Supple CSS installation](../../#installation)
 

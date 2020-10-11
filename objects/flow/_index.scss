@@ -19,6 +19,7 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
+@use '../../settings/defaults';
 @use '../../tools/space';
 
 
@@ -37,10 +38,15 @@
     ========================================================================= */
 
 .o-flow {
+  $selector: '> * + *';
+  @if (defaults.$css-modules) {
+    $selector: ':global(#{$selector})';
+  }
+
   --gap: #{space.get(variables.$gap)};
   --flow-gap: var(--gap);
 
-  > * + * {
+  #{$selector} {
     margin-block-start: var(--flow-gap);
   }
 }

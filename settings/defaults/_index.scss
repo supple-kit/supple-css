@@ -117,6 +117,14 @@ $responsive-modifier: unquote('\\@') !default;
 
 
 
+/*  Technology
+    Allows us to use supple alongside other technologies like css-modules etc.
+    ========================================================================= */
+
+$css-modules: false !default;
+
+
+
 /*  Checks
     A couple of checks for correct formatting of variables in this file
     ========================================================================= */
