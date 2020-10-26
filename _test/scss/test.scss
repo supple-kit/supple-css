@@ -39,8 +39,6 @@
 
 @use '../../objects/list-clean';
 @use '../../objects/layout' with (
-  $fit-in-breakpoint: (lap, desk),
-  $fill-in-breakpoint: (lap, desk),
   $gaps: (
     'base',
     'tiny'
@@ -101,6 +99,10 @@
 );
 @use '../../utilities/offset' with (
   $in-breakpoint: (lap, desk),
+);
+@use '../../utilities/flex' with (
+  $fit-in-breakpoint: (lap, desk),
+  $fill-in-breakpoint: (lap, desk),
 );
 @use '../../utilities/clearfix';
 @use '../../utilities/spacing' with (

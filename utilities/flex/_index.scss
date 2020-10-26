@@ -1,0 +1,62 @@
+/*  =========================================================================
+    utilities.flex
+    Flexbox specific utilities.
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
+@use '../../tools/responsive';
+
+
+
+
+/*  Variables
+    ========================================================================= */
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+
+
+/*  Module
+    ========================================================================= */
+
+/**
+ * Element modifier: fit
+ * Make a cell shrink wrap its content.
+ */
+.u-flex-fit {
+  @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
+    flex-basis: auto;
+  }
+}
+
+
+/**
+ * Element modifier: fill
+ * Make a cell fill the remaining space.
+ *
+ * 1. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
+ */
+.u-flex-fill {
+  @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
+    flex: auto;
+    inline-size: 0%; /* [1] */
+  }
+}
