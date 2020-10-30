@@ -22,10 +22,10 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <div class="o-layout">
-  <div class="o-layout__cell  u-offset-3">
+  <div class="u-offset-3">
     starts a column 3
   </div>
-  <div class="o-layout__cell  u-offset-7">
+  <div class="u-offset-7">
     starts a column 7
   </div>
 </div>

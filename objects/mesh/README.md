@@ -30,8 +30,6 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 A simple mesh is easy to create. A mesh container can have any number of child cells.
 
-**Note** `.o-mesh` only accepts `.o-mesh__cell` as direct descendants. This keeps our layout nicely separated from other components.
-
 ```html
 <div class="o-mesh  o-mesh--gap-base">
   <div><!-- content --></div>
@@ -158,7 +156,7 @@ There are multiple ways to configure the mesh object. The Custom properties are 
 
 * `--min-inline-size`: minimum size that a cell needs to have
 
-**On the `.o-mesh__cell` element**
+**On the grid item element**
 
 * `--colspan`: The amount of columns this cell will span, defaults to `--columns`
 * `--colstart`: Startpoint of the cell

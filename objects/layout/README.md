@@ -72,7 +72,7 @@ For more granular control over layout make use of modifiers, custom properties o
 </div>
 ```
 
-### Works with `u-colspan-X` on `o-layout__cell`
+### Works with `u-colspan-X` on the flex item
 
 ```html
 <div class="o-layout">
@@ -80,7 +80,7 @@ For more granular control over layout make use of modifiers, custom properties o
 </div>
 ```
 
-### Works with `u-offset-X` on `o-layout__cell`
+### Works with `u-offset-X` on the flex item
 
 ```html
 <div class="o-layout">
@@ -174,7 +174,7 @@ There are multiple ways to configure the layout object. The Custom properties ar
 * `--gap`: The width of the gutter applied between the cells, defaults to `0`
 * `--layout-gap`: Actual gap variable to be used when in conflict with other objects, defaults to `var(--gap)`.
 
-**On the `.o-layout__cell` element**
+**On the flex item element**
 
 * `--colspan`: The amount of columns this cell will span, defaults to `--columns`
 * `--offset`: The amount of columns this cell will offset, defaults to `0`

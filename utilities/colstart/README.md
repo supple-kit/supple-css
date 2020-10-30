@@ -22,10 +22,10 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <div class="o-mesh">
-  <div class="o-mesh__cell  u-colstart-3">
+  <div class="u-colstart-3">
     starts at column 3
   </div>
-  <div class="o-mesh__cell  u-colstart-7">
+  <div class="u-colstart-7">
     starts at column 7
   </div>
 </div>
