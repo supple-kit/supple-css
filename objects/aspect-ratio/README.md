@@ -28,7 +28,7 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 ```html
 <div class="o-aspect-ratio">
-  <iframe class="o-aspect-ratio__item" src=""></iframe>
+  <iframe src=""></iframe>
 </div>
 ```
 
@@ -36,7 +36,7 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 ```html
 <div class="o-aspect-ratio [o-aspect-ratio--4by3  |  o-aspect-ratio--16by9  |  o-aspect-ratio--2by1]">
-  <iframe class="o-aspect-ratio__item" src=""></iframe>
+  <iframe src=""></iframe>
 </div>
 ```
 
@@ -44,7 +44,7 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 ```html
 <div class="o-aspect-ratio" style="--aspect-ratio: (560/315);">
-  <img class="o-aspect-ratio__item" src="" />
+  <img src="" />
 </div>
 ```
 
@@ -58,10 +58,6 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 * `.o-aspect-ratio--4by3`: creates a embed with an aspect ratio of 4 by 3 (configurable in `$ratios` SCSS variable)
 * `.o-aspect-ratio--16by9`: creates a embed with an aspect ratio of 16 by 9 (configurable in `$ratios` SCSS variable)
 * `.o-aspect-ratio--2by1`: creates a embed with an aspect ratio of 2 by 1 (configurable in `$ratios` SCSS variable)
-
-**On the `.o-aspect-ratio__item` element**
-
-* `.o-aspect-ratio__item`: core aspect ratio item element
 
 ## Configurable variables
 There are multiple ways to configure the aspect-ratio object. The Custom properties are calculated at run-time, the SCSS variables will allow you to change things at build-time.
