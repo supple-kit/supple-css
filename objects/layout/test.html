@@ -83,25 +83,25 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="c-test__it">supports .u-flex-item--fill on cells with no width</h3>
+    <h3 class="c-test__it">supports .o-layout__fill on cells with no width</h3>
     <div class="c-test__run">
       <div class="o-layout" style="--columns: 4">
         <div class="c-fixture-box" style="--colspan: 1">1/4</div>
-        <div class="c-fixture-box  |  u-flex-item--fill">fill</div>
+        <div class="c-fixture-box  |  o-layout__fill">fill</div>
       </div>
 
       <div class="o-layout" style="--columns: 12">
           <div class="c-fixture-box" style="--colspan: 2">2/12</div>
-          <div class="c-fixture-box  |  u-flex-item--fill">fill</div>
+          <div class="c-fixture-box  |  o-layout__fill">fill</div>
           <div class="c-fixture-box" style="--colspan: 2">2/12</div>
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="c-test__it">supports u-flex-item--fit and u-flex-item--fill</h3>
+    <h3 class="c-test__it">supports o-layout__fit and o-layout__fill</h3>
     <div class="c-test__run">
       <div class="o-layout" style="--columns: 4">
-        <div class="c-fixture-box  |  u-flex-item--fit">shrink to content width</div>
-        <div class="c-fixture-box  |  u-flex-item--fill">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
+        <div class="c-fixture-box  |  o-layout__fit">shrink to content width</div>
+        <div class="c-fixture-box  |  o-layout__fill">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
       </div>
     </div><!-- .test__run -->
 
@@ -224,13 +224,13 @@
       </div>
     </div><!-- .test__run -->
 
-    <h2 class="c-test__describe">.u-flex-item--align-inline-center</h2>
+    <h2 class="c-test__describe">.o-layout__align-inline-center</h2>
     <h3 class="c-test__it">centers an individual layout cell on the inline axis but not its content</h3>
     <div class="c-test__run">
       <div class="o-layout" style="--columns: 12">
         <div class="c-fixture-box" style="--colspan: 6">1</div>
         <div class="c-fixture-box" style="--colspan: 6">2</div>
-        <div class="c-fixture-box  |  u-flex-item--align-inline-center" style="--colspan: 8">3: centered cell</div>
+        <div class="c-fixture-box  |  o-layout__align-inline-center" style="--colspan: 8">3: centered cell</div>
       </div>
     </div><!-- .test__run -->
 
@@ -243,7 +243,7 @@
         <div class="c-fixture-box" style="--colspan: 1">2</div>
         <div class="c-fixture-box" style="--colspan: 1">3</div>
         <div class="c-fixture-box" style="--colspan: 1">4</div>
-        <div class="c-fixture-box  u-flex-item--fill" style="--colspan: 1">5</div>
+        <div class="c-fixture-box  o-layout__fill" style="--colspan: 1">5</div>
       </div>
     </div><!-- .test__run -->
 
@@ -304,19 +304,19 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="c-test__it">correctly adds gaps with u-flex-item--fit and u-flex-item--fill</h3>
+    <h3 class="c-test__it">correctly adds gaps with o-layout__fit and o-layout__fill</h3>
     <div class="c-test__run">
       <div class="o-layout  o-layout--gap-base" style="--columns: 4">
-        <div class="u-flex-item--fit  c-fixture-box">shrink to content width</div>
-        <div class="u-flex-item--fill  c-fixture-box">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
+        <div class="o-layout__fit  c-fixture-box">shrink to content width</div>
+        <div class="o-layout__fill  c-fixture-box">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="c-test__it">correctly adds gaps with u-colspan-X and u-flex-item--fill</h3>
+    <h3 class="c-test__it">correctly adds gaps with u-colspan-X and o-layout__fill</h3>
     <div class="c-test__run">
       <div class="o-layout  o-layout--gap-base" style="--columns: 4">
         <div class="u-colspan-1  c-fixture-box">shrink to content width</div>
-        <div class="u-flex-item--fill  c-fixture-box">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
+        <div class="o-layout__fill  c-fixture-box">fill remaining space: This is some really long content that should be wrapped when the container is too small.</div>
       </div>
     </div><!-- .test__run -->
 

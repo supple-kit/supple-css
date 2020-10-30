@@ -159,3 +159,43 @@ $selector: '> *';
     --layout-gap: #{space.get($gap)};
   }
 }
+
+
+/*  Elements
+    ========================================================================= */
+
+/**
+ * Element: fit
+ * Make an item shrink wrap its content.
+ */
+.o-layout__fit {
+  @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
+    flex-basis: auto;
+  }
+}
+
+
+/**
+ * Element: fill
+ * Make an item fill the remaining space.
+ *
+ * 1. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
+ */
+.o-layout__fill {
+  @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
+    flex: auto;
+    inline-size: 0%; /* [1] */
+  }
+}
+
+
+/**
+ * Element: align-inline-center
+ * Center one flex item on the inline axis
+ */
+.o-layout__align-inline-center {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
