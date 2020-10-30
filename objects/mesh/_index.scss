@@ -17,9 +17,20 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
+@use '../../settings/defaults';
 @use '../../tools/space';
 @use '../../tools/rem';
 @use '../../tools/responsive';
+
+
+
+/*  Internal variables
+    ========================================================================= */
+
+$selector: '> *';
+@if (defaults.$css-modules) {
+  $selector: ':global(#{$selector})';
+}
 
 
 
@@ -44,6 +55,13 @@
   padding: 0; /* [1] */
   margin-inline-start: 0; /* [1] */
   list-style: none; /* [1] */
+
+  #{$selector} {
+    --colstart: 0;
+    --colspan: 1;
+    grid-column-start: var(--colstart);
+    grid-column-end: span var(--colspan);
+  }
 }
 
 
@@ -77,21 +95,10 @@
 
 
 /**
- * Element: cell
- */
-.o-mesh__cell {
-  --colstart: 0;
-  --colspan: 1;
-  grid-column-start: var(--colstart);
-  grid-column-end: span var(--colspan);
-}
-
-
-/**
  * Element modifier: row
  * 1. Overwrite any previously set column start
  */
-.o-mesh__cell--row {
+.o-mesh__row {
   @include responsive.in-breakpoint(variables.$row-in-breakpoint) {
     --colstart: 0; /* [1] */
     --colspan: 12;
