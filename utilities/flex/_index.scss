@@ -37,10 +37,10 @@
     ========================================================================= */
 
 /**
- * Element modifier: fit
+ * Flex-item modifier: fit
  * Make a cell shrink wrap its content.
  */
-.u-flex-fit {
+.u-flex-item--fit {
   @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
     flex-basis: auto;
   }
@@ -48,15 +48,25 @@
 
 
 /**
- * Element modifier: fill
+ * Flex-item modifier: fill
  * Make a cell fill the remaining space.
  *
  * 1. Fixes issue where a element doesn’t fill the remaining space when the
  *    container has no explicit width.
  */
-.u-flex-fill {
+.u-flex-item--fill {
   @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
     flex: auto;
     inline-size: 0%; /* [1] */
   }
+}
+
+
+/**
+ * Flex-item modifier: align-inline-center
+ * Center one flex item on the inline axis
+ */
+.u-flex-item--align-inline-center {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
