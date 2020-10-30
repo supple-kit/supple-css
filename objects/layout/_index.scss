@@ -38,40 +38,40 @@ $selector: '> *';
     ========================================================================= */
 
 /**
- * All content must be contained within child `layout__cell` elements.
+ * Block: layout
  *
  * 1. Account for browser defaults of elements that might be the root node of
  *    the component.
+ * 2. Negative margin for the gap
  */
 .o-layout {
   --columns: #{variables.$columns};
-  --gap: 0;
+  --gap: 0px; // stylelint-disable-line
   --layout-gap: var(--gap);
   display: flex;
   flex-flow: row wrap;
+  align-items: start;
   padding: 0; /* [1] */
-  margin-inline-start: calc(-1 * var(--layout-gap)); /* [1] */
+  margin-inline-start: calc(-1 * var(--layout-gap)); /* [1,2] */
   list-style: none; /* [1] */
-  // gap: var(--layout-gap);
 
   /**
-   * Cell
-   * No explicit width by default. Rely on combining `layout__cell` with a
+   * Flex item
+   * No explicit width by default. Rely on combining the item with a
    * dimension utility or a component class that extends 'layout'.
    *
-   * 1. Set flex items to full width by default
+   * 1. Set flex items to full width by default, minus the gap
    * 2. Fix issue where elements with overflow extend past the
-   *    `layout__cell` container. As per:
+   *    item's container. As per:
    *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
-   * 3. Calculate the offset
+   * 3. Calculate the offset + the layout gap
    */
   #{$selector} {
     --colspan: var(--columns);
     --offset: 0;
-    flex-basis: calc(100% / var(--columns) * var(--colspan)); /* [1] */
+    flex-basis: calc((100% / var(--columns) * var(--colspan)) - var(--layout-gap)); /* [1] */
     min-inline-size: 0; /* [2] */
-    padding-inline-start: var(--layout-gap);
-    margin-inline-start: calc(100% / var(--columns) * var(--offset)); /* [3] */
+    margin-inline-start: calc(100% / var(--columns) * var(--offset) + var(--layout-gap)); /* [3] */
   }
 }
 
@@ -113,6 +113,15 @@ $selector: '> *';
 
 
 /**
+ * Modifier: stretch
+ * All cells match the size of tallest cell in a row
+ */
+.o-layout--stretch {
+  align-items: stretch;
+}
+
+
+/**
  * Modifier: reverse
  * reverse all cells
  */
@@ -138,23 +147,6 @@ $selector: '> *';
 .o-layout--fit {
   #{$selector} {
     flex-basis: auto;
-  }
-}
-
-
-/**
- * Modifier: stretch
- * All cells match the size of tallest cell in a row
- * 1. The direct child of the flexbox must be a single element when you want
- *    to use stretch
- */
-.o-layout--stretch {
-  #{$selector} {
-    display: flex;
-
-    #{$selector} {
-      inline-size: 100%; /* [1] */
-    }
   }
 }
 
