@@ -18,8 +18,19 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
+@use '../../settings/defaults';
 @use '../../tools/space';
 @use '../../tools/responsive';
+
+
+
+/*  Internal variables
+    ========================================================================= */
+
+$selector: '> *';
+@if (defaults.$css-modules) {
+  $selector: ':global(#{$selector})';
+}
 
 
 
@@ -27,77 +38,40 @@
     ========================================================================= */
 
 /**
- * All content must be contained within child `layout__cell` elements.
+ * Block: layout
  *
  * 1. Account for browser defaults of elements that might be the root node of
  *    the component.
+ * 2. Negative margin for the gap
  */
 .o-layout {
   --columns: #{variables.$columns};
-  --gap: 0;
+  --gap: 0px; // stylelint-disable-line
   --layout-gap: var(--gap);
   display: flex;
   flex-flow: row wrap;
+  align-items: start;
   padding: 0; /* [1] */
-  margin-inline-start: calc(-1 * var(--layout-gap)); /* [1] */
+  margin-inline-start: calc(-1 * var(--layout-gap)); /* [1,2] */
   list-style: none; /* [1] */
-}
 
-
-/**
- * Element: cell
- * No explicit width by default. Rely on combining `layout__cell` with a dimension
- * utility or a component class that extends 'layout'.
- *
- * 1. Set flex items to full width by default
- * 2. Fix issue where elements with overflow extend past the
- *    `layout__cell` container. As per:
- *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
- * 3. Calculate the offset
- */
-.o-layout__cell {
-  --colspan: var(--columns);
-  --offset: 0;
-  flex-basis: calc(100% / var(--columns) * var(--colspan)); /* [1] */
-  min-inline-size: 0; /* [2] */
-  padding-inline-start: var(--layout-gap);
-  margin-inline-start: calc(100% / var(--columns) * var(--offset)); /* [3] */
-}
-
-/**
- * Element modifier: align-inline-center
- * center one cell on the inline axis
- * Set a specific unit to be horizontally centered. Doesn't affect
- * any other units. Can still contain a child `layout` object.
- */
-.o-layout__cell--align-inline-center {
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-}
-
-
-/**
- * Element modifier: fit
- * Make a cell shrink wrap its content.
- */
-.o-layout__cell--fit {
-  @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
-    flex-basis: auto;
-  }
-}
-
-
-/**
- * Element modifier: fill
- * Make a cell fill the remaining space.
- *
- * 1. Fixes issue where a element doesn’t fill the remaining space when the
- *    container has no explicit width.
- */
-.o-layout__cell--fill {
-  @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
-    flex: auto;
-    inline-size: 0%; /* [1] */
+  /**
+   * Flex item
+   * No explicit width by default. Rely on combining the item with a
+   * dimension utility or a component class that extends 'layout'.
+   *
+   * 1. Set flex items to full width by default, minus the gap
+   * 2. Fix issue where elements with overflow extend past the
+   *    item's container. As per:
+   *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
+   * 3. Calculate the offset + the layout gap
+   */
+  #{$selector} {
+    --colspan: var(--columns);
+    --offset: 0;
+    flex-basis: calc((100% / var(--columns) * var(--colspan)) - var(--layout-gap)); /* [1] */
+    min-inline-size: 0; /* [2] */
+    margin-inline-start: calc(100% / var(--columns) * var(--offset) + var(--layout-gap)); /* [3] */
   }
 }
 
@@ -139,6 +113,15 @@
 
 
 /**
+ * Modifier: stretch
+ * All cells match the size of tallest cell in a row
+ */
+.o-layout--stretch {
+  align-items: stretch;
+}
+
+
+/**
  * Modifier: reverse
  * reverse all cells
  */
@@ -152,7 +135,7 @@
  * allow cells to equal distribute width
  */
 .o-layout--fill {
-  > .o-layout__cell {
+  #{$selector} {
     flex: 1;
   }
 }
@@ -162,25 +145,8 @@
  * fit all cells to their content
  */
 .o-layout--fit {
-  > .o-layout__cell {
+  #{$selector} {
     flex-basis: auto;
-  }
-}
-
-
-/**
- * Modifier: stretch
- * All cells match the size of tallest cell in a row
- * 1. The direct child of the flexbox must be a single element when you want
- *    to use stretch
- */
-.o-layout--stretch {
-  > .o-layout__cell {
-    display: flex;
-
-    > * {
-      inline-size: 100%; /* [1] */
-    }
   }
 }
 
@@ -193,3 +159,43 @@
     --layout-gap: #{space.get($gap)};
   }
 }
+
+
+/*  Elements
+    ========================================================================= */
+
+/**
+ * Element: fit
+ * Make an item shrink wrap its content.
+ */
+.o-layout__fit {
+  @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
+    flex-basis: auto;
+  }
+}
+
+
+/**
+ * Element: fill
+ * Make an item fill the remaining space.
+ *
+ * 1. Fixes issue where a element doesn’t fill the remaining space when the
+ *    container has no explicit width.
+ */
+.o-layout__fill {
+  @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
+    flex: auto;
+    inline-size: 0%; /* [1] */
+  }
+}
+
+
+/**
+ * Element: align-inline-center
+ * Center one flex item on the inline axis
+ */
+.o-layout__align-inline-center {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+

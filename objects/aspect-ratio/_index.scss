@@ -21,6 +21,17 @@
  */
 @use 'sass:meta';
 @use './variables';
+@use '../../settings/defaults';
+
+
+
+/*  Internal variables
+    ========================================================================= */
+
+$selector: '> *';
+@if (defaults.$css-modules) {
+  $selector: ':global(#{$selector})';
+}
 
 
 
@@ -37,15 +48,12 @@
   display: block;
   block-size: 0;
   padding-block-end: calc(100% / var(--ratio));
-}
 
-/**
- * The actual embed/item
- */
-.o-aspect-ratio__item {
-  position: absolute;
-  inline-size: 100%;
-  block-size: 100%;
+  #{$selector} {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+  }
 }
 
 

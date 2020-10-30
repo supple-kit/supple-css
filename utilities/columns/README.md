@@ -22,10 +22,10 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <div class="o-mesh  u-columns-10">
-  <div class="o-mesh__cell  u-colspan-3">
+  <div class="u-colspan-3">
     spans 3 of 10 columns
   </div>
-  <div class="o-mesh__cell  u-colspan-7">
+  <div class="u-colspan-7">
     spans 7 of 10 columns
   </div>
 </div>

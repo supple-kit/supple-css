@@ -30,14 +30,12 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 A simple mesh is easy to create. A mesh container can have any number of child cells.
 
-**Note** `.o-mesh` only accepts `.o-mesh__cell` as direct descendants. This keeps our layout nicely separated from other components.
-
 ```html
 <div class="o-mesh  o-mesh--gap-base">
-  <div class="o-mesh__cell"><!-- content --></div>
-  <div class="o-mesh__cell"><!-- content --></div>
-  <div class="o-mesh__cell"><!-- content --></div>
-  <div class="o-mesh__cell"><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
 </div>
 ```
 
@@ -47,34 +45,34 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh  [o-mesh--flow  |  o-mesh--dense  |  o-mesh--gap-base]">
-  <div class="o-mesh__cell"></div>
-  <div class="o-mesh__cell"></div>
-  <div class="o-mesh__cell"></div>
-  <div class="o-mesh__cell"></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
 ```
 
-### Works with `u-columns-X` on `o-layout`
+### Works with `u-columns-X` on `o-mesh`
 
 ```html
 <div class="o-mesh  u-columns-10">
-  <div class="o-mesh__cell  u-colspan-5">Spans 5 of 10 columns</div>
+  <div class="u-colspan-5">Spans 5 of 10 columns</div>
 </div>
 ```
 
-### Modifiers on `o-mesh__cell`
+### Elements
 
 ```html
 <div class="o-mesh">
-  <div class="o-mesh__cell  o-mesh__cell--row">Spans a full row</div>
+  <div class="o-mesh__row">Spans a full row</div>
 </div>
 ```
 
-### Works with `u-colspan-X` & `u-colstart-X` on `o-mesh__cell`
+### Works with `u-colspan-X` & `u-colstart-X` on grid item
 
 ```html
 <div class="o-mesh">
-  <div class="o-mesh__cell  u-colspan-5  u-colstart-2">Spans 5 of 12 columns and starts at column 2</div>
+  <div class="u-colspan-5  u-colstart-2">Spans 5 of 12 columns and starts at column 2</div>
 </div>
 ```
 
@@ -82,19 +80,19 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh" style="--columns: 10; --gap: 3rem;">
-  <div class="o-mesh__cell" style="--colspan: 4;">
+  <div style="--colspan: 4;">
     Spans 4 of 10 columns
   </div>
 
-  <div class="o-mesh__cell" style="--colspan: 1; --colstart: 5;">
+  <div style="--colspan: 1; --colstart: 5;">
     Spans 1 of 10 columns starts at column 5
   </div>
 
-  <div class="o-mesh__cell" style="--colspan: 3;">
+  <div style="--colspan: 3;">
     Spans 3 of 10 columns
   </div>
 
-  <div class="o-mesh__cell" style="--colspan: 2;">
+  <div style="--colspan: 2;">
     Spans 2 of 10 columns
   </div>
 </div>
@@ -108,8 +106,8 @@ You can nest mesh in any context. Keep in mind that the dimensions will be relat
 
 ```html
 <div class="o-mesh">
-  <div class="[ o-mesh__cell  o-mesh ]  [ u-colspan-X ]">
-    <div class="[ o-mesh__cell ]  [ u-colspan-X ]">
+  <div class="[ o-mesh ]  [ u-colspan-X ]">
+    <div class="u-colspan-X">
     </div>
   </div>
 </div>
@@ -120,7 +118,7 @@ When you set breakpoints in `$row-in-breakpoint` you can use it like this:
 
 ```html
 <div class="o-mesh">
-  <div class="o-mesh__cell  o-mesh__cell--row@from-lap">
+  <div class="o-mesh__row@from-lap">
     spans 1 column and from lap breakpoint it will span 12 columns (full row).
   </div>
 </div>
@@ -136,10 +134,9 @@ When you set breakpoints in `$row-in-breakpoint` you can use it like this:
 * `.o-mesh--dense`: Attempt to fill in holes earlier in the grid if smaller items come up later.
 * `.o-mesh--gap-base`: adds a base gutter between cells
 
-**On the `.o-mesh__cell` element**
-* `.o-mesh__cell`: Core mesh cell element
-* `.o-mesh__cell--row`: Spans a full row
-* `.o-mesh__cell--row@[from|until]-[BREAKPOINT-NAME]`: Spans full row on a certain breakpoint (available in `$row-in-breakpoint` SCSS setting)
+**On the grid item element**
+* `.o-mesh__row`: Spans a full row
+* `.o-mesh__row@[from|until]-[BREAKPOINT-NAME]`: Spans full row on a certain breakpoint (available in `$row-in-breakpoint` SCSS setting)
 
 
 ## Configurable variables
@@ -159,7 +156,7 @@ There are multiple ways to configure the mesh object. The Custom properties are 
 
 * `--min-inline-size`: minimum size that a cell needs to have
 
-**On the `.o-mesh__cell` element**
+**On the grid item element**
 
 * `--colspan`: The amount of columns this cell will span, defaults to `--columns`
 * `--colstart`: Startpoint of the cell
@@ -167,7 +164,7 @@ There are multiple ways to configure the mesh object. The Custom properties are 
 ### SCSS variables
 
 * `$gaps`: a list of gaps where possible `.o-mesh--gap-X` are generated from, defaults to `('base')`
-* `$row-in-breakpoint`: a list of breakpoints where `o-mesh__cell--row` is generated for,  defaults to `()`
+* `$row-in-breakpoint`: a list of breakpoints where `o-mesh__row` is generated for,  defaults to `()`
 
 You can overwrite the SCSS variables the following ways:
 
