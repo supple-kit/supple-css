@@ -85,9 +85,5 @@ Make sure you've installed/downloaded the Supple CSS library: [Supple CSS instal
 
 ## Browser support
 
-* Google Chrome (latest)
-* Opera (latest)
-* Firefox (latest)
-* Safari (latest)
-* Edge (latest chromium based)
-* iOS (latest)
+* Chromium-based browsers (Chrome, Edge, Brave, Opera)
+* WebKit-based browsers (Safari, iOS Safari)

@@ -41,12 +41,8 @@ Supple supports all major browsers which can render the following features:
 
 Basically that comes down to:
 
-* Google Chrome (latest)
-* Opera (latest)
-* Firefox (latest)
-* Safari (latest)
-* Edge (latest chromium based)
-* iOS (latest)
+* Chromium-based browsers (Chrome, Edge, Brave, Opera)
+* WebKit-based browsers (Safari, iOS Safari)
 
 
 ## Installation
