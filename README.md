@@ -14,7 +14,7 @@ Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework i
 * [Installation](#installation)
 * [Getting started](#getting-started)
 
-## Why use supple
+## Why use Supple
 
 > It is a small but powerful (S)CSS framework designed especially with the latest browsers in mind. The framework is made with an eye on the future. It uses utilizes new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties.
 
@@ -136,18 +136,14 @@ import './index.scss';
 }
 ```
 
-
 ## Available modules
-All Supple's modules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology.
 
-ITCSS stands for Inverted Triangle CSS and it helps you organize your project's CSS files in such a way that you can better deal with CSS specifics like a global namespace, the cascade, and selector specificity. I advise you to read ITCSS documentation to fully grasp the ideas about the methodology.
-
-**Note**: every module has its readme on how to use the module. In the list below you can click through to the connected documentation.
+All Supple's modules are created based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology. It is advised you to read ITCSS documentation to fully grasp the ideas about the methodology.
 
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
 
-* [settings/defaults](settings/defaults), supples core settings.
+* [settings/defaults](settings/defaults), Supple's core settings.
 
 **Note**: Any variable that does not need to be accessed globally should belong in the module to which it relates.
 
@@ -161,18 +157,24 @@ The tools layer houses your globally available tooling, mixins, and functions.
 ### Generic
 It contains ground-zero styles like global box-sizing rules, CSS resets, and so on.
 
-* [generic/reset](generic/reset), A reset of sensible defaults suitable for web applications.
+* [generic/reset](generic/reset), a reset of sensible defaults suitable for web applications.
+
+### Elements
+These are bare, unclassed HTML elements. The Elements layer binds onto HTML element (or 'type') selectors only.
+
+Elements are most likely the last layer in which we'd find element-based selectors, and is very rarely added to or changed after initial setup. Once we have defined element-level styles, all additions and deviations should be implemented using classes.
+
+**Note**: Because Supple is a design-free framework this layer is empty.
 
 ### Objects
-This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something like a `.o-retain` element to `.o-layout` systems.
+This layer is concerned with styling non-cosmetic design patterns, or 'objects'.
 
 * [objects/list-clean](objects/list-clean), strip appearance from lists by removing their bullets and indents
 * [objects/retain](objects/retain), page-level constraining and wrapping elements
 * [objects/layout](objects/layout), arrange items horizontally on the inline-axis with flexbox.
 * [objects/mesh](objects/mesh), fluid & extensible grid system based on CSS grid.
 * [objects/aspect-ratio](objects/aspect-ratio), retain a specific aspect ratio but adapt to elements of variable widths
-* [objects/flow](objects/flow), Create flow and rhythm between elements.
-
+* [objects/flow](objects/flow), create flow and rhythm between elements.
 
 All Objects are prefixed with `o-`.
 
@@ -181,28 +183,26 @@ This layer contains our recognizable components, chunks of UI.
 
 All Components are prefixed with `c-`.
 
-**NOTE**: Because supple is a design-free framework this layer is empty. You can add your own components to your project.
+**Note**: Because Supple is a design-free framework this layer is empty. You can add your own components to your project.
 
 ### Utilities
-this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
+This layer contains some handy helpers & overrides. This is the most specific layer of the application which overrides everything defined before.
 
 * [utilities/columns](utilities/columns), provides a columns custom property for use in objects or components.
 * [utilities/colspan](utilities/colspan), provides a colspan custom property for use in objects or components.
 * [utilities/colstart](utilities/colstart), provides a column start custom property for use in objects or components.
 * [utilities/offset](utilities/offset), provides a offset custom property for use in objects or components.
-* [utilities/clearfix](utilities/clearfix), Clears floats.
+* [utilities/clearfix](utilities/clearfix), clears floats.
 * [utilities/spacing](utilities/spacing), utility classes to put specific spacing values onto elements.
 * [utilities/visually-hidden](utilities/visually-hidden), hides an element visually while still allowing the content to be accessible.
 * [utilities/hidden](utilities/hidden), completely remove from the flow and hide it from screenreaders.
 
 All Utilities are prefixed with `u-`.
 
-
 ## Browserstack
 Every feature in Supple is extensively tested in browserstack:
 
 [<img src="https://supple-kit.github.io/supple-css/browserstack-logo.png" alt="browserstack logo" width="152" height="80">](https://www.browserstack.com/)
-
 
 ## Credits
 

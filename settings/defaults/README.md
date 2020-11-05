@@ -1,6 +1,6 @@
 # Supple CSS | settings.defaults
 
-This file contains the supple default variables, without this file the framework won't work.
+This file contains the Supple default variables, without this file the framework won't work.
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
