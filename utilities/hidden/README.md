@@ -78,9 +78,5 @@ Basic visual tests are in [test.html](./test.html).
 
 ## Browser support
 
-* Google Chrome (latest)
-* Opera (latest)
-* Firefox (latest)
-* Safari (latest)
-* Edge (latest chromium based)
-* iOS (latest)
+* Chromium-based browsers (Chrome, Edge, Brave, Opera)
+* WebKit-based browsers (Safari, iOS Safari)
