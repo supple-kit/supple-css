@@ -34,3 +34,4 @@ Make sure you've installed/downloaded the Supple CSS library: [Supple CSS instal
 
 * Chromium-based browsers (Chrome, Edge, Brave, Opera)
 * WebKit-based browsers (Safari, iOS Safari)
+* Firefox (Gecko)

@@ -80,3 +80,4 @@ Basic visual tests are in [test.html](./test.html).
 
 * Chromium-based browsers (Chrome, Edge, Brave, Opera)
 * WebKit-based browsers (Safari, iOS Safari)
+* Firefox (Gecko)
