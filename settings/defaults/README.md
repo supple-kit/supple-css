@@ -1,6 +1,6 @@
 # Supple CSS | settings.defaults
 
-This file contains the supple default variables, without this file the framework won't work.
+This file contains the Supple default variables, without this file the framework won't work.
 
 Read more about [Supple CSS](https://github.com/supple-css/supple).
 
@@ -207,3 +207,4 @@ Basic visual tests are in [test.html](./test.html).
 
 * Chromium-based browsers (Chrome, Edge, Brave, Opera)
 * WebKit-based browsers (Safari, iOS Safari)
+* Firefox (Gecko)

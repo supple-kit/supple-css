@@ -13,7 +13,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 * [Browser support](#browser-support)
 
 ## Use
-This utility generates set of classes mostly used by supple's users. You can add classes to your liking by adding them to the configuration variables. Below you find some examples of how you can use this utility.
+This utility generates set of classes mostly used by Supple's users. You can add classes to your liking by adding them to the configuration variables. Below you find some examples of how you can use this utility.
 
 ```html
 <div class="u-margin--base">
@@ -141,3 +141,4 @@ Make sure you've installed/downloaded the Supple CSS library: [Supple CSS instal
 
 * Chromium-based browsers (Chrome, Edge, Brave, Opera)
 * WebKit-based browsers (Safari, iOS Safari)
+* Firefox (Gecko)
