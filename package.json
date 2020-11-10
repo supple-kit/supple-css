@@ -38,9 +38,9 @@
     "glob": "^7.1.6",
     "gzip-size-cli": "^3.0.0",
     "nodemon": "^2.0.6",
-    "postcss": "^8.1.4",
+    "postcss": "^8.1.6",
     "postcss-cli": "^8.2.0",
-    "sass": "^1.28.0",
+    "sass": "^1.29.0",
     "stylelint": "^13.7.2",
     "@supple-kit/stylelint-config-supple": "^3.0.3",
     "stylelint-scss": "^3.18.0"
