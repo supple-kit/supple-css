@@ -48,11 +48,14 @@ $selector: '> *';
   --columns: #{variables.$columns};
   --gap: 0px; // stylelint-disable-line
   --layout-gap: var(--gap);
+  --layout-block-gap: var(--layout-gap);
+  --layout-inline-gap: var(--layout-gap);
   display: flex;
   flex-flow: row wrap;
   align-items: start;
   padding: 0; /* [1] */
-  margin-inline-start: calc(-1 * var(--layout-gap)); /* [1,2] */
+  margin-block-start: calc(-1 * var(--layout-block-gap));
+  margin-inline-start: calc(-1 * var(--layout-inline-gap)); /* [1,2] */
   list-style: none; /* [1] */
 
   /**
@@ -69,9 +72,10 @@ $selector: '> *';
   #{$selector} {
     --colspan: var(--columns);
     --offset: 0;
-    flex-basis: calc((100% / var(--columns) * var(--colspan)) - var(--layout-gap)); /* [1] */
+    flex-basis: calc((100% / var(--columns) * var(--colspan)) - var(--layout-inline-gap)); /* [1] */
     min-inline-size: 0; /* [2] */
-    margin-inline-start: calc(100% / var(--columns) * var(--offset) + var(--layout-gap)); /* [3] */
+    margin-block-start: var(--layout-block-gap);
+    margin-inline-start: calc(100% / var(--columns) * var(--offset) + var(--layout-inline-gap)); /* [3] */
   }
 }
 
