@@ -224,6 +224,21 @@
       </div>
     </div><!-- .test__run -->
 
+    <h3 class="c-test__it">also with <code>.layout__cell</code> child elements</h3>
+    <div class="c-test__run">
+      <div class="o-layout o-layout--stretch" style="--columns: 3">
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">1</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">2<br>line 2</div>
+        </div>
+        <div class="o-layout__cell" style="--colspan: 1">
+          <div class="c-fixture-box">3</div>
+        </div>
+      </div>
+    </div><!-- .test__run -->
+
     <h2 class="c-test__describe">.o-layout__align-inline-center</h2>
     <h3 class="c-test__it">centers an individual layout cell on the inline axis but not its content</h3>
     <div class="c-test__run">
@@ -320,7 +335,7 @@
       </div>
     </div><!-- .test__run -->
 
-    <h3 class="c-test__it"><mark>todo</mark></h3>
+    <h3 class="c-test__it">Correctly calculates cell alignment when a <code>.o-layout__fit</code> is used in a <code>.o-layout__fit</code> when using <code>.o-layout__cell</code></h3>
     <div class="c-test__run">
       <div class="o-layout">
         <div class="o-layout__fit">

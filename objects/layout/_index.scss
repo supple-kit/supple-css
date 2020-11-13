@@ -139,11 +139,24 @@ $selector: '> *';
 }
 
 
+/**
+ * Element: cell
+ * Only use cell wrapper element when everything else fails 😅
+ */
 .o-layout__cell {
   --layout-inline-gap-internal: 0px; // stylelint-disable-line
   --layout-block-gap-internal: 0px; // stylelint-disable-line
   padding-block-start: var(--layout-block-gap);
   padding-inline-start: var(--layout-inline-gap);
+
+  // Old way to stretch inner items
+  .o-layout--stretch > & {
+    display: flex;
+
+    #{$selector} {
+      inline-size: 100%; /* [1] */
+    }
+  }
 }
 
 
