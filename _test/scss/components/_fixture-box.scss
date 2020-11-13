@@ -26,7 +26,6 @@
     ========================================================================= */
 
 .c-fixture-box {
-  margin-block-end: space.get('small');
   padding-inline-start: space.get('small');
   padding-inline-end: space.get('small');
   border: 1px solid #000000;
@@ -41,11 +40,6 @@
 }
 
 .c-fixture-box--wrap {
-  margin-block-end: space.get('small');
   border: 1px solid #000000;
   background: rgba(238, 66, 102, 0.3);
-}
-
-.c-fixture-box--flatten {
-  margin-block-end: 0;
 }
