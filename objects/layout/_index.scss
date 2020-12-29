@@ -68,14 +68,19 @@ $selector: '> *';
    *    item's container. As per:
    *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
    * 3. Calculate the offset + the layout gap
+   * 4. We need to reset our margins if the direct child is `o-layout__cell`
+   *    but our gap variables need to be available. So we map our variables to
+   *    internal variables.
    */
   #{$selector} {
     --colspan: var(--columns);
     --offset: 0;
-    flex-basis: calc((100% / var(--columns) * var(--colspan)) - var(--layout-inline-gap)); /* [1] */
+    --layout-inline-gap-internal: var(--layout-inline-gap); /* [4] */
+    --layout-block-gap-internal: var(--layout-block-gap); /* [4] */
+    flex-basis: calc((100% / var(--columns) * var(--colspan)) - var(--layout-inline-gap-internal)); /* [1] */
     min-inline-size: 0; /* [2] */
-    margin-block-start: var(--layout-block-gap);
-    margin-inline-start: calc(100% / var(--columns) * var(--offset) + var(--layout-inline-gap)); /* [3] */
+    margin-block-start: var(--layout-block-gap-internal);
+    margin-inline-start: calc(100% / var(--columns) * var(--offset) + var(--layout-inline-gap-internal)); /* [3] */
   }
 }
 
@@ -131,6 +136,27 @@ $selector: '> *';
  */
 .o-layout--reverse {
   flex-direction: row-reverse;
+}
+
+
+/**
+ * Element: cell
+ * Only use cell wrapper element when everything else fails 😅
+ */
+.o-layout__cell {
+  --layout-inline-gap-internal: 0px; // stylelint-disable-line
+  --layout-block-gap-internal: 0px; // stylelint-disable-line
+  padding-block-start: var(--layout-block-gap);
+  padding-inline-start: var(--layout-inline-gap);
+
+  // Old way to stretch inner items
+  .o-layout--stretch > & {
+    display: flex;
+
+    #{$selector} {
+      inline-size: 100%; /* [1] */
+    }
+  }
 }
 
 

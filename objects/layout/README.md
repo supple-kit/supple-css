@@ -140,6 +140,20 @@ When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you ca
 </div>
 ```
 
+### If anything in the above fails
+By default, the cell styling is applied to the direct child. If for any reason that doesn't work, wrap the direct child in an `o-layout__cell` and apply the `o-layout__[fit|fill], u-colspan, u-offset, etc.` logic there. Stuff should start working.
+
+```html
+<div class="o-layout">
+  <div class="o-layout__cell  u-colspan-8  u-offset-4">
+    // your component
+  </div>
+  <div class="o-layout__cell">
+    // your component
+  </div>
+</div>
+```
+
 
 ## Available classes
 
@@ -161,6 +175,7 @@ When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you ca
 * `.o-layout__fit`: Make a cell shrink wrap its content
 * `.o-layout__fill`: Make a cell fill the remaining space.
 * `.o-layout__[fit|fill]@[from|until]-[BREAKPOINT-NAME]`: applies `fit` or `fill` at the given breakpoint. (available in `$[fit|fill]-in-breakpoint` SCSS setting)
+* `.o-layout__cell`: Wrap the child component to fix some super specific bugs. Only use this when all of the above somehow not works.
 
 
 ## Configurable variables
