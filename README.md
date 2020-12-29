@@ -101,6 +101,7 @@ Below are some examples of how to use and structure the framework:
 .your-own-component {
   margin-inline-start: space.get('base');
   transition-timing-function: your-own-vars.$animation-timing-function;
+  font-size: defaults.$font-size;
 }
 ```
 
