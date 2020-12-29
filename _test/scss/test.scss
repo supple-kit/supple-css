@@ -17,6 +17,7 @@
 
 // @import '../../tools/functions';
 // @use '../../tools/mixins';
+@use '../../tools/responsive';
 
 
 
@@ -115,3 +116,13 @@
 @use '../../utilities/hidden' with (
   $in-breakpoint: (lap, desk),
 );
+
+* {
+  @include responsive.new-mq(lap-to-desk) {
+    outline: 1px solid #ff0000;
+  }
+
+  @include responsive.new-mq(biggie) {
+    border: 1px solid #ff00ff;
+  }
+}

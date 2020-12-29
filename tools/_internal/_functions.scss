@@ -2,12 +2,49 @@
     tools.functions
     ========================================================================= */
 
+@use 'sass:list';
+@use 'sass:string';
+
+
+
 /*  Functions
     ========================================================================= */
 
 /**
  * A small, internally-used function to remove the units from a given value.
  */
-@function strip-units ($value) {
+@function strip-units($value) {
   @return $value / ($value * 0 + 1);
+}
+
+/**
+ * value-to-em
+ * Converts pixels to em based on context
+ */
+@function value-to-em($value, $context: 16px) {
+  @if $value == 0 {
+    @return 0;
+  }
+  @return $value / $context * 1em;
+}
+
+/**
+ * implode
+ * Implode a list into a string
+ */
+@function implode($list, $glue: ' ') {
+  $res: null;
+  $len: list.length($list);
+
+  @for $i from 1 through $len {
+    $e: list.nth($list, $i);
+    @if $i == $len {
+      $res: string.unquote('#{$res}#{$e}');
+    }
+    @else {
+      $res: string.unquote('#{$res}#{$e}#{$glue}');
+    }
+  }
+
+  @return $res;
 }

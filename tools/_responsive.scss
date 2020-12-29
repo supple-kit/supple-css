@@ -12,6 +12,7 @@
 @use 'sass:math';
 @use 'sass:map';
 @use 'sass:meta';
+@use 'sass:string';
 @use '../settings/defaults';
 @use '../vendor/sass-mq/mq' as sassmq;
 @use '_internal/functions';
@@ -59,6 +60,189 @@
     }
   } @else {
     @error '#{$direction} is not a valid sass-mq direction';
+  }
+}
+
+
+
+/*  Rewritten MQ system
+    ========================================================================= */
+
+@mixin bp($queries, $type: all, $breakpoints: defaults.$breakpoints) {
+  $collection: get-breakpoints($queries, $type, $breakpoints);
+
+  @media #{map.get($collection, type)} and #{map.get($collection, media-string)} {
+    @content;
+  }
+}
+
+@mixin new-mq($query, $queries: defaults.$queries) {
+  @if not map.has-key($queries, $query) {
+    @error '#{$queries} does not contain #{$query}';
+  }
+
+  $collection: get-breakpoints(map.get($queries, $query));
+
+  @media #{map.get($collection, type)} and #{map.get($collection, media-string)} {
+    @content;
+  }
+}
+
+/**
+ * get-breakpoints
+ * Returns a map with 2 keys
+ * type: Media type
+ * media-string: media query string
+ */
+@function get-breakpoints($queries, $type: all, $breakpoints: defaults.$breakpoints) {
+  $media-string: ();
+  $_return: ();
+  $media-map: parse-breakpoints($queries, $breakpoints);
+
+  @each $key, $value in $media-map {
+    @if $value and $value != 0 {
+      @if $media-string == (()) {
+        $media-string: list.append($media-string, string.unquote('(#{$key}: #{$value})'));
+      }
+
+      @else {
+        $media-string: list.append($media-string, string.unquote('and (#{$key}: #{$value})'));
+      }
+    }
+  }
+  $_return: (
+    type: $type,
+    media-string: functions.implode($media-string),
+  );
+
+  @return $_return;
+}
+
+/**
+ * parse-breakpoints
+ */
+@function parse-breakpoints($queries, $breakpoints) {
+  $return: ();
+  $i: 1;
+  $minw: null;
+  $maxw: null;
+  $minh: null;
+  $maxh: null;
+  $length: list.length($queries);
+
+  // Checks for width queries
+  $minw: list.nth($queries, 1);
+  $minw: validate($minw, $breakpoints);
+
+  // Check for width queries
+  @if $minw {
+    $minw: convert-to-em($minw);
+    $return: map.merge($return, (min-width: $minw));
+    $queries: list.set-nth($queries, 1, null);
+  }
+
+  // Checks if there is a max width query
+  @if $minw and $length >= 2 {
+    $maxw: list.nth($queries, 2);
+    $maxw: validate($maxw, $breakpoints);
+  }
+
+  @if $maxw {
+    $maxw: convert-to-em($maxw - 1px);
+    $return: map.merge($return, (max-width: $maxw));
+    $queries: list.set-nth($queries, 2, null);
+  }
+
+  // Checks for height queries
+  $_h: list.index($queries, h) or list.index($queries, height);
+
+  @if $_h {
+    $minh: list.nth($queries, $_h + 1);
+    $minh: validate($minh, $breakpoints);
+
+    @if $minh {
+      $minh: convert-to-em($minh);
+      $return: map.merge($return, (min-height: $minh));
+      $queries: list.set-nth($queries, $_h + 1, null);
+    }
+
+    // Checks if there is a max height query
+    @if $length - $_h >= 2 {
+      $maxh: list.nth($queries, $_h + 2);
+      $maxh: validate($maxh, $breakpoints);
+    }
+
+    @if $maxh {
+      $maxh: convert-to-em($maxh - 1px);
+      $return: map.merge($return, (max-height: $maxh));
+      $queries: list.set-nth($queries, $_h + 2, null);
+    }
+    // Reset h marker
+    $queries: list.set-nth($queries, $_h, null);
+  }
+
+  // Checks for other queries
+  @while $i <= list.length($queries) {
+    $key: list.nth($queries, $i);
+
+    @if $key and $length - $i >= 1 {
+      $val: list.nth($queries, $i + 1);
+      $return: map.merge($return, (#{$key}: $val));
+      $queries: list.set-nth($queries, $i, null);
+      $queries: list.set-nth($queries, $i + 1, null);
+    }
+
+    @else if $key {
+      @warn string.unquote('Breakpoints is missing value for media feature "#{$key}"');
+    }
+    $i: $i + 1;
+  }
+  @return $return;
+}
+
+/**
+ * validate
+ * Checks if $query given is one of the following:
+ * - Is a $key in the $breakpoints map
+ * - Is a number
+ * - Is a "max", "max-width" or "max-height" string
+ */
+@function validate($query, $breakpoints) {
+  $return: null;
+
+  @if map.has-key($breakpoints, $query) {
+    $return: map.get($breakpoints, $query);
+  }
+
+  @else if meta.type-of($query) == number {
+    $return: $query;
+  }
+
+  @else if $query == 'max' or $query == 'max-height' or $query == 'max-width' {
+    $return: 0;
+  }
+
+  @else {
+    $return: null;
+  }
+  @return $return;
+}
+
+/**
+ * convert-to-em
+ */
+@function convert-to-em($val) {
+  @if math.unit($val) == 'px' or $val == 0 {
+    @return functions.value-to-em($val);
+  }
+  @else if math.unit($val) == 'em' {
+    @return $val;
+  }
+  @else if math.unit($val) == 'rem' {
+    @return functions.strip-unit($val) * 1em;
+  }
+  @else {
+    @error 'Breakpoint value must have a unit if it’s a number';
   }
 }
 
