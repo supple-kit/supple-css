@@ -68,20 +68,12 @@
 /*  Rewritten MQ system
     ========================================================================= */
 
-@mixin bp($queries, $type: all, $breakpoints: defaults.$breakpoints) {
-  $collection: get-breakpoints($queries, $type, $breakpoints);
-
-  @media #{map.get($collection, type)} and #{map.get($collection, media-string)} {
-    @content;
-  }
-}
-
-@mixin new-mq($query, $queries: defaults.$queries) {
-  @if not map.has-key($queries, $query) {
+@mixin new-mq($query, $type: all) {
+  @if not map.has-key(defaults.$breakpoints-test, $query) {
     @error '#{$queries} does not contain #{$query}';
   }
 
-  $collection: get-breakpoints(map.get($queries, $query));
+  $collection: get-breakpoints(map.get(defaults.$breakpoints-test, $query), $type);
 
   @media #{map.get($collection, type)} and #{map.get($collection, media-string)} {
     @content;
@@ -94,10 +86,11 @@
  * type: Media type
  * media-string: media query string
  */
-@function get-breakpoints($queries, $type: all, $breakpoints: defaults.$breakpoints) {
+@function get-breakpoints($queries, $type: all) {
+  $breakpoints: defaults.$breakpoints-test;
   $media-string: ();
-  $_return: ();
-  $media-map: parse-breakpoints($queries, $breakpoints);
+  $return: ();
+  $media-map: parse-breakpoints($queries);
 
   @each $key, $value in $media-map {
     @if $value and $value != 0 {
@@ -110,18 +103,19 @@
       }
     }
   }
-  $_return: (
+  $return: (
     type: $type,
     media-string: functions.implode($media-string),
   );
 
-  @return $_return;
+  @return $return;
 }
 
 /**
  * parse-breakpoints
  */
-@function parse-breakpoints($queries, $breakpoints) {
+@function parse-breakpoints($queries) {
+  $breakpoints: defaults.$breakpoints-test;
   $return: ();
   $i: 1;
   $minw: null;
@@ -132,7 +126,7 @@
 
   // Checks for width queries
   $minw: list.nth($queries, 1);
-  $minw: validate($minw, $breakpoints);
+  $minw: validate($minw);
 
   // Check for width queries
   @if $minw {
@@ -144,7 +138,7 @@
   // Checks if there is a max width query
   @if $minw and $length >= 2 {
     $maxw: list.nth($queries, 2);
-    $maxw: validate($maxw, $breakpoints);
+    $maxw: validate($maxw);
   }
 
   @if $maxw {
@@ -154,31 +148,31 @@
   }
 
   // Checks for height queries
-  $_h: list.index($queries, h) or list.index($queries, height);
+  $h: list.index($queries, h) or list.index($queries, height);
 
-  @if $_h {
-    $minh: list.nth($queries, $_h + 1);
-    $minh: validate($minh, $breakpoints);
+  @if $h {
+    $minh: list.nth($queries, $h + 1);
+    $minh: validate($minh);
 
     @if $minh {
       $minh: convert-to-em($minh);
       $return: map.merge($return, (min-height: $minh));
-      $queries: list.set-nth($queries, $_h + 1, null);
+      $queries: list.set-nth($queries, $h + 1, null);
     }
 
     // Checks if there is a max height query
-    @if $length - $_h >= 2 {
-      $maxh: list.nth($queries, $_h + 2);
-      $maxh: validate($maxh, $breakpoints);
+    @if $length - $h >= 2 {
+      $maxh: list.nth($queries, $h + 2);
+      $maxh: validate($maxh);
     }
 
     @if $maxh {
       $maxh: convert-to-em($maxh - 1px);
       $return: map.merge($return, (max-height: $maxh));
-      $queries: list.set-nth($queries, $_h + 2, null);
+      $queries: list.set-nth($queries, $h + 2, null);
     }
     // Reset h marker
-    $queries: list.set-nth($queries, $_h, null);
+    $queries: list.set-nth($queries, $h, null);
   }
 
   // Checks for other queries
@@ -207,19 +201,30 @@
  * - Is a number
  * - Is a "max", "max-width" or "max-height" string
  */
-@function validate($query, $breakpoints) {
+@function validate($query) {
+  $breakpoints: defaults.$breakpoints-test;
   $return: null;
 
-  @if map.has-key($breakpoints, $query) {
-    $return: map.get($breakpoints, $query);
+  @if meta.type-of($query) == string {
+    @if map.has-key($breakpoints, $query) {
+      $queryValue: map.get($breakpoints, $query);
+
+      @if $queryValue == $query {
+        @error 'Uh, oh! The value "#{$queryValue}" is the same as key "#{$query}", you cannot set the value to its own key.';
+      } @else if meta.type-of($queryValue) != list {
+        $return: $queryValue;
+      } @else {
+        @error 'Uh, oh! "#{$query}" does not contain a single value, you cannot use a key with a list as value here.';
+      }
+    } @else if $query == 'max' or $query == 'max-height' or $query == 'max-width' {
+      $return: 0;
+    } @else {
+      @error 'Uh, oh! "#{$query}" is not available in defaults.$breakpoints-test';
+    }
   }
 
   @else if meta.type-of($query) == number {
     $return: $query;
-  }
-
-  @else if $query == 'max' or $query == 'max-height' or $query == 'max-width' {
-    $return: 0;
   }
 
   @else {

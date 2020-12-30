@@ -83,14 +83,14 @@ $breakpoints: (
   wall: 1280px
 ) !default;
 
-$queries: (
-  palm: palm,
-  lap: lap,
-  lap-to-desk: lap desk,
-  biggie: h 320px 700px,
-  desk: desk,
-  wall: wall
-);
+$breakpoints-test: (
+  palm: 320px,
+  lap: 640px,
+  desk: 960px,
+  wall: 1280px,
+  palm-to-desk: palm desk,
+  mix-and-match: palm desk h palm lap orientation landscape,
+) !default;
 
 
 /**
