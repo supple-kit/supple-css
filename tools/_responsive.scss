@@ -65,189 +65,27 @@
 
 
 
-/*  Rewritten MQ system
-    ========================================================================= */
+/*  Query
+    Apply a media query based queries defined in `defaults.$queries`.
 
-@mixin new-mq($query, $type: all) {
-  @if not map.has-key(defaults.$breakpoints-test, $query) {
-    @error '#{$queries} does not contain #{$query}';
+    Example usage:
+    @include responsive.query(wall) {
+      outline: 1px solid #ff0000;
+    }
+
+    Or you can pass in a type:
+    @include responsive.query(wall, print) {
+      outline: 1px solid #ff0000;
+    }
+/   ========================================================================= */
+
+@mixin query($name, $type: all) {
+  @if not map.has-key(defaults.$queries, $name) {
+    @error '"defaults.$queries" does not contain "#{$name}", expects one of the following: #{map.keys(defaults.$queries)}' ;
   }
 
-  $collection: get-breakpoints(map.get(defaults.$breakpoints-test, $query), $type);
-
-  @media #{map.get($collection, type)} and #{map.get($collection, media-string)} {
+  @media #{$type} and #{functions.get-breakpoints(map.get(defaults.$queries, $name))} {
     @content;
-  }
-}
-
-/**
- * get-breakpoints
- * Returns a map with 2 keys
- * type: Media type
- * media-string: media query string
- */
-@function get-breakpoints($queries, $type: all) {
-  $breakpoints: defaults.$breakpoints-test;
-  $media-string: ();
-  $return: ();
-  $media-map: parse-breakpoints($queries);
-
-  @each $key, $value in $media-map {
-    @if $value and $value != 0 {
-      @if $media-string == (()) {
-        $media-string: list.append($media-string, string.unquote('(#{$key}: #{$value})'));
-      }
-
-      @else {
-        $media-string: list.append($media-string, string.unquote('and (#{$key}: #{$value})'));
-      }
-    }
-  }
-  $return: (
-    type: $type,
-    media-string: functions.implode($media-string),
-  );
-
-  @return $return;
-}
-
-/**
- * parse-breakpoints
- */
-@function parse-breakpoints($queries) {
-  $breakpoints: defaults.$breakpoints-test;
-  $return: ();
-  $i: 1;
-  $minw: null;
-  $maxw: null;
-  $minh: null;
-  $maxh: null;
-  $length: list.length($queries);
-
-  // Checks for width queries
-  $minw: list.nth($queries, 1);
-  $minw: validate($minw);
-
-  // Check for width queries
-  @if $minw {
-    $minw: convert-to-em($minw);
-    $return: map.merge($return, (min-width: $minw));
-    $queries: list.set-nth($queries, 1, null);
-  }
-
-  // Checks if there is a max width query
-  @if $minw and $length >= 2 {
-    $maxw: list.nth($queries, 2);
-    $maxw: validate($maxw);
-  }
-
-  @if $maxw {
-    $maxw: convert-to-em($maxw - 1px);
-    $return: map.merge($return, (max-width: $maxw));
-    $queries: list.set-nth($queries, 2, null);
-  }
-
-  // Checks for height queries
-  $h: list.index($queries, h) or list.index($queries, height);
-
-  @if $h {
-    $minh: list.nth($queries, $h + 1);
-    $minh: validate($minh);
-
-    @if $minh {
-      $minh: convert-to-em($minh);
-      $return: map.merge($return, (min-height: $minh));
-      $queries: list.set-nth($queries, $h + 1, null);
-    }
-
-    // Checks if there is a max height query
-    @if $length - $h >= 2 {
-      $maxh: list.nth($queries, $h + 2);
-      $maxh: validate($maxh);
-    }
-
-    @if $maxh {
-      $maxh: convert-to-em($maxh - 1px);
-      $return: map.merge($return, (max-height: $maxh));
-      $queries: list.set-nth($queries, $h + 2, null);
-    }
-    // Reset h marker
-    $queries: list.set-nth($queries, $h, null);
-  }
-
-  // Checks for other queries
-  @while $i <= list.length($queries) {
-    $key: list.nth($queries, $i);
-
-    @if $key and $length - $i >= 1 {
-      $val: list.nth($queries, $i + 1);
-      $return: map.merge($return, (#{$key}: $val));
-      $queries: list.set-nth($queries, $i, null);
-      $queries: list.set-nth($queries, $i + 1, null);
-    }
-
-    @else if $key {
-      @warn string.unquote('Breakpoints is missing value for media feature "#{$key}"');
-    }
-    $i: $i + 1;
-  }
-  @return $return;
-}
-
-/**
- * validate
- * Checks if $query given is one of the following:
- * - Is a $key in the $breakpoints map
- * - Is a number
- * - Is a "max", "max-width" or "max-height" string
- */
-@function validate($query) {
-  $breakpoints: defaults.$breakpoints-test;
-  $return: null;
-
-  @if meta.type-of($query) == string {
-    @if map.has-key($breakpoints, $query) {
-      $queryValue: map.get($breakpoints, $query);
-
-      @if $queryValue == $query {
-        @error 'Uh, oh! The value "#{$queryValue}" is the same as key "#{$query}", you cannot set the value to its own key.';
-      } @else if meta.type-of($queryValue) != list {
-        $return: $queryValue;
-      } @else {
-        @error 'Uh, oh! "#{$query}" does not contain a single value, you cannot use a key with a list as value here.';
-      }
-    } @else if $query == 'max' or $query == 'max-height' or $query == 'max-width' {
-      $return: 0;
-    } @else {
-      @error 'Uh, oh! "#{$query}" is not available in defaults.$breakpoints-test';
-    }
-  }
-
-  @else if meta.type-of($query) == number {
-    $return: $query;
-  }
-
-  @else {
-    $return: null;
-  }
-  @return $return;
-}
-
-/**
- * convert-to-em
- */
-@function convert-to-em($val) {
-  @if math.unit($val) == 'px' or $val == 0 {
-    @return functions.value-to-em($val);
-  }
-  @else if math.unit($val) == 'em' {
-    @return $val;
-  }
-  @else if math.unit($val) == 'rem' {
-    @return functions.strip-unit($val) * 1em;
-  }
-  @else {
-    @error 'Breakpoint value must have a unit if it’s a number';
   }
 }
 

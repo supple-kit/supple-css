@@ -116,20 +116,3 @@
 @use '../../utilities/hidden' with (
   $in-breakpoint: (lap, desk),
 );
-
-* {
-  @include responsive.new-mq(mix-and-match) {
-    outline: 1px solid #ff0000;
-  }
-  @include responsive.new-mq(palm-to-desk) {
-    outline: 1px solid #00ff00;
-  }
-
-  // @include responsive.new-mq(biggie) {
-  //   border: 1px solid #ff00ff;
-  // }
-
-  // @include responsive.new-mq(desk) {
-  //   border: 1px solid #00ff00;
-  // }
-}

@@ -9,6 +9,7 @@
 
 @use 'sass:map';
 @use 'sass:math';
+@use 'sass:meta';
 
 
 
@@ -83,14 +84,12 @@ $breakpoints: (
   wall: 1280px
 ) !default;
 
-$breakpoints-test: (
-  palm: 320px,
-  lap: 640px,
-  desk: 960px,
-  wall: 1280px,
-  palm-to-desk: palm desk,
-  mix-and-match: palm desk h palm lap orientation landscape,
-) !default;
+$queries: (
+  palm: palm,
+  lap: lap,
+  desk: desk,
+  wall: wall
+);
 
 
 /**
@@ -182,4 +181,19 @@ $shouldBeUnitlessIntegers: (
  */
 @if not map.has-key($space-factors, 'base') {
   @error '`$space-factors` needs to contain atleast one entry named 'base' since supple-css internally relies on this.';
+}
+
+
+/**
+ * Check if $queries is in the right format
+ */
+@each $key, $value in $queries {
+  @if meta.type-of($value) == map {
+    @if map.has-key($value, min) and map.has-key($value, min-width) {
+      @error 'defaults.$queries: "min" and "min-width" keys are both compiled to "min-width" queries. Use one or the other.';
+    }
+    @if map.has-key($value, max) and map.has-key($value, max-width) {
+      @error 'defaults.$queries: "max" and "max-width" keys are both compiled to "min-width" queries. Use one or the other.';
+    }
+  }
 }
