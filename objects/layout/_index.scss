@@ -199,7 +199,7 @@ $selector: '> *';
  * Make an item shrink wrap its content.
  */
 .o-layout__fit {
-  @include responsive.in-breakpoint(variables.$fit-in-breakpoint) {
+  @include responsive.query-has(variables.$query-has-fit) {
     flex-basis: auto;
   }
 }
@@ -213,7 +213,7 @@ $selector: '> *';
  *    container has no explicit width.
  */
 .o-layout__fill {
-  @include responsive.in-breakpoint(variables.$fill-in-breakpoint) {
+  @include responsive.query-has(variables.$query-has-fill) {
     flex: auto;
     inline-size: 0%; /* [1] */
   }
