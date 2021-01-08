@@ -19,6 +19,7 @@
  * Use the settings & tools in this sheet
  */
 @use 'sass:list';
+@use 'sass:meta';
 @use '../../settings/defaults';
 @use './variables';
 @use '../../tools/responsive';
@@ -36,22 +37,14 @@
 /*  Responsive
     ========================================================================= */
 
-@each $breakpoint in variables.$in-breakpoint {
-  @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
-    @if type-of(list.nth($breakpoint, 2)) == 'list' {
-      @each $point in list.nth($breakpoint, 2) {
-        @include responsive.supple-mq($point, list.nth($breakpoint, 1)) {
-          @include tools.build('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point}');
-        }
-      }
-    } @else {
-      @include responsive.supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
-        @include tools.build('#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)}');
-      }
+@if meta.type-of(variables.$in-query) == 'list' {
+  @each $query in variables.$in-query {
+    @include responsive.query($query) {
+      @include tools.build('#{defaults.$responsive-modifier}#{$query}');
     }
-  } @else {
-    @include responsive.supple-mq($breakpoint) {
-      @include tools.build('#{defaults.$responsive-modifier}from-#{$breakpoint}');
-    }
+  }
+} @else {
+  @include responsive.query(variables.$in-query) {
+    @include tools.build('#{defaults.$responsive-modifier}from-#{$breakpoint}');
   }
 }
