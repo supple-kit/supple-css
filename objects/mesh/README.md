@@ -114,11 +114,11 @@ You can nest mesh in any context. Keep in mind that the dimensions will be relat
 ```
 
 ### responsive modifiers
-When you set breakpoints in `$row-in-breakpoint` you can use it like this:
+When you set breakpoints in `$row-in-query` you can use it like this:
 
 ```html
 <div class="o-mesh">
-  <div class="o-mesh__row@from-lap">
+  <div class="o-mesh__row@lap">
     spans 1 column and from lap breakpoint it will span 12 columns (full row).
   </div>
 </div>
@@ -136,7 +136,7 @@ When you set breakpoints in `$row-in-breakpoint` you can use it like this:
 
 **On the grid item element**
 * `.o-mesh__row`: Spans a full row
-* `.o-mesh__row@[from|until]-[BREAKPOINT-NAME]`: Spans full row on a certain breakpoint (available in `$row-in-breakpoint` SCSS setting)
+* `.o-mesh__row@[QUERY-NAME]`: Spans full row on a certain media query (available in `$row-in-query` SCSS setting)
 
 
 ## Configurable variables
@@ -164,14 +164,14 @@ There are multiple ways to configure the mesh object. The Custom properties are 
 ### SCSS variables
 
 * `$gaps`: a list of gaps where possible `.o-mesh--gap-X` are generated from, defaults to `('base')`
-* `$row-in-breakpoint`: a list of breakpoints where `o-mesh__row` is generated for,  defaults to `()`
+* `$row-in-query`: a list of queries where `o-mesh__row` is generated for,  defaults to `()`
 
 You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/mesh' with (
-  $row-in-breakpoint: (lap, desk),
+  $row-in-query: (lap, desk),
   $gaps: (
     'base',
     'tiny',
@@ -182,7 +182,7 @@ or
 ```scss
 // in your own variable file, eg. `_vars.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with (
-  $row-in-breakpoint: (lap, desk),
+  $row-in-query: (lap, desk),
   $gaps: (
     'tiny',
     'huge',

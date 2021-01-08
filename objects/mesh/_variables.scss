@@ -36,21 +36,14 @@ $flow-min-inline-size: 200px !default;
 
 
 /**
- * Define which namespaced breakpoints you would like to generate for `row`.
+ * Define which namespaced queries you would like to generate for `row`.
  * This is handy if you only need `row` on, say, desk, or you only need `row`
  * at mobile sizes. It allows you to only compile as much CSS as you need.
- * All are empty by default, but you can add breakpoints at will:
+ * All are empty by default, but you can add queries at will:
  *
- * $row-in-breakpoint: (lap, desk);
+ * $row-in-query: (lap, desk);
  *
- * Or
- *
- * $row-in-breakpoint: (
- *   from: lap,
- *   until: lap desk,
- * );
- *
- * Note: the name of the breakpoint must exist in the list of `$breakpoints`
+ * Note: the name of the query must exist in the list of `$queries`
  *       in `settings/responsive`
  */
-$row-in-breakpoint: () !default;
+$row-in-query: () !default;

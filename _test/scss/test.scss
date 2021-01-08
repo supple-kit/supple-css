@@ -48,7 +48,7 @@
   )
 );
 @use '../../objects/mesh' with (
-  $row-in-breakpoint: (lap, desk),
+  $row-in-query: (lap, desk),
   $gaps: (
     'base',
     'tiny'
