@@ -34,12 +34,12 @@ $gaps: (
  * for `fit` & `fill`.
  * This is handy if you only need `fit` on, say, desk, or you only need `fill`
  * at mobile sizes. It allows you to only compile as much CSS as you need.
- * All are empty by default, but you can add breakpoints at will:
+ * All are empty by default, but you can add queries at will:
  *
- * $X-in-breakpoint: (lap, desk);
+ * $X-in-query: (lap, desk);
  *
- * Note: the name of the breakpoint must exist in the list of `$queries`
+ * Note: the name of the query must exist in the list of `$queries`
  *       in `settings/responsive`
  */
-$query-has-fit: () !default;
-$query-has-fill: () !default;
+$fit-in-query: () !default;
+$fill-in-query: () !default;

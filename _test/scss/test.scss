@@ -40,8 +40,8 @@
 
 @use '../../objects/list-clean';
 @use '../../objects/layout' with (
-  $query-has-fit: (lap, desk),
-  $query-has-fill: lap,
+  $fit-in-query: (lap, desk),
+  $fill-in-query: lap,
   $gaps: (
     'base',
     'tiny'
