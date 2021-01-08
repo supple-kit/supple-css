@@ -183,3 +183,40 @@
     }
   }
 }
+
+
+
+/*  query-has
+    A little helper mixin to quickly create responsive variants of a certain
+    selector. The mixin's `@content` will be also applied to the parent selector.
+
+    Example usage:
+    $query-has-YOURMODULE: (lap, desk);
+    .your-module {
+      @include responsive.query-has($query-has-YOURMODULE) {
+        outline: 1px solid #ff0000;
+      }
+    }
+    ========================================================================= */
+
+
+@mixin query-has($queries) {
+  @content;
+
+  @if meta.type-of($queries) == list {
+    @each $query in $queries {
+      @include query($query) {
+        &#{defaults.$responsive-modifier}#{$query} {
+          @content;
+        }
+      }
+    }
+  }
+  @else if meta.type-of($queries) == string {
+    @include query($queries) {
+      &#{defaults.$responsive-modifier}#{$queries} {
+        @content;
+      }
+    }
+  }
+}

@@ -81,8 +81,6 @@
   $i: 1;
   $minW: null;
 
-  @debug meta.type-of($query);
-
   // contains map
   @if meta.type-of($query) == map {
     @each $key, $value in $query {
