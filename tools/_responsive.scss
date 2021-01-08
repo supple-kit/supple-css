@@ -186,21 +186,21 @@
 
 
 
-/*  query-has
+/*  in-query
     A little helper mixin to quickly create responsive variants of a certain
     selector. The mixin's `@content` will be also applied to the parent selector.
 
     Example usage:
-    $query-has-YOURMODULE: (lap, desk);
+    $in-query-YOURMODULE: (lap, desk);
     .your-module {
-      @include responsive.query-has($query-has-YOURMODULE) {
+      @include responsive.in-query($in-query-YOURMODULE) {
         outline: 1px solid #ff0000;
       }
     }
     ========================================================================= */
 
 
-@mixin query-has($queries) {
+@mixin in-query($queries) {
   @content;
 
   @if meta.type-of($queries) == list {
