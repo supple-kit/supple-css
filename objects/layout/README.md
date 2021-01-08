@@ -127,14 +127,14 @@ You can nest layouts in any context. Keep in mind that the dimensions will be re
 ```
 
 ### responsive elements
-When you set breakpoints in `$fill-in-breakpoint` or `$fit-in-breakpoint` you can use them like this:
+When you set queries in `$fill-in-query` or `$fit-in-query` you can use them like this:
 
 ```html
 <div class="o-layout">
-  <div class="o-layout__fit@from-lap">
+  <div class="o-layout__fit@lap">
     100% and from lap breakpoint it will fit to content
   </div>
-  <div class="o-layout__fill@from-lap">
+  <div class="o-layout__fill@lap">
     100% and from lap breakpoint it will fill remaining space
   </div>
 </div>
@@ -174,7 +174,7 @@ By default, the cell styling is applied to the direct child. If for any reason t
 * `.o-layout__align-inline-center`: Center one cell on the inline axis
 * `.o-layout__fit`: Make a cell shrink wrap its content
 * `.o-layout__fill`: Make a cell fill the remaining space.
-* `.o-layout__[fit|fill]@[from|until]-[BREAKPOINT-NAME]`: applies `fit` or `fill` at the given breakpoint. (available in `$[fit|fill]-in-breakpoint` SCSS setting)
+* `.o-layout__[fit|fill]@[QUERY-NAME]`: applies `fit` or `fill` at the given media query. (available in `$[fit|fill]-in-query` SCSS setting)
 * `.o-layout__cell`: Wrap the child component to fix some super specific bugs. Only use this when all of the above somehow not works.
 
 
@@ -197,15 +197,15 @@ There are multiple ways to configure the layout object. The Custom properties ar
 ### SCSS variables
 
 * `$gaps`: a list of gaps where possible `.o-layout--gap-X` are generated from, defaults to `('base')`
-* `$fit-in-breakpoint`: a list of breakpoints where `o-layout__fit` is generated for,  defaults to `()`
-* `$fill-in-breakpoint`: a list of breakpoints where `o-layout__fill` is generated for,  defaults to `()`
+* `$fit-in-query`: a list of queries where `o-layout__fit` is generated for,  defaults to `()`
+* `$fill-in-query`: a list of queries where `o-layout__fill` is generated for,  defaults to `()`
 
 You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/layout' with (
-  $fit-in-breakpoint: (lap, desk),
+  $fit-in-query: (lap, desk),
   $gaps: (
     'base',
     'tiny',
@@ -216,7 +216,7 @@ or
 ```scss
 // in your own variable file, eg. `_vars.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/layout/variables' with (
-  $fit-in-breakpoint: (lap, desk),
+  $fit-in-query: (lap, desk),
   $gaps: (
     'tiny',
     'huge',
