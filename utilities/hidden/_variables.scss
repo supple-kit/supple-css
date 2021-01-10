@@ -6,21 +6,14 @@
     ========================================================================= */
 
 /**
- * Define which namespaced breakpoints you would like to generate for `hidden`.
+ * Define which namespaced queries you would like to generate for `hidden`.
  * This is handy if you only need `hidden` on, say, desk, or you only need it
  * at mobile sizes. It allows you to only compile as much CSS as you need.
- * All are empty by default, but you can add breakpoints at will.
+ * All are empty by default, but you can add queries at will.
  *
- * $in-breakpoint: (lap, desk);
+ * $in-query: (lap, desk);
  *
- * Or
- *
- * $in-breakpoint: (
- *   from: lap,
- *   until: lap desk,
- * );
- *
- * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
- *       in `settings/responsive`
+ * Note: the name of the query must exist in the list of `$queries`
+ *       in `settings/defaults`
  */
-$in-breakpoint: () !default;
+$in-query: () !default;

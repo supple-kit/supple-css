@@ -47,7 +47,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 By default we generate classes for 12 columns but it can be configured with the `$columns` setting.
 
 * `.u-colspan-X`, spans over the designated number of columns
-* `.u-colspan-X[QUERY-NAME]`: applies colspan at the given breakpoint. (available in `$in-query` SCSS setting)
+* `.u-colspan-X@[QUERY-NAME]`: applies colspan at the given media query. (available in `$in-query` SCSS setting)
 
 
 ## Configurable variables

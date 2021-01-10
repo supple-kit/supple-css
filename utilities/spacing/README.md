@@ -35,10 +35,10 @@ This utility generates set of classes mostly used by Supple's users. You can add
 The are a lot more combinations possible, please check [the variables SCSS file](./_variables.scss) for more options.
 
 ### responsive modifiers
-When you set breakpoints in `$in-breakpoint` you can use them like this:
+When you set media queries in `$in-query` you can use them like this:
 
 ```html
-<div class="u-padding-block-start--tiny@until-palm  u-padding-block-start--base@from-desk">
+<div class="u-padding-block-start--tiny@palm  u-padding-block-start--base@desk">
   Applies padding at the start of the block axis with the `tiny` spacing value until `palm` breakpoint.
   Applies padding at the start of the block axis with the value of `base` spacing value from `palm` breakpoint.
 </div>
@@ -46,7 +46,7 @@ When you set breakpoints in `$in-breakpoint` you can use them like this:
 
 ## Available classes
 
-* `.u-[PROPERTY]--[SIZE]`: core visually hidden block
+* `.u-[PROPERTY]--[SIZE]`: core spacing block
 
 ## Configurable variables
 
@@ -96,15 +96,15 @@ $sizes: (
 );
 ```
 
-#### `$in-breakpoint`
-a list of breakpoints where `.u-[PROPERTY]--[SIZE]@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
+#### `$in-query`
+a list of media queries where `.u-[PROPERTY]--[SIZE]@[QUERY-NAME]` is generated for, defaults to: `()`
 
 You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/spacing' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
   $properties: (
     'm': 'margin',
     'p': 'padding',
@@ -118,10 +118,7 @@ or
 ```scss
 // in your own variable file, eg. `_vars.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/spacing/variables' with (
-  $in-breakpoint: (
-    from: lap,
-    until: lap desk,
-  ),
+  $in-query: lap,
   $sizes: (
     'tiny',
     'large',

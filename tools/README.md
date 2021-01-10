@@ -25,7 +25,7 @@ Supple’s tools are categorised so you only need to `@use` the tools you want:
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 .your-module {
-  @include responsive.mq($from: name) {
+  @include responsive.query('lap') {
     margin-inline-start: space.get('tiny');
   }
 }
@@ -200,13 +200,13 @@ You can `@use` this tool in your own component like this:
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 ```
 
-### Mixin: `responsive.mq()`
-Supples wrapper for the [sass-mq mq mixin](https://sass-mq.github.io/sass-mq/#undefined-mixin-mq). For documentation please refer to the [sass-mq docs](https://sass-mq.github.io/sass-mq).
+### Mixin: `responsive.query()`
+Apply a media query defined in `defaults.$queries`.
 
 #### Usage
 ```scss
 .selector {
-  @include responsive.mq($from: lap) {
+  @include responsive.query('lap') {
     outline: 1px solid #ff0000;
   }
 }
@@ -251,7 +251,7 @@ The property will start scaling and stop scaling exactly where you want.
 }
 ```
 
-### Mixin: `responsive.in-breakpoint()`
+### Mixin: `responsive.in-query()`
 A little helper mixin to quickly create responsive variants of a certain selector.
 The mixin's `@content` will be also applied to the parent selector.
 
@@ -259,33 +259,25 @@ The mixin's `@content` will be also applied to the parent selector.
 
 | Name | Description | Type | Default       |
 | - | - | - | - |
-| `$breakpoints` | list of breakpoints | `Map` | - |
+| `$queries` | list of breakpoints | `List` | - |
 
 
 #### Usage
 ```scss
-$YOURMODULE-in-breakpoint: (
-  from: lap desk,
-  until: desk,
-);
+$YOURMODULE-in-query: (lap, desk);
 .your-selector {
-  @include responsive.in-breakpoint($YOURMODULE-in-breakpoint) {
+  @include responsive.in-query($YOURMODULE-in-query) {
     outline: 1px solid #ff0000;
   }
 }
 // becomes:
 @media (min-width: 40em) {
-  .your-selector\@from-lap {
+  .your-selector\@lap {
     outline: 1px solid #ff0000;
   }
 }
 @media (min-width: 60em) {
-  .your-selector\@from-desk {
-    outline: 1px solid #ff0000;
-  }
-}
-@media (max-width: 59.99em) {
-  .your-selector\@until-desk {
+  .your-selector\@desk {
     outline: 1px solid #ff0000;
   }
 }

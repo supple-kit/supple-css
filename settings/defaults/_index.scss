@@ -59,20 +59,7 @@ $columns: 12 !default;
 
 
 /*  Responsive
-    Used in conjunction with Sass MQ: https://sass-mq.github.io/sass-mq/
-    ========================================================================= */
-
-/**
- * Enable/disable responsive mode
- */
-$responsive: true !default;
-
-
-/**
- * Static breakpoint variable/name for use in retainers & breakpoints
- */
-$static-breakpoint-name: wall !default;
-
+/   ========================================================================= */
 
 /**
  * Breakpoints sass map
@@ -89,31 +76,7 @@ $queries: (
   lap: lap,
   desk: desk,
   wall: wall
-);
-
-
-/**
- * A map to show specific breakpoints for debug purposes
- */
-$show-breakpoints: () !default;
-
-
-/**
- * Customize the media type
- */
-$media-type: all !default;
-
-
-/**
- * Load sass-mq framework
- */
-@use '../../vendor/sass-mq/mq' with (
-  $mq-responsive: $responsive,
-  $mq-breakpoints: $breakpoints,
-  $mq-static-breakpoint: $static-breakpoint-name,
-  $mq-show-breakpoints: $show-breakpoints,
-  $mq-media-type: $media-type,
-);
+) !default;
 
 
 

@@ -6,9 +6,7 @@
 /*  Settings
     ========================================================================= */
 
-@use '../../settings/defaults' with (
-  $show-breakpoints: (palm, lap, desk, wall)
-);
+@use '../../settings/defaults';
 
 
 
@@ -92,27 +90,24 @@
     ========================================================================= */
 
 @use '../../utilities/columns' with (
-  $in-breakpoint: (lap, desk),
-);
-@use '../../utilities/colspan' with (
   $in-query: (lap, desk),
 );
+@use '../../utilities/colspan' with (
+  $in-query: lap,
+);
 @use '../../utilities/colstart' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/offset' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/clearfix';
 @use '../../utilities/spacing' with (
-  $in-breakpoint: (
-    from: lap,
-    until: lap desk,
-  )
+  $in-query: (lap, desk)
 );
 @use '../../utilities/visually-hidden' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/hidden' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );

@@ -42,10 +42,10 @@ And when you need the variables in your own module you can use them like this:
 // Use defaults and make variables available through `defaults.` prefix.
 @use 'node_modules/@supple-kit/supple-css/settings/defaults';
 // Use tools and make tools available through the `tools.` prefix.
-@use 'node_modules/@supple-kit/supple-css/tools';
+@use 'node_modules/@supple-kit/supple-css/tools/rem';
 
 .your-module__element {
-  @include tools.mixins-rem(margin-inline-start, defaults.$columns);
+  @include rem.convert(margin-inline-start, defaults.$baseline);
 }
 ```
 
@@ -140,12 +140,6 @@ Working with breakpoints is pretty straightforward. You can add as many breakpoi
 
 **example:**
 ```scss
-// Responsive mode
-$responsive: true;
-
-// the name of the static breakpoint
-$static-breakpoint-name: wall;
-
 // Breakpoint list
 // Name your breakpoints in a way that creates a ubiquitous language across team members.
 // It will improve communication between stakeholders, designers, developers, and testers.
@@ -156,15 +150,39 @@ $breakpoints: (
   wall: 1280px
 );
 
-// Show breakpoints in the top right corner, for debug purposes
-$show-breakpoints: (lap, wall);
 
-// Customize the media type
-$media-type: all;
+// Query list, which is used by the `responsive.query()` mixin.
+// Name your queries in a way that creates a ubiquitous language across team members.
+// You can reference `$breakpoints` by name or you can enter a `px` or `em` value
+// You can create complex media queries like this:
+$queries: (
+  // min-width
+  palm: palm,
+  lap: lap,
+  desk: desk,
+  wall: wall,
+  // max-width
+  until-desk: (
+    max: desk
+  ),
+  // min-width & max-width
+  lap-until-desk: (
+    min: lap,
+    max: desk
+  ),
+  // min-width & max-width with generic px value
+  lap-until-generic: (
+    min-width: lap,
+    max-width: 1024px
+  ),
+  // You can also apply height queries
+  height-large-until-huge: (
+    min-height: 640px,
+    max-height: 1024px
+  )
+);
+
 ```
-
-**Note** Supple's responsive system is underpinned by [Sass-MQ 5.0.1](https://sass-mq.github.io/sass-mq/). Supple only provides mixin wrappers and config options which in turn are being fed directly to Sass-MQ. If you have any problems, please raise an issue [here](https://github.com/sass-mq/sass-mq/issues).
-
 
 ### Namespace
 By default all responsive classes are prefixed with `@`. This way it is clear that, for example, `u-colspan-8@from-palm` is a responsive modifier. You can however change the `@` to anything you like:

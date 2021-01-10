@@ -1,12 +1,12 @@
 /*  =========================================================================
     tools.responsive
     desc
-    ========================================================================= */
+/   ========================================================================= */
 
 /*  Use/Forward rules
     `@use` or `@forward` everything you need here from other files.
     These can include variables, mixins & other includes.
-    ========================================================================= */
+/   ========================================================================= */
 
 @use 'sass:list';
 @use 'sass:math';
@@ -14,59 +14,13 @@
 @use 'sass:meta';
 @use 'sass:string';
 @use '../settings/defaults';
-@use '../vendor/sass-mq/mq' as sassmq;
 @use '_internal/functions';
 @use 'rem';
 
 
 
-/*  Wrappers to sass-mq
-    ========================================================================= */
-
-@mixin mq($args...) {
-  @include sassmq.mq($args...) {
-    @content;
-  }
-}
-
-@mixin add-breakpoint($args...) {
-  @include sassmq.mq-add-breakpoint($args...);
-}
-
-@mixin show-breakpoints($args...) {
-  @include sassmq.mq-show-breakpoints($args...);
-}
-
-
-
-/*  supple-mq
-    A little wrapper around sass-mq which alows us to pass in a string based
-    direction instead of direction variable.
-
-    Example usage:
-    @include supple-mq(wall, until) {
-      outline: 1px solid #ff0000;
-    }
-    ========================================================================= */
-
-@mixin supple-mq($name, $direction: from) {
-  @if ($direction == from) {
-    @include mq($from: $name) {
-      @content;
-    }
-  } @else if ($direction == until) {
-    @include mq($until: $name) {
-      @content;
-    }
-  } @else {
-    @error '#{$direction} is not a valid sass-mq direction';
-  }
-}
-
-
-
 /*  Query
-    Apply a media query based queries defined in `defaults.$queries`.
+    Apply a media query defined in `defaults.$queries`.
 
     Example usage:
     @include responsive.query(wall) {
@@ -91,6 +45,44 @@
 
 
 
+/*  in-query
+    A little helper mixin to quickly create responsive variants of a certain
+    selector. The mixin's `@content` will be also applied to the parent selector.
+
+    Example usage:
+    $in-query-YOURMODULE: (lap, desk);
+    .your-module {
+      @include responsive.in-query($in-query-YOURMODULE) {
+        outline: 1px solid #ff0000;
+      }
+    }
+/   ========================================================================= */
+
+
+@mixin in-query($queries) {
+  @content;
+
+  @if meta.type-of($queries) == list {
+    @each $query in $queries {
+      @include query($query) {
+        &#{defaults.$responsive-modifier}#{$query} {
+          @content;
+        }
+      }
+    }
+  }
+  @else if meta.type-of($queries) == string {
+    @include query($queries) {
+      &#{defaults.$responsive-modifier}#{$queries} {
+        @content;
+      }
+    }
+  }
+}
+
+
+
+
 /*  Clamp
     Basic usage:
 
@@ -102,7 +94,7 @@
     You can also redefine the min- and max breakpoints like this:
 
     padding: responsive.clamp(18px, 24px, desk, wall);
-    ========================================================================= */
+/   ========================================================================= */
 
 @function clamp($size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
   $return: $size-min;
@@ -132,91 +124,4 @@
   }
 
   @return $return;
-}
-
-
-
-/*  in-breakpoint
-    A little helper mixin to quickly create responsive variants of a certain
-    selector. The mixin's `@content` will be also applied to the parent selector.
-
-    Example usage:
-    $YOURMODULE-in-breakpoint: (
-      from: lap desk,
-      until: desk,
-    );
-    .your-module {
-      @include responsive.in-breakpoint($YOURMODULE-in-breakpoint) {
-        outline: 1px solid #ff0000;
-      }
-    }
-    ========================================================================= */
-
-
-@mixin in-breakpoint($breakpoints) {
-  @content;
-
-  @each $breakpoint in $breakpoints {
-    @if ((list.nth($breakpoint, 1) == 'from' or list.nth($breakpoint, 1) == 'until') and list.nth($breakpoint, 2)) {
-      // if the second argument is a list, loop over it
-      @if meta.type-of(list.nth($breakpoint, 2)) == 'list' {
-        @each $point in list.nth($breakpoint, 2) {
-          @include supple-mq($point, list.nth($breakpoint, 1)) {
-            &#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{$point} {
-              @content;
-            }
-          }
-        }
-      } @else {
-        @include supple-mq(list.nth($breakpoint, 2), list.nth($breakpoint, 1)) {
-          &#{defaults.$responsive-modifier}#{list.nth($breakpoint, 1)}-#{list.nth($breakpoint, 2)} {
-            @content;
-          }
-        }
-      }
-    } @else {
-      @include supple-mq($breakpoint) {
-        &#{defaults.$responsive-modifier}from-#{$breakpoint} {
-          @content;
-        }
-      }
-    }
-  }
-}
-
-
-
-/*  in-query
-    A little helper mixin to quickly create responsive variants of a certain
-    selector. The mixin's `@content` will be also applied to the parent selector.
-
-    Example usage:
-    $in-query-YOURMODULE: (lap, desk);
-    .your-module {
-      @include responsive.in-query($in-query-YOURMODULE) {
-        outline: 1px solid #ff0000;
-      }
-    }
-    ========================================================================= */
-
-
-@mixin in-query($queries) {
-  @content;
-
-  @if meta.type-of($queries) == list {
-    @each $query in $queries {
-      @include query($query) {
-        &#{defaults.$responsive-modifier}#{$query} {
-          @content;
-        }
-      }
-    }
-  }
-  @else if meta.type-of($queries) == string {
-    @include query($queries) {
-      &#{defaults.$responsive-modifier}#{$queries} {
-        @content;
-      }
-    }
-  }
 }
