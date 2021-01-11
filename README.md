@@ -16,9 +16,9 @@ Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework i
 
 ## Why use Supple
 
-> It is a small but powerful (S)CSS framework designed especially with modern browsers in mind. The framework is made with an eye on the future. It uses utilizes new [CSS webstandards](https://cssdb.org/) like custom properties, Grid layout, Flexbox, logical properties.
+> It is a small but powerful (S)CSS framework designed especially with modern browsers in mind. The framework is made with an eye on the future. It uses new CSS webstandards like custom properties, Grid layout, Flexbox, logical properties.
 
-Supple provides little to no design which means no undoing other people’s design decisions. This means that the style and design of your site are left entirely up to you. Because Supple gives you lots of customizable foundations you only need to add the final layer: **UI**.
+Supple provides little to no design. This means that the style and design of your site are left entirely up to you. Because Supple gives you lots of customizable foundations you only need to add the final layer: **UI**.
 
 
 ## Features
