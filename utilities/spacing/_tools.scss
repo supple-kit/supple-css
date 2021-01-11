@@ -24,7 +24,7 @@
 /*  Mixins
     ========================================================================= */
 
-@mixin render($modifier: '') {
+@mixin build($modifier: '') {
   @each $property-namespace, $property in variables.$properties {
     @each $size in variables.$sizes {
       .u-#{$property-namespace}--#{$size}#{$modifier} {

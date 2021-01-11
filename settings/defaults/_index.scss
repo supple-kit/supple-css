@@ -9,6 +9,7 @@
 
 @use 'sass:map';
 @use 'sass:math';
+@use 'sass:meta';
 
 
 
@@ -58,20 +59,7 @@ $columns: 12 !default;
 
 
 /*  Responsive
-    Used in conjunction with Sass MQ: https://sass-mq.github.io/sass-mq/
-    ========================================================================= */
-
-/**
- * Enable/disable responsive mode
- */
-$responsive: true !default;
-
-
-/**
- * Static breakpoint variable/name for use in retainers & breakpoints
- */
-$static-breakpoint-name: wall !default;
-
+/   ========================================================================= */
 
 /**
  * Breakpoints sass map
@@ -83,29 +71,12 @@ $breakpoints: (
   wall: 1280px
 ) !default;
 
-
-/**
- * A map to show specific breakpoints for debug purposes
- */
-$show-breakpoints: () !default;
-
-
-/**
- * Customize the media type
- */
-$media-type: all !default;
-
-
-/**
- * Load sass-mq framework
- */
-@use '../../vendor/sass-mq/mq' with (
-  $mq-responsive: $responsive,
-  $mq-breakpoints: $breakpoints,
-  $mq-static-breakpoint: $static-breakpoint-name,
-  $mq-show-breakpoints: $show-breakpoints,
-  $mq-media-type: $media-type,
-);
+$queries: (
+  palm: palm,
+  lap: lap,
+  desk: desk,
+  wall: wall
+) !default;
 
 
 
@@ -173,4 +144,19 @@ $shouldBeUnitlessIntegers: (
  */
 @if not map.has-key($space-factors, 'base') {
   @error '`$space-factors` needs to contain atleast one entry named 'base' since supple-css internally relies on this.';
+}
+
+
+/**
+ * Check if $queries is in the right format
+ */
+@each $key, $value in $queries {
+  @if meta.type-of($value) == map {
+    @if map.has-key($value, min) and map.has-key($value, min-width) {
+      @error 'defaults.$queries: "min" and "min-width" keys are both compiled to "min-width" queries. Use one or the other.';
+    }
+    @if map.has-key($value, max) and map.has-key($value, max-width) {
+      @error 'defaults.$queries: "max" and "max-width" keys are both compiled to "min-width" queries. Use one or the other.';
+    }
+  }
 }

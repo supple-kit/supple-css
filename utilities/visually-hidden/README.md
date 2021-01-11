@@ -23,12 +23,12 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 ```
 
 ### responsive modifiers
-When you set breakpoints in `$in-breakpoint` you can use them like this:
+When you set media queries in `$in-query` you can use them like this:
 
 ```html
 <button>
   This button has text that is
-  <span class="u-visually-hidden@from-lap">Hidden visually from lap breakpoint but still available for screenreaders etc.</span>
+  <span class="u-visually-hidden@lap">Hidden visually from lap breakpoint but still available for screenreaders etc.</span>
 </button>
 ```
 
@@ -37,29 +37,28 @@ When you set breakpoints in `$in-breakpoint` you can use them like this:
 **On the `.u-visually-hidden` block**
 
 * `.u-visually-hidden`: core visually hidden block
-* `.u-visually-hidden@[from|until]-[BREAKPOINT-NAME]`: applies visually-hidden at the given breakpoint. (available in `$in-breakpoint` SCSS setting)
+* `.u-visually-hidden@[QUERY-NAME]`: applies visually-hidden at the given media query. (available in `$in-query` SCSS setting)
 
 ## Configurable variables
 
 ### SCSS variables
 
-* `$in-breakpoint`: a list of breakpoints where `.u-visually-hidden@[from|until]-[BREAKPOINT-NAME]` is generated for, defaults to: `()`
+* `$in-query`: a list of breakpoints where `.u-visually-hidden@[QUERY-NAME]` is generated for, defaults to: `()`
 
 You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 ```
 or
 ```scss
 // in your own variable file, eg. `_vars.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden/variables' with (
-  $in-breakpoint: (
-    from: lap,
-    until: lap desk,
+  $in-query: (
+    lap
   ),
 );
 

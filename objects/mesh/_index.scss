@@ -99,7 +99,7 @@ $selector: '> *';
  * 1. Overwrite any previously set column start
  */
 .o-mesh__row {
-  @include responsive.in-breakpoint(variables.$row-in-breakpoint) {
+  @include responsive.in-query(variables.$row-in-query) {
     --colstart: 0; /* [1] */
     --colspan: 12;
   }

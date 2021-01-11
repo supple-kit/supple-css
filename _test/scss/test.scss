@@ -6,9 +6,7 @@
 /*  Settings
     ========================================================================= */
 
-@use '../../settings/defaults' with (
-  $show-breakpoints: (palm, lap, desk, wall)
-);
+@use '../../settings/defaults';
 
 
 
@@ -17,6 +15,7 @@
 
 // @import '../../tools/functions';
 // @use '../../tools/mixins';
+@use '../../tools/responsive';
 
 
 
@@ -39,15 +38,15 @@
 
 @use '../../objects/list-clean';
 @use '../../objects/layout' with (
-  $fit-in-breakpoint: (lap, desk),
-  $fill-in-breakpoint: (lap, desk),
+  $fit-in-query: (lap, desk),
+  $fill-in-query: lap,
   $gaps: (
     'base',
     'tiny'
   )
 );
 @use '../../objects/mesh' with (
-  $row-in-breakpoint: (lap, desk),
+  $row-in-query: (lap, desk),
   $gaps: (
     'base',
     'tiny'
@@ -91,27 +90,24 @@
     ========================================================================= */
 
 @use '../../utilities/columns' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/colspan' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: lap,
 );
 @use '../../utilities/colstart' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/offset' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/clearfix';
 @use '../../utilities/spacing' with (
-  $in-breakpoint: (
-    from: lap,
-    until: lap desk,
-  )
+  $in-query: (lap, desk)
 );
 @use '../../utilities/visually-hidden' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
 @use '../../utilities/hidden' with (
-  $in-breakpoint: (lap, desk),
+  $in-query: (lap, desk),
 );
