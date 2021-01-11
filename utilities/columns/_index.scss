@@ -40,12 +40,12 @@
 
 @if meta.type-of(variables.$in-query) == 'list' {
   @each $query in variables.$in-query {
-    @include responsive.query($query) {
+    @include responsive.mq($query) {
       @include tools.build('#{defaults.$responsive-modifier}#{$query}');
     }
   }
 } @else {
-  @include responsive.query(variables.$in-query) {
+  @include responsive.mq(variables.$in-query) {
     @include tools.build('#{defaults.$responsive-modifier}#{variables.$in-query}');
   }
 }

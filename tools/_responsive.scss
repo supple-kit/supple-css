@@ -23,17 +23,17 @@
     Apply a media query defined in `defaults.$queries`.
 
     Example usage:
-    @include responsive.query(wall) {
+    @include responsive.mq(wall) {
       outline: 1px solid #ff0000;
     }
 
     Or you can pass in a type:
-    @include responsive.query(wall, print) {
+    @include responsive.mq(wall, print) {
       outline: 1px solid #ff0000;
     }
 /   ========================================================================= */
 
-@mixin query($name, $type: all) {
+@mixin mq($name, $type: all) {
   @if not map.has-key(defaults.$queries, $name) {
     @error '"defaults.$queries" does not contain "#{$name}", expects one of the following: #{map.keys(defaults.$queries)}' ;
   }
@@ -64,7 +64,7 @@
 
   @if meta.type-of($queries) == list {
     @each $query in $queries {
-      @include query($query) {
+      @include mq($query) {
         &#{defaults.$responsive-modifier}#{$query} {
           @content;
         }
@@ -72,7 +72,7 @@
     }
   }
   @else if meta.type-of($queries) == string {
-    @include query($queries) {
+    @include mq($queries) {
       &#{defaults.$responsive-modifier}#{$queries} {
         @content;
       }

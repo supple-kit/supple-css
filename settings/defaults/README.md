@@ -151,7 +151,7 @@ $breakpoints: (
 );
 
 
-// Query list, which is used by the `responsive.query()` mixin.
+// Query list, which is used by the `responsive.mq()` mixin.
 // Name your queries in a way that creates a ubiquitous language across team members.
 // You can reference `$breakpoints` by name or you can enter a `px` or `em` value
 // You can create complex media queries like this:

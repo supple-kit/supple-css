@@ -25,7 +25,7 @@ Supple’s tools are categorised so you only need to `@use` the tools you want:
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 .your-module {
-  @include responsive.query('lap') {
+  @include responsive.mq('lap') {
     margin-inline-start: space.get('tiny');
   }
 }
@@ -200,13 +200,13 @@ You can `@use` this tool in your own component like this:
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 ```
 
-### Mixin: `responsive.query()`
+### Mixin: `responsive.mq()`
 Apply a media query defined in `defaults.$queries`.
 
 #### Usage
 ```scss
 .selector {
-  @include responsive.query('lap') {
+  @include responsive.mq('lap') {
     outline: 1px solid #ff0000;
   }
 }
