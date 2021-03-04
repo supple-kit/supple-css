@@ -218,7 +218,7 @@ Apply a media query defined in `defaults.$queries`.
 }
 ```
 
-### function: `responsive.clamp()`
+### function: `responsive.lock()`
 Perfect smooth scaling between any 2 values over any viewport range.
 The property will start scaling and stop scaling exactly where you want.
 
@@ -234,11 +234,11 @@ The property will start scaling and stop scaling exactly where you want.
 #### Usage
 ```scss
 .selector {
-  font-size: responsive.clamp(18px, 24px);
+  font-size: responsive.lock(18px, 24px);
 }
 // You can also redefine the min- and max breakpoints like this
 .selector-defined-breakpoints {
-  font-size: responsive.clamp(20px, 30px, desk, wall);
+  font-size: responsive.lock(20px, 30px, desk, wall);
 }
 
 // with default settings becomes:

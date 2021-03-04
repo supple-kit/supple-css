@@ -83,20 +83,20 @@
 
 
 
-/*  Clamp
+/*  Lock
     Basic usage:
 
-    font-size: responsive.clamp(18px, 24px);
+    font-size: responsive.lock(18px, 24px);
 
     This will scale the property perfectly and smooth from 18px
     on `lap` breakpoint to 24px on `desk` breakpoint.
 
     You can also redefine the min- and max breakpoints like this:
 
-    padding: responsive.clamp(18px, 24px, desk, wall);
+    padding: responsive.lock(18px, 24px, desk, wall);
 /   ========================================================================= */
 
-@function clamp($size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
+@function lock($size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
   $return: $size-min;
 
   @if map.has-key(defaults.$breakpoints, $min-bp) and map.has-key(defaults.$breakpoints, $max-bp) {
@@ -115,7 +115,7 @@
       $slope: ($size-max-rem-unitless - $size-min-rem-unitless) / ($max-bp-rem-unitless - $min-bp-rem-unitless);
       $yAxisIntersection: -($min-bp-rem-unitless) * $slope + $size-min-rem-unitless;
 
-      $return: #{clamp}($size-min-rem, #{$yAxisIntersection * 1rem} #{' + '} #{($slope * 100) * 1vw}, $size-max-rem);
+      $return: clamp($size-min-rem, #{$yAxisIntersection * 1rem} #{' + '} #{($slope * 100) * 1vw}, $size-max-rem);
     } @else {
       @error '$size-min, $size-max, $min-bp and $max-bp should be defined in px.';
     }
