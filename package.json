@@ -1,10 +1,10 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "5.0.0-beta.1",
+  "version": "5.0.0-beta.2",
   "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
-  "author": "Bram Smulders <hello@bram.is>",
+  "author": "Bram Smulders <source@bram.is>",
   "license": "MIT",
   "keywords": [
     "supple",
@@ -31,18 +31,18 @@
     "defaults"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.1.0",
-    "browser-sync": "^2.26.13",
-    "concurrently": "^5.3.0",
+    "autoprefixer": "^10.2.4",
+    "browser-sync": "^2.26.14",
+    "concurrently": "^6.0.0",
     "cssnano": "^4.1.10",
     "glob": "^7.1.6",
     "gzip-size-cli": "^4.0.0",
-    "nodemon": "^2.0.6",
-    "postcss": "^8.2.1",
+    "nodemon": "^2.0.7",
+    "postcss": "^8.2.7",
     "postcss-cli": "^8.3.1",
-    "sass": "^1.30.0",
-    "stylelint": "^13.8.0",
-    "@supple-kit/stylelint-config-supple": "^3.0.3",
-    "stylelint-scss": "^3.18.0"
+    "sass": "^1.32.8",
+    "stylelint": "^13.11.0",
+    "@supple-kit/stylelint-config-supple": "^3.0.4",
+    "stylelint-scss": "^3.19.0"
   }
 }
