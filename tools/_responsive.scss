@@ -115,7 +115,7 @@
       $slope: ($size-max-rem-unitless - $size-min-rem-unitless) / ($max-bp-rem-unitless - $min-bp-rem-unitless);
       $yAxisIntersection: -($min-bp-rem-unitless) * $slope + $size-min-rem-unitless;
 
-      $return: clamp($size-min-rem, #{$yAxisIntersection * 1rem} #{' + '} #{($slope * 100) * 1vw}, $size-max-rem);
+      $return: clamp(#{$size-min-rem}, #{$yAxisIntersection * 1rem} + #{($slope * 100) * 1vw}, #{$size-max-rem});
     } @else {
       @error '$size-min, $size-max, $min-bp and $max-bp should be defined in px.';
     }
