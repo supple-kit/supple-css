@@ -1,13 +1,14 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "4.0.1",
-  "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
-  "main": "src/index.scss",
+  "version": "5.0.0",
+  "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
+  "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
-  "author": "Bram Smulders <hello@bram.is>",
+  "author": "Bram Smulders <source@bram.is>",
   "license": "MIT",
   "keywords": [
     "supple",
+    "supple kit",
     "css",
     "scss",
     "itcss",
@@ -18,30 +19,30 @@
   "scripts": {
     "test": "npm run lint && npm run build && npm run gzip",
     "lint": "stylelint \"**/*.scss\"",
-    "gzip": "gzip-size test/css/index.css",
-    "postcss": "postcss test/css/**/*.css --replace",
-    "sass": "sass src:test/css/ --no-source-map",
+    "gzip": "gzip-size _test/css/index.css",
+    "postcss": "postcss _test/css/**/*.css --replace",
+    "sass": "sass index.scss:_test/css/index.css _test/scss/test.scss:_test/css/test.css --no-source-map",
     "build": "npm run sass && npm run postcss",
-    "start": "nodemon -e scss -x \"npm run test\""
+    "serve": "browser-sync start --server --files '_test/css/*.css, ./**/*.html' --index 'test.html'",
+    "watch": "nodemon -e scss -x \"npm run test\"",
+    "start": "concurrently 'npm run serve' 'npm run watch'"
   },
   "browserslist": [
     "defaults"
   ],
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
+    "@supple-kit/stylelint-config-supple": "^3.0.4",
+    "autoprefixer": "^10.2.5",
+    "browser-sync": "^2.26.14",
+    "concurrently": "^6.0.0",
     "cssnano": "^4.1.10",
     "glob": "^7.1.6",
-    "gzip-size-cli": "^3.0.0",
-    "nodemon": "^2.0.4",
-    "postcss": "^7.0.30",
-    "postcss-cli": "^7.1.1",
-    "postcss-normalize": "^9.0.0",
-    "sass": "^1.26.5",
-    "stylelint": "^13.4.1",
-    "stylelint-config-supple": "^3.0.2",
-    "stylelint-scss": "^3.17.2"
-  },
-  "dependencies": {
-    "sass-mq": "^5.0.1"
+    "gzip-size-cli": "^4.0.0",
+    "nodemon": "^2.0.7",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.32.8",
+    "stylelint": "^13.12.0",
+    "stylelint-scss": "^3.19.0"
   }
 }

@@ -1,0 +1,20 @@
+/*  =========================================================================
+    utilities.visually-hidden.variables
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Define which namespaced queries you would like to generate for
+ * `visually-hidden`. This is handy if you only need `visually-hidden` on, say,
+ * desk, or you only need it at mobile sizes. It allows you to only compile
+ * as much CSS as you need.
+ * All are empty by default, but you can add queries at will.
+ *
+ * $in-query: (lap, desk);
+ *
+ * Note: the name of the breakpoint must exist in the list of `$queries`
+ *       in `settings/defaults`
+ */
+$in-query: () !default;

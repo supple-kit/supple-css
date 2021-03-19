@@ -1,0 +1,50 @@
+/*  =========================================================================
+    utilities.colstart
+    Classes provide a column-start custom property for use in objects
+    or components which can handle column-starts eg. `object.mesh`.
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    These can include variables, mixins & other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:list';
+@use 'sass:meta';
+@use '../../settings/defaults';
+@use './variables';
+@use '../../tools/responsive';
+@use './tools';
+
+
+
+/*  Module
+    ========================================================================= */
+
+@include tools.build();
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@if meta.type-of(variables.$in-query) == 'list' {
+  @each $query in variables.$in-query {
+    @include responsive.mq($query) {
+      @include tools.build('#{defaults.$responsive-modifier}#{$query}');
+    }
+  }
+} @else {
+  @include responsive.mq(variables.$in-query) {
+    @include tools.build('#{defaults.$responsive-modifier}#{variables.$in-query}');
+  }
+}

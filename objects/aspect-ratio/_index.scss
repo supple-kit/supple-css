@@ -1,0 +1,75 @@
+/*  =========================================================================
+    objects.aspect-ratio
+    For use with multi-media embeds such as videos, images or slideshows,
+    that need to retain a specific aspect ratio but adapt to elements
+    of variable widths.
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:meta';
+@use './variables';
+@use '../../settings/defaults';
+
+
+
+/*  Internal variables
+    ========================================================================= */
+
+$selector: '> *';
+@if (defaults.$css-modules) {
+  $selector: ':global(#{$selector})';
+}
+
+
+
+/*  Module
+    ========================================================================= */
+
+/**
+ * 1. Default cropping is a perfect square, in you own modules you can override
+ *    the ratio like this: (16/9)
+ */
+.o-aspect-ratio {
+  --ratio: (1/1); /* [1] */
+  position: relative;
+  display: block;
+  block-size: 0;
+  padding-block-end: calc(100% / var(--ratio));
+
+  #{$selector} {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}
+
+
+
+/*  Common ratio modifiers, for use in browsers without
+    custom-property support
+    ========================================================================= */
+
+@each $ratio in variables.$ratios {
+  @each $a, $b in $ratio {
+    @if (meta.type-of($a) != number or meta.type-of($b) != number) {
+      @error '`#{$a}` and `#{$b}` need to be numbers.';
+    }
+
+    .o-aspect-ratio--#{$a}by#{$b} {
+      --ratio: (#{$a}/#{$b});
+    }
+  }
+}

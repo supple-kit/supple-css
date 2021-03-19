@@ -1,0 +1,35 @@
+/*  =========================================================================
+    utilities.spacing.tools
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use './variables';
+@use '../../tools/space';
+
+
+
+/*  Functions
+    ========================================================================= */
+
+
+
+/*  Mixins
+    ========================================================================= */
+
+@mixin build($modifier: '') {
+  @each $property-namespace, $property in variables.$properties {
+    @each $size in variables.$sizes {
+      .u-#{$property-namespace}--#{$size}#{$modifier} {
+        #{$property}: space.get($size);
+      }
+    }
+  }
+}
