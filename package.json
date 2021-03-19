@@ -32,17 +32,17 @@
   ],
   "devDependencies": {
     "@supple-kit/stylelint-config-supple": "^3.0.4",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.2.5",
     "browser-sync": "^2.26.14",
     "concurrently": "^6.0.0",
     "cssnano": "^4.1.10",
     "glob": "^7.1.6",
     "gzip-size-cli": "^4.0.0",
     "nodemon": "^2.0.7",
-    "postcss": "^8.2.7",
+    "postcss": "^8.2.8",
     "postcss-cli": "^8.3.1",
     "sass": "^1.32.8",
-    "stylelint": "^13.11.0",
+    "stylelint": "^13.12.0",
     "stylelint-scss": "^3.19.0"
   }
 }
