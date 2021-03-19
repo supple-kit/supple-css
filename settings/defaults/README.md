@@ -217,10 +217,6 @@ $css-modules: false !default;
 Make sure you've installed/downloaded the Supple CSS library: [Supple CSS installation](../../#installation)
 
 
-## Testing
-Basic visual tests are in [test.html](./test.html).
-
-
 ## Browser support
 
 * Chromium-based browsers (Chrome, Edge, Brave, Opera)
