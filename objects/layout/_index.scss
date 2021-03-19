@@ -52,7 +52,7 @@ $selector: '> *';
   --layout-inline-gap: var(--layout-gap);
   display: flex;
   flex-flow: row wrap;
-  align-items: start;
+  align-items: flex-start;
   padding: 0; /* [1] */
   margin-block-start: calc(-1 * var(--layout-block-gap));
   margin-inline-start: calc(-1 * var(--layout-inline-gap)); /* [1,2] */
