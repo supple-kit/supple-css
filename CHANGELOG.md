@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.0 - 19-march-2021
+This is a massive overhaul opposed to v4.0.1, there is no simple upgrade path available.
+
+- Moved repository to [Supple Kit](https://github.com/supple-kit) as the first of the many to come tools for webdevelopment.
+- Removed [sass-mq](https://github.com/sass-mq/sass-mq) in favor of a new custom MQ system.
+- Added logical properties where possible so the framework is better suited for multilingual use.
+- Added mesh object, based on css-grid, to create simple grid systems.
+- Layout object can now be used without `o-layout__cell` child elements.
+- Added colspan, colstart, offset & columns utilities to use with layout & mesh objects.
+- Added better support for frameworks like svelte, react and the like.
+- More use of CSS custom properties.
+- Dropped IE11 support entirely
+
 ## 4.0.1 - 19-may-2020
 
 - Fixed a bug in `o-list-clean` where it resets margin-left but should reset padding-left.

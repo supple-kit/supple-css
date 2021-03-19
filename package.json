@@ -1,7 +1,7 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "5.0.0-beta.2",
-  "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
+  "version": "5.0.0",
+  "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
   "author": "Bram Smulders <source@bram.is>",
