@@ -1,0 +1,38 @@
+/*  =========================================================================
+    components.css-lock
+    Test for creating fluid typography with CSS-lock mixin.
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../../tools/responsive';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+
+
+/*  Module
+    ========================================================================= */
+
+.c-css-lock {
+  font-size: responsive.lock(20px, 30px, desk, wall);
+}
+
+.selector {
+  font-size: responsive.lock(18px, 24px);
+}
+// You can also redefine the min- and max breakpoints like this
+.selector-defined-breakpoints {
+  font-size: responsive.lock(20px, 30px, desk, wall);
+}

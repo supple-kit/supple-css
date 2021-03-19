@@ -1,0 +1,34 @@
+/*  =========================================================================
+    objects.flow.variables
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * Gap size, can be overwritten per component with custom
+ * properties.
+ */
+$gap: 'base' !default;
+
+
+/**
+ * Which gap modifiers you want to generate?
+ *
+ * Example
+   $gap-sizes: (
+     'tiny'
+   );
+ *
+ * By default the map is empty
+ */
+$gaps: () !default;

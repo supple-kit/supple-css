@@ -1,0 +1,94 @@
+/*  =========================================================================
+    components.test
+    ========================================================================= */
+
+/*  Use/Forward rules
+    `@use` or `@forward` everything you need here from other files.
+    Variables, mixins & other includes.
+    ========================================================================= */
+
+@use '../../../tools/space';
+@use '../../../tools/typography';
+@use '../../../settings/defaults';
+
+
+
+/*  Variables
+    ========================================================================= */
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+
+
+/*  Module
+    ========================================================================= */
+
+.c-test {
+  counter-reset: test__describe;
+}
+
+.c-test__title {
+  @include typography.font-size(40px);
+  margin-block-start: space.get('base');
+  margin-block-end: space.get('base');
+  padding: space.get('base');
+  color: #999999;
+  background: #eeeeee;
+}
+
+.c-test__describe,
+.c-test__it {
+  padding-block-start: space.get('small');
+  padding-block-end: space.get('small');
+  padding-inline-start: space.get('base');
+  padding-inline-end: space.get('base');
+  border-left: 5px solid #666666;
+  font-weight: bold;
+  color: #666666;
+  background: #eeeeee;
+}
+
+.c-test__describe {
+  @include typography.font-size(32px);
+  margin-block-start: space.get('large');
+  margin-block-end: space.get('base');
+  counter-reset: test__it;
+
+  &::before {
+    content: counter(test__describe);
+    counter-increment: test__describe;
+  }
+}
+
+.c-test__it {
+  @include typography.font-size(24px);
+  margin-block-start: space.get('base');
+  margin-block-end: space.get('base');
+
+  &::before {
+    content: counter(test__describe) '.' counter(test__it);
+    counter-increment: test__it;
+  }
+}
+
+
+.c-test__describe::before,
+.c-test__it::before {
+  display: inline-block;
+  margin-inline-end: space.get('base');
+  min-inline-size: space.get('large');
+  text-transform: uppercase;
+  color: #999999;
+}
+
+
+.c-test__run {
+  // empty for reference
+}
+
+.c-test__run--retained {
+  max-inline-size: space.get('base') * 21;
+}

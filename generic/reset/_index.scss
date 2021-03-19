@@ -1,0 +1,179 @@
+/*  =========================================================================
+    generic.reset
+    A thin layer on top of `@csstools/normalize.css` that provides a starting
+    point more suitable for web applications.
+    ========================================================================= */
+
+/*  Use rules
+    `@use` everything you need here from other files. Variables, mixins &
+    other includes.
+    ========================================================================= */
+
+@use '../../settings/defaults';
+@use '../../tools/space';
+
+
+
+/**
+ * Set the global `box-sizing` state to `border-box`. As per:
+ * paulirish.com/2012/box-sizing-border-box-ftw
+ */
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+
+/**
+ * 1. Ensure the page always fills at least the entire height of the viewport.
+ * 2. Always add the vertical scrollbar to prevent layout shifting
+ * 3. Smooth anchor scrolling
+ * 4. Apply the `$font-size` & `$line-height-ratio`
+ */
+html {
+  min-block-size: 100vh;  /* [1] */
+  overflow-y: scroll; /* [2] */
+  scroll-behavior: smooth; /* [3] */
+  font-size: #{(defaults.$font-size/16px)*1em}; /* [4] */
+  line-height: #{defaults.$line-height-ratio}; /* [4] */
+}
+
+
+/**
+ * Remove default margins from elements
+ */
+body,
+hgroup,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+address,
+table,
+fieldset,
+pre,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+hr,
+dl,
+dd,
+input {
+  margin: 0;
+}
+
+
+/**
+ * Default indentation value for lists
+ */
+ul,
+ol {
+  padding-inline-start: space.get();
+}
+
+dd {
+  margin-inline-start: space.get();
+}
+
+
+/**
+ * Strip unwanted paddings & styling from elements
+ */
+button {
+  background: transparent;
+}
+
+button,
+fieldset {
+  padding: 0;
+}
+
+button,
+iframe,
+fieldset {
+  border: 0;
+}
+
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */ /* stylelint-disable-line font-family-no-duplicate-names */
+  font-size: 1em; /* 2 */
+}
+
+
+/**
+ * Suppress the focus outline on links that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+[tabindex='-1']:focus {
+  outline: none !important;
+}
+
+
+/**
+ * Gets rid of the annoying outline for mouse users but preserves it for
+ * keyboard users, and is ignored by browsers that don’t support :focus-visible.
+ * As per: https://twitter.com/LeaVerou/status/1045768279753666562
+ */
+:focus:not(:focus-visible) { // stylelint-disable-line selector-pseudo-class-no-unknown
+  outline: none;
+}
+
+
+/**
+ * Image
+ *
+ * 1. By default all images are fluid
+ * 2. Render `alt` visually offset when images don't load
+ */
+img {
+  display: block;
+  max-inline-size: 100%; /* [1] */
+  font-style: italic; /* [2] */
+}
+
+
+/**
+ * Remove all animations and transitions for people that prefer not to see them
+ * 1. Do not remove the animation altogether, but make it super-fast. This has
+ *    several benefits:
+ *    - Preserves the end state of an animation/transition
+ *    - Preserves the possibility to listen to `animationend` and
+ *      `transitionend` events.
+ * 2. Only one animation cycle
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important; /* [1] */
+    animation-iteration-count: 1 !important; /* [2] */
+    transition-duration: 0.01ms !important; /* [1] */
+    scroll-behavior: auto !important;
+  }
+}
