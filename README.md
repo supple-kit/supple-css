@@ -58,7 +58,7 @@ Supple is built with the latest version of [Sass](https://sass-lang.com/) so you
 
 ### Install
 
-* npm: `npm install @supple-kit/supple-css@beta`
+* npm: `npm install @supple-kit/supple-css`
 
 ## Getting started
 
