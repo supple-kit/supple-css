@@ -199,7 +199,7 @@ Make sure you've installed/downloaded the Supple CSS library: [Supple CSS instal
 
 
 ## Testing
-Basic visual tests are in [test.html](./test.html).
+Basic visual tests are in [test.html](https://supple-kit.github.io/supple-css/objects/mesh/test.html).
 
 
 ## Browser support
