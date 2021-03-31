@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 5.0.1 - 31-march-2021
+
+
+- Added funding links
+- Updated packages
+- Added github issue templates
 ## 5.0.0 - 19-march-2021
 This is a massive overhaul opposed to v4.0.1, there is no simple upgrade path available.
 
