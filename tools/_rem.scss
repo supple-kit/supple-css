@@ -10,6 +10,7 @@
 
 @use 'sass:math';
 @use 'sass:meta';
+@use 'sass:list';
 @use '../settings/defaults';
 
 
@@ -25,7 +26,7 @@
   @if meta.type-of($value) == string or math.is-unitless($value) == true or math.unit($value) != 'px' {
     @return $value;
   } @else {
-    @return ($value/defaults.$font-size * 1rem);
+    @return (math.div($value, defaults.$font-size) * 1rem);
   }
 }
 

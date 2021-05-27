@@ -9,6 +9,7 @@
     other includes.
     ========================================================================= */
 
+@use 'sass:math';
 @use '../../settings/defaults';
 @use '../../tools/space';
 
@@ -38,7 +39,7 @@ html {
   min-block-size: 100vh;  /* [1] */
   overflow-y: scroll; /* [2] */
   scroll-behavior: smooth; /* [3] */
-  font-size: #{(defaults.$font-size/16px)*1em}; /* [4] */
+  font-size: #{math.div(defaults.$font-size, 16px) * 1em}; /* [4] */
   line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
 
