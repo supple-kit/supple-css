@@ -47,7 +47,7 @@ $space-factors: (
 
 $font-size: 16px !default;
 $line-height: map.get($space-factors, 'base') * $baseline !default;
-$line-height-ratio: $line-height/$font-size;
+$line-height-ratio: math.div($line-height, $font-size);
 
 
 

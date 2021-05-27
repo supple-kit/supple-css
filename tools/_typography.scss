@@ -60,9 +60,9 @@
     // By default, we set it to the minimum number of lines necessary
     // in order to contain the defined font-size, +1 for some breathing room.
     // This can be modified with the `$modifier` parameter.
-    $lines: math.ceil($font-size / defaults.$baseline) + $modifier + 1;
+    $lines: math.ceil(math.div($font-size, defaults.$baseline)) + $modifier + 1;
     $line-height: $lines * defaults.$baseline;
-    line-height: ($line-height / $font-size) $important;
+    line-height: math.div($line-height, $font-size) $important;
   } @else {
     @if (meta.type-of($line-height) == number or $line-height == 'inherit' or $line-height == 'normal') {
       line-height: $line-height $important;

@@ -112,7 +112,7 @@
       $size-max-rem: rem.convert($size-max);
       $size-max-rem-unitless: functions.strip-units($size-max-rem);
 
-      $slope: ($size-max-rem-unitless - $size-min-rem-unitless) / ($max-bp-rem-unitless - $min-bp-rem-unitless);
+      $slope: math.div(($size-max-rem-unitless - $size-min-rem-unitless), ($max-bp-rem-unitless - $min-bp-rem-unitless));
       $yAxisIntersection: -($min-bp-rem-unitless) * $slope + $size-min-rem-unitless;
 
       $return: clamp(#{$size-min-rem}, #{$yAxisIntersection * 1rem} + #{($slope * 100) * 1vw}, #{$size-max-rem});

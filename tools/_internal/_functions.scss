@@ -18,7 +18,7 @@
  * A small, internally-used function to remove the units from a given value.
  */
 @function strip-units($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, ($value * 0 + 1));
 }
 
 /**
@@ -29,7 +29,7 @@
   @if $value == 0 {
     @return 0;
   }
-  @return $value / $context * 1em;
+  @return math.div($value, $context) * 1em;
 }
 
 /**
