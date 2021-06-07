@@ -1,6 +1,6 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
