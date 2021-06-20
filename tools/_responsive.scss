@@ -31,7 +31,7 @@
       // Light theme colors
       --color-slate: #cccccc;
 
-      @include tools.dark-mode() {
+      @include responsive.dark-mode() {
         // Dark theme colors
         --color-slate: #000000;
       }
