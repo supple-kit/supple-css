@@ -216,7 +216,7 @@ You can `@use` this tool in your own component like this:
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 ```
 
-### Mixin: `responsive.dark-mode()`
+### Mixin: `responsive.color-sheme()`
 
 A little wrapper that lets you define your dark mode custom properties in a
 way that supports a toggle component.
@@ -228,7 +228,7 @@ way that supports a toggle component.
   // Light theme colors
   --color-slate: #cccccc;
 
-  @include responsive.dark-mode() {
+  @include responsive.color-sheme() {
     // Dark theme colors
     --color-slate: #000000;
   }

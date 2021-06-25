@@ -22,7 +22,7 @@
     User preference
 /   ========================================================================= */
 
-/*  Mixin: dark-mode
+/*  Mixin: color-scheme
     A little wrapper that lets you define your dark mode custom
     properties in a way that supports a toggle component.
     Usage:
@@ -31,25 +31,32 @@
       // Light theme colors
       --color-slate: #cccccc;
 
-      @include responsive.dark-mode() {
+      @include responsive.color-scheme() {
         // Dark theme colors
         --color-slate: #000000;
       }
     }
 /   ========================================================================= */
 
-@mixin dark-mode($attribute: data-user-color-scheme) {
-  --color-mode: 'light';
+@mixin color-scheme($dark: true, $attribute: data-user-color-scheme) {
+  $mode: 'dark';
+  @if $dark == true {
+    --color-mode: 'light';
+  } @else {
+    $mode: 'light';
 
-  @media (prefers-color-scheme: dark) {
     --color-mode: 'dark';
+  }
+
+  @media (prefers-color-scheme: #{$mode}) {
+    --color-mode: '#{$mode}';
 
     &:not([#{$attribute}]) {
       @content;
     }
   }
 
-  &[#{$attribute}='dark'] {
+  &[#{$attribute}='#{$mode}'] {
     @content;
   }
 }
