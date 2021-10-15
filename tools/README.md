@@ -22,8 +22,8 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 Supple’s tools are categorised so you only need to `@use` the tools you want:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/space';
-@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use "node_modules/@supple-kit/supple-css/tools/space";
+@use "node_modules/@supple-kit/supple-css/tools/responsive";
 
 .your-module {
   @include responsive.mq("lap") {
@@ -37,7 +37,7 @@ Supple’s tools are categorised so you only need to `@use` the tools you want:
 This layer contains everything space related. You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/space';
+@use "node_modules/@supple-kit/supple-css/tools/space";
 ```
 
 ### function: `space.get()`
@@ -93,7 +93,7 @@ Returns the spacing-factor value. The `$name` must be present in `defaults.$spac
 This layer is used to convert any `px` value to `rem`. You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/rem';
+@use "node_modules/@supple-kit/supple-css/tools/rem";
 ```
 
 ### function: `rem.convert()`
@@ -127,7 +127,7 @@ Converts `px` values to `rem`. If you pass in another format instead of `px` it 
 This layer contains some accessibility helper mixins. You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/a11y';
+@use "node_modules/@supple-kit/supple-css/tools/a11y";
 ```
 
 ### Mixin: `a11y.visually-hidden`
@@ -161,7 +161,7 @@ This layer contains all the functions & mixins regarding to typography.
 You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/typography';
+@use "node_modules/@supple-kit/supple-css/tools/typography";
 ```
 
 ### Mixin `typography.font-size`
@@ -213,10 +213,10 @@ This layer contains all the tools for responsive web design.
 You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use "node_modules/@supple-kit/supple-css/tools/responsive";
 ```
 
-### Mixin: `responsive.color-sheme()`
+### Mixin: `responsive.color-scheme()`
 
 A little wrapper that lets you define your dark mode custom properties in a
 way that supports a toggle component.
@@ -228,7 +228,7 @@ way that supports a toggle component.
   // Light theme colors
   --color-slate: #cccccc;
 
-  @include responsive.color-sheme() {
+  @include responsive.color-scheme() {
     // Dark theme colors
     --color-slate: #000000;
   }
