@@ -1,6 +1,6 @@
 /*  =========================================================================
     tools.responsive
-    desc
+    As per: https://web.dev/new-responsive/#conclusion
 /   ========================================================================= */
 
 /*  Use/Forward rules
@@ -18,6 +18,52 @@
 @use 'rem';
 
 
+/*  =========================================================================
+    User preference
+/   ========================================================================= */
+
+/*  Mixin: color-scheme
+    A little wrapper that lets you define your dark mode custom
+    properties in a way that supports a toggle component.
+    Usage:
+
+    :root {
+      // Light theme colors
+      --color-slate: #cccccc;
+
+      @include responsive.color-scheme() {
+        // Dark theme colors
+        --color-slate: #000000;
+      }
+    }
+/   ========================================================================= */
+
+@mixin color-scheme($dark: true, $attribute: data-user-color-scheme) {
+  $mode: 'dark';
+  @if $dark == true {
+    --color-mode: 'light';
+  } @else {
+    $mode: 'light';
+
+    --color-mode: 'dark';
+  }
+
+  @media (prefers-color-scheme: #{$mode}) {
+    --color-mode: '#{$mode}';
+
+    &:not([#{$attribute}]) {
+      @content;
+    }
+  }
+
+  &[#{$attribute}='#{$mode}'] {
+    @content;
+  }
+}
+
+/*  =========================================================================
+    Viewport & formfactor
+/   ========================================================================= */
 
 /*  Query
     Apply a media query defined in `defaults.$queries`.
@@ -43,8 +89,6 @@
   }
 }
 
-
-
 /*  in-query
     A little helper mixin to quickly create responsive variants of a certain
     selector. The mixin's `@content` will be also applied to the parent selector.
@@ -57,7 +101,6 @@
       }
     }
 /   ========================================================================= */
-
 
 @mixin in-query($queries) {
   @content;
@@ -79,9 +122,6 @@
     }
   }
 }
-
-
-
 
 /*  Lock
     Basic usage:

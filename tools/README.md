@@ -6,51 +6,56 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ## Table of contents
 
-* [Use](#use)
-* Modules
-  * [Space](#space)
-  * [Rem](#rem)
-  * [Accessibility](#accessibility)
-  * [Typography](#typography)
-  * [Responsive](#responsive)
-* [Installation](#installation)
-* [Testing](#testing)
-* [Browser support](#browser-support)
-
+- [Use](#use)
+- Modules
+  - [Space](#space)
+  - [Rem](#rem)
+  - [Accessibility](#accessibility)
+  - [Typography](#typography)
+  - [Responsive](#responsive)
+- [Installation](#installation)
+- [Testing](#testing)
+- [Browser support](#browser-support)
 
 ## Use
+
 Supple’s tools are categorised so you only need to `@use` the tools you want:
+
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/space';
-@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use "node_modules/@supple-kit/supple-css/tools/space";
+@use "node_modules/@supple-kit/supple-css/tools/responsive";
 
 .your-module {
-  @include responsive.mq('lap') {
-    margin-inline-start: space.get('tiny');
+  @include responsive.mq("lap") {
+    margin-inline-start: space.get("tiny");
   }
 }
 ```
 
-
 ## Space
+
 This layer contains everything space related. You can `@use` this tool in your own component like this:
+
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/space';
+@use "node_modules/@supple-kit/supple-css/tools/space";
 ```
 
 ### function: `space.get()`
+
 Returns the spacing value converted to `rem` units. The `$name` must be present in `defaults.$space-factors` and will be multiplied by `defaults.$baseline`.
 
 #### Arguments
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$name` | name of space variable | `String` | 'base' |
+
+| Name    | Description            | Type     | Default |
+| ------- | ---------------------- | -------- | ------- |
+| `$name` | name of space variable | `String` | 'base'  |
 
 #### Usage
+
 ```scss
 .selector {
-  margin-inline-start: space.get('tiny');
-  margin-inline-end: space.get('large');
+  margin-inline-start: space.get("tiny");
+  margin-inline-end: space.get("large");
 }
 // with default settings becomes
 .selector {
@@ -60,17 +65,22 @@ Returns the spacing value converted to `rem` units. The `$name` must be present 
 ```
 
 ### function: `space.get-factor()`
+
 Returns the spacing-factor value. The `$name` must be present in `defaults.$space-factors`.
 
 #### Arguments
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$name` | name of space variable | `String` | 'base' |
+
+| Name    | Description            | Type     | Default |
+| ------- | ---------------------- | -------- | ------- |
+| `$name` | name of space variable | `String` | 'base'  |
 
 #### Usage
+
 ```scss
 .selector {
-  margin-inline-start: calc(#{space.get-factor('small')} * #{defaults.$baseline});
+  margin-inline-start: calc(
+    #{space.get-factor("small")} * #{defaults.$baseline}
+  );
 }
 // with default settings becomes
 .selector {
@@ -78,24 +88,26 @@ Returns the spacing-factor value. The `$name` must be present in `defaults.$spac
 }
 ```
 
-
 ## Rem
+
 This layer is used to convert any `px` value to `rem`. You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/rem';
+@use "node_modules/@supple-kit/supple-css/tools/rem";
 ```
 
 ### function: `rem.convert()`
+
 Converts `px` values to `rem`. If you pass in another format instead of `px` it will gracefully return the original value.
 
 #### Arguments
 
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$value` | value to be converted to `rem` | `Number` | - |
+| Name     | Description                    | Type     | Default |
+| -------- | ------------------------------ | -------- | ------- |
+| `$value` | value to be converted to `rem` | `Number` | -       |
 
 #### Usage
+
 ```scss
 .selector {
   margin-block-start: rem.convert(24px);
@@ -110,18 +122,20 @@ Converts `px` values to `rem`. If you pass in another format instead of `px` it 
 }
 ```
 
-
 ## Accessibility
+
 This layer contains some accessibility helper mixins. You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/a11y';
+@use "node_modules/@supple-kit/supple-css/tools/a11y";
 ```
 
 ### Mixin: `a11y.visually-hidden`
+
 Hides an element visually while still allowing the content to be accessible to assistive technology, e.g. screen readers.
 
 #### Usage
+
 ```scss
 .selector {
   @include a11y.visually-hidden;
@@ -141,28 +155,30 @@ Hides an element visually while still allowing the content to be accessible to a
 }
 ```
 
-
 ## Typography
+
 This layer contains all the functions & mixins regarding to typography.
 You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/typography';
+@use "node_modules/@supple-kit/supple-css/tools/typography";
 ```
 
 ### Mixin `typography.font-size`
+
 Generates a rem font-size and a baseline-compatible unitless line-height from a pixel font-size value.
 
 #### Arguments
 
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$font-size` | font size in pixels | `Number` | - |
-| `$line-height` | line height, `auto` automatically sets lineheight based on `$baseline` | `any` | auto |
-| `$modifier` | numer of `$baseline` you want to top up on the line-height | `Number` | 0 |
-| `$important` | sets important keyword | `Bool` | false |
+| Name           | Description                                                            | Type     | Default |
+| -------------- | ---------------------------------------------------------------------- | -------- | ------- |
+| `$font-size`   | font size in pixels                                                    | `Number` | -       |
+| `$line-height` | line height, `auto` automatically sets lineheight based on `$baseline` | `any`    | auto    |
+| `$modifier`    | numer of `$baseline` you want to top up on the line-height             | `Number` | 0       |
+| `$important`   | sets important keyword                                                 | `Bool`   | false   |
 
 #### Usage
+
 ```scss
 .selector {
   @include typography.font-size($font-size: 18px);
@@ -181,7 +197,7 @@ Generates a rem font-size and a baseline-compatible unitless line-height from a 
   font-size: 1.125rem;
   line-height: 1.7777777778; // 32px
 }
-.selector-modifier{
+.selector-modifier {
   font-size: 1.125rem;
   line-height: 2.6666666667; // 48px
 }
@@ -191,22 +207,45 @@ Generates a rem font-size and a baseline-compatible unitless line-height from a 
 }
 ```
 
-
 ## Responsive
+
 This layer contains all the tools for responsive web design.
 You can `@use` this tool in your own component like this:
 
 ```scss
-@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use "node_modules/@supple-kit/supple-css/tools/responsive";
 ```
 
+### Mixin: `responsive.color-scheme()`
+
+A little wrapper that lets you define your dark mode custom properties in a
+way that supports a toggle component.
+
+#### Usage
+
+```scss
+:root {
+  // Light theme colors
+  --color-slate: #cccccc;
+
+  @include responsive.color-scheme() {
+    // Dark theme colors
+    --color-slate: #000000;
+  }
+}
+```
+
+You can create a toggle component which adds `data-user-color-scheme="dark|light"` to the HTML element to toggle modes manually.
+
 ### Mixin: `responsive.mq()`
+
 Apply a media query defined in `defaults.$queries`.
 
 #### Usage
+
 ```scss
 .selector {
-  @include responsive.mq('lap') {
+  @include responsive.mq("lap") {
     outline: 1px solid #ff0000;
   }
 }
@@ -219,19 +258,21 @@ Apply a media query defined in `defaults.$queries`.
 ```
 
 ### function: `responsive.lock()`
+
 Perfect smooth scaling between any 2 values over any viewport range.
 The property will start scaling and stop scaling exactly where you want.
 
 #### Arguments
 
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$size-min` | Minimum size in pixels | `Number` | 16px |
-| `$size-max` | Maximum size in pixels | `Number` | 20px |
-| `$min-bp` | Minimum breakpoint name  | `String` | lap |
-| `$max-bp` | Minimum breakpoint name  | `String` | desk |
+| Name        | Description             | Type     | Default |
+| ----------- | ----------------------- | -------- | ------- |
+| `$size-min` | Minimum size in pixels  | `Number` | 16px    |
+| `$size-max` | Maximum size in pixels  | `Number` | 20px    |
+| `$min-bp`   | Minimum breakpoint name | `String` | lap     |
+| `$max-bp`   | Minimum breakpoint name | `String` | desk    |
 
 #### Usage
+
 ```scss
 .selector {
   font-size: responsive.lock(18px, 24px);
@@ -243,26 +284,27 @@ The property will start scaling and stop scaling exactly where you want.
 
 // with default settings becomes:
 .selector {
-  font-size: clamp(1.125rem, .375rem + 1.875vw, 1.5rem);
+  font-size: clamp(1.125rem, 0.375rem + 1.875vw, 1.5rem);
 }
 
 .selector-defined-breakpoints {
-  font-size: clamp(1.25rem, -.625rem + 3.125vw, 1.875rem);
+  font-size: clamp(1.25rem, -0.625rem + 3.125vw, 1.875rem);
 }
 ```
 
 ### Mixin: `responsive.in-query()`
+
 A little helper mixin to quickly create responsive variants of a certain selector.
 The mixin's `@content` will be also applied to the parent selector.
 
 #### Arguments
 
-| Name | Description | Type | Default       |
-| - | - | - | - |
-| `$queries` | list of breakpoints | `List` | - |
-
+| Name       | Description         | Type   | Default |
+| ---------- | ------------------- | ------ | ------- |
+| `$queries` | list of breakpoints | `List` | -       |
 
 #### Usage
+
 ```scss
 $YOURMODULE-in-query: (lap, desk);
 .your-selector {
@@ -283,13 +325,12 @@ $YOURMODULE-in-query: (lap, desk);
 }
 ```
 
-
 ## Installation
-Make sure you've installed/downloaded the Supple CSS library: [Supple CSS installation](../../#installation)
 
+Make sure you've installed/downloaded the Supple CSS library: [Supple CSS installation](../../#installation)
 
 ## Browser support
 
-* Chromium-based browsers (Chrome, Edge, Brave, Opera)
-* WebKit-based browsers (Safari, iOS Safari)
-* Firefox (Gecko)
+- Chromium-based browsers (Chrome, Edge, Brave, Opera)
+- WebKit-based browsers (Safari, iOS Safari)
+- Firefox (Gecko)

@@ -157,6 +157,7 @@ pre {
 img {
   display: block;
   max-inline-size: 100%; /* [1] */
+  block-size: auto; /* [1] */
   font-style: italic; /* [2] */
 }
 
