@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.1.0 - 15-october-2021
+
+- Added `responsive.color-scheme` mixin that lets you define your dark mode custom properties in a way that supports a toggle component
+- Update dependencies & housekeeping
+
 ## 5.0.2 - 07-june-2021
 
 - Refactor slash-based divisions(`/`) with `math.div()` functions as per: [slash-div](https://sass-lang.com/documentation/breaking-changes/slash-div)
