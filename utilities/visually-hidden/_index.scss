@@ -31,6 +31,6 @@
 
 .u-visually-hidden {
   @include responsive.in-query(variables.$in-query) {
-    @include a11y.visually-hidden();
+    @include a11y.visually-hidden;
   }
 }

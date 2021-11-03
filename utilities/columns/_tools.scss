@@ -23,7 +23,7 @@
 /*  Mixins
     ========================================================================= */
 
-@mixin build ($modifier: '') {
+@mixin build($modifier: '') {
   @for $i from 1 through variables.$columns {
     .u-columns-#{$i}#{$modifier} {
       --columns: #{$i};

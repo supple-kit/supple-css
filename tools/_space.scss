@@ -20,7 +20,7 @@
  * Get space-factor
  */
 @function get-factor($name: 'base') {
-  @if (map.has-key(defaults.$space-factors, $name) == false) {
+  @if map.has-key(defaults.$space-factors, $name) == false {
     @error '`#{$name}` is not present in `defaults.$space-factors`.';
   }
   @return map.get(defaults.$space-factors, $name);
