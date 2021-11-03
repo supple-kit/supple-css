@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.2.0 - 03-november-2021
+
+- Upgraded stylelint-config-supple to version 4
+
 ## 5.1.0 - 15-october-2021
 
 - Added `responsive.color-scheme` mixin that lets you define your dark mode custom properties in a way that supports a toggle component
