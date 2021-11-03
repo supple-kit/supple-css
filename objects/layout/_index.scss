@@ -28,7 +28,7 @@
     ========================================================================= */
 
 $selector: '> *';
-@if (defaults.$css-modules) {
+@if defaults.$css-modules {
   $selector: ':global(#{$selector})';
 }
 

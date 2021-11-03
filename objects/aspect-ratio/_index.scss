@@ -29,7 +29,7 @@
     ========================================================================= */
 
 $selector: '> *';
-@if (defaults.$css-modules) {
+@if defaults.$css-modules {
   $selector: ':global(#{$selector})';
 }
 
@@ -43,7 +43,7 @@ $selector: '> *';
  *    the ratio like this: (16/9)
  */
 .o-aspect-ratio {
-  --ratio: (1/1); /* [1] */
+  --ratio: (1 / 1); /* [1] */
   position: relative;
   display: block;
   block-size: 0;
@@ -64,7 +64,7 @@ $selector: '> *';
 
 @each $ratio in variables.$ratios {
   @each $a, $b in $ratio {
-    @if (meta.type-of($a) != number or meta.type-of($b) != number) {
+    @if meta.type-of($a) != number or meta.type-of($b) != number {
       @error '`#{$a}` and `#{$b}` need to be numbers.';
     }
 
