@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.3.0 - 10-november-2021
+
+- Fixed a bug where `px` based media queries were not converted to `em`
+
 ## 5.2.0 - 03-november-2021
 
 - Upgraded stylelint-config-supple to version 4
