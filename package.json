@@ -28,18 +28,18 @@
     "defaults"
   ],
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
-    "cssnano": "^4.1.10",
-    "glob": "^7.1.6",
+    "autoprefixer": "^9.8.8",
+    "cssnano": "^4.1.11",
+    "glob": "^7.1.7",
     "gzip-size-cli": "^3.0.0",
-    "nodemon": "^2.0.4",
-    "postcss": "^7.0.30",
-    "postcss-cli": "^7.1.1",
+    "nodemon": "^2.0.12",
+    "postcss": "^7.0.36",
+    "postcss-cli": "^7.1.2",
     "postcss-normalize": "^9.0.0",
-    "sass": "^1.26.5",
-    "stylelint": "^13.4.1",
-    "stylelint-config-supple": "^3.0.2",
-    "stylelint-scss": "^3.17.2"
+    "sass": "^1.39.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-supple": "^3.0.3",
+    "stylelint-scss": "^3.20.1"
   },
   "dependencies": {
     "sass-mq": "^5.0.1"

@@ -74,7 +74,7 @@ $supple-flexembed-ratios: (
     }
 
     .o-flexembed--#{$a}by#{$b} {
-      padding-bottom: 100% / ($a/$b);
+      padding-bottom: div(100%, (div($a, $b)));
     }
   }
 }

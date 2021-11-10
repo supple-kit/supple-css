@@ -5,6 +5,8 @@
     and tables
     ========================================================================= */
 
+@use 'sass:math';
+
 /*  Variables
     Variables used in this module
     ========================================================================= */
@@ -79,9 +81,9 @@ $supple-fractions-delimiter: 'of' !default;
 
       @if $gcf > 1 {
         // Reduced value of $numerator
-        $numerator-r: $numerator/$gcf;
+        $numerator-r: math.div($numerator, $gcf);
         // Reduced value of $denominator
-        $denominator-r: $denominator/$gcf;
+        $denominator-r: math.div($denominator, $gcf);
       }
 
       // Check if the reduced value of $denominator-r was also supplied in the
@@ -98,7 +100,7 @@ $supple-fractions-delimiter: 'of' !default;
           @extend .u-#{$supple-fractions-name-fraction}--#{$numerator-r}#{$supple-fractions-delimiter}#{$denominator-r}#{$modifier};
         } @else {
           flex-basis: auto !important; /* [1] */
-          width: percentage($numerator / $denominator) !important;
+          width: percentage(math.div($numerator, $denominator)) !important;
         }
       }
     }

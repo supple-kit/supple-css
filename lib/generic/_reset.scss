@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*  =========================================================================
     generic.reset
     A thin layer on top of normalize.css that provides a starting point more
@@ -11,11 +13,12 @@
  * 3. Ensure the page always fills at least the entire height of the viewport.
  * 4. Apply the `$supple-font-size` & `$supple-line-height-ratio`
  */
+
 html {
   box-sizing: border-box; /* [1] */
   overflow-y: scroll; /* [2] */
   min-height: 100%;  /* [3] */
-  font-size: #{($supple-font-size/16px)*1em}; /* [4] */
+  font-size: math.div($supple-font-size, 16px) * 1em; /* [4] */
   line-height: #{$supple-line-height-ratio}; /* [4] */
 }
 
