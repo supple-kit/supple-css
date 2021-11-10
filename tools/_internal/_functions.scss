@@ -109,17 +109,17 @@
   $parsed-value: validate-query($value);
 
   @if $parsed-value {
-    @if math.unit($parsed-value) == 'em' {
-      $min-w: $parsed-value;
-    } @else {
+    $resolved-value: $parsed-value;
+
+    @if math.unit($parsed-value) != 'em' {
       @if $key == max-width or $key == max-height {
         $parsed-value: $parsed-value - 1px;
       }
 
-      $min-w: value-to-em($parsed-value);
+      $resolved-value: value-to-em($parsed-value);
     }
 
-    $return: map.merge($return, ($key: $parsed-value));
+    $return: map.merge($return, ($key: $resolved-value));
   }
 
   @return $return;
