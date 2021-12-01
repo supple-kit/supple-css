@@ -4,6 +4,10 @@
     retain a specific aspect ratio but adapt to elements of variable widths.
     ========================================================================= */
 
+@use 'sass:math';
+
+
+
 /*  Variables
     ========================================================================= */
 
@@ -74,7 +78,7 @@ $supple-flexembed-ratios: (
     }
 
     .o-flexembed--#{$a}by#{$b} {
-      padding-bottom: div(100%, (div($a, $b)));
+      padding-bottom: math.div(100%, (math.div($a, $b)));
     }
   }
 }

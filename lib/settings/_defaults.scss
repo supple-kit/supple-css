@@ -2,6 +2,10 @@
   /*! supple v4.0.1 | MIT License | github.com/supple-css */ // stylelint-disable comment-empty-line-before
 }
 
+@use 'sass:math';
+
+
+
 /*  =========================================================================
     settings.defaults
     Supple default variables. Redefine and override them with your
@@ -58,7 +62,7 @@ $supple-static-breakpoint: 1280px !default;
 
 $supple-font-size: 16px !default;
 $supple-line-height: $supple-space-base !default;
-$supple-line-height-ratio: div($supple-line-height, $supple-font-size) !default;
+$supple-line-height-ratio: math.div($supple-line-height, $supple-font-size) !default;
 
 
 
