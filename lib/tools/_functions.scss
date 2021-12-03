@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*  =========================================================================
     tools.functions
     ========================================================================= */
@@ -23,7 +25,7 @@ $supple-browser-context: $supple-font-size !default;
     }
     @return $value;
   } @else {
-    @return ($value/$supple-browser-context*1rem);
+    @return (math.div($value, $supple-browser-context)*1rem);
   }
 }
 
@@ -32,7 +34,7 @@ $supple-browser-context: $supple-font-size !default;
  * A small, internally-used function to remove the units from a given value.
  */
 @function supple-strip-units ($number) {
-  @return $number / ($number * 0 + 1);
+  @return math.div($number, ($number * 0 + 1));
 }
 
 
