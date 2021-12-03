@@ -1,5 +1,5 @@
 {
-  "name": "supple",
+  "name": "@supple-kit/supple-css",
   "version": "4.1.0",
   "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
   "main": "src/index.scss",
