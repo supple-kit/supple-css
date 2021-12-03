@@ -41,6 +41,7 @@
     "defaults"
   ],
   "devDependencies": {
+    "@supple-kit/prettier-config": "^1.0.1",
     "@supple-kit/stylelint-config-supple": "^4.0.1",
     "autoprefixer": "^10.4.0",
     "browser-sync": "^2.27.7",
