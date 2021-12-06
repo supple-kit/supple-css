@@ -16,13 +16,13 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <div class="u-clearfix">
-	<img style="float: left;" src="//placehold.it/120x120" alt="" />
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-		temporibus numquam repellendus repellat eaque illum, praesentium facere iure
-		fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut
-		doloribus adipisci.
-	</p>
+  <img style="float: left;" src="//placehold.it/120x120" alt="" />
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+    temporibus numquam repellendus repellat eaque illum, praesentium facere iure
+    fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut
+    doloribus adipisci.
+  </p>
 </div>
 ```
 

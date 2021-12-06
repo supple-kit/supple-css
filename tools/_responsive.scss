@@ -1,6 +1,6 @@
 /* ==========================================================================
-		tools.responsive
-		As per: https://web.dev/new-responsive/#conclusion
+    tools.responsive
+    As per: https://web.dev/new-responsive/#conclusion
 / =========================================================================== */
 
 @use 'sass:list';
@@ -13,7 +13,7 @@
 @use 'rem';
 
 /* --------------------------------------------------------------------------
-		User preference
+    User preference
 / --------------------------------------------------------------------------- */
 
 /**
@@ -26,36 +26,36 @@
 	--color-slate: #cccccc;
 
 	@include responsive.color-scheme() {
-		// Dark theme colors
-		--color-slate: #000000;
+    // Dark theme colors
+    --color-slate: #000000;
 	}
 }
  */
 @mixin color-scheme($dark: true, $attribute: data-user-color-scheme) {
-	$mode: 'dark';
-	@if $dark == true {
-		--color-mode: 'light';
-	} @else {
-		$mode: 'light';
+  $mode: 'dark';
+  @if $dark == true {
+    --color-mode: 'light';
+  } @else {
+    $mode: 'light';
 
-		--color-mode: 'dark';
-	}
+    --color-mode: 'dark';
+  }
 
-	@media (prefers-color-scheme: #{$mode}) {
-		--color-mode: '#{$mode}';
+  @media (prefers-color-scheme: #{$mode}) {
+    --color-mode: '#{$mode}';
 
-		&:not([#{$attribute}]) {
-			@content;
-		}
-	}
+    &:not([#{$attribute}]) {
+      @content;
+    }
+  }
 
-	&[#{$attribute}='#{$mode}'] {
-		@content;
-	}
+  &[#{$attribute}='#{$mode}'] {
+    @content;
+  }
 }
 
 /* --------------------------------------------------------------------------
-		Viewport & formfactor
+    Viewport & formfactor
 / --------------------------------------------------------------------------- */
 
 /**
@@ -72,13 +72,13 @@
 }
  */
 @mixin mq($name, $type: all) {
-	@if not map.has-key(defaults.$queries, $name) {
-		@error '"defaults.$queries" does not contain "#{$name}", expects one of the following: #{map.keys(defaults.$queries)}'; // stylelint-disable-line max-line-length
-	}
+  @if not map.has-key(defaults.$queries, $name) {
+    @error '"defaults.$queries" does not contain "#{$name}", expects one of the following: #{map.keys(defaults.$queries)}'; // stylelint-disable-line max-line-length
+  }
 
-	@media #{$type} and #{functions.get-breakpoints(map.get(defaults.$queries, $name))} {
-		@content;
-	}
+  @media #{$type} and #{functions.get-breakpoints(map.get(defaults.$queries, $name))} {
+    @content;
+  }
 }
 
 /**
@@ -89,28 +89,28 @@
 $in-query-YOURMODULE: (lap, desk);
 .your-module {
 	@include responsive.in-query($in-query-YOURMODULE) {
-		outline: 1px solid #ff0000;
+    outline: 1px solid #ff0000;
 	}
 }
  */
 @mixin in-query($queries) {
-	@content;
+  @content;
 
-	@if meta.type-of($queries) == list {
-		@each $query in $queries {
-			@include mq($query) {
-				&#{defaults.$responsive-modifier}#{$query} {
-					@content;
-				}
-			}
-		}
-	} @else if meta.type-of($queries) == string {
-		@include mq($queries) {
-			&#{defaults.$responsive-modifier}#{$queries} {
-				@content;
-			}
-		}
-	}
+  @if meta.type-of($queries) == list {
+    @each $query in $queries {
+      @include mq($query) {
+        &#{defaults.$responsive-modifier}#{$query} {
+          @content;
+        }
+      }
+    }
+  } @else if meta.type-of($queries) == string {
+    @include mq($queries) {
+      &#{defaults.$responsive-modifier}#{$queries} {
+        @content;
+      }
+    }
+  }
 }
 
 /**
@@ -126,51 +126,51 @@ font-size: responsive.lock(18px, 24px);
 padding: responsive.lock(18px, 24px, desk, wall);
  */
 @function lock($size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
-	$return: $size-min;
+  $return: $size-min;
 
-	@if map.has-key(defaults.$breakpoints, $min-bp) and
-		map.has-key(defaults.$breakpoints, $max-bp)
-	{
-		@if (math.unit($size-min) == 'px') and
-			(math.unit($size-max) == 'px') and
-			(math.unit(map.get(defaults.$breakpoints, $min-bp)) == 'px') and
-			(math.unit(map.get(defaults.$breakpoints, $max-bp)) == 'px')
-		{
-			// stylelint-disable-line max-line-length
-			$min-bp-value: map.get(defaults.$breakpoints, $min-bp);
-			$max-bp-value: map.get(defaults.$breakpoints, $max-bp);
+  @if map.has-key(defaults.$breakpoints, $min-bp) and
+    map.has-key(defaults.$breakpoints, $max-bp)
+  {
+    @if (math.unit($size-min) == 'px') and
+      (math.unit($size-max) == 'px') and
+      (math.unit(map.get(defaults.$breakpoints, $min-bp)) == 'px') and
+      (math.unit(map.get(defaults.$breakpoints, $max-bp)) == 'px')
+    {
+      // stylelint-disable-line max-line-length
+      $min-bp-value: map.get(defaults.$breakpoints, $min-bp);
+      $max-bp-value: map.get(defaults.$breakpoints, $max-bp);
 
-			// Breakpoints
-			$min-bp-rem-unitless: functions.strip-units(rem.convert($min-bp-value));
-			$max-bp-rem-unitless: functions.strip-units(rem.convert($max-bp-value));
+      // Breakpoints
+      $min-bp-rem-unitless: functions.strip-units(rem.convert($min-bp-value));
+      $max-bp-rem-unitless: functions.strip-units(rem.convert($max-bp-value));
 
-			// Sizes
-			$size-min-rem: rem.convert($size-min);
-			$size-min-rem-unitless: functions.strip-units($size-min-rem);
-			$size-max-rem: rem.convert($size-max);
-			$size-max-rem-unitless: functions.strip-units($size-max-rem);
+      // Sizes
+      $size-min-rem: rem.convert($size-min);
+      $size-min-rem-unitless: functions.strip-units($size-min-rem);
+      $size-max-rem: rem.convert($size-max);
+      $size-max-rem-unitless: functions.strip-units($size-max-rem);
 
-			// Calculations
-			$slope: math.div(
-				($size-max-rem-unitless - $size-min-rem-unitless),
-				($max-bp-rem-unitless - $min-bp-rem-unitless)
-			);
-			$y-axis-intersection: (
-				(-($min-bp-rem-unitless) * $slope) + $size-min-rem-unitless
-			);
+      // Calculations
+      $slope: math.div(
+        ($size-max-rem-unitless - $size-min-rem-unitless),
+        ($max-bp-rem-unitless - $min-bp-rem-unitless)
+      );
+      $y-axis-intersection: (
+        (-($min-bp-rem-unitless) * $slope) + $size-min-rem-unitless
+      );
 
-			// fill up return
-			$return: clamp(
-				#{$size-min-rem},
-				#{$y-axis-intersection * 1rem} + #{($slope * 100) * 1vw},
-				#{$size-max-rem}
-			);
-		} @else {
-			@error '$size-min, $size-max, $min-bp and $max-bp should be defined in px.';
-		}
-	} @else {
-		@error '`$min-bp: #{$min-bp}` or `$max-bp: #{$max-bp}` should be defined in `defaults.$breakpoints`';
-	}
+      // fill up return
+      $return: clamp(
+        #{$size-min-rem},
+        #{$y-axis-intersection * 1rem} + #{($slope * 100) * 1vw},
+        #{$size-max-rem}
+      );
+    } @else {
+      @error '$size-min, $size-max, $min-bp and $max-bp should be defined in px.';
+    }
+  } @else {
+    @error '`$min-bp: #{$min-bp}` or `$max-bp: #{$max-bp}` should be defined in `defaults.$breakpoints`';
+  }
 
-	@return $return;
+  @return $return;
 }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-		objects.mesh
+    objects.mesh
 / =========================================================================== */
 
 /**
@@ -17,16 +17,16 @@
 @use '../../tools/responsive';
 
 /* --------------------------------------------------------------------------
-		Internal variables
+    Internal variables
 / --------------------------------------------------------------------------- */
 
 $selector: '> *';
 @if defaults.$css-modules {
-	$selector: ':global(#{$selector})';
+  $selector: ':global(#{$selector})';
 }
 
 /* --------------------------------------------------------------------------
-		Module
+    Module
 / --------------------------------------------------------------------------- */
 
 /**
@@ -36,24 +36,24 @@ $selector: '> *';
  *    the component.
  */
 .o-mesh {
-	--columns: #{variables.$columns};
-	--gap: 0;
-	--mesh-gap: var(--gap);
-	--block-gap: var(--mesh-gap);
-	--inline-gap: var(--mesh-gap);
-	display: grid;
-	grid-template-columns: repeat(var(--columns), 1fr);
-	gap: var(--block-gap) var(--inline-gap);
-	padding: 0; /* [1] */
-	margin-inline-start: 0; /* [1] */
-	list-style: none; /* [1] */
+  --columns: #{variables.$columns};
+  --gap: 0;
+  --mesh-gap: var(--gap);
+  --block-gap: var(--mesh-gap);
+  --inline-gap: var(--mesh-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--block-gap) var(--inline-gap);
+  padding: 0; /* [1] */
+  margin-inline-start: 0; /* [1] */
+  list-style: none; /* [1] */
 
-	#{$selector} {
-		--colstart: 0;
-		--colspan: 1;
-		grid-column-start: var(--colstart);
-		grid-column-end: span var(--colspan);
-	}
+  #{$selector} {
+    --colstart: 0;
+    --colspan: 1;
+    grid-column-start: var(--colstart);
+    grid-column-end: span var(--colspan);
+  }
 }
 
 /**
@@ -61,8 +61,8 @@ $selector: '> *';
  * Fluid width columns that break into more or less columns as space is available, with no media queries
  */
 .o-mesh--flow {
-	--min-inline-size: #{rem.convert(variables.$flow-min-inline-size)};
-	grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
+  --min-inline-size: #{rem.convert(variables.$flow-min-inline-size)};
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
 }
 
 /**
@@ -70,16 +70,16 @@ $selector: '> *';
  * Attempt to fill in holes earlier in the grid if smaller items come up later
  */
 .o-mesh--dense {
-	grid-auto-flow: dense;
+  grid-auto-flow: dense;
 }
 
 /**
  * Modifier: gap-X
  */
 @each $gap in variables.$gaps {
-	.o-mesh--gap-#{$gap} {
-		--mesh-gap: #{space.get($gap)};
-	}
+  .o-mesh--gap-#{$gap} {
+    --mesh-gap: #{space.get($gap)};
+  }
 }
 
 /**
@@ -87,8 +87,8 @@ $selector: '> *';
  * 1. Overwrite any previously set column start
  */
 .o-mesh__row {
-	@include responsive.in-query(variables.$row-in-query) {
-		--colstart: 0; /* [1] */
-		--colspan: 12;
-	}
+  @include responsive.in-query(variables.$row-in-query) {
+    --colstart: 0; /* [1] */
+    --colspan: 12;
+  }
 }

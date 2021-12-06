@@ -1,4 +1,3 @@
 module.exports = {
-	...require('@supple-kit/prettier-config'),
-	useTabs: true,
+  ...require('@supple-kit/prettier-config'),
 };

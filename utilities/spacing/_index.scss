@@ -1,11 +1,11 @@
 /* ==========================================================================
-		utilities.spacing
-		Utility classes to put specific spacing values onto elements.
-		The loop can generate us a suite of classes like:
+    utilities.spacing
+    Utility classes to put specific spacing values onto elements.
+    The loop can generate us a suite of classes like:
 
-		.u-padding-inline-start--large {}
-		.u-margin-inline-end--small {}
-		.u-padding-block--base {}
+    .u-padding-inline-start--large {}
+    .u-margin-inline-end--small {}
+    .u-padding-block--base {}
 / =========================================================================== */
 
 /**
@@ -24,25 +24,25 @@
 @use './tools';
 
 /* --------------------------------------------------------------------------
-		Module
+    Module
 / --------------------------------------------------------------------------- */
 
 @include tools.build;
 
 /* --------------------------------------------------------------------------
-		Responsive
+    Responsive
 / --------------------------------------------------------------------------- */
 
 @if meta.type-of(variables.$in-query) == 'list' {
-	@each $query in variables.$in-query {
-		@include responsive.mq($query) {
-			@include tools.build('#{defaults.$responsive-modifier}#{$query}');
-		}
-	}
+  @each $query in variables.$in-query {
+    @include responsive.mq($query) {
+      @include tools.build('#{defaults.$responsive-modifier}#{$query}');
+    }
+  }
 } @else {
-	@include responsive.mq(variables.$in-query) {
-		@include tools.build(
-			'#{defaults.$responsive-modifier}#{variables.$in-query}'
-		);
-	}
+  @include responsive.mq(variables.$in-query) {
+    @include tools.build(
+      '#{defaults.$responsive-modifier}#{variables.$in-query}'
+    );
+  }
 }

@@ -17,10 +17,10 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <button>
-	This button has text that is
-	<span class="u-visually-hidden"
-		>hidden visually but still available for screenreaders etc.</span
-	>
+  This button has text that is
+  <span class="u-visually-hidden"
+    >hidden visually but still available for screenreaders etc.</span
+  >
 </button>
 ```
 
@@ -30,11 +30,11 @@ When you set media queries in `$in-query` you can use them like this:
 
 ```html
 <button>
-	This button has text that is
-	<span class="u-visually-hidden@lap"
-		>Hidden visually from lap breakpoint but still available for screenreaders
-		etc.</span
-	>
+  This button has text that is
+  <span class="u-visually-hidden@lap"
+    >Hidden visually from lap breakpoint but still available for screenreaders
+    etc.</span
+  >
 </button>
 ```
 
@@ -55,13 +55,12 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
 ```
 
 or
@@ -69,12 +68,11 @@ or
 ```scss
 // in your own variable file, eg. `_vars.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden/variables'
-	with
-	(
-		$in-query: (
-			lap,
-		)
-	);
+  with (
+  $in-query: (
+    lap,
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';

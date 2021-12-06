@@ -1,6 +1,6 @@
 /* ==========================================================================
-		utilities.hidden
-		Completely remove from the flow and hide it from screenreaders
+    utilities.hidden
+    Completely remove from the flow and hide it from screenreaders
 / =========================================================================== */
 
 /**
@@ -15,11 +15,11 @@
 @use '../../tools/responsive';
 
 /* --------------------------------------------------------------------------
-		Module
+    Module
 / --------------------------------------------------------------------------- */
 
 .u-hidden {
-	@include responsive.in-query(variables.$in-query) {
-		display: none !important;
-	}
+  @include responsive.in-query(variables.$in-query) {
+    display: none !important;
+  }
 }

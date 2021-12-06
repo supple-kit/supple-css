@@ -1,8 +1,8 @@
 /* ==========================================================================
-		utilities.visually-hidden
-		Hides an element visually while still allowing the content to be accessible
-		to assistive technology, e.g. screen readers.
-		As per: https://a11yproject.com/posts/how-to-hide-content
+    utilities.visually-hidden
+    Hides an element visually while still allowing the content to be accessible
+    to assistive technology, e.g. screen readers.
+    As per: https://a11yproject.com/posts/how-to-hide-content
 / =========================================================================== */
 
 /**
@@ -18,7 +18,7 @@
 @use '../../tools/responsive';
 
 .u-visually-hidden {
-	@include responsive.in-query(variables.$in-query) {
-		@include a11y.visually-hidden;
-	}
+  @include responsive.in-query(variables.$in-query) {
+    @include a11y.visually-hidden;
+  }
 }

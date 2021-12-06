@@ -22,8 +22,8 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <div class="o-mesh">
-	<div class="u-colstart-3">starts at column 3</div>
-	<div class="u-colstart-7">starts at column 7</div>
+  <div class="u-colstart-3">starts at column 3</div>
+  <div class="u-colstart-7">starts at column 7</div>
 </div>
 ```
 
@@ -45,27 +45,25 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/utilities/colstart' with
-	(
-		$columns: 10,
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/utilities/colstart' with (
+  $columns: 10,
+  $in-query: (
+    lap,
+    desk,
+  )
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/utilities/colstart/variables' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/utilities/colstart/variables' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/colstart';

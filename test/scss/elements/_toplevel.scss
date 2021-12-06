@@ -1,16 +1,16 @@
 /* ==========================================================================
-		test.elements.toplevel
+    test.elements.toplevel
 / =========================================================================== */
 
 @use '../../../tools/space';
 @use '../../../settings/defaults';
 
 html {
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
-		Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
 body {
-	padding-inline-start: space.get('base');
-	padding-inline-end: space.get('base');
+  padding-inline-start: space.get('base');
+  padding-inline-end: space.get('base');
 }

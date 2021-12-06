@@ -1,86 +1,81 @@
 /* ==========================================================================
-		Supple test file
+    Supple test file
 / =========================================================================== */
 
 /* --------------------------------------------------------------------------
-		Settings
+    Settings
 / --------------------------------------------------------------------------- */
 
 @use '../../settings/defaults';
 
 /* --------------------------------------------------------------------------
-		Tools
+    Tools
 / --------------------------------------------------------------------------- */
 
 @use '../../tools/responsive';
 
 /* --------------------------------------------------------------------------
-		Generic
+    Generic
 / --------------------------------------------------------------------------- */
 
 @use '../../generic/reset';
 
 /* --------------------------------------------------------------------------
-		Elements
+    Elements
 / --------------------------------------------------------------------------- */
 
 @use 'elements/toplevel';
 
 /* --------------------------------------------------------------------------
-		Objects
+    Objects
 / --------------------------------------------------------------------------- */
 
 @use '../../objects/list-clean';
-@use '../../objects/layout' with
-	(
-		$fit-in-query: (
-			lap,
-			desk,
-		),
-		$fill-in-query: lap,
-		$gaps: (
-			'base',
-			'tiny',
-		)
-	);
-@use '../../objects/mesh' with
-	(
-		$row-in-query: (
-			lap,
-			desk,
-		),
-		$gaps: (
-			'base',
-			'tiny',
-		)
-	);
-@use '../../objects/retain' with
-	(
-		$sizes: (
-			lap: 640px,
-			desk: 960px,
-			wall: 1280px,
-			billboard: 1440px,
-		)
-	);
-@use '../../objects/aspect-ratio' with
-	(
-		$ratios: (
-			(2: 1),
-			(4: 3),
-			(16: 9),
-			(21: 9),
-		)
-	);
-@use '../../objects/flow' with
-	(
-		$gaps: (
-			'tiny',
-		)
-	);
+@use '../../objects/layout' with (
+  $fit-in-query: (
+    lap,
+    desk,
+  ),
+  $fill-in-query: lap,
+  $gaps: (
+    'base',
+    'tiny',
+  )
+);
+@use '../../objects/mesh' with (
+  $row-in-query: (
+    lap,
+    desk,
+  ),
+  $gaps: (
+    'base',
+    'tiny',
+  )
+);
+@use '../../objects/retain' with (
+  $sizes: (
+    lap: 640px,
+    desk: 960px,
+    wall: 1280px,
+    billboard: 1440px,
+  )
+);
+@use '../../objects/aspect-ratio' with (
+  $ratios: (
+    (2: 1),
+    (4: 3),
+    (16: 9),
+    (21: 9),
+  )
+);
+@use '../../objects/flow' with (
+  $gaps: (
+    'tiny',
+  )
+);
 
 /* --------------------------------------------------------------------------
-		Components
+    Components
 / --------------------------------------------------------------------------- */
 
 @use 'components/test';
@@ -89,56 +84,52 @@
 @use 'components/css-lock';
 
 /* --------------------------------------------------------------------------
-		Theme
+    Theme
 / --------------------------------------------------------------------------- */
 
 @use 'settings/theme';
 
 /* --------------------------------------------------------------------------
-		Utilities
+    Utilities
 / --------------------------------------------------------------------------- */
 
-@use '../../utilities/columns' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
-@use '../../utilities/colspan' with ($in-query: lap);
-@use '../../utilities/colstart' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
-@use '../../utilities/offset' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
+@use '../../utilities/columns' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
+@use '../../utilities/colspan' with (
+  $in-query: lap
+);
+@use '../../utilities/colstart' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
+@use '../../utilities/offset' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
 @use '../../utilities/clearfix';
-@use '../../utilities/spacing' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
-@use '../../utilities/visually-hidden' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
-@use '../../utilities/hidden' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
+@use '../../utilities/spacing' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
+@use '../../utilities/visually-hidden' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
+@use '../../utilities/hidden' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);

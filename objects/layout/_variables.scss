@@ -1,5 +1,5 @@
 /* ==========================================================================
-		objects.layout.variables
+    objects.layout.variables
 / =========================================================================== */
 
 @use '../../settings/defaults';
@@ -24,7 +24,7 @@ $gaps: ('base') !default;
 $X-in-query: (lap, desk);
  *
  * Note: the name of the query must exist in the list of `$queries`
- *       in `settings/responsive`
+ *     in `settings/responsive`
  */
 $fit-in-query: () !default;
 $fill-in-query: () !default;

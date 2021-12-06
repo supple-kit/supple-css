@@ -1,5 +1,5 @@
 /* ==========================================================================
-		utilities.spacing.variables
+    utilities.spacing.variables
 / =========================================================================== */
 
 @use '../../settings/defaults';
@@ -23,7 +23,7 @@ $properties: (
  * By default it's only margins we generate
  */
 $properties: (
-	'margin-block-end': 'margin-block-end',
+  'margin-block-end': 'margin-block-end',
 ) !default;
 
 /**
@@ -46,6 +46,6 @@ $sizes: ('base') !default;
 $in-query: (lap, desk);
  *
  * Note: the name of the media query must exist in the list of `$queries`
- *       in `settings/defaults`
+ *     in `settings/defaults`
  */
 $in-query: () !default;

@@ -17,10 +17,10 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <button>
-	This button has text that is
-	<span class="u-hidden"
-		>totally hidden from flow, view and assistive technology</span
-	>
+  This button has text that is
+  <span class="u-hidden"
+    >totally hidden from flow, view and assistive technology</span
+  >
 </button>
 ```
 
@@ -30,10 +30,10 @@ When you set media queries in `$in-query` you can use them like this:
 
 ```html
 <button>
-	This button has text that is
-	<span class="u-hidden@lap"
-		>totally hidden from flow, view and assistive technology</span
-	>
+  This button has text that is
+  <span class="u-hidden@lap"
+    >totally hidden from flow, view and assistive technology</span
+  >
 </button>
 ```
 
@@ -54,25 +54,23 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/utilities/hidden' with
-	(
-		$in-query: (
-			lap,
-			desk,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/utilities/hidden' with (
+  $in-query: (
+    lap,
+    desk,
+  )
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/utilities/hidden/variables' with
-	(
-		$in-query: (
-			lap,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/utilities/hidden/variables' with (
+  $in-query: (
+    lap,
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/utilities/hidden';

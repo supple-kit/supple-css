@@ -26,9 +26,9 @@ Supple’s tools are categorised so you only need to `@use` the tools you want:
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 .your-module {
-	@include responsive.mq('lap') {
-		margin-inline-start: space.get('tiny');
-	}
+  @include responsive.mq('lap') {
+    margin-inline-start: space.get('tiny');
+  }
 }
 ```
 
@@ -54,13 +54,13 @@ Returns the spacing value converted to `rem` units. The `$name` must be present 
 
 ```scss
 .selector {
-	margin-inline-start: space.get('tiny');
-	margin-inline-end: space.get('large');
+  margin-inline-start: space.get('tiny');
+  margin-inline-end: space.get('large');
 }
 // with default settings becomes
 .selector {
-	margin-inline-start: 0.5rem;
-	margin-inline-end: 3rem;
+  margin-inline-start: 0.5rem;
+  margin-inline-end: 3rem;
 }
 ```
 
@@ -78,13 +78,13 @@ Returns the spacing-factor value. The `$name` must be present in `defaults.$spac
 
 ```scss
 .selector {
-	margin-inline-start: calc(
-		#{space.get-factor('small')} * #{defaults.$baseline}
-	);
+  margin-inline-start: calc(
+    #{space.get-factor('small')} * #{defaults.$baseline}
+  );
 }
 // with default settings becomes
 .selector {
-	margin-inline-start: calc(2 * 8px);
+  margin-inline-start: calc(2 * 8px);
 }
 ```
 
@@ -110,15 +110,15 @@ Converts `px` values to `rem`. If you pass in another format instead of `px` it 
 
 ```scss
 .selector {
-	margin-block-start: rem.convert(24px);
-	margin-block: rem.convert(24px 0.5vw);
-	margin-inline: rem.convert(24px auto 12px 50%);
+  margin-block-start: rem.convert(24px);
+  margin-block: rem.convert(24px 0.5vw);
+  margin-inline: rem.convert(24px auto 12px 50%);
 }
 // with default settings becomes:
 .selector {
-	margin-block-start: 1.5rem;
-	margin-block: 1.5rem 0.5vw;
-	margin-inline: 1.5rem auto 0.75rem 50%;
+  margin-block-start: 1.5rem;
+  margin-block: 1.5rem 0.5vw;
+  margin-inline: 1.5rem auto 0.75rem 50%;
 }
 ```
 
@@ -138,20 +138,20 @@ Hides an element visually while still allowing the content to be accessible to a
 
 ```scss
 .selector {
-	@include a11y.visually-hidden;
+  @include a11y.visually-hidden;
 }
 // becomes:
 .selector {
-	border: 0 !important;
-	clip: rect(0 0 0 0) !important;
-	clip-path: inset(50%) !important;
-	block-size: 1px !important;
-	margin: -1px !important;
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: absolute !important;
-	white-space: nowrap !important;
-	inline-size: 1px !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  block-size: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  inline-size: 1px !important;
 }
 ```
 
@@ -181,29 +181,29 @@ Generates a rem font-size and a baseline-compatible unitless line-height from a 
 
 ```scss
 .selector {
-	@include typography.font-size($font-size: 18px);
+  @include typography.font-size($font-size: 18px);
 }
 // add 2 lines of `$baseline`
 .selector-modifier {
-	@include typography.font-size($font-size: 18px, $modifier: +2);
+  @include typography.font-size($font-size: 18px, $modifier: +2);
 }
 // Self define line-height
 .selector-line-height {
-	@include typography.font-size($font-size: 18px, $line-height: 1);
+  @include typography.font-size($font-size: 18px, $line-height: 1);
 }
 
 // with default settings becomes:
 .selector {
-	font-size: 1.125rem;
-	line-height: 1.7777777778; // 32px
+  font-size: 1.125rem;
+  line-height: 1.7777777778; // 32px
 }
 .selector-modifier {
-	font-size: 1.125rem;
-	line-height: 2.6666666667; // 48px
+  font-size: 1.125rem;
+  line-height: 2.6666666667; // 48px
 }
 .selector-line-height {
-	font-size: 1.125rem;
-	line-height: 1; // 18px
+  font-size: 1.125rem;
+  line-height: 1; // 18px
 }
 ```
 
@@ -225,13 +225,13 @@ way that supports a toggle component.
 
 ```scss
 :root {
-	// Light theme colors
-	--color-slate: #cccccc;
+  // Light theme colors
+  --color-slate: #cccccc;
 
-	@include responsive.color-scheme() {
-		// Dark theme colors
-		--color-slate: #000000;
-	}
+  @include responsive.color-scheme() {
+    // Dark theme colors
+    --color-slate: #000000;
+  }
 }
 ```
 
@@ -245,15 +245,15 @@ Apply a media query defined in `defaults.$queries`.
 
 ```scss
 .selector {
-	@include responsive.mq('lap') {
-		outline: 1px solid #ff0000;
-	}
+  @include responsive.mq('lap') {
+    outline: 1px solid #ff0000;
+  }
 }
 // with default settings becomes:
 @media (min-width: 40em) {
-	.selector {
-		margin-block-end: 0 !important;
-	}
+  .selector {
+    margin-block-end: 0 !important;
+  }
 }
 ```
 
@@ -275,20 +275,20 @@ The property will start scaling and stop scaling exactly where you want.
 
 ```scss
 .selector {
-	font-size: responsive.lock(18px, 24px);
+  font-size: responsive.lock(18px, 24px);
 }
 // You can also redefine the min- and max breakpoints like this
 .selector-defined-breakpoints {
-	font-size: responsive.lock(20px, 30px, desk, wall);
+  font-size: responsive.lock(20px, 30px, desk, wall);
 }
 
 // with default settings becomes:
 .selector {
-	font-size: clamp(1.125rem, 0.375rem + 1.875vw, 1.5rem);
+  font-size: clamp(1.125rem, 0.375rem + 1.875vw, 1.5rem);
 }
 
 .selector-defined-breakpoints {
-	font-size: clamp(1.25rem, -0.625rem + 3.125vw, 1.875rem);
+  font-size: clamp(1.25rem, -0.625rem + 3.125vw, 1.875rem);
 }
 ```
 
@@ -308,20 +308,20 @@ The mixin's `@content` will be also applied to the parent selector.
 ```scss
 $YOURMODULE-in-query: (lap, desk);
 .your-selector {
-	@include responsive.in-query($YOURMODULE-in-query) {
-		outline: 1px solid #ff0000;
-	}
+  @include responsive.in-query($YOURMODULE-in-query) {
+    outline: 1px solid #ff0000;
+  }
 }
 // becomes:
 @media (min-width: 40em) {
-	.your-selector\@lap {
-		outline: 1px solid #ff0000;
-	}
+  .your-selector\@lap {
+    outline: 1px solid #ff0000;
+  }
 }
 @media (min-width: 60em) {
-	.your-selector\@desk {
-		outline: 1px solid #ff0000;
-	}
+  .your-selector\@desk {
+    outline: 1px solid #ff0000;
+  }
 }
 ```
 

@@ -28,7 +28,7 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 ```html
 <div class="o-aspect-ratio">
-	<iframe src=""></iframe>
+  <iframe src=""></iframe>
 </div>
 ```
 
@@ -36,9 +36,9 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 ```html
 <div
-	class="o-aspect-ratio [o-aspect-ratio--4by3  |  o-aspect-ratio--16by9  |  o-aspect-ratio--2by1]"
+  class="o-aspect-ratio [o-aspect-ratio--4by3  |  o-aspect-ratio--16by9  |  o-aspect-ratio--2by1]"
 >
-	<iframe src=""></iframe>
+  <iframe src=""></iframe>
 </div>
 ```
 
@@ -46,7 +46,7 @@ By default the aspect ratio container has a ratio of 1:1, a perfect square.
 
 ```html
 <div class="o-aspect-ratio" style="--aspect-ratio: (560/315);">
-	<img src="" />
+  <img src="" />
 </div>
 ```
 
@@ -79,26 +79,24 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/aspect-ratio' with
-	(
-		$ratios: (
-			(4: 3),
-			(16: 9),
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/aspect-ratio' with (
+  $ratios: (
+    (4: 3),
+    (16: 9),
+  )
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/aspect-ratio/variables' with
-	(
-		$ratios: (
-			(4: 3),
-			(16: 9),
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/aspect-ratio/variables' with (
+  $ratios: (
+    (4: 3),
+    (16: 9),
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/aspect-ratio';

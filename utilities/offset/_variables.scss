@@ -1,5 +1,5 @@
 /* ==========================================================================
-		utilities.offset.variables
+    utilities.offset.variables
 / =========================================================================== */
 
 @use '../../settings/defaults';
@@ -16,6 +16,6 @@ $columns: defaults.$columns !default;
 $in-query: (lap, desk);
  *
  * Note: the name of the breakpoint must exist in the list of `$queries`
- *       in `settings/defaults`
+ *     in `settings/defaults`
  */
 $in-query: () !default;

@@ -1,7 +1,7 @@
 /* ==========================================================================
-		generic.reset
-		A reset of sensible defaults, roughly based on Andy Bell's excellent
-		Modern CSS Reset(https://hankchizljaw.com/wrote/a-modern-css-reset/).
+    generic.reset
+    A reset of sensible defaults, roughly based on Andy Bell's excellent
+    Modern CSS Reset(https://hankchizljaw.com/wrote/a-modern-css-reset/).
 / =========================================================================== */
 
 @use 'sass:math';
@@ -13,12 +13,12 @@
  * paulirish.com/2012/box-sizing-border-box-ftw
  */
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 
-	&::before,
-	&::after {
-		box-sizing: inherit;
-	}
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 /**
@@ -28,11 +28,11 @@
  * 4. Apply the `$font-size` & `$line-height-ratio`
  */
 html {
-	min-block-size: 100vh; /* [1] */
-	overflow-y: scroll; /* [2] */
-	scroll-behavior: smooth; /* [3] */
-	font-size: #{math.div(defaults.$font-size, 16px) * 1em}; /* [4] */
-	line-height: #{defaults.$line-height-ratio}; /* [4] */
+  min-block-size: 100vh; /* [1] */
+  overflow-y: scroll; /* [2] */
+  scroll-behavior: smooth; /* [3] */
+  font-size: #{math.div(defaults.$font-size, 16px) * 1em}; /* [4] */
+  line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
 
 /**
@@ -61,7 +61,7 @@ hr,
 dl,
 dd,
 input {
-	margin: 0;
+  margin: 0;
 }
 
 /**
@@ -69,29 +69,29 @@ input {
  */
 ul,
 ol {
-	padding-inline-start: space.get();
+  padding-inline-start: space.get();
 }
 
 dd {
-	margin-inline-start: space.get();
+  margin-inline-start: space.get();
 }
 
 /**
  * Strip unwanted paddings & styling from elements
  */
 button {
-	background: transparent;
+  background: transparent;
 }
 
 button,
 fieldset {
-	padding: 0;
+  padding: 0;
 }
 
 button,
 iframe,
 fieldset {
-	border: 0;
+  border: 0;
 }
 
 /**
@@ -102,7 +102,7 @@ button,
 input,
 select,
 textarea {
-	font: inherit;
+  font: inherit;
 }
 
 /**
@@ -110,8 +110,8 @@ textarea {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-	font-family: monospace, monospace; /* 1 */ /* stylelint-disable-line font-family-no-duplicate-names */
-	font-size: 1em; /* 2 */
+  font-family: monospace, monospace; /* 1 */ /* stylelint-disable-line font-family-no-duplicate-names */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -120,7 +120,7 @@ pre {
  * might still respond to pointer events.
  */
 [tabindex='-1']:focus {
-	outline: none !important;
+  outline: none !important;
 }
 
 /**
@@ -129,8 +129,8 @@ pre {
  * As per: https://twitter.com/LeaVerou/status/1045768279753666562
  */
 :focus:not(:focus-visible) {
-	// stylelint-disable-line selector-pseudo-class-no-unknown
-	outline: none;
+  // stylelint-disable-line selector-pseudo-class-no-unknown
+  outline: none;
 }
 
 /**
@@ -140,10 +140,10 @@ pre {
  * 2. Render `alt` visually offset when images don't load
  */
 img {
-	display: block;
-	max-inline-size: 100%; /* [1] */
-	block-size: auto; /* [1] */
-	font-style: italic; /* [2] */
+  display: block;
+  max-inline-size: 100%; /* [1] */
+  block-size: auto; /* [1] */
+  font-style: italic; /* [2] */
 }
 
 /**
@@ -152,14 +152,14 @@ img {
  *    several benefits:
  *    - Preserves the end state of an animation/transition
  *    - Preserves the possibility to listen to `animationend` and
- *      `transitionend` events.
+ *    `transitionend` events.
  * 2. Only one animation cycle
  */
 @media (prefers-reduced-motion: reduce) {
-	* {
-		animation-duration: 0.01ms !important; /* [1] */
-		animation-iteration-count: 1 !important; /* [2] */
-		transition-duration: 0.01ms !important; /* [1] */
-		scroll-behavior: auto !important;
-	}
+  * {
+    animation-duration: 0.01ms !important; /* [1] */
+    animation-iteration-count: 1 !important; /* [2] */
+    transition-duration: 0.01ms !important; /* [1] */
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-		objects.mesh.variables
+    objects.mesh.variables
 / =========================================================================== */
 
 @use '../../settings/defaults';
@@ -28,6 +28,6 @@ $flow-min-inline-size: 200px !default;
 $row-in-query: (lap, desk);
  *
  * Note: the name of the query must exist in the list of `$queries`
- *       in `settings/responsive`
+ *     in `settings/responsive`
  */
 $row-in-query: () !default;

@@ -18,15 +18,14 @@ You can override the default variables like this:
 
 ```scss
 // in you own settings file eg. `_vars.scss` or from you manifest file eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/settings/defaults' with
-	(
-		$columns: 10,
-		$baseline: 6px,
-		$space-factors: (
-			'base': 3,
-			'tiny': 1,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $columns: 10,
+  $baseline: 6px,
+  $space-factors: (
+    'base': 3,
+    'tiny': 1,
+  )
+);
 ```
 
 And when you need the variables in your own module you can use them like this:
@@ -36,7 +35,7 @@ And when you need the variables in your own module you can use them like this:
 @use 'node_modules/@supple-kit/supple-css/settings/defaults';
 
 .your-module {
-	--columns: #{defaults.$columns};
+  --columns: #{defaults.$columns};
 }
 
 // or in combination with tools
@@ -47,7 +46,7 @@ And when you need the variables in your own module you can use them like this:
 @use 'node_modules/@supple-kit/supple-css/tools/rem';
 
 .your-module__element {
-	@include rem.convert(margin-inline-start, defaults.$baseline);
+  @include rem.convert(margin-inline-start, defaults.$baseline);
 }
 ```
 
@@ -80,16 +79,16 @@ The following map keys multiply the `$baseline` to consistent and transparent sp
 
 ```scss
 $space-factors: (
-	'base': 4,
-	// 4*8px = 32px
-	'tiny': 2,
-	// 2*8px = 16px
-	'small': 3,
-	// 3*8px = 24px
-	'large': 6,
-	// 6*8px = 48px
-	'huge': 12,
-	// 12*8px = 96px
+  'base': 4,
+  // 4*8px = 32px
+  'tiny': 2,
+  // 2*8px = 16px
+  'small': 3,
+  // 3*8px = 24px
+  'large': 6,
+  // 6*8px = 48px
+  'huge': 12,
+  // 12*8px = 96px
 );
 ```
 
@@ -97,16 +96,16 @@ $space-factors: (
 
 ```scss
 $space-factors: (
-	'tiny': 1,
-	// 1*8px = 8px
-	'small': 2,
-	// 2*8px = 16px
-	'base': 3,
-	// 3*8px = 24px
-	'large': 6,
-	// 6*8px = 48px
-	'huge': 12,
-	// 12*8px = 96px
+  'tiny': 1,
+  // 1*8px = 8px
+  'small': 2,
+  // 2*8px = 16px
+  'base': 3,
+  // 3*8px = 24px
+  'large': 6,
+  // 6*8px = 48px
+  'huge': 12,
+  // 12*8px = 96px
 ) !default;
 ```
 
@@ -116,7 +115,7 @@ These multiplication factors are converted to a `rem` value and available throug
 @use 'node_modules/@supple-kit/supple-css/tools/space';
 
 .your-selector {
-	margin-block-end: space.get('base');
+  margin-block-end: space.get('base');
 }
 ```
 
@@ -171,10 +170,10 @@ Working with breakpoints is pretty straightforward. You can add as many breakpoi
 // Name your breakpoints in a way that creates a ubiquitous language across team members.
 // It will improve communication between stakeholders, designers, developers, and testers.
 $breakpoints: (
-	palm: 320px,
-	lap: 640px,
-	desk: 960px,
-	wall: 1280px,
+  palm: 320px,
+  lap: 640px,
+  desk: 960px,
+  wall: 1280px,
 );
 
 // Query list, which is used by the `responsive.mq()` mixin.
@@ -182,34 +181,34 @@ $breakpoints: (
 // You can reference `$breakpoints` by name or you can enter a `px` or `em` value
 // You can create complex media queries like this:
 $queries: (
-	// min-width
-	palm: palm,
-	lap: lap,
-	desk: desk,
-	wall: wall,
-	// max-width
-	until-desk:
-		(
-			max: desk,
-		),
-	// min-width & max-width
-	lap-until-desk:
-		(
-			min: lap,
-			max: desk,
-		),
-	// min-width & max-width with generic px value
-	lap-until-generic:
-		(
-			min-width: lap,
-			max-width: 1024px,
-		),
-	// You can also apply height queries
-	height-large-until-huge:
-		(
-			min-height: 640px,
-			max-height: 1024px,
-		)
+  // min-width
+  palm: palm,
+  lap: lap,
+  desk: desk,
+  wall: wall,
+  // max-width
+  until-desk:
+    (
+      max: desk,
+    ),
+  // min-width & max-width
+  lap-until-desk:
+    (
+      min: lap,
+      max: desk,
+    ),
+  // min-width & max-width with generic px value
+  lap-until-generic:
+    (
+      min-width: lap,
+      max-width: 1024px,
+    ),
+  // You can also apply height queries
+  height-large-until-huge:
+    (
+      min-height: 640px,
+      max-height: 1024px,
+    )
 );
 ```
 

@@ -31,10 +31,10 @@ A simple mesh is easy to create. A mesh container can have any number of child c
 
 ```html
 <div class="o-mesh  o-mesh--gap-base">
-	<div><!-- content --></div>
-	<div><!-- content --></div>
-	<div><!-- content --></div>
-	<div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
 </div>
 ```
 
@@ -44,10 +44,10 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh  [o-mesh--flow  |  o-mesh--dense  |  o-mesh--gap-base]">
-	<div></div>
-	<div></div>
-	<div></div>
-	<div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
 ```
 
@@ -55,7 +55,7 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh  u-columns-10">
-	<div class="u-colspan-5">Spans 5 of 10 columns</div>
+  <div class="u-colspan-5">Spans 5 of 10 columns</div>
 </div>
 ```
 
@@ -63,7 +63,7 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh">
-	<div class="o-mesh__row">Spans a full row</div>
+  <div class="o-mesh__row">Spans a full row</div>
 </div>
 ```
 
@@ -71,9 +71,9 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh">
-	<div class="u-colspan-5  u-colstart-2">
-		Spans 5 of 12 columns and starts at column 2
-	</div>
+  <div class="u-colspan-5  u-colstart-2">
+    Spans 5 of 12 columns and starts at column 2
+  </div>
 </div>
 ```
 
@@ -81,15 +81,15 @@ For more granular control over mesh make use of modifiers, custom properties or 
 
 ```html
 <div class="o-mesh" style="--columns: 10; --gap: 3rem;">
-	<div style="--colspan: 4;">Spans 4 of 10 columns</div>
+  <div style="--colspan: 4;">Spans 4 of 10 columns</div>
 
-	<div style="--colspan: 1; --colstart: 5;">
-		Spans 1 of 10 columns starts at column 5
-	</div>
+  <div style="--colspan: 1; --colstart: 5;">
+    Spans 1 of 10 columns starts at column 5
+  </div>
 
-	<div style="--colspan: 3;">Spans 3 of 10 columns</div>
+  <div style="--colspan: 3;">Spans 3 of 10 columns</div>
 
-	<div style="--colspan: 2;">Spans 2 of 10 columns</div>
+  <div style="--colspan: 2;">Spans 2 of 10 columns</div>
 </div>
 ```
 
@@ -101,9 +101,9 @@ You can nest mesh in any context. Keep in mind that the dimensions will be relat
 
 ```html
 <div class="o-mesh">
-	<div class="[ o-mesh ]  [ u-colspan-X ]">
-		<div class="u-colspan-X"></div>
-	</div>
+  <div class="[ o-mesh ]  [ u-colspan-X ]">
+    <div class="u-colspan-X"></div>
+  </div>
 </div>
 ```
 
@@ -113,9 +113,9 @@ When you set breakpoints in `$row-in-query` you can use it like this:
 
 ```html
 <div class="o-mesh">
-	<div class="o-mesh__row@lap">
-		spans 1 column and from lap breakpoint it will span 12 columns (full row).
-	</div>
+  <div class="o-mesh__row@lap">
+    spans 1 column and from lap breakpoint it will span 12 columns (full row).
+  </div>
 </div>
 ```
 
@@ -165,34 +165,32 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/mesh' with
-	(
-		$row-in-query: (
-			lap,
-			desk,
-		),
-		$gaps: (
-			'base',
-			'tiny',
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/mesh' with (
+  $row-in-query: (
+    lap,
+    desk,
+  ),
+  $gaps: (
+    'base',
+    'tiny',
+  )
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with
-	(
-		$row-in-query: (
-			lap,
-			desk,
-		),
-		$gaps: (
-			'tiny',
-			'huge',
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with (
+  $row-in-query: (
+    lap,
+    desk,
+  ),
+  $gaps: (
+    'tiny',
+    'huge',
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/mesh';

@@ -1,6 +1,6 @@
 /* ==========================================================================
-		utilities.clearfix
-		Clears floats.
+    utilities.clearfix
+    Clears floats.
 / =========================================================================== */
 
 /**
@@ -8,5 +8,5 @@
  * As per: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Using_display_flow-root
  */
 .u-clearfix {
-	display: flow-root;
+  display: flow-root;
 }

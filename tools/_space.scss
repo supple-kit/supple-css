@@ -1,5 +1,5 @@
 /* ==========================================================================
-		tools.space
+    tools.space
 / =========================================================================== */
 
 @use 'sass:map';
@@ -7,22 +7,22 @@
 @use './rem';
 
 /* --------------------------------------------------------------------------
-		Functions
+    Functions
 / --------------------------------------------------------------------------- */
 
 /**
  * Get space-factor
  */
 @function get-factor($name: 'base') {
-	@if map.has-key(defaults.$space-factors, $name) == false {
-		@error '`#{$name}` is not present in `defaults.$space-factors`.';
-	}
-	@return map.get(defaults.$space-factors, $name);
+  @if map.has-key(defaults.$space-factors, $name) == false {
+    @error '`#{$name}` is not present in `defaults.$space-factors`.';
+  }
+  @return map.get(defaults.$space-factors, $name);
 }
 
 /**
  * Get `rem`mified space
  */
 @function get($name: 'base') {
-	@return rem.convert(defaults.$baseline * get-factor($name));
+  @return rem.convert(defaults.$baseline * get-factor($name));
 }

@@ -26,7 +26,7 @@ By default the retain container has a width of 100% and is padded on both sides.
 
 ```html
 <div class="o-retain">
-	<!-- any content -->
+  <!-- any content -->
 </div>
 ```
 
@@ -34,9 +34,9 @@ By default the retain container has a width of 100% and is padded on both sides.
 
 ```html
 <div
-	class="o-retain  [o-retain--no-padding  |  o-retain--lap  |  o-retain--desk  |  o-retain--wall]"
+  class="o-retain  [o-retain--no-padding  |  o-retain--lap  |  o-retain--desk  |  o-retain--wall]"
 >
-	<!-- any content -->
+  <!-- any content -->
 </div>
 ```
 
@@ -44,7 +44,7 @@ By default the retain container has a width of 100% and is padded on both sides.
 
 ```html
 <div class="o-retain" style="--size: 30em;">
-	<!-- any content -->
+  <!-- any content -->
 </div>
 ```
 
@@ -77,26 +77,24 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/retain' with
-	(
-		$sizes: (
-			lap: 640px,
-			desk: 960px,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/retain' with (
+  $sizes: (
+    lap: 640px,
+    desk: 960px,
+  )
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/retain/variables' with
-	(
-		$sizes: (
-			lap: 640px,
-			desk: 960px,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/retain/variables' with (
+  $sizes: (
+    lap: 640px,
+    desk: 960px,
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/retain';

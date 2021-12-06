@@ -1,14 +1,14 @@
 /* ==========================================================================
-		utilities.colspan.tools
-		Functions and/or mixins used in this module
+    utilities.colspan.tools
+    Functions and/or mixins used in this module
 / =========================================================================== */
 
 @use './variables';
 
 @mixin build($modifier: '') {
-	@for $i from 1 through variables.$columns {
-		.u-colspan-#{$i}#{$modifier} {
-			--colspan: #{$i};
-		}
-	}
+  @for $i from 1 through variables.$columns {
+    .u-colspan-#{$i}#{$modifier} {
+      --colspan: #{$i};
+    }
+  }
 }

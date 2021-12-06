@@ -1,7 +1,7 @@
 /* ==========================================================================
-		objects.flow
-		Create a rule that sibling elements apply a common margin that is either
-		globally defined or contextually set.
+    objects.flow
+    Create a rule that sibling elements apply a common margin that is either
+    globally defined or contextually set.
 / =========================================================================== */
 
 /**
@@ -17,25 +17,25 @@
 @use '../../tools/space';
 
 /* --------------------------------------------------------------------------
-		Module
+    Module
 / --------------------------------------------------------------------------- */
 
 .o-flow {
-	$selector: '> * + *';
-	@if defaults.$css-modules {
-		$selector: ':global(#{$selector})';
-	}
+  $selector: '> * + *';
+  @if defaults.$css-modules {
+    $selector: ':global(#{$selector})';
+  }
 
-	--gap: #{space.get(variables.$gap)};
-	--flow-gap: var(--gap);
+  --gap: #{space.get(variables.$gap)};
+  --flow-gap: var(--gap);
 
-	#{$selector} {
-		margin-block-start: var(--flow-gap);
-	}
+  #{$selector} {
+    margin-block-start: var(--flow-gap);
+  }
 }
 
 @each $gap in variables.$gaps {
-	.o-flow--#{$gap} {
-		--flow-gap: #{space.get($gap)};
-	}
+  .o-flow--#{$gap} {
+    --flow-gap: #{space.get($gap)};
+  }
 }

@@ -1,6 +1,6 @@
 /* ==========================================================================
-		objects.retain
-		Page-level constraining and wrapping elements.
+    objects.retain
+    Page-level constraining and wrapping elements.
 / =========================================================================== */
 
 /**
@@ -16,7 +16,7 @@
 @use '../../tools/rem';
 
 /* --------------------------------------------------------------------------
-		Module
+    Module
 / --------------------------------------------------------------------------- */
 
 /**
@@ -24,28 +24,28 @@
  * 1. Center align
  */
 .o-retain {
-	--size: 100%;
-	max-inline-size: var(--size);
-	padding-inline-start: space.get(variables.$space);
-	padding-inline-end: space.get(variables.$space);
-	margin-inline-end: auto; /* [1] */
-	margin-inline-start: auto; /* [1] */
+  --size: 100%;
+  max-inline-size: var(--size);
+  padding-inline-start: space.get(variables.$space);
+  padding-inline-end: space.get(variables.$space);
+  margin-inline-end: auto; /* [1] */
+  margin-inline-start: auto; /* [1] */
 }
 
 /**
  * Modifier: no-padding
  */
 .o-retain--no-padding {
-	padding-inline-end: 0;
-	padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-inline-start: 0;
 }
 
 /* --------------------------------------------------------------------------
-		Common width modifiers
+    Common width modifiers
 / --------------------------------------------------------------------------- */
 
 @each $key, $value in variables.$sizes {
-	.o-retain--#{$key} {
-		--size: #{rem.convert($value)};
-	}
+  .o-retain--#{$key} {
+    --size: #{rem.convert($value)};
+  }
 }

@@ -1,5 +1,5 @@
 /* ==========================================================================
-		utilities.visually-hidden.variables
+    utilities.visually-hidden.variables
 / =========================================================================== */
 
 /**
@@ -12,6 +12,6 @@
 $in-query: (lap, desk);
  *
  * Note: the name of the breakpoint must exist in the list of `$queries`
- *       in `settings/defaults`
+ *     in `settings/defaults`
  */
 $in-query: () !default;

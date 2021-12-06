@@ -17,24 +17,24 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <div class="o-flow">
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-		temporibus numquam repellendus repellat eaque illum, praesentium facere iure
-		fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut
-		doloribus adipisci.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
-		asperiores minima porro nemo, perferendis magni molestias rem illum,
-		inventore fuga sunt! Amet, quisquam voluptatum hic modi doloribus rerum
-		eveniet sint?
-	</p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+    temporibus numquam repellendus repellat eaque illum, praesentium facere iure
+    fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut
+    doloribus adipisci.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
+    asperiores minima porro nemo, perferendis magni molestias rem illum,
+    inventore fuga sunt! Amet, quisquam voluptatum hic modi doloribus rerum
+    eveniet sint?
+  </p>
 
-	<ul>
-		<li>List item 1</li>
-		<li>List item 2</li>
-		<li>List item 3</li>
-	</ul>
+  <ul>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>
 </div>
 ```
 
@@ -88,15 +88,18 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/flow' with ($gap: 'tiny');
+@use 'node_modules/@supple-kit/supple-css/objects/flow' with (
+  $gap: 'tiny'
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/flow/variables' with
-	($gap: 'tiny');
+@use 'node_modules/@supple-kit/supple-css/objects/flow/variables' with (
+  $gap: 'tiny'
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/flow';

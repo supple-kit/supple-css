@@ -79,18 +79,18 @@ Below are some examples of how to use and structure the framework:
 
 ```scss
 // settings/_your-own-vars.scss
-@use 'node_modules/@supple-kit/supple-css/settings/defaults' with
-	(
-		$font-size: 20px,
-		$columns: 10,
-		$breakpoints: (
-			lap: 320px,
-			desk: 960px,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $font-size: 20px,
+  $columns: 10,
+  $breakpoints: (
+    lap: 320px,
+    desk: 960px,
+  )
+);
 
-@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with
-	($columns: 24);
+@use 'node_modules/@supple-kit/supple-css/objects/mesh/variables' with (
+  $columns: 24
+);
 ```
 
 ```scss
@@ -100,9 +100,9 @@ Below are some examples of how to use and structure the framework:
 @use 'settings/your-own-vars';
 
 .your-own-component {
-	margin-inline-start: space.get('base');
-	transition-timing-function: your-own-vars.$animation-timing-function;
-	font-size: defaults.$font-size;
+  margin-inline-start: space.get('base');
+  transition-timing-function: your-own-vars.$animation-timing-function;
+  font-size: defaults.$font-size;
 }
 ```
 
@@ -110,15 +110,14 @@ Below are some examples of how to use and structure the framework:
 
 ```scss
 // settings/_your-own-vars.scss
-@use 'node_modules/@supple-kit/supple-css/settings/defaults' with
-	(
-		$font-size: 20px,
-		$columns: 10,
-		$breakpoints: (
-			lap: 320px,
-			desk: 960px,
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $font-size: 20px,
+  $columns: 10,
+  $breakpoints: (
+    lap: 320px,
+    desk: 960px,
+  )
+);
 ```
 
 ```javascript
@@ -134,8 +133,8 @@ import './index.scss';
 @use 'node_modules/@supple-kit/supple-css/tools/space';
 
 .your-own-component {
-	margin-inline-start: space.get('base');
-	transition-timing-function: your-own-vars.$animation-timing-function;
+  margin-inline-start: space.get('base');
+  transition-timing-function: your-own-vars.$animation-timing-function;
 }
 ```
 

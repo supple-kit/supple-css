@@ -33,10 +33,10 @@ A simple layout is easy to create. A layout container can have any number of chi
 
 ```html
 <div class="o-layout  o-layout--fill  o-layout--gap-base">
-	<div><!-- content --></div>
-	<div><!-- content --></div>
-	<div><!-- content --></div>
-	<div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
 </div>
 ```
 
@@ -46,12 +46,12 @@ For more granular control over layout make use of modifiers, custom properties o
 
 ```html
 <div
-	class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--stretch  |  o-layout--gap-base]"
+  class="o-layout  [o-layout--align-inline-center  |  o-layout--align-inline-end  |  o-layout--align-block-center  |  o-layout--align-block-end  |  o-layout--fill  |  o-layout--fit  |  o-layout--stretch  |  o-layout--gap-base]"
 >
-	<div><!-- content --></div>
-	<div><!-- content --></div>
-	<div><!-- content --></div>
-	<div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
+  <div><!-- content --></div>
 </div>
 ```
 
@@ -59,9 +59,9 @@ For more granular control over layout make use of modifiers, custom properties o
 
 ```html
 <div class="o-layout">
-	<div class="o-layout__fit">Fit to content</div>
-	<div class="o-layout__fill">Take up remaining space</div>
-	<div class="o-layout__align-inline-center">Center align a single cell</div>
+  <div class="o-layout__fit">Fit to content</div>
+  <div class="o-layout__fill">Take up remaining space</div>
+  <div class="o-layout__align-inline-center">Center align a single cell</div>
 </div>
 ```
 
@@ -69,7 +69,7 @@ For more granular control over layout make use of modifiers, custom properties o
 
 ```html
 <div class="o-layout  u-columns-10">
-	<div class="u-colspan-5">Spans 5 of 10 columns</div>
+  <div class="u-colspan-5">Spans 5 of 10 columns</div>
 </div>
 ```
 
@@ -77,7 +77,7 @@ For more granular control over layout make use of modifiers, custom properties o
 
 ```html
 <div class="o-layout">
-	<div class="u-colspan-5">Spans 5 of 12 columns</div>
+  <div class="u-colspan-5">Spans 5 of 12 columns</div>
 </div>
 ```
 
@@ -85,7 +85,7 @@ For more granular control over layout make use of modifiers, custom properties o
 
 ```html
 <div class="o-layout">
-	<div class="u-colspan-8  u-offset-4">Offsets 4 of 12 columns</div>
+  <div class="u-colspan-8  u-offset-4">Offsets 4 of 12 columns</div>
 </div>
 ```
 
@@ -93,15 +93,15 @@ For more granular control over layout make use of modifiers, custom properties o
 
 ```html
 <div class="o-layout" style="--columns: 10; --gap: 3rem;">
-	<div style="--colspan: 4;">Spans 4 of 10 columns</div>
+  <div style="--colspan: 4;">Spans 4 of 10 columns</div>
 
-	<div style="--colspan: 1;">Spans 1 of 10 columns</div>
+  <div style="--colspan: 1;">Spans 1 of 10 columns</div>
 
-	<div style="--colspan: 3;">Spans 3 of 10 columns</div>
+  <div style="--colspan: 3;">Spans 3 of 10 columns</div>
 
-	<div style="--colspan: 2; --offset: 2;">
-		Spans 2 of 10 columns and offsets 2 of 10 columns
-	</div>
+  <div style="--colspan: 2; --offset: 2;">
+    Spans 2 of 10 columns and offsets 2 of 10 columns
+  </div>
 </div>
 ```
 
@@ -113,11 +113,11 @@ You can nest layouts in any context. Keep in mind that the dimensions will be re
 
 ```html
 <div class="o-layout">
-	<div class="o-layout__fit">
-		<div class="o-layout">
-			<div><!-- content --></div>
-		</div>
-	</div>
+  <div class="o-layout__fit">
+    <div class="o-layout">
+      <div><!-- content --></div>
+    </div>
+  </div>
 </div>
 ```
 
@@ -127,12 +127,12 @@ When you set queries in `$fill-in-query` or `$fit-in-query` you can use them lik
 
 ```html
 <div class="o-layout">
-	<div class="o-layout__fit@lap">
-		100% and from lap breakpoint it will fit to content
-	</div>
-	<div class="o-layout__fill@lap">
-		100% and from lap breakpoint it will fill remaining space
-	</div>
+  <div class="o-layout__fit@lap">
+    100% and from lap breakpoint it will fit to content
+  </div>
+  <div class="o-layout__fill@lap">
+    100% and from lap breakpoint it will fill remaining space
+  </div>
 </div>
 ```
 
@@ -142,8 +142,8 @@ By default, the cell styling is applied to the direct child. If for any reason t
 
 ```html
 <div class="o-layout">
-	<div class="o-layout__cell  u-colspan-8  u-offset-4">// your component</div>
-	<div class="o-layout__cell">// your component</div>
+  <div class="o-layout__cell  u-colspan-8  u-offset-4">// your component</div>
+  <div class="o-layout__cell">// your component</div>
 </div>
 ```
 
@@ -197,34 +197,32 @@ You can overwrite the SCSS variables the following ways:
 
 ```scss
 // in your manifest file, eg. `styles.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/layout' with
-	(
-		$fit-in-query: (
-			lap,
-			desk,
-		),
-		$gaps: (
-			'base',
-			'tiny',
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/layout' with (
+  $fit-in-query: (
+    lap,
+    desk,
+  ),
+  $gaps: (
+    'base',
+    'tiny',
+  )
+);
 ```
 
 or
 
 ```scss
 // in your own variable file, eg. `_vars.scss`
-@use 'node_modules/@supple-kit/supple-css/objects/layout/variables' with
-	(
-		$fit-in-query: (
-			lap,
-			desk,
-		),
-		$gaps: (
-			'tiny',
-			'huge',
-		)
-	);
+@use 'node_modules/@supple-kit/supple-css/objects/layout/variables' with (
+  $fit-in-query: (
+    lap,
+    desk,
+  ),
+  $gaps: (
+    'tiny',
+    'huge',
+  )
+);
 
 // in your manifest file, eg. `styles.scss`
 @use 'node_modules/@supple-kit/supple-css/objects/layout';

@@ -15,7 +15,7 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ```html
 <ul class="o-list-clean">
-	<li></li>
+  <li></li>
 </ul>
 ```
 
