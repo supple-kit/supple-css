@@ -1,58 +1,60 @@
 {
-  "name": "@supple-kit/supple-css",
-  "version": "5.3.0",
-  "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
-  "main": "index.scss",
-  "repository": "https://github.com/supple-kit/supple-css.git",
-  "author": "Bram Smulders <source@bram.is>",
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://www.github.com/sponsors/bramsmulders"
-    },
-    {
-      "type": "paypal",
-      "url": "https://www.paypal.me/smuldersbram/EUR"
-    }
-  ],
-  "license": "MIT",
-  "keywords": [
-    "supple",
-    "supple kit",
-    "css",
-    "scss",
-    "itcss",
-    "grid",
-    "framework",
-    "bem"
-  ],
-  "scripts": {
-    "test": "npm run lint && npm run build && npm run gzip",
-    "lint": "stylelint \"**/*.scss\"",
-    "gzip": "gzip-size test/css/index.css",
-    "postcss": "postcss test/css/**/*.css --replace",
-    "sass": "sass index.scss:test/css/index.css test/scss/test.scss:test/css/test.css --no-source-map",
-    "build": "npm run sass && npm run postcss",
-    "serve": "browser-sync start --server --files 'test/css/*.css, ./**/*.html' --index 'test.html'",
-    "watch": "nodemon -e scss -x \"npm run test\"",
-    "start": "concurrently 'npm run serve' 'npm run watch'"
-  },
-  "browserslist": [
-    "defaults"
-  ],
-  "devDependencies": {
-    "@supple-kit/stylelint-config-supple": "^4.0.1",
-    "autoprefixer": "^10.4.0",
-    "browser-sync": "^2.27.7",
-    "concurrently": "^6.4.0",
-    "cssnano": "^5.0.12",
-    "glob": "^7.2.0",
-    "gzip-size-cli": "^5.1.0",
-    "nodemon": "^2.0.15",
-    "postcss": "^8.4.4",
-    "postcss-cli": "^9.0.2",
-    "sass": "^1.44.0",
-    "stylelint": "^14.1.0",
-    "stylelint-config-standard-scss": "^3.0.0"
-  }
+	"name": "@supple-kit/supple-css",
+	"version": "5.3.0",
+	"description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
+	"main": "index.scss",
+	"repository": "https://github.com/supple-kit/supple-css.git",
+	"author": "Bram Smulders <source@bram.is>",
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://www.github.com/sponsors/bramsmulders"
+		},
+		{
+			"type": "paypal",
+			"url": "https://www.paypal.me/smuldersbram/EUR"
+		}
+	],
+	"license": "MIT",
+	"keywords": [
+		"supple",
+		"supple kit",
+		"css",
+		"scss",
+		"itcss",
+		"grid",
+		"framework",
+		"bem"
+	],
+	"scripts": {
+		"test": "npm run lint && npm run build && npm run gzip",
+		"lint": "stylelint \"**/*.scss\"",
+		"gzip": "gzip-size test/css/index.css",
+		"postcss": "postcss test/css/**/*.css --replace",
+		"sass": "sass index.scss:test/css/index.css test/scss/test.scss:test/css/test.css --no-source-map",
+		"build": "npm run sass && npm run postcss",
+		"serve": "browser-sync start --server --files 'test/css/*.css, ./**/*.html' --index 'test.html'",
+		"watch": "nodemon -e scss -x \"npm run test\"",
+		"start": "concurrently 'npm run serve' 'npm run watch'"
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"devDependencies": {
+		"@supple-kit/prettier-config": "^1.0.1",
+		"@supple-kit/stylelint-config-supple": "^4.0.1",
+		"autoprefixer": "^10.4.0",
+		"browser-sync": "^2.27.7",
+		"concurrently": "^6.4.0",
+		"cssnano": "^5.0.12",
+		"glob": "^7.2.0",
+		"gzip-size-cli": "^5.1.0",
+		"nodemon": "^2.0.15",
+		"postcss": "^8.4.4",
+		"postcss-cli": "^9.0.2",
+		"sass": "^1.44.0",
+		"stylelint": "^14.1.0",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-standard-scss": "^3.0.0"
+	}
 }

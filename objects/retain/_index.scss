@@ -1,18 +1,12 @@
-/*  =========================================================================
-    objects.retain
-    Page-level constraining and wrapping elements.
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/* ==========================================================================
+		objects.retain
+		Page-level constraining and wrapping elements.
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -21,41 +15,37 @@
 @use '../../tools/space';
 @use '../../tools/rem';
 
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+		Module
+/ --------------------------------------------------------------------------- */
 
 /**
  * Block: retain
  * 1. Center align
  */
 .o-retain {
-  --size: 100%;
-  max-inline-size: var(--size);
-  padding-inline-start: space.get(variables.$space);
-  padding-inline-end: space.get(variables.$space);
-  margin-inline-end: auto; /* [1] */
-  margin-inline-start: auto; /* [1] */
+	--size: 100%;
+	max-inline-size: var(--size);
+	padding-inline-start: space.get(variables.$space);
+	padding-inline-end: space.get(variables.$space);
+	margin-inline-end: auto; /* [1] */
+	margin-inline-start: auto; /* [1] */
 }
-
 
 /**
  * Modifier: no-padding
  */
 .o-retain--no-padding {
-  padding-inline-end: 0;
-  padding-inline-start: 0;
+	padding-inline-end: 0;
+	padding-inline-start: 0;
 }
 
-
-
-/*  Common width modifiers, for use in browsers without
-    custom-property support
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+		Common width modifiers
+/ --------------------------------------------------------------------------- */
 
 @each $key, $value in variables.$sizes {
-  .o-retain--#{$key} {
-    --size: #{rem.convert($value)};
-  }
+	.o-retain--#{$key} {
+		--size: #{rem.convert($value)};
+	}
 }

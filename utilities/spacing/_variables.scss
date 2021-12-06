@@ -1,63 +1,49 @@
-/*  =========================================================================
-    utilities.spacing.variables
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/* ==========================================================================
+		utilities.spacing.variables
+/ =========================================================================== */
 
 @use '../../settings/defaults';
-
-
-
-/*  Variables
-    ========================================================================= */
 
 /**
  * The properties that you want to generate spacings for
  * `key` is the classname, `value` is the property name
  *
  * Example
-   $properties: (
-     'padding': 'padding', // generates `u-padding`
-     'margin': 'margin', // generates `u-margin`
-   );
+$properties: (
+	'padding': 'padding', // generates `u-padding`
+	'margin': 'margin', // generates `u-margin`
+);
  *
  * or
-   $properties: (
-     'p': 'padding', // generates `u-p`
-     'm': 'margin', // generates `u-m`
-     'i': 'inset', // generates `u-i`
-   );
+$properties: (
+	'p': 'padding', // generates `u-p`
+	'm': 'margin', // generates `u-m`
+	'i': 'inset', // generates `u-i`
+);
  * By default it's only margins we generate
  */
 $properties: (
-  'margin-block-end': 'margin-block-end',
+	'margin-block-end': 'margin-block-end',
 ) !default;
-
 
 /**
  * And which sizes you want to generate?
  *
  * Example
-   $sizes: (
-     'tiny',
-   );
+$sizes: (
+	'tiny',
+);
  *
  * By default it's only `base` we generate
  */
-$sizes: (
-  'base',
-) !default;
-
+$sizes: ('base') !default;
 
 /**
  * Define which namespaced queries you would like to generate for
  * your spacings.
  * All are empty by default, but you can add queries at will.
  *
-   $in-query: (lap, desk);
+$in-query: (lap, desk);
  *
  * Note: the name of the media query must exist in the list of `$queries`
  *       in `settings/defaults`

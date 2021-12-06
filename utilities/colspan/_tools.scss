@@ -1,32 +1,14 @@
-/*  =========================================================================
-    utilities.colspan.tools
-    Functions and/or mixins used in this module
-    ========================================================================= */
+/* ==========================================================================
+		utilities.colspan.tools
+		Functions and/or mixins used in this module
+/ =========================================================================== */
 
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
-
-/**
- * Use the settings & tools in this sheet
- */
 @use './variables';
 
-
-
-/*  Functions
-    ========================================================================= */
-
-
-
-/*  Mixins
-    ========================================================================= */
-
 @mixin build($modifier: '') {
-  @for $i from 1 through variables.$columns {
-    .u-colspan-#{$i}#{$modifier} {
-      --colspan: #{$i};
-    }
-  }
+	@for $i from 1 through variables.$columns {
+		.u-colspan-#{$i}#{$modifier} {
+			--colspan: #{$i};
+		}
+	}
 }

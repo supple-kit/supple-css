@@ -1,45 +1,25 @@
-/*  =========================================================================
-    components.fixture-box
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/* ==========================================================================
+		test.components.fixture-box
+/ =========================================================================== */
 
 @use '../../../tools/space';
 @use '../../../settings/defaults';
 
-
-
-/*  Variables
-    ========================================================================= */
-
-
-
-/*  Functions/Mixins
-    ========================================================================= */
-
-
-
-/*  Module
-    ========================================================================= */
-
 .c-fixture-box {
-  padding-inline-start: space.get('small');
-  padding-inline-end: space.get('small');
-  border: 1px solid #000000;
-  background: #ee4266;
-  line-height: 3rem;
-  text-indent: 0;
-  color: #ffffff;
+	padding-inline-start: space.get('small');
+	padding-inline-end: space.get('small');
+	border: 1px solid #000000;
+	background: #ee4266;
+	line-height: 3rem;
+	text-indent: 0;
+	color: #ffffff;
 }
 
 .c-fixture-box--double-height {
-  line-height: space.get('huge');
+	line-height: space.get('huge');
 }
 
 .c-fixture-box--wrap {
-  border: 1px solid #000000;
-  background: rgba(238 66 102 / 30%);
+	border: 1px solid #000000;
+	background: rgba(238 66 102 / 30%);
 }

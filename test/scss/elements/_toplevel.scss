@@ -1,35 +1,16 @@
-/*  =========================================================================
-    elements.toplevel
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/* ==========================================================================
+		test.elements.toplevel
+/ =========================================================================== */
 
 @use '../../../tools/space';
 @use '../../../settings/defaults';
 
-
-
-/*  Variables
-    ========================================================================= */
-
-
-
-/*  Functions/Mixins
-    ========================================================================= */
-
-
-
-/*  Module
-    ========================================================================= */
-
 html {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif; // stylelint-disable-line max-line-length
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+		Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
 body {
-  padding-inline-start: space.get('base');
-  padding-inline-end: space.get('base');
+	padding-inline-start: space.get('base');
+	padding-inline-end: space.get('base');
 }

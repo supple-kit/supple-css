@@ -8,20 +8,19 @@ the developers managing and developing this open source project. In return,
 they should reciprocate that respect in addressing your issue or assessing
 patches and features.
 
-
 ## Using the issue tracker
 
 The issue tracker is the preferred channel for [bug reports](#bugs),
 [features requests](#features) and [submitting pull
 requests](#pull-requests), but please respect the following restrictions:
 
-* Please **do not** use the issue tracker for personal support requests.
+- Please **do not** use the issue tracker for personal support requests.
 
-* Please **do not** derail or troll issues. Keep the discussion on topic and
+- Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
 
-
 <a name="bugs"></a>
+
 ## Bug reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository.
@@ -63,17 +62,17 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-
 <a name="features"></a>
+
 ## Feature requests
 
 Feature requests are welcome. But take a moment to find out whether your idea
-fits with the scope and aims of the project. It's up to *you* to make a strong
+fits with the scope and aims of the project. It's up to _you_ to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
 
-
 <a name="pull-requests"></a>
+
 ## Pull requests
 
 Good pull requests - patches, improvements, new features - are a fantastic
@@ -134,14 +133,14 @@ project:
    git push origin <topic-branch-name>
    ```
 
-10. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description.
+7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+   with a clear title and description.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owner to
 license your work under the same license as that used by the project.
 
-
 <a name="maintainers"></a>
+
 ## Maintainers
 
 If you have commit access, please follow this process for merging patches and
