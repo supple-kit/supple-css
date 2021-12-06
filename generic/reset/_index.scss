@@ -129,7 +129,6 @@ pre {
  * As per: https://twitter.com/LeaVerou/status/1045768279753666562
  */
 :focus:not(:focus-visible) {
-  // stylelint-disable-line selector-pseudo-class-no-unknown
   outline: none;
 }
 
