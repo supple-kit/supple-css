@@ -1,15 +1,12 @@
-/*  =========================================================================
-    utilities.clearfix
-    Clears floats.
-    ========================================================================= */
-
-/*  Module
-    ========================================================================= */
+/* ==========================================================================
+		utilities.clearfix
+		Clears floats.
+/ =========================================================================== */
 
 /**
  * Make an element expand to contain floated children.
  * As per: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context#Using_display_flow-root
  */
 .u-clearfix {
-  display: flow-root;
+	display: flow-root;
 }
