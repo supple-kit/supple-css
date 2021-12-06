@@ -1,20 +1,14 @@
-/*  =========================================================================
-    utilities.visually-hidden
-    Hides an element visually while still allowing the content to be accessible
-    to assistive technology, e.g. screen readers.
-    As per: https://a11yproject.com/posts/how-to-hide-content
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/* ==========================================================================
+		utilities.visually-hidden
+		Hides an element visually while still allowing the content to be accessible
+		to assistive technology, e.g. screen readers.
+		As per: https://a11yproject.com/posts/how-to-hide-content
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -23,14 +17,8 @@
 @use '../../tools/a11y';
 @use '../../tools/responsive';
 
-
-
-
-/*  Module
-    ========================================================================= */
-
 .u-visually-hidden {
-  @include responsive.in-query(variables.$in-query) {
-    @include a11y.visually-hidden;
-  }
+	@include responsive.in-query(variables.$in-query) {
+		@include a11y.visually-hidden;
+	}
 }
