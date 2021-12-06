@@ -39,6 +39,13 @@
     "watch": "nodemon -e scss -x \"npm run test\"",
     "start": "concurrently 'npm run serve' 'npm run watch'"
   },
+  "nano-staged": {
+    "**/*": "prettier --write",
+    "*.scss": "stylelint"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
+  },
   "browserslist": [
     "defaults"
   ],
@@ -51,11 +58,13 @@
     "cssnano": "^5.0.12",
     "glob": "^7.2.0",
     "gzip-size-cli": "^5.1.0",
+    "nano-staged": "^0.4.2",
     "nodemon": "^2.0.15",
     "postcss": "^8.4.4",
     "postcss-cli": "^9.0.2",
     "prettier": "^2.5.1",
     "sass": "^1.44.0",
+    "simple-git-hooks": "^2.7.0",
     "stylelint": "^14.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard-scss": "^3.0.0"
