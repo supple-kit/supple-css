@@ -1,6 +1,6 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "In-browser (S)CSS framework; Fluid, Variable, supple if you will",
   "main": "src/index.scss",
   "repository": "https://github.com/supple-css/supple.git",
