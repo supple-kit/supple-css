@@ -12,12 +12,14 @@
  * to-rem
  * Converts a single px value to a rem unit based on the current browser context
  */
-@function to-rem($value) {
+@function to-rem($value, $font-size-override: false) {
   @if (meta.type-of($value) == string) or
     (math.is-unitless($value) == true) or
     (math.unit($value) != 'px')
   {
     @return $value;
+  } @else if $font-size-override and math.unit($font-size-override) == 'px' {
+    @return (math.div($value, $font-size-override) * 1rem);
   } @else {
     @return (math.div($value, defaults.$font-size) * 1rem);
   }

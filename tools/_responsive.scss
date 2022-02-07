@@ -127,6 +127,21 @@ padding: responsive.lock(18px, 24px, desk, wall);
  */
 @function lock($size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
   $return: $size-min;
+  $root-font-size: defaults.$font-size;
+
+  /**
+   * Check if responsive lock is used on a root element only, then set the root
+   * font-size to browser default 16px
+   */
+  @if (list.length(&) == 1) and
+    (
+      (string.unquote(list.nth(list.nth(&, 1), 1)) == 'html') or
+        (string.unquote(list.nth(list.nth(&, 1), 1)) == ':root') or
+        (string.unquote(list.nth(list.nth(&, 1), 1)) == ':host')
+    )
+  {
+    $root-font-size: 16px;
+  }
 
   @if map.has-key(defaults.$breakpoints, $min-bp) and
     map.has-key(defaults.$breakpoints, $max-bp)
@@ -141,13 +156,17 @@ padding: responsive.lock(18px, 24px, desk, wall);
       $max-bp-value: map.get(defaults.$breakpoints, $max-bp);
 
       // Breakpoints
-      $min-bp-rem-unitless: functions.strip-units(rem.convert($min-bp-value));
-      $max-bp-rem-unitless: functions.strip-units(rem.convert($max-bp-value));
+      $min-bp-rem-unitless: functions.strip-units(
+        rem.to-rem($min-bp-value, $root-font-size)
+      );
+      $max-bp-rem-unitless: functions.strip-units(
+        rem.to-rem($max-bp-value, $root-font-size)
+      );
 
       // Sizes
-      $size-min-rem: rem.convert($size-min);
+      $size-min-rem: rem.to-rem($size-min, $root-font-size);
       $size-min-rem-unitless: functions.strip-units($size-min-rem);
-      $size-max-rem: rem.convert($size-max);
+      $size-max-rem: rem.to-rem($size-max, $root-font-size);
       $size-max-rem-unitless: functions.strip-units($size-max-rem);
 
       // Calculations
