@@ -1,9 +1,6 @@
-/*  =========================================================================
+/* ==========================================================================
     utilities.visually-hidden.variables
-    ========================================================================= */
-
-/*  Variables
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Define which namespaced queries you would like to generate for
@@ -12,9 +9,9 @@
  * as much CSS as you need.
  * All are empty by default, but you can add queries at will.
  *
- * $in-query: (lap, desk);
+$in-query: (lap, desk);
  *
  * Note: the name of the breakpoint must exist in the list of `$queries`
- *       in `settings/defaults`
+ *     in `settings/defaults`
  */
 $in-query: () !default;

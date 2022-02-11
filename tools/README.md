@@ -22,12 +22,12 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 Supple’s tools are categorised so you only need to `@use` the tools you want:
 
 ```scss
-@use "node_modules/@supple-kit/supple-css/tools/space";
-@use "node_modules/@supple-kit/supple-css/tools/responsive";
+@use 'node_modules/@supple-kit/supple-css/tools/space';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 .your-module {
-  @include responsive.mq("lap") {
-    margin-inline-start: space.get("tiny");
+  @include responsive.mq('lap') {
+    margin-inline-start: space.get('tiny');
   }
 }
 ```
@@ -37,7 +37,7 @@ Supple’s tools are categorised so you only need to `@use` the tools you want:
 This layer contains everything space related. You can `@use` this tool in your own component like this:
 
 ```scss
-@use "node_modules/@supple-kit/supple-css/tools/space";
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 ```
 
 ### function: `space.get()`
@@ -54,8 +54,8 @@ Returns the spacing value converted to `rem` units. The `$name` must be present 
 
 ```scss
 .selector {
-  margin-inline-start: space.get("tiny");
-  margin-inline-end: space.get("large");
+  margin-inline-start: space.get('tiny');
+  margin-inline-end: space.get('large');
 }
 // with default settings becomes
 .selector {
@@ -79,7 +79,7 @@ Returns the spacing-factor value. The `$name` must be present in `defaults.$spac
 ```scss
 .selector {
   margin-inline-start: calc(
-    #{space.get-factor("small")} * #{defaults.$baseline}
+    #{space.get-factor('small')} * #{defaults.$baseline}
   );
 }
 // with default settings becomes
@@ -93,7 +93,7 @@ Returns the spacing-factor value. The `$name` must be present in `defaults.$spac
 This layer is used to convert any `px` value to `rem`. You can `@use` this tool in your own component like this:
 
 ```scss
-@use "node_modules/@supple-kit/supple-css/tools/rem";
+@use 'node_modules/@supple-kit/supple-css/tools/rem';
 ```
 
 ### function: `rem.convert()`
@@ -127,7 +127,7 @@ Converts `px` values to `rem`. If you pass in another format instead of `px` it 
 This layer contains some accessibility helper mixins. You can `@use` this tool in your own component like this:
 
 ```scss
-@use "node_modules/@supple-kit/supple-css/tools/a11y";
+@use 'node_modules/@supple-kit/supple-css/tools/a11y';
 ```
 
 ### Mixin: `a11y.visually-hidden`
@@ -161,7 +161,7 @@ This layer contains all the functions & mixins regarding to typography.
 You can `@use` this tool in your own component like this:
 
 ```scss
-@use "node_modules/@supple-kit/supple-css/tools/typography";
+@use 'node_modules/@supple-kit/supple-css/tools/typography';
 ```
 
 ### Mixin `typography.font-size`
@@ -213,7 +213,7 @@ This layer contains all the tools for responsive web design.
 You can `@use` this tool in your own component like this:
 
 ```scss
-@use "node_modules/@supple-kit/supple-css/tools/responsive";
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
 ```
 
 ### Mixin: `responsive.color-scheme()`
@@ -245,7 +245,7 @@ Apply a media query defined in `defaults.$queries`.
 
 ```scss
 .selector {
-  @include responsive.mq("lap") {
+  @include responsive.mq('lap') {
     outline: 1px solid #ff0000;
   }
 }

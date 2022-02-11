@@ -1,19 +1,12 @@
-/*  =========================================================================
+/* ==========================================================================
     generic.reset
-    A thin layer on top of `@csstools/normalize.css` that provides a starting
-    point more suitable for web applications.
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+    A reset of sensible defaults, roughly based on Andy Bell's excellent
+    Modern CSS Reset(https://hankchizljaw.com/wrote/a-modern-css-reset/).
+/ =========================================================================== */
 
 @use 'sass:math';
 @use '../../settings/defaults';
 @use '../../tools/space';
-
-
 
 /**
  * Set the global `box-sizing` state to `border-box`. As per:
@@ -28,7 +21,6 @@
   }
 }
 
-
 /**
  * 1. Ensure the page always fills at least the entire height of the viewport.
  * 2. Always add the vertical scrollbar to prevent layout shifting
@@ -36,13 +28,12 @@
  * 4. Apply the `$font-size` & `$line-height-ratio`
  */
 html {
-  min-block-size: 100vh;  /* [1] */
+  min-block-size: 100vh; /* [1] */
   overflow-y: scroll; /* [2] */
   scroll-behavior: smooth; /* [3] */
   font-size: #{math.div(defaults.$font-size, 16px) * 1em}; /* [4] */
   line-height: #{defaults.$line-height-ratio}; /* [4] */
 }
-
 
 /**
  * Remove default margins from elements
@@ -73,7 +64,6 @@ input {
   margin: 0;
 }
 
-
 /**
  * Default indentation value for lists
  */
@@ -85,7 +75,6 @@ ol {
 dd {
   margin-inline-start: space.get();
 }
-
 
 /**
  * Strip unwanted paddings & styling from elements
@@ -105,7 +94,6 @@ fieldset {
   border: 0;
 }
 
-
 /**
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
@@ -117,7 +105,6 @@ textarea {
   font: inherit;
 }
 
-
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
@@ -126,7 +113,6 @@ pre {
   font-family: monospace, monospace; /* 1 */ /* stylelint-disable-line font-family-no-duplicate-names */
   font-size: 1em; /* 2 */
 }
-
 
 /**
  * Suppress the focus outline on links that cannot be accessed via keyboard.
@@ -137,16 +123,14 @@ pre {
   outline: none !important;
 }
 
-
 /**
  * Gets rid of the annoying outline for mouse users but preserves it for
  * keyboard users, and is ignored by browsers that don’t support :focus-visible.
  * As per: https://twitter.com/LeaVerou/status/1045768279753666562
  */
-:focus:not(:focus-visible) { // stylelint-disable-line selector-pseudo-class-no-unknown
+:focus:not(:focus-visible) {
   outline: none;
 }
-
 
 /**
  * Image
@@ -161,14 +145,13 @@ img {
   font-style: italic; /* [2] */
 }
 
-
 /**
  * Remove all animations and transitions for people that prefer not to see them
  * 1. Do not remove the animation altogether, but make it super-fast. This has
  *    several benefits:
  *    - Preserves the end state of an animation/transition
  *    - Preserves the possibility to listen to `animationend` and
- *      `transitionend` events.
+ *    `transitionend` events.
  * 2. Only one animation cycle
  */
 @media (prefers-reduced-motion: reduce) {

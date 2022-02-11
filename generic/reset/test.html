@@ -1,111 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test generic.reset - Supple CSS</title>
-  <link rel="stylesheet" href="../../test/css/test.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test generic.reset - Supple CSS</title>
+    <link rel="stylesheet" href="../../test/css/test.css" />
+  </head>
+  <body>
+    <div class="c-test">
+      <h1 class="c-test__title">Supple CSS: generic.reset tests</h1>
 
-  <div class="c-test">
-    <h1 class="c-test__title">Supple CSS: generic.reset tests</h1>
-
-    <h2 class="c-test__describe">h1-h6</h2>
-    <h3 class="c-test__it">have no margin</h3>
-    <div class="c-test__run">
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-    </div><!-- .c-test__run -->
-
-    <h2 class="c-test__describe">hgroup, ul, ol, dl, blockquote, p, address, table, fieldset, figure, pre, hr</h2>
-    <h3 class="c-test__it">have no margin-bottom</h3>
-    <div class="c-test__run">
-      <hgroup>hgroup</hgroup>
-      <ul>
-        <li>Unordered list: item 1</li>
-        <li>Unordered list: item 2</li>
-        <li>
-          Unordered list: nested
-          <ul>
-            <li>Unordered list: nested item 1</li>
-            <li>Unordered list: nested item 2</li>
-          </ul>
-        </li>
-      </ul>
-      <ol>
-        <li>Ordered list: item 1</li>
-        <li>Ordered list: item 2</li>
-        <li>
-          Ordered list: nested
-          <ol>
-            <li>Ordered list: nested item 1</li>
-            <li>Ordered list: nested item 2</li>
-          </ol>
-        </li>
-      </ol>
-      <dl>
-        <dt>Definition list: Term</dt>
-        <dd>Definition list: Description</dd>
-      </dl>
-      <blockquote>Blockquote content</blockquote>
-      <p>Paragraph</p>
-      <address>Address</address>
-      <table>
-        <tbody>
-          <tr>
-            <td>Table</td>
-          </tr>
-        </tbody>
-      </table>
-      <fieldset>Fieldset</fieldset>
-      <figure>Figure</figure>
-      <pre>Preformatted text</pre>
-      <hr>
-    </div><!-- .c-test__run -->
-
-    <h2 class="c-test__describe">button</h2>
-    <h3 class="c-test__it">has no background, border, or padding</h3>
-    <div class="c-test__run">
-      <p>
-        <button type="button">Button content</button>
-      </p>
-    </div><!-- .c-test__run -->
-
-    <h3 class="c-test__it">has focus styles (in Firefox and IE)</h3>
-    <div class="c-test__run">
-      <p>
-        <button type="button">Button content</button>
-      </p>
-    </div><!-- .c-test__run -->
-
-    <h2 class="c-test__describe">[tabindex="-1"]:focus</h2>
-    <h3 class="c-test__it">has no focus outline (try clicking to trigger focus)</h3>
-    <div class="c-test__run">
-      <a href="#_" tabindex="-1">Link content</a>
-      <button type="button" tabindex="-1">Button content</button>
-    </div><!-- .c-test__run -->
-
-    <h2 class="c-test__describe">CSS-Lock</h2>
-    <h3 class="c-test__it">scales perfectly between 20px & 30px between desk & wall breakpoints</h3>
-    <div class="c-test__run">
-      <div class="o-retain  o-retain--lap">
-        <p class="c-css-lock">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias labore fugiat, placeat doloribus ea rerum debitis reiciendis molestiae in impedit dolores natus iure ducimus a odio soluta dignissimos consequuntur perspiciatis?</p>
+      <h2 class="c-test__describe">h1-h6</h2>
+      <h3 class="c-test__it">have no margin</h3>
+      <div class="c-test__run">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h2 class="c-test__describe">Color scheme</h2>
-    <h3 class="c-test__it">Switches between dark and light modes based on user preference</h3>
-    <div class="c-test__run">
-      <div class="o-retain  o-retain--lap">
-        <p class="c-color-scheme">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias labore fugiat, placeat doloribus ea rerum debitis reiciendis molestiae in impedit dolores natus iure ducimus a odio soluta dignissimos consequuntur perspiciatis?</p>
+      <h2 class="c-test__describe">
+        hgroup, ul, ol, dl, blockquote, p, address, table, fieldset, figure,
+        pre, hr
+      </h2>
+      <h3 class="c-test__it">have no margin-bottom</h3>
+      <div class="c-test__run">
+        <hgroup>hgroup</hgroup>
+        <ul>
+          <li>Unordered list: item 1</li>
+          <li>Unordered list: item 2</li>
+          <li>
+            Unordered list: nested
+            <ul>
+              <li>Unordered list: nested item 1</li>
+              <li>Unordered list: nested item 2</li>
+            </ul>
+          </li>
+        </ul>
+        <ol>
+          <li>Ordered list: item 1</li>
+          <li>Ordered list: item 2</li>
+          <li>
+            Ordered list: nested
+            <ol>
+              <li>Ordered list: nested item 1</li>
+              <li>Ordered list: nested item 2</li>
+            </ol>
+          </li>
+        </ol>
+        <dl>
+          <dt>Definition list: Term</dt>
+          <dd>Definition list: Description</dd>
+        </dl>
+        <blockquote>Blockquote content</blockquote>
+        <p>Paragraph</p>
+        <address>Address</address>
+        <table>
+          <tbody>
+            <tr>
+              <td>Table</td>
+            </tr>
+          </tbody>
+        </table>
+        <fieldset>Fieldset</fieldset>
+        <figure>Figure</figure>
+        <pre>Preformatted text</pre>
+        <hr />
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-  </div><!-- .c-test -->
-</body>
+      <h2 class="c-test__describe">button</h2>
+      <h3 class="c-test__it">has no background, border, or padding</h3>
+      <div class="c-test__run">
+        <p>
+          <button type="button">Button content</button>
+        </p>
+      </div>
+      <!-- .c-test__run -->
+
+      <h3 class="c-test__it">has focus styles (in Firefox and IE)</h3>
+      <div class="c-test__run">
+        <p>
+          <button type="button">Button content</button>
+        </p>
+      </div>
+      <!-- .c-test__run -->
+
+      <h2 class="c-test__describe">[tabindex="-1"]:focus</h2>
+      <h3 class="c-test__it">
+        has no focus outline (try clicking to trigger focus)
+      </h3>
+      <div class="c-test__run">
+        <a href="#_" tabindex="-1">Link content</a>
+        <button type="button" tabindex="-1">Button content</button>
+      </div>
+      <!-- .c-test__run -->
+
+      <h2 class="c-test__describe">CSS-Lock</h2>
+      <h3 class="c-test__it">
+        scales perfectly between 20px & 30px between desk & wall breakpoints
+      </h3>
+      <div class="c-test__run">
+        <div class="o-retain o-retain--lap">
+          <p class="c-css-lock">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+            labore fugiat, placeat doloribus ea rerum debitis reiciendis
+            molestiae in impedit dolores natus iure ducimus a odio soluta
+            dignissimos consequuntur perspiciatis?
+          </p>
+        </div>
+      </div>
+      <!-- .c-test__run -->
+
+      <h2 class="c-test__describe">Color scheme</h2>
+      <h3 class="c-test__it">
+        Switches between dark and light modes based on user preference
+      </h3>
+      <div class="c-test__run">
+        <div class="o-retain o-retain--lap">
+          <p class="c-color-scheme">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+            labore fugiat, placeat doloribus ea rerum debitis reiciendis
+            molestiae in impedit dolores natus iure ducimus a odio soluta
+            dignissimos consequuntur perspiciatis?
+          </p>
+        </div>
+      </div>
+      <!-- .c-test__run -->
+    </div>
+    <!-- .c-test -->
+  </body>
 </html>

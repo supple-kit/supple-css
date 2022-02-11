@@ -1,33 +1,21 @@
-/*  =========================================================================
+/* ==========================================================================
     utilities.colstart.variables
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 @use '../../settings/defaults';
-
-
-
-/*  Variables
-    ========================================================================= */
 
 /**
  * Columns, makes it easy to create several proportional columns
  */
 $columns: defaults.$columns !default;
 
-
 /**
  * Define which namespaced queries you would like to generate for each
  * of the colstarts. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add queries at will.
- *
- * $in-query: (lap, desk);
+$in-query: (lap, desk);
  *
  * Note: the name of the query must exist in the list of `$queries`
- *       in `settings/defaults`
+ *     in `settings/defaults`
  */
 $in-query: () !default;

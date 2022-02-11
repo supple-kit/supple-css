@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.4.0 - 11-february-2022
+
+- Fixed a bug where `responsive.lock` didn't work on any root element.
+- General housekeeping by including prettier & upgrade stylelint
+
 ## 5.3.0 - 10-november-2021
 
 - Fixed a bug where `px` based media queries were not converted to `em`

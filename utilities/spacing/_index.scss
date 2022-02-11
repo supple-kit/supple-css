@@ -1,4 +1,4 @@
-/*  =========================================================================
+/* ==========================================================================
     utilities.spacing
     Utility classes to put specific spacing values onto elements.
     The loop can generate us a suite of classes like:
@@ -6,18 +6,12 @@
     .u-padding-inline-start--large {}
     .u-margin-inline-end--small {}
     .u-padding-block--base {}
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -29,17 +23,15 @@
 @use '../../tools/responsive';
 @use './tools';
 
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
 @include tools.build;
 
-
-
-/*  Responsive
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Responsive
+/ --------------------------------------------------------------------------- */
 
 @if meta.type-of(variables.$in-query) == 'list' {
   @each $query in variables.$in-query {
@@ -49,6 +41,8 @@
   }
 } @else {
   @include responsive.mq(variables.$in-query) {
-    @include tools.build('#{defaults.$responsive-modifier}#{variables.$in-query}');
+    @include tools.build(
+      '#{defaults.$responsive-modifier}#{variables.$in-query}'
+    );
   }
 }

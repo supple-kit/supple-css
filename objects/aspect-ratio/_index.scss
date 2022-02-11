@@ -1,20 +1,14 @@
-/*  =========================================================================
+/* ==========================================================================
     objects.aspect-ratio
     For use with multi-media embeds such as videos, images or slideshows,
     that need to retain a specific aspect ratio but adapt to elements
     of variable widths.
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -23,20 +17,18 @@
 @use './variables';
 @use '../../settings/defaults';
 
-
-
-/*  Internal variables
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Internal variables
+/ --------------------------------------------------------------------------- */
 
 $selector: '> *';
 @if defaults.$css-modules {
   $selector: ':global(#{$selector})';
 }
 
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
 /**
  * 1. Default cropping is a perfect square, in you own modules you can override
@@ -56,11 +48,10 @@ $selector: '> *';
   }
 }
 
-
-
-/*  Common ratio modifiers, for use in browsers without
+/* --------------------------------------------------------------------------
+    Common ratio modifiers, for use in browsers without
     custom-property support
-    ========================================================================= */
+/ --------------------------------------------------------------------------- */
 
 @each $ratio in variables.$ratios {
   @each $a, $b in $ratio {

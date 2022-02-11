@@ -1,6 +1,6 @@
-/*  =========================================================================
+/* ==========================================================================
     tools.functions
-/   ========================================================================= */
+/ =========================================================================== */
 
 @use 'sass:list';
 @use 'sass:math';
@@ -9,10 +9,9 @@
 @use 'sass:string';
 @use '../../settings/defaults';
 
-
-
-/*  Functions
-/   ========================================================================= */
+/* --------------------------------------------------------------------------
+    Functions
+/ --------------------------------------------------------------------------- */
 
 /**
  * A small, internally-used function to remove the units from a given value.
@@ -52,9 +51,9 @@
   @return $res;
 }
 
-
-/*  Responsive functions
-/   ========================================================================= */
+/* --------------------------------------------------------------------------
+    Responsive functions
+/ --------------------------------------------------------------------------- */
 
 @function get-breakpoints($query) {
   $media-string: ();
@@ -63,9 +62,15 @@
   @each $key, $value in $media-map {
     @if $value and $value != 0 {
       @if $media-string == (()) {
-        $media-string: list.append($media-string, string.unquote('(#{$key}: #{$value})'));
+        $media-string: list.append(
+          $media-string,
+          string.unquote('(#{$key}: #{$value})')
+        );
       } @else {
-        $media-string: list.append($media-string, string.unquote('and (#{$key}: #{$value})'));
+        $media-string: list.append(
+          $media-string,
+          string.unquote('and (#{$key}: #{$value})')
+        );
       }
     }
   }
@@ -119,7 +124,12 @@
       $resolved-value: value-to-em($parsed-value);
     }
 
-    $return: map.merge($return, ($key: $resolved-value));
+    $return: map.merge(
+      $return,
+      (
+        $key: $resolved-value,
+      )
+    );
   }
 
   @return $return;
