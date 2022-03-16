@@ -1,6 +1,6 @@
-/*  =========================================================================
+/* ==========================================================================
     tools.functions
-/   ========================================================================= */
+/ =========================================================================== */
 
 @use 'sass:list';
 @use 'sass:math';
@@ -9,16 +9,15 @@
 @use 'sass:string';
 @use '../../settings/defaults';
 
-
-
-/*  Functions
-/   ========================================================================= */
+/* --------------------------------------------------------------------------
+    Functions
+/ --------------------------------------------------------------------------- */
 
 /**
  * A small, internally-used function to remove the units from a given value.
  */
 @function strip-units($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, ($value * 0 + 1));
 }
 
 /**
@@ -29,7 +28,7 @@
   @if $value == 0 {
     @return 0;
   }
-  @return $value / $context * 1em;
+  @return math.div($value, $context) * 1em;
 }
 
 /**
@@ -44,8 +43,7 @@
     $e: list.nth($list, $i);
     @if $i == $len {
       $res: string.unquote('#{$res}#{$e}');
-    }
-    @else {
+    } @else {
       $res: string.unquote('#{$res}#{$e}#{$glue}');
     }
   }
@@ -53,9 +51,9 @@
   @return $res;
 }
 
-
-/*  Responsive functions
-/   ========================================================================= */
+/* --------------------------------------------------------------------------
+    Responsive functions
+/ --------------------------------------------------------------------------- */
 
 @function get-breakpoints($query) {
   $media-string: ();
@@ -64,10 +62,15 @@
   @each $key, $value in $media-map {
     @if $value and $value != 0 {
       @if $media-string == (()) {
-        $media-string: list.append($media-string, string.unquote('(#{$key}: #{$value})'));
-      }
-      @else {
-        $media-string: list.append($media-string, string.unquote('and (#{$key}: #{$value})'));
+        $media-string: list.append(
+          $media-string,
+          string.unquote('(#{$key}: #{$value})')
+        );
+      } @else {
+        $media-string: list.append(
+          $media-string,
+          string.unquote('and (#{$key}: #{$value})')
+        );
       }
     }
   }
@@ -79,24 +82,20 @@
   $breakpoints: defaults.$breakpoints;
   $return: ();
   $i: 1;
-  $minW: null;
+  $min-w: null;
 
   // contains map
   @if meta.type-of($query) == map {
     @each $key, $value in $query {
       @if $key == min or $key == min-width {
         $return: add-query($return, min-width, $value);
-      }
-      @else if $key == max or $key == max-width {
+      } @else if $key == max or $key == max-width {
         $return: add-query($return, max-width, $value);
-      }
-      @else if $key == min-height {
+      } @else if $key == min-height {
         $return: add-query($return, min-height, $value);
-      }
-      @else if $key == max-height {
+      } @else if $key == max-height {
         $return: add-query($return, max-height, $value);
-      }
-      @else {
+      } @else {
         @error 'No valid query key has been given';
       }
     }
@@ -112,18 +111,25 @@
 
 @function add-query($media-map, $key, $value) {
   $return: $media-map;
-  $parsedValue: validate-query($value);
+  $parsed-value: validate-query($value);
 
-  @if $parsedValue {
-    @if math.unit($parsedValue) == 'em' {
-      $minW: $parsedValue;
-    } @else {
+  @if $parsed-value {
+    $resolved-value: $parsed-value;
+
+    @if math.unit($parsed-value) == 'px' {
       @if $key == max-width or $key == max-height {
-        $parsedValue: $parsedValue - 1px;
+        $parsed-value: $parsed-value - 1px;
       }
-      $minW: value-to-em($parsedValue);
+
+      $resolved-value: value-to-em($parsed-value);
     }
-    $return: map.merge($return, ($key: $parsedValue));
+
+    $return: map.merge(
+      $return,
+      (
+        $key: $resolved-value,
+      )
+    );
   }
 
   @return $return;
@@ -135,9 +141,7 @@
 
   @if meta.type-of($query) == string and map.has-key($breakpoints, $query) {
     @return map.get($breakpoints, $query);
-  }
-
-  @else if meta.type-of($query) == number {
+  } @else if meta.type-of($query) == number {
     $return: $query;
   }
 

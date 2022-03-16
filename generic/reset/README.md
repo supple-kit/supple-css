@@ -6,28 +6,28 @@ Read more about [Supple CSS](https://github.com/supple-css/supple).
 
 ## Table of contents
 
-* [Installation](#installation)
-* [Testing](#testing)
-* [Browser support](#browser-support)
+- [Installation](#installation)
+- [Testing](#testing)
+- [Browser support](#browser-support)
 
 ## Use
+
 Import this reset before any other stylesheets that generate CSS like this:
 
 ```scss
 @use 'node_modules/@supple-kit/supple-css/generic/reset';
 ```
 
-
 ## Installation
+
 Make sure you've installed/downloaded the Supple CSS library: [Supple CSS installation](../../#installation)
 
-
 ## Testing
-Basic visual tests are in [test.html](https://supple-kit.github.io/supple-css/generic/reset/test.html).
 
+Basic visual tests are in [test.html](https://supple-kit.github.io/supple-css/generic/reset/test.html).
 
 ## Browser support
 
-* Chromium-based browsers (Chrome, Edge, Brave, Opera)
-* WebKit-based browsers (Safari, iOS Safari)
-* Firefox (Gecko)
+- Chromium-based browsers (Chrome, Edge, Brave, Opera)
+- WebKit-based browsers (Safari, iOS Safari)
+- Firefox (Gecko)

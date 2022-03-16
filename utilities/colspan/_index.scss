@@ -1,19 +1,13 @@
-/*  =========================================================================
+/* ==========================================================================
     utilities.colspan
     Classes provide a colspan custom property for use in objects or
     components which can handle colspans eg. `object.layout` or `object.mesh`.
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -25,17 +19,15 @@
 @use '../../tools/responsive';
 @use './tools';
 
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
+@include tools.build;
 
-/*  Module
-    ========================================================================= */
-
-@include tools.build();
-
-
-
-/*  Responsive
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Responsive
+/ --------------------------------------------------------------------------- */
 
 @if meta.type-of(variables.$in-query) == 'list' {
   @each $query in variables.$in-query {
@@ -45,6 +37,8 @@
   }
 } @else {
   @include responsive.mq(variables.$in-query) {
-    @include tools.build('#{defaults.$responsive-modifier}#{variables.$in-query}');
+    @include tools.build(
+      '#{defaults.$responsive-modifier}#{variables.$in-query}'
+    );
   }
 }

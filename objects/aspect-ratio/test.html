@@ -1,84 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test objects.aspect-ratio - Supple CSS</title>
-  <link rel="stylesheet" href="../../test/css/test.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test objects.aspect-ratio - Supple CSS</title>
+    <link rel="stylesheet" href="../../test/css/test.css" />
+  </head>
+  <body>
+    <div class="c-test">
+      <h1 class="c-test__title">Supple CSS: objects.aspect-ratio tests</h1>
 
-  <div class="c-test">
-    <h1 class="c-test__title">Supple CSS: objects.aspect-ratio tests</h1>
+      <h2 class="c-test__describe">.o-aspect-ratio</h2>
 
-    <h2 class="c-test__describe">.o-aspect-ratio</h2>
-
-    <h3 class="c-test__it">renders 1:1 (iframe)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+      <h3 class="c-test__it">renders 1:1 (iframe)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h3 class="c-test__it">renders 1:1 (img)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio">
-        <img src="//placehold.it/450x450" alt="">
+      <h3 class="c-test__it">renders 1:1 (img)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio">
+          <img src="//placehold.it/450x450" alt="" />
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h3 class="c-test__it">supports aspect ratio custom proptery (eg.: --ratio: (560/315))</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio" style="--ratio: (560/315);">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+      <h3 class="c-test__it">
+        supports aspect ratio custom proptery (eg.: --ratio: (560/315))
+      </h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio" style="--ratio: (560/315)">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h2 class="c-test__describe">.o-aspect-ratio--4by3</h2>
-    <h3 class="c-test__it">renders 4:3 (iframe)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio  o-aspect-ratio--4by3">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+      <h2 class="c-test__describe">.o-aspect-ratio--4by3</h2>
+      <h3 class="c-test__it">renders 4:3 (iframe)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio o-aspect-ratio--4by3">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h3 class="c-test__it">renders 4:3 (img)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio  o-aspect-ratio--4by3">
-        <img src="//placehold.it/450x388" alt="">
+      <h3 class="c-test__it">renders 4:3 (img)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio o-aspect-ratio--4by3">
+          <img src="//placehold.it/450x388" alt="" />
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h2 class="c-test__describe">.o-aspect-ratio--16by9</h2>
-    <h3 class="c-test__it">renders 16:9 (iframe)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio  o-aspect-ratio--16by9">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+      <h2 class="c-test__describe">.o-aspect-ratio--16by9</h2>
+      <h3 class="c-test__it">renders 16:9 (iframe)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio o-aspect-ratio--16by9">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h3 class="c-test__it">renders 16:9 (img)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio  o-aspect-ratio--16by9">
-        <img src="//placehold.it/450x253" alt="">
+      <h3 class="c-test__it">renders 16:9 (img)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio o-aspect-ratio--16by9">
+          <img src="//placehold.it/450x253" alt="" />
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h2 class="c-test__describe">.o-aspect-ratio--2by1</h2>
-    <h3 class="c-test__it">renders 2:1 (iframe)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio  o-aspect-ratio--2by1">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+      <h2 class="c-test__describe">.o-aspect-ratio--2by1</h2>
+      <h3 class="c-test__it">renders 2:1 (iframe)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio o-aspect-ratio--2by1">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-    </div><!-- .c-test__run -->
+      <!-- .c-test__run -->
 
-    <h3 class="c-test__it">renders 2:1 (img)</h3>
-    <div class="c-test__run  c-test__run--retained">
-      <div class="o-aspect-ratio  o-aspect-ratio--2by1">
-        <img src="//placehold.it/450x225" alt="">
+      <h3 class="c-test__it">renders 2:1 (img)</h3>
+      <div class="c-test__run c-test__run--retained">
+        <div class="o-aspect-ratio o-aspect-ratio--2by1">
+          <img src="//placehold.it/450x225" alt="" />
+        </div>
       </div>
-    </div><!-- .c-test__run -->
-
-  </div><!-- .c-test -->
-</body>
+      <!-- .c-test__run -->
+    </div>
+    <!-- .c-test -->
+  </body>
 </html>

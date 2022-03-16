@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test object.flow - Supple CSS</title>
-  <link rel="stylesheet" href="../../test/css/test.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test object.flow - Supple CSS</title>
+    <link rel="stylesheet" href="../../test/css/test.css" />
+  </head>
+  <body>
+    <div class="c-test">
+      <h1 class="c-test__title">Supple CSS: object.flow tests</h1>
 
-  <div class="c-test">
-    <h1 class="c-test__title">Supple CSS: object.flow tests</h1>
+      <h2 class="c-test__describe">.u-flow</h2>
 
-    <h2 class="c-test__describe">.u-flow</h2>
+      <h3 class="c-test__it">renders consistent margins between elements</h3>
+      <div class="c-test__run">
+        <div class="c-fixture-box--wrap o-flow o-flow--large">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+            excepturi totam obcaecati quibusdam repellat, magni iusto,
+            laboriosam assumenda nam porro veritatis tenetur quas explicabo
+            neque quasi sequi numquam. Quasi, reprehenderit!
+          </p>
+          <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+            <li>
+              List item 4
+              <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <!-- .test__run -->
 
-    <h3 class="c-test__it">renders consistent margins between elements</h3>
-    <div class="c-test__run">
-          <div class="c-fixture-box--wrap  o-flow  o-flow--large">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia excepturi totam obcaecati quibusdam repellat, magni iusto, laboriosam assumenda nam porro veritatis tenetur quas explicabo neque quasi sequi numquam. Quasi, reprehenderit!</p>
-            <ul>
-              <li>List item 1</li>
-              <li>List item 2</li>
-              <li>List item 3</li>
-              <li>
-                List item 4
-                <ul>
-                  <li>List item 1</li>
-                  <li>List item 2</li>
-                </ul>
-              </li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
-    </div><!-- .test__run -->
-
-    <h3 class="c-test__it">Accepts `--flow-gap` custom property to adjust spacings, eg. `--flow-gap: 3rem`</h3>
-    <div class="c-test__run">
-          <div class="c-fixture-box--wrap  o-flow  o-flow--large" style="--flow-gap: 3rem">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia excepturi totam obcaecati quibusdam repellat, magni iusto, laboriosam assumenda nam porro veritatis tenetur quas explicabo neque quasi sequi numquam. Quasi, reprehenderit!</p>
-            <ul>
-              <li>List item 1</li>
-              <li>List item 2</li>
-              <li>List item 3</li>
-              <li>
-                List item 4
-                <ul>
-                  <li>List item 1</li>
-                  <li>List item 2</li>
-                </ul>
-              </li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          </div>
-    </div><!-- .test__run -->
-
-  </div><!-- .test -->
-</body>
+      <h3 class="c-test__it">
+        Accepts `--flow-gap` custom property to adjust spacings, eg.
+        `--flow-gap: 3rem`
+      </h3>
+      <div class="c-test__run">
+        <div
+          class="c-fixture-box--wrap o-flow o-flow--large"
+          style="--flow-gap: 3rem"
+        >
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+            excepturi totam obcaecati quibusdam repellat, magni iusto,
+            laboriosam assumenda nam porro veritatis tenetur quas explicabo
+            neque quasi sequi numquam. Quasi, reprehenderit!
+          </p>
+          <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+            <li>
+              List item 4
+              <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+              </ul>
+            </li>
+          </ul>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <!-- .test__run -->
+    </div>
+    <!-- .test -->
+  </body>
 </html>

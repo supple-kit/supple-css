@@ -1,10 +1,20 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "5.0.0",
+  "version": "5.4.0",
   "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
   "author": "Bram Smulders <source@bram.is>",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://www.github.com/sponsors/bramsmulders"
+    },
+    {
+      "type": "paypal",
+      "url": "https://www.paypal.me/smuldersbram/EUR"
+    }
+  ],
   "license": "MIT",
   "keywords": [
     "supple",
@@ -19,6 +29,8 @@
   "scripts": {
     "test": "npm run lint && npm run build && npm run gzip",
     "lint": "stylelint \"**/*.scss\"",
+    "prettier:fix": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "gzip": "gzip-size test/css/index.css",
     "postcss": "postcss test/css/**/*.css --replace",
     "sass": "sass index.scss:test/css/index.css test/scss/test.scss:test/css/test.css --no-source-map",
@@ -27,22 +39,34 @@
     "watch": "nodemon -e scss -x \"npm run test\"",
     "start": "concurrently 'npm run serve' 'npm run watch'"
   },
+  "nano-staged": {
+    "**/*": "prettier --write",
+    "*.scss": "stylelint"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
+  },
   "browserslist": [
     "defaults"
   ],
   "devDependencies": {
-    "@supple-kit/stylelint-config-supple": "^3.0.4",
-    "autoprefixer": "^10.2.5",
-    "browser-sync": "^2.26.14",
-    "concurrently": "^6.0.0",
-    "cssnano": "^4.1.10",
-    "glob": "^7.1.6",
-    "gzip-size-cli": "^4.0.0",
-    "nodemon": "^2.0.7",
-    "postcss": "^8.2.8",
-    "postcss-cli": "^8.3.1",
-    "sass": "^1.32.8",
-    "stylelint": "^13.12.0",
-    "stylelint-scss": "^3.19.0"
+    "@supple-kit/prettier-config": "^1.0.1",
+    "@supple-kit/stylelint-config-supple": "^4.0.1",
+    "autoprefixer": "^10.4.2",
+    "browser-sync": "^2.27.7",
+    "concurrently": "^7.0.0",
+    "cssnano": "^5.0.17",
+    "glob": "^7.2.0",
+    "gzip-size-cli": "^5.1.0",
+    "nano-staged": "^0.5.0",
+    "nodemon": "^2.0.15",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.49.7",
+    "simple-git-hooks": "^2.7.0",
+    "stylelint": "^14.5.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard-scss": "^3.0.0"
   }
 }

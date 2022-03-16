@@ -1,17 +1,11 @@
-/*  =========================================================================
+/* ==========================================================================
     objects.mesh
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -22,20 +16,18 @@
 @use '../../tools/rem';
 @use '../../tools/responsive';
 
-
-
-/*  Internal variables
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Internal variables
+/ --------------------------------------------------------------------------- */
 
 $selector: '> *';
-@if (defaults.$css-modules) {
+@if defaults.$css-modules {
   $selector: ':global(#{$selector})';
 }
 
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
 /**
  * Block: mesh
@@ -64,7 +56,6 @@ $selector: '> *';
   }
 }
 
-
 /**
  * Modifier: flow
  * Fluid width columns that break into more or less columns as space is available, with no media queries
@@ -74,7 +65,6 @@ $selector: '> *';
   grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
 }
 
-
 /**
  * Modifier: dense
  * Attempt to fill in holes earlier in the grid if smaller items come up later
@@ -82,7 +72,6 @@ $selector: '> *';
 .o-mesh--dense {
   grid-auto-flow: dense;
 }
-
 
 /**
  * Modifier: gap-X
@@ -92,7 +81,6 @@ $selector: '> *';
     --mesh-gap: #{space.get($gap)};
   }
 }
-
 
 /**
  * Element modifier: row

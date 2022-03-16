@@ -1,19 +1,13 @@
-/*  =========================================================================
+/* ==========================================================================
     objects.flow
     Create a rule that sibling elements apply a common margin that is either
     globally defined or contextually set.
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -22,24 +16,13 @@
 @use '../../settings/defaults';
 @use '../../tools/space';
 
-
-
-/*  Variables
-    ========================================================================= */
-
-
-
-/*  Functions/Mixins
-    ========================================================================= */
-
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
 .o-flow {
   $selector: '> * + *';
-  @if (defaults.$css-modules) {
+  @if defaults.$css-modules {
     $selector: ':global(#{$selector})';
   }
 
@@ -50,7 +33,6 @@
     margin-block-start: var(--flow-gap);
   }
 }
-
 
 @each $gap in variables.$gaps {
   .o-flow--#{$gap} {
