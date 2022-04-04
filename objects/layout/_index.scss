@@ -46,7 +46,7 @@ $selector: '> *';
   flex-flow: row wrap;
   align-items: flex-start;
   padding: 0; /* [1] */
-  margin-block-start: calc(-1 * var(--layout-block-gap));
+  row-gap: var(--layout-block-gap);
   margin-inline-start: calc(-1 * var(--layout-inline-gap)); /* [1,2] */
   list-style: none; /* [1] */
 
@@ -68,12 +68,10 @@ $selector: '> *';
     --colspan: var(--columns);
     --offset: 0;
     --layout-igi: var(--layout-inline-gap); /* [4] */
-    --layout-bgi: var(--layout-block-gap); /* [4] */
     flex-basis: calc(
       (100% / var(--columns) * var(--colspan)) - var(--layout-igi)
     ); /* [1] */
     min-inline-size: 0; /* [2] */
-    margin-block-start: var(--layout-bgi);
     margin-inline-start: calc(
       100% / var(--columns) * var(--offset) + var(--layout-igi)
     ); /* [3] */
@@ -134,8 +132,6 @@ $selector: '> *';
  */
 .o-layout__cell {
   --layout-igi: 0px; // stylelint-disable-line
-  --layout-bgi: 0px; // stylelint-disable-line
-  padding-block-start: var(--layout-block-gap);
   padding-inline-start: var(--layout-inline-gap);
 
   // Old way to stretch inner items
