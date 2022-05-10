@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.5.0 - 10-may-2022
+
+- Removed `o-layout` block axis gaps with native row-gap property
+- General housekeeping, package update
+
 ## 5.4.0 - 11-february-2022
 
 - Fixed a bug where `responsive.lock` didn't work on any root element.
