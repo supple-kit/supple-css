@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.5.1 - 16-may-2022
+
+- Added `button`, `input`, `select` & `textarea` to margin in `_reset.scss`
+
 ## 5.5.0 - 10-may-2022
 
 - Removed `o-layout` block axis gaps with native row-gap property
