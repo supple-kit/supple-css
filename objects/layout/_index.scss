@@ -47,7 +47,7 @@ $selector: '> *';
   align-items: flex-start;
   padding: 0; /* [1] */
   row-gap: var(--layout-block-gap);
-  margin-inline-start: calc(-1 * var(--layout-inline-gap)); /* [1,2] */
+  column-gap: var(--layout-inline-gap);
   list-style: none; /* [1] */
 
   /**
@@ -59,28 +59,31 @@ $selector: '> *';
 	 * 2. Fix issue where elements with overflow extend past the
 	 *    item's container. As per:
 	 *    http://weblog.west-wind.com/posts/2016/Feb/15/Flexbox-Containers-PRE-tags-and-managing-Overflow
-	 * 3. Calculate the offset + the layout gap
-	 * 4. We need to reset our margins if the direct child is `o-layout__cell`
-	 *    but our gap variables need to be available. So we map our variables to
-	 *    internal variables.
+   * 3. To fix the "percentage-based flex-basis & gap" based issues we need to
+   *    set a max-width with a ratio to negate the `gap`.
+   * 4. Calculate offset
 	 */
   #{$selector} {
     --colspan: var(--columns);
     --offset: 0;
-    --layout-igi: var(--layout-inline-gap); /* [4] */
     flex-basis: calc(
-      (100% / var(--columns) * var(--colspan)) - var(--layout-igi)
+      (100% / var(--columns) * var(--colspan)) - var(--layout-inline-gap)
     ); /* [1] */
+    flex-grow: 1;
     min-inline-size: 0; /* [2] */
-    margin-inline-start: calc(
-      100% / var(--columns) * var(--offset) + var(--layout-igi)
+    // stylelint-disable
+    max-inline-size: calc(
+      (100% / var(--columns) * var(--colspan)) - var(--layout-inline-gap) *
+        (100 - 100 / var(--columns) * var(--colspan)) / 100
     ); /* [3] */
+    // stylelint-enable
+    margin-inline-start: calc(100% / var(--columns) * var(--offset)); /* [4] */
   }
 }
 
 /**
  * Modifier: inline-center
- * center align all layout cells over the inline axis
+ * center align all layout items over the inline axis
  */
 .o-layout--align-inline-center {
   justify-content: center;
@@ -88,15 +91,23 @@ $selector: '> *';
 
 /**
  * Modifier: align-inline-end
- * align all layout cells to the end of the inline axis
+ * align all layout items to the end of the inline axis
  */
 .o-layout--align-inline-end {
   justify-content: flex-end;
 }
 
 /**
+ * Modifier: align-inline-between
+ * align layout items by creating an even space between
+ */
+.o-layout--align-inline-between {
+  justify-content: space-between;
+}
+
+/**
  * Modifier: align-block-center
- * center-align layout cells on the block axis
+ * center-align layout items on the block axis
  */
 .o-layout--align-block-center {
   align-items: center;
@@ -104,7 +115,7 @@ $selector: '> *';
 
 /**
  * Modifier: align-block-end
- * end-align layout cells on the block axis
+ * end-align layout items on the block axis
  */
 .o-layout--align-block-end {
   align-items: flex-end;
@@ -112,7 +123,7 @@ $selector: '> *';
 
 /**
  * Modifier: stretch
- * All cells match the size of tallest cell in a row
+ * All items match the size of tallest item in a row
  */
 .o-layout--stretch {
   align-items: stretch;
@@ -120,47 +131,32 @@ $selector: '> *';
 
 /**
  * Modifier: reverse
- * reverse all cells
+ * reverse all items
  */
 .o-layout--reverse {
   flex-direction: row-reverse;
 }
 
 /**
- * Element: cell
- * Only use cell wrapper element when everything else fails 😅
- */
-.o-layout__cell {
-  --layout-igi: 0px; // stylelint-disable-line
-  padding-inline-start: var(--layout-inline-gap);
-
-  // Old way to stretch inner items
-  .o-layout--stretch > & {
-    display: flex;
-
-    #{$selector} {
-      inline-size: 100%; /* [1] */
-    }
-  }
-}
-
-/**
  * Modifier: fill
- * allow cells to equal distribute width
+ * allow items to equal distribute width
  */
 .o-layout--fill {
   #{$selector} {
     flex: 1;
+    max-inline-size: none;
   }
 }
 
 /**
  * Modifier: fit
- * fit all cells to their content
+ * fit all items to their content
  */
 .o-layout--fit {
   #{$selector} {
     flex-basis: auto;
+    flex-grow: 0;
+    max-inline-size: none;
   }
 }
 
@@ -173,19 +169,27 @@ $selector: '> *';
   }
 }
 
+/**
+ * Modifier: gap-block-X
+ */
+@each $gap in variables.$gaps {
+  .o-layout--gap-block-#{$gap} {
+    --layout-block-gap: #{space.get($gap)};
+  }
+}
+
+/**
+ * Modifier: gap-inline-X
+ */
+@each $gap in variables.$gaps {
+  .o-layout--gap-inline-#{$gap} {
+    --layout-inline-gap: #{space.get($gap)};
+  }
+}
+
 /* --------------------------------------------------------------------------
     Elements
 / --------------------------------------------------------------------------- */
-
-/**
- * Element: fit
- * Make an item shrink wrap its content.
- */
-.o-layout__fit {
-  @include responsive.in-query(variables.$fit-in-query) {
-    flex-basis: auto;
-  }
-}
 
 /**
  * Element: fill
@@ -198,6 +202,19 @@ $selector: '> *';
   @include responsive.in-query(variables.$fill-in-query) {
     flex: auto;
     inline-size: 0%; /* [1] */
+    max-inline-size: none;
+  }
+}
+
+/**
+ * Element: fit
+ * Make an item shrink wrap its content.
+ */
+.o-layout__fit {
+  @include responsive.in-query(variables.$fit-in-query) {
+    flex-basis: auto;
+    flex-grow: 0;
+    max-inline-size: none;
   }
 }
 
