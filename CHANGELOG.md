@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.6.0 - 25-may-2022
+
+Update `o-layout` with:
+
+- native inline gaps, no more nasty margin hacks!
+- align-inline-between, generate equal space between items
+- block/inline specific gap classes
+
 ## 5.5.1 - 16-may-2022
 
 - Added `button`, `input`, `select` & `textarea` to margin in `_reset.scss`
