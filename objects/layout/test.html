@@ -12,7 +12,7 @@
 
       <h2 class="c-test__describe">.o-layout</h2>
 
-      <h3 class="c-test__it">renders cells at full-width by default</h3>
+      <h3 class="c-test__it">renders items at full-width by default</h3>
       <div class="c-test__run">
         <div class="o-layout">
           <div class="c-fixture-box">1</div>
@@ -21,7 +21,7 @@
       </div>
       <!-- .test__run -->
 
-      <h3 class="c-test__it">removes inter-cell whitespace</h3>
+      <h3 class="c-test__it">removes inter-item whitespace</h3>
       <div class="c-test__run">
         <div class="o-layout" style="--columns: 4">
           <div class="c-fixture-box" style="--colspan: 1">1</div>
@@ -45,7 +45,7 @@ This is some really long content that should be scrolled when the container is t
       <!-- .test__run -->
 
       <h3 class="c-test__it">
-        automatically wraps cells across multiple lines when they don't fit a
+        automatically wraps items across multiple lines when they don't fit a
         single row
       </h3>
       <div class="c-test__run">
@@ -63,7 +63,7 @@ This is some really long content that should be scrolled when the container is t
       <!-- .test__run -->
 
       <h3 class="c-test__it">
-        arranges cells of different heights into clear rows
+        arranges items of different heights into clear rows
       </h3>
       <div class="c-test__run">
         <div class="o-layout" style="--columns: 4">
@@ -115,8 +115,27 @@ This is some really long content that should be scrolled when the container is t
       </div>
       <!-- .test__run -->
 
+      <h3 class="c-test__it">supports <em>directly</em> nested layouts</h3>
+      <div class="c-test__run">
+        <div class="o-layout">
+          <div class="o-layout c-fixture-box--wrap" style="--colspan: 6">
+            <div class="c-fixture-box" style="--colspan: 3">1</div>
+            <div class="c-fixture-box" style="--colspan: 3">2</div>
+            <div class="c-fixture-box" style="--colspan: 3">3</div>
+            <div class="c-fixture-box" style="--colspan: 3">4</div>
+          </div>
+          <div class="o-layout c-fixture-box--wrap" style="--colspan: 6">
+            <div class="c-fixture-box" style="--colspan: 3">1</div>
+            <div class="c-fixture-box" style="--colspan: 3">2</div>
+            <div class="c-fixture-box" style="--colspan: 3">3</div>
+            <div class="c-fixture-box" style="--colspan: 3">4</div>
+          </div>
+        </div>
+      </div>
+      <!-- .test__run -->
+
       <h3 class="c-test__it">
-        supports .o-layout__fill on cells with no width
+        supports .o-layout__fill on items with no width
       </h3>
       <div class="c-test__run">
         <div class="o-layout" style="--columns: 4">
@@ -187,7 +206,7 @@ This is some really long content that should be scrolled when the container is t
 
       <h2 class="c-test__describe">.o-layout--align-inline-center</h2>
       <h3 class="c-test__it">
-        center-aligns all cells on the inline axis but not their content
+        center-aligns all items on the inline axis but not their content
       </h3>
       <div class="c-test__run">
         <div
@@ -203,7 +222,7 @@ This is some really long content that should be scrolled when the container is t
 
       <h2 class="c-test__describe">.o-layout--align-inline-end</h2>
       <h3 class="c-test__it">
-        end-aligns all cells on the inline axis but not their content
+        end-aligns all items on the inline axis but not their content
       </h3>
       <div class="c-test__run">
         <div class="o-layout o-layout--align-inline-end" style="--columns: 12">
@@ -214,8 +233,24 @@ This is some really long content that should be scrolled when the container is t
       </div>
       <!-- .test__run -->
 
+      <h2 class="c-test__describe">.o-layout--align-inline-between</h2>
+      <h3 class="c-test__it">
+        align layout items by creating an even space between
+      </h3>
+      <div class="c-test__run">
+        <div
+          class="o-layout o-layout--align-inline-between"
+          style="--columns: 12"
+        >
+          <div class="c-fixture-box" style="--colspan: 3">1</div>
+          <div class="c-fixture-box" style="--colspan: 3">2</div>
+          <div class="c-fixture-box" style="--colspan: 3">3</div>
+        </div>
+      </div>
+      <!-- .test__run -->
+
       <h2 class="c-test__describe">.o-layout--align-block-center</h2>
-      <h3 class="c-test__it">centers-aligns all cells on the block axis</h3>
+      <h3 class="c-test__it">centers-aligns all items on the block axis</h3>
       <div class="c-test__run">
         <div
           class="o-layout o-layout--align-block-center"
@@ -235,7 +270,7 @@ This is some really long content that should be scrolled when the container is t
       <!-- .test__run -->
 
       <h2 class="c-test__describe">.o-layout--align-block-end</h2>
-      <h3 class="c-test__it">end-aligns all cells on the block axis</h3>
+      <h3 class="c-test__it">end-aligns all items on the block axis</h3>
       <div class="c-test__run">
         <div class="o-layout o-layout--align-block-end" style="--columns: 12">
           <div class="c-fixture-box" style="--colspan: 3">1</div>
@@ -253,7 +288,7 @@ This is some really long content that should be scrolled when the container is t
 
       <h2 class="c-test__describe">.o-layout--fill</h2>
       <h3 class="c-test__it">
-        evenly distribute space between cells without sizing classes or colspan
+        evenly distribute space between items without sizing classes or colspan
         properties
       </h3>
       <div class="c-test__run">
@@ -278,7 +313,7 @@ This is some really long content that should be scrolled when the container is t
       <!-- .test__run -->
 
       <h2 class="c-test__describe">.o-layout--fit</h2>
-      <h3 class="c-test__it">fit all cells to their content</h3>
+      <h3 class="c-test__it">fit all items to their content</h3>
       <div class="c-test__run">
         <div class="o-layout o-layout--fit">
           <div class="c-fixture-box">1</div>
@@ -298,7 +333,7 @@ This is some really long content that should be scrolled when the container is t
 
       <h2 class="c-test__describe">.o-layout--stretch</h2>
       <h3 class="c-test__it">
-        equal size columns based on the talles cell in the block axis
+        equal size columns based on the talles item in the block axis
       </h3>
       <div class="c-test__run">
         <div class="o-layout o-layout--stretch" style="--columns: 3">
@@ -309,27 +344,9 @@ This is some really long content that should be scrolled when the container is t
       </div>
       <!-- .test__run -->
 
-      <h3 class="c-test__it">
-        also with <code>.layout__cell</code> child elements
-      </h3>
-      <div class="c-test__run">
-        <div class="o-layout o-layout--stretch" style="--columns: 3">
-          <div class="o-layout__cell" style="--colspan: 1">
-            <div class="c-fixture-box">1</div>
-          </div>
-          <div class="o-layout__cell" style="--colspan: 1">
-            <div class="c-fixture-box">2<br />line 2</div>
-          </div>
-          <div class="o-layout__cell" style="--colspan: 1">
-            <div class="c-fixture-box">3</div>
-          </div>
-        </div>
-      </div>
-      <!-- .test__run -->
-
       <h2 class="c-test__describe">.o-layout__align-inline-center</h2>
       <h3 class="c-test__it">
-        centers an individual layout cell on the inline axis but not its content
+        centers an individual layout item on the inline axis but not its content
       </h3>
       <div class="c-test__run">
         <div class="o-layout" style="--columns: 12">
@@ -339,7 +356,7 @@ This is some really long content that should be scrolled when the container is t
             class="c-fixture-box | o-layout__align-inline-center"
             style="--colspan: 8"
           >
-            3: centered cell
+            3: centered item
           </div>
         </div>
       </div>
@@ -353,7 +370,36 @@ This is some really long content that should be scrolled when the container is t
           <div class="c-fixture-box" style="--colspan: 1">2</div>
           <div class="c-fixture-box" style="--colspan: 1">3</div>
           <div class="c-fixture-box" style="--colspan: 1">4</div>
-          <div class="c-fixture-box o-layout__fill" style="--colspan: 1">5</div>
+          <div class="c-fixture-box" style="--colspan: 1">5</div>
+          <div class="c-fixture-box o-layout__fill">fill</div>
+        </div>
+      </div>
+      <!-- .test__run -->
+
+      <h3 class="c-test__it">supports block-gap (.o-layout--gap-block-base)</h3>
+      <div class="c-test__run">
+        <div class="o-layout o-layout--gap-block-base" style="--columns: 4">
+          <div class="c-fixture-box" style="--colspan: 1">1</div>
+          <div class="c-fixture-box" style="--colspan: 1">2</div>
+          <div class="c-fixture-box" style="--colspan: 1">3</div>
+          <div class="c-fixture-box" style="--colspan: 1">4</div>
+          <div class="c-fixture-box" style="--colspan: 1">5</div>
+          <div class="c-fixture-box o-layout__fill">fill</div>
+        </div>
+      </div>
+      <!-- .test__run -->
+
+      <h3 class="c-test__it">
+        supports inline-gap (.o-layout--gap-inline-base)
+      </h3>
+      <div class="c-test__run">
+        <div class="o-layout o-layout--gap-inline-base" style="--columns: 4">
+          <div class="c-fixture-box" style="--colspan: 1">1</div>
+          <div class="c-fixture-box" style="--colspan: 1">2</div>
+          <div class="c-fixture-box" style="--colspan: 1">3</div>
+          <div class="c-fixture-box" style="--colspan: 1">4</div>
+          <div class="c-fixture-box" style="--colspan: 1">5</div>
+          <div class="c-fixture-box o-layout__fill">fill</div>
         </div>
       </div>
       <!-- .test__run -->
@@ -437,40 +483,10 @@ This is some really long content that should be scrolled when the container is t
       </h3>
       <div class="c-test__run">
         <div class="o-layout o-layout--gap-base" style="--columns: 4">
-          <div class="u-colspan-1 c-fixture-box">shrink to content width</div>
+          <div class="u-colspan-1 c-fixture-box">colspan 1</div>
           <div class="o-layout__fill c-fixture-box">
             fill remaining space: This is some really long content that should
             be wrapped when the container is too small.
-          </div>
-        </div>
-      </div>
-      <!-- .test__run -->
-
-      <h3 class="c-test__it">
-        Correctly calculates cell alignment when a
-        <code>.o-layout__fit</code> is used in a
-        <code>.o-layout__fit</code> when using <code>.o-layout__cell</code>
-      </h3>
-      <div class="c-test__run">
-        <div class="o-layout">
-          <div class="o-layout__fit">
-            <div class="o-layout o-layout--fit o-layout--gap-base">
-              <div class="o-layout__cell">
-                <div class="c-fixture-box">Item 1</div>
-              </div>
-              <div class="o-layout__cell">
-                <div class="c-fixture-box">Item 2</div>
-              </div>
-              <div class="o-layout__cell">
-                <div class="c-fixture-box">Item 3</div>
-              </div>
-              <div class="o-layout__cell">
-                <div class="c-fixture-box">Item 4</div>
-              </div>
-              <div class="o-layout__cell">
-                <div class="c-fixture-box">Item 5</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
