@@ -60,10 +60,15 @@ $selector: '> *';
  * Modifier: flow
  * Fluid width columns that break into more or less columns as space is available, with no media queries
  */
+// stylelint-disable scss/no-global-function-names
 .o-mesh--flow {
   --min-inline-size: #{rem.convert(variables.$flow-min-inline-size)};
-  grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
+  grid-template-columns: repeat(
+    var(--grid-placement, auto-fill),
+    minmax(min(var(--min-inline-size), 100%), 1fr)
+  );
 }
+// stylelint-enable scss/no-global-function-names
 
 /**
  * Modifier: dense
