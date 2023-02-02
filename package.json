@@ -1,6 +1,6 @@
 {
   "name": "@supple-kit/supple-css",
-  "version": "5.6.0",
+  "version": "5.7.0",
   "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
@@ -67,6 +67,6 @@
     "simple-git-hooks": "^2.8.1",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-standard-scss": "^6.1.0"
+    "stylelint-config-standard-scss": "^3.0.0"
   }
 }

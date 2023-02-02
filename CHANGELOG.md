@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.7.0 - 02-february-2023
+
+Update `o-mesh` with:
+
+- more flexible `o-mesh--flow` modifier which wraps grid cells better
+
 ## 5.6.0 - 25-may-2022
 
 Update `o-layout` with:
