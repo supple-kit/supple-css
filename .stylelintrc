@@ -1,7 +1,4 @@
 {
-  "extends": [
-    "@supple-kit/stylelint-config-supple",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["@supple-kit/stylelint-config-supple"],
   "ignoreFiles": ["_test/css/*", "vendor/**/*"]
 }

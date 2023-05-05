@@ -52,21 +52,20 @@
   "devDependencies": {
     "@supple-kit/prettier-config": "^1.0.1",
     "@supple-kit/stylelint-config-supple": "^4.0.1",
-    "autoprefixer": "^10.4.13",
-    "browser-sync": "^2.27.11",
-    "concurrently": "^7.6.0",
-    "cssnano": "^5.1.14",
-    "glob": "^8.1.0",
+    "autoprefixer": "^10.4.14",
+    "browser-sync": "^2.29.1",
+    "concurrently": "^8.0.1",
+    "cssnano": "^6.0.1",
+    "glob": "^10.2.2",
     "gzip-size-cli": "^5.1.0",
     "nano-staged": "^0.8.0",
-    "nodemon": "^2.0.20",
-    "postcss": "^8.4.21",
+    "nodemon": "^2.0.22",
+    "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
-    "prettier": "^2.8.3",
-    "sass": "^1.58.0",
+    "prettier": "^2.8.8",
+    "sass": "^1.62.1",
     "simple-git-hooks": "^2.8.1",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "stylelint": "^15.6.1",
+    "stylelint-config-standard-scss": "^9.0.0"
   }
 }
