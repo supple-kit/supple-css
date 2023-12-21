@@ -1,0 +1,90 @@
+/* ==========================================================================
+objects.contain
+Creates a wrapper around a block of content, centers, adds padding and
+contains it to your desired size.
+/  ========================================================================== */
+
+/**
+ * Forward the variables to the parent stylesheet
+ */
+@forward './variables';
+
+/**
+ * Use the settings & tools in this sheet
+ */
+@use 'sass:list';
+@use './variables';
+
+/* --------------------------------------------------------------------------
+Module
+/  -------------------------------------------------------------------------- */
+
+@layer objects {
+	:where(.o-contain) {
+		--_s-o-contain-padding-inline: var(
+			--o-contain-padding-inline,
+			var(--s-space-base, 1.5rem)
+		);
+		@each $key, $value in variables.$areas-computed {
+			--_s-o-contain-#{$key}-max-inline-size: var(
+				--o-contain-#{$key}-max-inline-size,
+				#{$value}
+			);
+
+			@if $key != 'base' {
+				$previous-area: list.nth(
+					variables.$area-names,
+					list.index(variables.$area-names, $key) - 1
+				);
+				--_s-o-contain-#{$key}-size: calc(
+					(
+							var(--_s-o-contain-#{$key}-max-inline-size) - var(
+									--_s-o-contain-#{$previous-area}-max-inline-size
+								)
+						) /
+						2
+				);
+			}
+		}
+		--_s-o-contain-columns: [full-bleed-start]
+			minmax(var(--_s-o-contain-padding-inline), 1fr) [full-start]
+			minmax(0, 100%) #{variables.$start} [base-start] min(
+				var(--_s-o-contain-base-max-inline-size),
+				100% - var(--_s-o-contain-padding-inline) * 2
+			) [base-end] #{variables.$end} minmax(0, 100%) [full-end]
+			minmax(var(--_s-o-contain-padding-inline), 1fr) [full-bleed-end];
+
+		display: grid;
+		grid-template-columns: var(--_s-o-contain-columns);
+	}
+
+	:where(.o-contain > *) {
+		grid-column: var(--o-contain-column, var(--_s-o-contain-column, base));
+	}
+
+	@each $name in variables.$area-names-without-base {
+		:where(.o-contain--#{$name} > *),
+		:where(.o-contain > .o-contain__#{$name}) {
+			--_s-o-contain-column: #{$name};
+		}
+	}
+
+	:where(.o-contain--full > *),
+	:where(.o-contain > .o-contain__full) {
+		--_s-o-contain-column: full;
+	}
+
+	:where(.o-contain--full-bleed > *),
+	:where(.o-contain > .o-contain__full-bleed) {
+		--_s-o-contain-column: full-bleed;
+	}
+
+	:where(.o-contain--text) {
+		--_s-o-contain-columns: [base-start #{variables.$textStart}]
+			min(
+				var(--_s-o-contain-base-max-inline-size),
+				100% - var(--_s-o-contain-padding-inline) * 2
+			)
+			[base-end] #{variables.$textEnd};
+	}
+}

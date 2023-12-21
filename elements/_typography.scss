@@ -1,0 +1,29 @@
+/* ==========================================================================
+elements.typography
+/  ========================================================================== */
+
+@use 'sass:meta';
+@use 'sass:list';
+@use '../settings/defaults';
+
+@layer elements {
+	@each $name, $value in defaults.$heading-mapping {
+		:where(h#{$name}) {
+			@if meta.type-of($value) == list {
+				--s-heading-font-size: var(
+					--e-heading-#{$name}-font-size,
+					var(--s-font-size-#{list.nth($value, 1)})
+				);
+				--s-heading-leading: var(
+					--e-heading-#{$name}-leading,
+					var(--s-leading-#{list.nth($value, 2)})
+				);
+			} @else {
+				--s-heading-font-size: var(
+					--e-heading-#{$name}-font-size,
+					var(--s-font-size-#{$value})
+				);
+			}
+		}
+	}
+}

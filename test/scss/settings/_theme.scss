@@ -1,19 +1,19 @@
 /* ==========================================================================
-    test.settings.theme
+test.settings.theme
 / =========================================================================== */
 
 @use '../../../tools/responsive';
 
 :root {
-  // Light theme colors
-  --color-slate: #cccccc;
+	// Light theme colors
+	--color-slate: #cccccc;
 
-  @include responsive.color-scheme(dark) {
-    // Dark theme colors
-    --color-slate: #000000;
-  }
+	@include responsive.color-scheme(dark) {
+		// Dark theme colors
+		--color-slate: #000000;
+	}
 }
 
 .c-color-scheme {
-  background-color: var(--color-slate);
+	background-color: var(--color-slate);
 }

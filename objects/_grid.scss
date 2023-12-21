@@ -1,0 +1,14 @@
+/* ==========================================================================
+objects.grid
+/  ========================================================================== */
+
+@layer objects {
+	:where(.o-grid) {
+		display: grid;
+		grid-template-columns: repeat(
+			var(--s-grid-placement, auto-fill),
+			minmax(min(var(--s-grid-min-item-size, 16rem), 100%), 1fr)
+		);
+		gap: var(--s-grid-gutter, var(--s-gutter, 1rem));
+	}
+}

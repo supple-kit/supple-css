@@ -1,6 +1,6 @@
 /* ==========================================================================
-    tools.rem
-    functions an mixins to make life with `rem` units easy
+tools.rem
+functions an mixins to make life with `rem` units easy
 / =========================================================================== */
 
 @use 'sass:math';
@@ -13,16 +13,16 @@
  * Converts a single px value to a rem unit based on the current browser context
  */
 @function to-rem($value, $font-size-override: false) {
-  @if (meta.type-of($value) == string) or
-    (math.is-unitless($value) == true) or
-    (math.unit($value) != 'px')
-  {
-    @return $value;
-  } @else if $font-size-override and math.unit($font-size-override) == 'px' {
-    @return (math.div($value, $font-size-override) * 1rem);
-  } @else {
-    @return (math.div($value, defaults.$font-size) * 1rem);
-  }
+	@if (meta.type-of($value) == string) or
+		(math.is-unitless($value) == true) or
+		(math.unit($value) != 'px')
+	{
+		@return $value;
+	} @else if $font-size-override and math.unit($font-size-override) == 'px' {
+		@return (math.div($value, $font-size-override) * 1rem);
+	} @else {
+		@return (math.div($value, defaults.$browser-font-size) * 1rem);
+	}
 }
 
 /**
@@ -33,13 +33,13 @@ rem.convert(0 auto 300px);
 rem.convert(26px);
  */
 @function convert($value) {
-  @if meta.type-of($value) == list {
-    $all: ();
-    @for $i from 1 through list.length($value) {
-      $all: list.append($all, to-rem(list.nth($value, $i)));
-    }
-    @return $all;
-  } @else {
-    @return to-rem($value);
-  }
+	@if meta.type-of($value) == list {
+		$all: ();
+		@for $i from 1 through list.length($value) {
+			$all: list.append($all, to-rem(list.nth($value, $i)));
+		}
+		@return $all;
+	} @else {
+		@return to-rem($value);
+	}
 }

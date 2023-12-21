@@ -1,7 +1,8 @@
 /* ==========================================================================
-    objects.retain
-    Page-level constraining and wrapping elements.
-/ =========================================================================== */
+objects.retain
+Creates a wrapper around a block of content, centers, adds padding and
+retains it to your desired size.
+/  ========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
@@ -12,40 +13,86 @@
  * Use the settings & tools in this sheet
  */
 @use './variables';
-@use '../../tools/space';
 @use '../../tools/rem';
 
 /* --------------------------------------------------------------------------
-    Module
-/ --------------------------------------------------------------------------- */
+Module
+/  -------------------------------------------------------------------------- */
 
-/**
- * Block: retain
- * 1. Center align
- */
-.o-retain {
-  --size: 100%;
-  max-inline-size: var(--size);
-  padding-inline-start: space.get(variables.$space);
-  padding-inline-end: space.get(variables.$space);
-  margin-inline-end: auto; /* [1] */
-  margin-inline-start: auto; /* [1] */
-}
+/*
+Custom property api:
+--o-retain-padding-inline
+--o-retain-padding-inline-start
+--o-retain-padding-inline-end
 
-/**
- * Modifier: no-padding
- */
-.o-retain--no-padding {
-  padding-inline-end: 0;
-  padding-inline-start: 0;
-}
+--o-retain-margin-inline
+--o-retain-margin-inline-start
+--o-retain-margin-inline-end
 
-/* --------------------------------------------------------------------------
-    Common width modifiers
-/ --------------------------------------------------------------------------- */
+--o-retain-max-inline-size
+--o-retain-text-max-inline-size
 
-@each $key, $value in variables.$sizes {
-  .o-retain--#{$key} {
-    --size: #{rem.convert($value)};
-  }
+Based on $sizes in _variables.scss
+--o-retain-lap-max-inline-size
+--o-retain-desk-max-inline-size
+--o-retain-wall-max-inline-size
+*/
+
+@layer objects {
+	/**
+	 * 1. We calculate the inline padding on top of the maximum inline size
+	 *    so the content within is always the same as the maximum inline size.
+	 */
+	:where(.o-retain) {
+		--_s-retain-padding-inline: var(
+			--o-retain-padding-inline,
+			var(--s-space-base, 1.5rem)
+		);
+		--_s-retain-padding-inline-start: var(
+			--o-retain-padding-inline-start,
+			var(--_s-retain-padding-inline)
+		);
+		--_s-retain-padding-inline-end: var(
+			--o-retain-padding-inline-end,
+			var(--_s-retain-padding-inline)
+		);
+		--_s-retain-margin-inline: var(--o-retain-margin-inline, auto);
+		--_s-retain-margin-inline-start: var(
+			--o-retain-margin-inline-start,
+			var(--_s-retain-margin-inline)
+		);
+		--_s-retain-margin-inline-end: var(
+			--o-retain-margin-inline-end,
+			var(--_s-retain-margin-inline)
+		);
+
+		max-inline-size: calc(
+			var(--o-retain-max-inline-size, var(--_s-retain-max-inline-size, 100%)) +
+				var(--_s-retain-padding-inline-start) +
+				var(--_s-retain-padding-inline-end)
+		); /* [1] */
+		padding-inline: var(--_s-retain-padding-inline-start)
+			var(--_s-retain-padding-inline-end);
+		margin-inline: var(--_s-retain-margin-inline-start)
+			var(--_s-retain-margin-inline-end);
+	}
+
+	:where(.o-retain--flush) {
+		--o-retain-padding-inline: 0;
+	}
+
+	@each $key, $value in variables.$sizes {
+		:where(.o-retain--#{$key}) {
+			--o-retain-max-inline-size: var(
+				--o-retain-#{$key}-max-inline-size,
+				#{rem.convert($value)}
+			);
+		}
+	}
+
+	:where(.o-retain--text) {
+		--o-retain-padding-inline: 0px;
+		--o-retain-margin-inline-start: 0px;
+		--o-retain-max-inline-size: var(--o-retain-text-max-inline-size, 55ch);
+	}
 }

@@ -1,0 +1,95 @@
+/* ==========================================================================
+objects.contain.variables
+/  ========================================================================== */
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use '../../tools/internal';
+@use '../../tools/rem';
+
+/* --------------------------------------------------------------------------
+Functions/Mixins
+/  -------------------------------------------------------------------------- */
+
+/**
+ * If any of the values in `$areas` are in pixels, convert them to rems.
+ */
+@function compute-areas($areas) {
+	$map: ();
+	@each $key, $value in $areas {
+		@if math.unit($value) == 'px' {
+			$map: map.merge(
+				$map,
+				(
+					$key: rem.convert($value),
+				)
+			);
+		} @else {
+			$map: map.merge(
+				$map,
+				(
+					$key: $value,
+				)
+			);
+		}
+	}
+	@return $map;
+}
+
+/* --------------------------------------------------------------------------
+Variables
+/  -------------------------------------------------------------------------- */
+
+$areas: (
+	'base': 640px,
+	'popout': 960px,
+	'feature': 1280px,
+) !default;
+
+$areas-computed: compute-areas($areas);
+$area-names: map.keys($areas-computed);
+$area-names-without-base: internal.list-remove($area-names, 'base');
+$area-names-without-base-reversed: internal.list-reverse(
+	$area-names-without-base
+);
+
+$start: null;
+$end: null;
+$textStart: null;
+$textEnd: null;
+
+@each $name in $area-names-without-base-reversed {
+	$start: $start [#{$name}-start] minmax(0, var(--_s-o-contain-#{$name}-size));
+}
+@each $name in $area-names-without-base {
+	$end: $end minmax(0, var(--_s-o-contain-#{$name}-size)) [#{$name}-end];
+	$textStart: $textStart #{$name}-start;
+	$textEnd: $textEnd
+		minmax(0, calc(var(--_s-o-contain-#{$name}-size) * 2))
+		[#{$name}-end];
+}
+
+/* --------------------------------------------------------------------------
+Checks
+/  -------------------------------------------------------------------------- */
+
+/**
+ * Check if `$areas` has the mandatory `base` entry
+ */
+@if not map.has-key($areas, 'base') {
+	@error '`$areas` needs to contain atleast one entry named 'base'.';
+}
+
+/**
+ * Check if all values in `$areas` are numbers and are not ems.
+ */
+@each $key, $value in $areas {
+	@if type-of($value) == number {
+		@if math.unit($value) == 'em' {
+			@error 'Breakpoint `#{$key}: #{$value}` needs to be anything other than a `em` unit.';
+		}
+	} @else {
+		@error '`#{$key}: #{$value}` needs to be a number.';
+	}
+}

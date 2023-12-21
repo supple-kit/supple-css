@@ -1,0 +1,210 @@
+/* ==========================================================================
+settings.defaults
+/  ========================================================================== */
+
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:map';
+@use 'sass:list';
+@use 'layers';
+
+/* --------------------------------------------------------------------------
+Responsive
+Define your breakpoints with px values. These will be converted to ems.
+/  -------------------------------------------------------------------------- */
+
+$breakpoints: (
+	palm: 320px,
+	lap: 640px,
+	desk: 960px,
+	wall: 1280px,
+) !default;
+
+/* --------------------------------------------------------------------------
+Spacing
+/  -------------------------------------------------------------------------- */
+
+$spacing: (
+	nano: 4px,
+	micro: 8px,
+	milli: 16px,
+	base: 24px,
+	kilo: 40px,
+	mega: 56px,
+	giga: 72px,
+	tera: 88px,
+) !default;
+
+/* --------------------------------------------------------------------------
+Typography
+/  -------------------------------------------------------------------------- */
+
+$font-size-scale: (
+	300: 16px,
+	base: (
+		palm: 20px,
+		desk: 24px,
+	),
+	500: (
+		palm: 24px,
+		desk: 32px,
+	),
+	600: (
+		palm: 32px,
+		desk: 40px,
+	),
+	700: (
+		palm: 40px,
+		desk: 48px,
+	),
+	800: (
+		palm: 48px,
+		desk: 60px,
+	),
+	900: (
+		palm: 60px,
+		desk: 72px,
+	),
+) !default;
+
+$leading: (
+	flat: 1,
+	fine: 1.15,
+	base: 1.5,
+	loose: 1.7,
+) !default;
+
+$heading-mapping: (
+	1: 900 fine,
+	2: 800 fine,
+	3: 700 fine,
+	4: 600 fine,
+	5: 500 fine,
+	6: base,
+) !default;
+
+/* --------------------------------------------------------------------------
+Constants
+/  -------------------------------------------------------------------------- */
+
+$browser-font-size: 16px;
+
+/* --------------------------------------------------------------------------
+Checks
+A couple of checks to ensure the settings are correct
+/  -------------------------------------------------------------------------- */
+
+// @if math.unit($baseline) != 'px' {
+// 	@error '`$baseline: #{$baseline}` needs to be a pixel unit.';
+// }
+
+/**
+ * check that breakpoints are defined in px
+ */
+@each $key, $value in $breakpoints {
+	@if type-of($value) == number {
+		@if math.unit($value) != 'px' {
+			@error 'Breakpoint `#{$key}: #{$value}` needs to be a pixel unit.';
+		}
+	} @else {
+		@error '`#{$key}: #{$value}` needs to be a number.';
+	}
+}
+
+/**
+ * Check if `$spacing` has the mandatory `base` entry
+ */
+@if not map.has-key($spacing, 'base') {
+	@error '`$spacing` needs to contain atleast one entry named 'base' since supple-css internally relies on this.';
+}
+
+/**
+ * Check if `$font-size-scale` has the mandatory `base` entry
+ */
+@if not map.has-key($font-size-scale, 'base') {
+	@error '`$font-size-scale` needs to contain atleast one entry named 'base' since supple-css internally relies on this being the base font size.';
+}
+
+/**
+ * Check if `$font-size-scale` has is only using px values and uses correct breakpoints.
+ */
+@each $name, $value in $font-size-scale {
+	@if meta.type-of($value) == map {
+		@if list.length($value) != 2 {
+			@error 'The value for "#{$name}" in $font-size-scale is invalid. It should contain only 2 breakpoints when you want it to be fluid.';
+		} @else {
+			@each $key, $itemValue in $value {
+				@if not map.has-key($breakpoints, $key) {
+					@error 'The breakpoint `#{$key}` in $font-size-scale is not defined in $breakpoints.';
+				}
+				@if math.unit($itemValue) != 'px' {
+					@error 'Scale `#{$itemValue}` needs to be a pixel unit.';
+				}
+			}
+		}
+	} @else {
+		@if math.unit($value) != 'px' {
+			@error 'Scale `#{$name}: #{$value}` needs to be a pixel unit.';
+		}
+	}
+}
+
+/**
+ * Check if `$spacing` has is only using unitless values and uses correct breakpoints.
+ */
+@each $name, $value in $spacing {
+	@if meta.type-of($value) == map {
+		@if list.length($value) != 2 {
+			@error 'The value for "#{$name}" in $spacing is invalid. It should contain only 2 breakpoints when you want it to be fluid.';
+		} @else {
+			@each $key, $itemValue in $value {
+				@if not map.has-key($breakpoints, $key) {
+					@error 'The breakpoint `#{$key}` in $spacing is not defined in $breakpoints.';
+				}
+				@if math.unit($itemValue) != 'px' {
+					@error 'Scale `#{$itemValue}` needs to be a pixel unit.';
+				}
+			}
+		}
+	} @else {
+		@if math.unit($value) != 'px' {
+			@error 'Scale `#{$name}: #{$value}` needs to be a pixel unit.';
+		}
+	}
+}
+
+/**
+ * Check if items in `$leading` have unitless values
+ */
+@each $name, $value in $leading {
+	@if math.unit($value) != '' {
+		@error '`#{$name}: #{$value}` in $leading needs to be a unitless value.';
+	}
+}
+
+/**
+ * Check if $heading-mapping are valid heading levels and valid keys in $font-size-scale
+ */
+$heading-levels: (1, 2, 3, 4, 5, 6);
+
+@if list.length($heading-mapping) != 6 {
+	@error 'The heading-mapping should contain 6 entries.';
+}
+
+@each $name, $value in $heading-mapping {
+	@if meta.type-of($value) == list {
+		@if not map.has-key($font-size-scale, list.nth($value, 1)) {
+			@error 'The 1st value for "#{$name}" in $heading-mapping is invalid. It should be a valid key in $font-size-scale.';
+		}
+		@if not map.has-key($leading, list.nth($value, 2)) {
+			@error 'The 2nd value for "#{$name}" in $heading-mapping is invalid. It should be a valid key in $leading.';
+		}
+	} @else {
+		@if not map.has-key($font-size-scale, $value) {
+			@error 'The value for "#{$name}" in $heading-mapping is invalid. It should be a valid key in $font-size-scale.';
+		}
+	}
+	@if not list.index($heading-levels, $name) {
+		@error 'The key for "#{$name}" in $heading-mapping is invalid. It should be a valid heading level.';
+	}
+}

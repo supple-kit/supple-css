@@ -1,0 +1,174 @@
+/* ==========================================================================
+generic.reset
+A reset of sensible defaults, roughly based on Andy Bell's excellent
+Modern CSS Reset(https://piccalil.li/blog/a-modern-css-reset/).
+Enhanced with some sensible defaults such as a vertical rhythm.
+/  ========================================================================== */
+
+@use 'sass:math';
+@use '../settings/defaults';
+
+@layer generic {
+	/**
+	 * Set the global `box-sizing` state to `border-box`.
+	 */
+	* {
+		box-sizing: border-box;
+
+		&::before,
+		&::after {
+			box-sizing: inherit;
+		}
+	}
+
+	/**
+	 * Remove margins from every element except `dialog`
+	 */
+	:where(:not(dialog)) {
+		margin: 0;
+	}
+
+	/**
+	 * Set core root defaults
+	 * 1. Always add the vertical scrollbar to prevent layout shifting
+	 * 2. Smooth anchor scrolling
+	 * 3. Prevent mobile browsers from blowing up the font-size when switching
+	 *    between portrait and landscape, as per:
+	 *    https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+	 */
+	:where(html) {
+		overflow-y: scroll; /* [1] */
+		scroll-behavior: smooth; /* [2] */
+		-moz-text-size-adjust: none; /* [3] */
+		-webkit-text-size-adjust: none; /* [3] */
+		text-size-adjust: none; /* [3] */
+		text-rendering: optimizespeed;
+	}
+
+	/**
+	 * Set core body defaults
+	 * 1. Ensure the page always fills at least the entire height of the viewport.
+	 * 2. Apply font-size & line-height
+	 */
+	:where(body) {
+		min-block-size: var(--s__body-min-block-size, 100vh); /* [1] */
+		font-family: var(--s-base__font-family, system-ui);
+		font-size: var(--s-font-size-base); /* [2] */
+		line-height: var(--s-leading-base); /* [2] */
+	}
+
+	/**
+	 * Balance text wrapping on headings
+	 */
+	:where(h1, h2, h3, h4, h5, h6) {
+		text-wrap: balance;
+		font-size: var(--s-heading-font-size, var(--s-font-size-base));
+		line-height: var(--s-heading-leading, var(--s-leading-base));
+	}
+
+	/**
+	 * Core list defaults
+	 * 1. Apply default spacing to lists
+	 * 2. Remove list styles on ul, ol elements with a list role, which suggests
+	 *    default styling will be removed
+	 */
+	:where(ul, ol) {
+		padding-inline-start: var(--space-base, 1.5em); /* [1] */
+
+		&:where([role='list']) {
+			padding-inline-start: 0; /* [2] */
+			list-style: none; /* [2] */
+		}
+	}
+
+	:where(dd) {
+		margin-inline-start: var(--space-base, 1.5em); /* [1] */
+	}
+
+	/**
+	 * Strip unwanted styling from elements
+	 */
+	:where(button) {
+		background: transparent;
+	}
+
+	:where(button, fieldset) {
+		padding: 0;
+	}
+
+	:where(button, fieldset, iframe) {
+		border: 0;
+	}
+
+	/**
+	 * Inherit font styles in all browsers for inputs and buttons
+	 */
+	:where(button, input, select, textarea) {
+		font: inherit;
+	}
+
+	/**
+	 * Gets rid of the annoying outline for mouse users but preserves it for
+	 * keyboard users, and is ignored by browsers that don’t support :focus-visible.
+	 * As per: https://twitter.com/LeaVerou/status/1045768279753666562
+	 */
+	:where(:focus:not(:focus-visible)) {
+		outline: none;
+	}
+
+	/**
+	 * Make images easier to work with
+	 * 1. By default all images are fluid
+	 * 2. Render `alt` visually offset when images don't load
+	 */
+	:where(img, picture) {
+		display: block;
+		max-inline-size: 100%; /* [1] */
+		font-style: italic; /* [2] */
+	}
+
+	:where(img) {
+		block-size: auto; /* [1] */
+	}
+
+	/**
+	 * A elements that don't have a class get default styles
+	 */
+	:where(a:not([class])) {
+		text-decoration-skip-ink: auto;
+	}
+
+	/**
+	 * Suppress the focus outline on links that cannot be accessed via keyboard.
+	 * This prevents an unwanted focus outline from appearing around elements that
+	 * might still respond to pointer events.
+	 */
+	:where([tabindex='-1']:focus) {
+		outline: none !important;
+	}
+
+	/**
+	 * Anything that has been anchored to should have extra scroll margin
+	 */
+	:where(:target) {
+		scroll-margin-block: var(--supple__scroll-margin, 5ex);
+	}
+
+	/**
+	 * Remove all animations and transitions for people that prefer not to see them
+	 * 1. Do not remove the animation altogether, but make it super-fast. This has
+	 *    several benefits:
+	 *    - Preserves the end state of an animation/transition
+	 *    - Preserves the possibility to listen to `animationend` and
+	 *    `transitionend` events.
+	 * 2. Only one animation cycle
+	 */
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation-duration: 0.01ms !important; /* [1] */
+			animation-iteration-count: 1 !important; /* [2] */
+			transition-duration: 0.01ms !important; /* [1] */
+			scroll-behavior: auto !important;
+		}
+	}
+}

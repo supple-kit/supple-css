@@ -1,0 +1,61 @@
+/* ==========================================================================
+global.custom-properties
+/  ========================================================================== */
+
+@use 'sass:meta';
+@use 'sass:list';
+@use 'sass:math';
+@use './defaults';
+@use '../tools/responsive';
+@use '../tools/rem';
+@use '../tools/internal' as internal_functions;
+
+/* --------------------------------------------------------------------------
+Spacing
+/  -------------------------------------------------------------------------- */
+
+@layer settings {
+	:where(:root) {
+		// Spacings
+		@each $name, $value in defaults.$spacing {
+			$return: '';
+			@if meta.type-of($value) == map {
+				@if list.length($value) == 2 {
+					$minBP: list.nth(list.nth($value, 1), 1);
+					$minSpace: list.nth(list.nth($value, 1), 2);
+					$maxBP: list.nth(list.nth($value, 2), 1);
+					$maxSpace: list.nth(list.nth($value, 2), 2);
+
+					$return: responsive.lock($minSpace, $maxSpace, $minBP, $maxBP);
+				}
+			} @else {
+				$return: rem.convert($value);
+			}
+
+			--s-space-#{$name}: #{$return};
+		}
+
+		// Type scale
+		@each $name, $value in defaults.$font-size-scale {
+			$return: '';
+			@if meta.type-of($value) == map {
+				@if list.length($value) == 2 {
+					$minBP: list.nth(list.nth($value, 1), 1);
+					$minFontSize: list.nth(list.nth($value, 1), 2);
+					$maxBP: list.nth(list.nth($value, 2), 1);
+					$maxFontSize: list.nth(list.nth($value, 2), 2);
+
+					$return: responsive.lock($minFontSize, $maxFontSize, $minBP, $maxBP);
+				}
+			} @else {
+				$return: rem.convert($value);
+			}
+
+			--s-font-size-#{$name}: #{$return};
+		}
+
+		@each $name, $value in defaults.$leading {
+			--s-leading-#{$name}: #{$value};
+		}
+	}
+}
