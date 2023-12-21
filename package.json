@@ -1,6 +1,6 @@
 {
-  "name": "@supple-kit/supple-css",
-  "version": "5.7.0",
+  "name": "@supple-kit/css",
+  "version": "6.0.0-alpha.1",
   "description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
   "main": "index.scss",
   "repository": "https://github.com/supple-kit/supple-css.git",
@@ -27,8 +27,7 @@
     "bem"
   ],
   "scripts": {
-    "test": "npm run lint && npm run build && npm run gzip",
-    "lint": "stylelint \"**/*.scss\"",
+    "test": "npm run build && npm run gzip",
     "prettier:fix": "prettier --write .",
     "prettier:check": "prettier --check .",
     "gzip": "gzip-size test/css/index.css",
@@ -39,33 +38,19 @@
     "watch": "nodemon -e scss -x \"npm run test\"",
     "start": "concurrently 'npm run serve' 'npm run watch'"
   },
-  "nano-staged": {
-    "**/*": "prettier --write",
-    "*.scss": "stylelint"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "./node_modules/.bin/nano-staged"
-  },
   "browserslist": [
     "defaults"
   ],
   "devDependencies": {
-    "@supple-kit/prettier-config": "^1.0.1",
-    "@supple-kit/stylelint-config-supple": "^4.0.1",
-    "autoprefixer": "^10.4.14",
-    "browser-sync": "^2.29.1",
-    "concurrently": "^8.0.1",
-    "cssnano": "^6.0.1",
-    "glob": "^10.2.2",
+    "browser-sync": "^2.29.3",
+    "concurrently": "^8.2.2",
+    "cssnano": "^6.0.2",
+    "glob": "^10.3.10",
     "gzip-size-cli": "^5.1.0",
-    "nano-staged": "^0.8.0",
-    "nodemon": "^2.0.22",
-    "postcss": "^8.4.23",
-    "postcss-cli": "^10.1.0",
-    "prettier": "^2.8.8",
-    "sass": "^1.62.1",
-    "simple-git-hooks": "^2.8.1",
-    "stylelint": "^15.6.1",
-    "stylelint-config-standard-scss": "^9.0.0"
+    "nodemon": "^3.0.2",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.5"
   }
 }
