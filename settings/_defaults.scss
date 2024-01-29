@@ -92,6 +92,20 @@ $heading-mapping: (
 ) !default;
 
 /* --------------------------------------------------------------------------
+Colors
+/  -------------------------------------------------------------------------- */
+
+$color-palette: (
+	'brand': (
+		'primary': #a3e4fa,
+	),
+	'shade': (
+		'black': #000000,
+		'white': #ffffff,
+	),
+) !default;
+
+/* --------------------------------------------------------------------------
 Constants
 /  -------------------------------------------------------------------------- */
 
@@ -101,10 +115,6 @@ $browser-font-size: 16px;
 Checks
 A couple of checks to ensure the settings are correct
 /  -------------------------------------------------------------------------- */
-
-// @if math.unit($baseline) != 'px' {
-// 	@error '`$baseline: #{$baseline}` needs to be a pixel unit.';
-// }
 
 /**
  * check that breakpoints are defined in px
@@ -158,7 +168,7 @@ A couple of checks to ensure the settings are correct
 }
 
 /**
- * Check if `$spacing` has is only using unitless values and uses correct breakpoints.
+ * Check if `$spacing` is only using unitless values and uses correct breakpoints.
  */
 @each $name, $value in $spacing {
 	@if meta.type-of($value) == map {
@@ -220,5 +230,21 @@ $heading-levels: (1, 2, 3, 4, 5, 6);
 	}
 	@if not list.index($heading-levels, $name) {
 		@error 'The key for "#{$name}" in $heading-mapping is invalid. It should be a valid heading level.';
+	}
+}
+
+/**
+ * Check if items in `$color-palette` are valid colors or maps of colors
+ */
+@each $name, $value in $color-palette {
+	@if meta.type-of($value) == map {
+		$group: $name;
+		@each $name, $value in $value {
+			@if meta.type-of($value) != 'color' {
+				@error '`#{$group}.#{$name}: #{$value}` in $color-palette needs to be a color.';
+			}
+		}
+	} @else if meta.type-of($value) != 'color' {
+		@error '`#{$name}: #{$value}` in $color-palette needs to be a color.';
 	}
 }

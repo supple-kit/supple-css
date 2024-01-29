@@ -54,12 +54,26 @@ Spacing
 			--s-font-size-#{$name}: #{$return};
 		}
 
+		// Weight scale
 		@each $name, $value in defaults.$font-weight-scale {
 			--s-font-weight-#{$name}: #{$value};
 		}
 
+		// Leading scale
 		@each $name, $value in defaults.$leading {
 			--s-leading-#{$name}: #{$value};
+		}
+
+		// Color palette
+		@each $name, $value in defaults.$color-palette {
+			@if meta.type-of($value) == map {
+				$group: $name;
+				@each $name, $value in $value {
+					--s-color-#{$group}-#{$name}: #{$value};
+				}
+			} @else {
+				--s-color-#{$name}: #{$value};
+			}
 		}
 	}
 }

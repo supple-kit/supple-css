@@ -1,0 +1,29 @@
+/* ==========================================================================
+utilities.color
+/  ========================================================================== */
+
+@use 'sass:meta';
+@use '../settings/defaults';
+
+@layer s-utilities {
+	@each $name, $value in defaults.$color-palette {
+		@if meta.type-of($value) == map {
+			$group: $name;
+			@each $name, $value in $value {
+				.u-color-#{$group}-#{$name} {
+					color: var(--s-color-#{$group}-#{$name});
+				}
+				.u-background-#{$group}-#{$name} {
+					background-color: var(--s-color-#{$group}-#{$name});
+				}
+			}
+		} @else {
+			.u-color-#{$name} {
+				color: var(--s-color-#{$name});
+			}
+			.u-background-#{$name} {
+				background-color: var(--s-color-#{$name});
+			}
+		}
+	}
+}
