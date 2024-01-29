@@ -8,7 +8,7 @@ Enhanced with some sensible defaults such as a vertical rhythm.
 @use 'sass:math';
 @use '../settings/defaults';
 
-@layer generic {
+@layer s-generic {
 	/**
 	 * Set the global `box-sizing` state to `border-box`.
 	 */

@@ -6,7 +6,7 @@ elements.typography
 @use 'sass:list';
 @use '../settings/defaults';
 
-@layer elements {
+@layer s-elements {
 	@each $name, $value in defaults.$heading-mapping {
 		:where(h#{$name}) {
 			@if meta.type-of($value) == list {

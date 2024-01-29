@@ -14,7 +14,7 @@ Functions/Mixins
 Module
 /  -------------------------------------------------------------------------- */
 
-@layer objects {
+@layer s-objects {
 	:where(.o-flow) {
 		> * + * {
 			margin-block-start: var(--s-flow-gap, var(--s-space-base, 1rem));

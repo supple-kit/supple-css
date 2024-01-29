@@ -2,7 +2,7 @@
 objects.grid
 /  ========================================================================== */
 
-@layer objects {
+@layer s-objects {
 	:where(.o-grid) {
 		display: grid;
 		grid-template-columns: repeat(

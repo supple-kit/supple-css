@@ -74,6 +74,14 @@ $leading: (
 	loose: 1.7,
 ) !default;
 
+$font-weight-scale: (
+	'light': 300,
+	'regular': 400,
+	'medium': 500,
+	'semibold': 600,
+	'bold': 700,
+) !default;
+
 $heading-mapping: (
 	1: 900 fine,
 	2: 800 fine,
@@ -170,6 +178,12 @@ A couple of checks to ensure the settings are correct
 		@if math.unit($value) != 'px' {
 			@error 'Scale `#{$name}: #{$value}` needs to be a pixel unit.';
 		}
+	}
+}
+
+@each $name, $value in $font-weight-scale {
+	@if math.unit($value) != '' {
+		@error '`#{$name}: #{$value}` in $font-weight-scale needs to be a unitless value.';
 	}
 }
 
