@@ -1,0 +1,13 @@
+/* ==========================================================================
+utilities.type-scale
+/  ========================================================================== */
+
+@use '../settings/defaults';
+
+@layer s-utilities {
+	@each $name, $value in defaults.$font-weight-scale {
+		.u-font-weight-#{$name} {
+			font-weight: var(--s-font-weight-#{$name});
+		}
+	}
+}

@@ -54,6 +54,10 @@ Spacing
 			--s-font-size-#{$name}: #{$return};
 		}
 
+		@each $name, $value in defaults.$font-weight-scale {
+			--s-font-weight-#{$name}: #{$value};
+		}
+
 		@each $name, $value in defaults.$leading {
 			--s-leading-#{$name}: #{$value};
 		}
