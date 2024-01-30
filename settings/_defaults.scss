@@ -40,30 +40,27 @@ Typography
 /  -------------------------------------------------------------------------- */
 
 $font-size-scale: (
-	300: 16px,
-	base: (
+	300: 14px,
+	base: 16px,
+	500: (
 		palm: 20px,
 		desk: 24px,
 	),
-	500: (
-		palm: 24px,
-		desk: 32px,
-	),
 	600: (
-		palm: 32px,
-		desk: 40px,
+		palm: 24px,
+		desk: 28px,
 	),
 	700: (
-		palm: 40px,
-		desk: 48px,
+		palm: 28px,
+		desk: 32px,
 	),
 	800: (
-		palm: 48px,
-		desk: 60px,
+		palm: 32px,
+		desk: 36px,
 	),
 	900: (
-		palm: 60px,
-		desk: 72px,
+		palm: 36px,
+		desk: 40px,
 	),
 ) !default;
 
