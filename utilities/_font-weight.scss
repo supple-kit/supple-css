@@ -4,7 +4,7 @@ utilities.font-weight
 
 @use '../settings/defaults';
 
-@layer s-utilities {
+@layer supple-utilities {
 	@each $name, $value in defaults.$font-weight-scale {
 		.u-font-weight-#{$name} {
 			font-weight: var(--s-font-weight-#{$name});

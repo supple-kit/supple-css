@@ -19,7 +19,7 @@ contains it to your desired size.
 Module
 /  -------------------------------------------------------------------------- */
 
-@layer s-objects {
+@layer supple-objects {
 	:where(.o-contain) {
 		--_s-o-contain-padding-inline: var(
 			--o-contain-padding-inline,

@@ -5,7 +5,7 @@ utilities.color
 @use 'sass:meta';
 @use '../settings/defaults';
 
-@layer s-utilities {
+@layer supple-utilities {
 	@each $name, $value in defaults.$color-palette {
 		@if meta.type-of($value) == map {
 			$group: $name;

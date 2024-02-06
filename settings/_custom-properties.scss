@@ -14,7 +14,7 @@ global.custom-properties
 Spacing
 /  -------------------------------------------------------------------------- */
 
-@layer s-settings {
+@layer supple-settings {
 	:where(:root) {
 		// Spacings
 		@each $name, $value in defaults.$spacing {

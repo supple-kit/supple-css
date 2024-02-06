@@ -4,7 +4,7 @@ utilities.type-scale
 
 @use '../settings/defaults';
 
-@layer s-utilities {
+@layer supple-utilities {
 	@each $name, $value in defaults.$font-size-scale {
 		.u-font-size-#{$name} {
 			font-size: var(--s-font-size-#{$name});

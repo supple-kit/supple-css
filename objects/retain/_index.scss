@@ -38,7 +38,7 @@ Based on $sizes in _variables.scss
 --o-retain-wall-max-inline-size
 */
 
-@layer s-objects {
+@layer supple-objects {
 	/**
 	 * 1. We calculate the inline padding on top of the maximum inline size
 	 *    so the content within is always the same as the maximum inline size.
