@@ -51,8 +51,8 @@ Enhanced with some sensible defaults such as a vertical rhythm.
 	 * 2. Apply font-size & line-height
 	 */
 	:where(body) {
-		min-block-size: var(--s__body-min-block-size, 100vh); /* [1] */
-		font-family: var(--s-base__font-family, system-ui);
+		min-block-size: var(--s-body-min-block-size, 100vh); /* [1] */
+		font-family: var(--s-font-family-base, system-ui);
 		font-size: var(--s-font-size-base); /* [2] */
 		line-height: var(--s-leading-base); /* [2] */
 	}
@@ -151,7 +151,7 @@ Enhanced with some sensible defaults such as a vertical rhythm.
 	 * Anything that has been anchored to should have extra scroll margin
 	 */
 	:where(:target) {
-		scroll-margin-block: var(--supple__scroll-margin, 5ex);
+		scroll-margin-block: var(--s-scroll-margin, 5ex);
 	}
 
 	/**
