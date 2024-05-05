@@ -1,0 +1,29 @@
+/* ==========================================================================
+objects.sidebar
+As per: https://every-layout.dev/layouts/sidebar/
+/  ========================================================================== */
+
+@layer supple-objects {
+	:where(.o-sidebar) {
+		--_s-sidebar-gutter: var(--o-sidebar-gutter, var(--s-space-base, 1.5rem));
+		--_s-sidebar-target-inline-size: var(--o-sidebar-target-inline-size, 20rem);
+		--_s-sidebar-body-min-inline-size: var(
+			--o-sidebar-body-min-inline-size,
+			50%
+		);
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--_s-sidebar-gutter);
+	}
+
+	:where(.o-sidebar__aside) {
+		flex-basis: var(--_s-sidebar-target-inline-size);
+		flex-grow: 1;
+	}
+
+	:where(.o-sidebar__body) {
+		flex-basis: 0;
+		flex-grow: 999;
+		min-inline-size: var(--_s-sidebar-body-min-inline-size);
+	}
+}
