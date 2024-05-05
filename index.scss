@@ -9,6 +9,7 @@ Settings
 
 @forward 'settings/defaults';
 @use 'settings/layers';
+@use 'settings/breakpoints';
 @use 'settings/custom-properties';
 
 /* ==========================================================================
