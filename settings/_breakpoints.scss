@@ -7,6 +7,6 @@ settings.breakpoints
 
 @each $name, $value in defaults.$breakpoints {
 	$value: math.div($value, 16px) * 1em;
-	@custom-media --#{$name} (min-width: $value);
+	@custom-media --#{$name} (min-width: #{$value});
 	@custom-media --until-#{$name} not (--#{$name});
 }
