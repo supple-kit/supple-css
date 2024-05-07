@@ -8,7 +8,8 @@ elements.typography
 
 @layer supple-elements {
 	@each $name, $value in defaults.$heading-mapping {
-		:where(h#{$name}) {
+		:where(h#{$name}),
+		:where(.as-h#{$name}) {
 			@if meta.type-of($value) == list {
 				--s-heading-font-size: var(
 					--e-heading-#{$name}-font-size,
