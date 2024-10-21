@@ -1,17 +1,11 @@
-/*  =========================================================================
+/* ==========================================================================
     objects.mesh
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -22,20 +16,18 @@
 @use '../../tools/rem';
 @use '../../tools/responsive';
 
-
-
-/*  Internal variables
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Internal variables
+/ --------------------------------------------------------------------------- */
 
 $selector: '> *';
-@if (defaults.$css-modules) {
+@if defaults.$css-modules {
   $selector: ':global(#{$selector})';
 }
 
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
 /**
  * Block: mesh
@@ -64,16 +56,19 @@ $selector: '> *';
   }
 }
 
-
 /**
  * Modifier: flow
  * Fluid width columns that break into more or less columns as space is available, with no media queries
  */
+// stylelint-disable scss/no-global-function-names
 .o-mesh--flow {
   --min-inline-size: #{rem.convert(variables.$flow-min-inline-size)};
-  grid-template-columns: repeat(auto-fill, minmax(var(--min-inline-size), 1fr));
+  grid-template-columns: repeat(
+    var(--grid-placement, auto-fill),
+    minmax(min(var(--min-inline-size), 100%), 1fr)
+  );
 }
-
+// stylelint-enable scss/no-global-function-names
 
 /**
  * Modifier: dense
@@ -83,7 +78,6 @@ $selector: '> *';
   grid-auto-flow: dense;
 }
 
-
 /**
  * Modifier: gap-X
  */
@@ -92,7 +86,6 @@ $selector: '> *';
     --mesh-gap: #{space.get($gap)};
   }
 }
-
 
 /**
  * Element modifier: row

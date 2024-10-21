@@ -1,41 +1,36 @@
-/*  =========================================================================
+/* ==========================================================================
     tools.rem
     functions an mixins to make life with `rem` units easy
-    ========================================================================= */
-
-/*  Use/Forward rules
-    `@use` or `@forward` everything you need here from other files.
-    These can include variables, mixins & other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 @use 'sass:math';
 @use 'sass:meta';
+@use 'sass:list';
 @use '../settings/defaults';
-
-
-
-/*  Module
-    ========================================================================= */
 
 /**
  * to-rem
  * Converts a single px value to a rem unit based on the current browser context
  */
-@function to-rem($value) {
-  @if meta.type-of($value) == string or math.is-unitless($value) == true or math.unit($value) != 'px' {
+@function to-rem($value, $font-size-override: false) {
+  @if (meta.type-of($value) == string) or
+    (math.is-unitless($value) == true) or
+    (math.unit($value) != 'px')
+  {
     @return $value;
+  } @else if $font-size-override and math.unit($font-size-override) == 'px' {
+    @return (math.div($value, $font-size-override) * 1rem);
   } @else {
-    @return ($value/defaults.$font-size * 1rem);
+    @return (math.div($value, defaults.$font-size) * 1rem);
   }
 }
-
 
 /**
  * Rem
  * Converts all `px` values in a set of values to `rem` values.
  * Usage:
-   rem.convert(0 auto 300px);
-   rem.convert(26px);
+rem.convert(0 auto 300px);
+rem.convert(26px);
  */
 @function convert($value) {
   @if meta.type-of($value) == list {

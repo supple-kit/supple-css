@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test objects.retain - Supple CSS</title>
-  <link rel="stylesheet" href="../../test/css/test.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test objects.retain - Supple CSS</title>
+    <link rel="stylesheet" href="../../test/css/test.css" />
+  </head>
+  <body>
+    <div class="c-test">
+      <h1 class="c-test__title">Supple CSS: objects.retain tests</h1>
 
-  <div class="c-test">
-    <h1 class="c-test__title">Supple CSS: objects.retain tests</h1>
+      <h2 class="c-test__describe">.o-retain</h2>
 
-    <h2 class="c-test__describe">.o-retain</h2>
+      <h3 class="c-test__it">Is padded at both sides</h3>
+      <div class="c-test__run">
+        <div class="o-retain">
+          <div class="c-fixture-box">Retained</div>
+        </div>
+      </div>
 
-    <h3 class="c-test__it">Is padded at both sides</h3>
-    <div class="c-test__run">
-      <div class="o-retain">
-        <div class="c-fixture-box">Retained</div>
+      <h3 class="c-test__it">supports dynamic sizes (eg.: --size: 30em)</h3>
+      <div class="c-test__run">
+        <div class="o-retain" style="--size: 30em">
+          <div class="c-fixture-box">Retained 30em</div>
+        </div>
+      </div>
+
+      <h2 class="c-test__describe">.o-retain--no-padding</h2>
+      <h3 class="c-test__it">Is not padded at both sides</h3>
+      <div class="c-test__run">
+        <div class="o-retain o-retain--no-padding">
+          <div class="c-fixture-box">Retained</div>
+        </div>
+      </div>
+
+      <h2 class="c-test__describe">.o-retain--lap</h2>
+      <h3 class="c-test__it">Is retained at 640px</h3>
+      <div class="c-test__run">
+        <div class="o-retain o-retain--lap">
+          <div class="c-fixture-box">Retained</div>
+        </div>
+      </div>
+
+      <h2 class="c-test__describe">.o-retain--desk</h2>
+      <h3 class="c-test__it">Is retained at 960px</h3>
+      <div class="c-test__run">
+        <div class="o-retain o-retain--desk">
+          <div class="c-fixture-box">Retained</div>
+        </div>
+      </div>
+
+      <h2 class="c-test__describe">.o-retain--wall</h2>
+      <h3 class="c-test__it">Is retained at 1280px</h3>
+      <div class="c-test__run">
+        <div class="o-retain o-retain--wall">
+          <div class="c-fixture-box">Retained</div>
+        </div>
       </div>
     </div>
-
-    <h3 class="c-test__it">supports dynamic sizes (eg.: --size: 30em)</h3>
-    <div class="c-test__run">
-      <div class="o-retain" style="--size: 30em;">
-        <div class="c-fixture-box">Retained 30em</div>
-      </div>
-    </div>
-
-    <h2 class="c-test__describe">.o-retain--no-padding</h2>
-    <h3 class="c-test__it">Is not padded at both sides</h3>
-    <div class="c-test__run">
-      <div class="o-retain  o-retain--no-padding">
-        <div class="c-fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h2 class="c-test__describe">.o-retain--lap</h2>
-    <h3 class="c-test__it">Is retained at 640px</h3>
-    <div class="c-test__run">
-      <div class="o-retain  o-retain--lap">
-        <div class="c-fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h2 class="c-test__describe">.o-retain--desk</h2>
-    <h3 class="c-test__it">Is retained at 960px</h3>
-    <div class="c-test__run">
-      <div class="o-retain  o-retain--desk">
-        <div class="c-fixture-box">Retained</div>
-      </div>
-    </div>
-
-    <h2 class="c-test__describe">.o-retain--wall</h2>
-    <h3 class="c-test__it">Is retained at 1280px</h3>
-    <div class="c-test__run">
-      <div class="o-retain  o-retain--wall">
-        <div class="c-fixture-box">Retained</div>
-      </div>
-    </div>
-
-  </div><!-- .c-test -->
-</body>
+    <!-- .c-test -->
+  </body>
 </html>

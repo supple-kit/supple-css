@@ -1,18 +1,12 @@
-/*  =========================================================================
+/* ==========================================================================
     utilities.hidden
     Completely remove from the flow and hide it from screenreaders
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 /**
  * Forward the variables to the parent stylesheet
  */
 @forward './variables';
-
 
 /**
  * Use the settings & tools in this sheet
@@ -20,10 +14,9 @@
 @use './variables';
 @use '../../tools/responsive';
 
-
-
-/*  Module
-    ========================================================================= */
+/* --------------------------------------------------------------------------
+    Module
+/ --------------------------------------------------------------------------- */
 
 .u-hidden {
   @include responsive.in-query(variables.$in-query) {

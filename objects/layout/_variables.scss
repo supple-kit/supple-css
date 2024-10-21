@@ -1,18 +1,8 @@
-/*  =========================================================================
+/* ==========================================================================
     objects.layout.variables
-    ========================================================================= */
-
-/*  Use rules
-    `@use` everything you need here from other files. Variables, mixins &
-    other includes.
-    ========================================================================= */
+/ =========================================================================== */
 
 @use '../../settings/defaults';
-
-
-
-/*  Variables
-    ========================================================================= */
 
 /**
  * Number of default columns, can be overwritten per component with custom
@@ -20,14 +10,10 @@
  */
 $columns: defaults.$columns !default;
 
-
 /**
  * The `gap` map
  */
-$gaps: (
-  'base',
-) !default;
-
+$gaps: ('base') !default;
 
 /**
  * Define which namespaced queries you would like to generate
@@ -35,11 +21,10 @@ $gaps: (
  * This is handy if you only need `fit` on, say, desk, or you only need `fill`
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add queries at will:
- *
- * $X-in-query: (lap, desk);
+$X-in-query: (lap, desk);
  *
  * Note: the name of the query must exist in the list of `$queries`
- *       in `settings/responsive`
+ *     in `settings/responsive`
  */
 $fit-in-query: () !default;
 $fill-in-query: () !default;

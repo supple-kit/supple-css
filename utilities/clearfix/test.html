@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test utilities.clearfix - Supple CSS</title>
-  <link rel="stylesheet" href="../../test/css/test.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test utilities.clearfix - Supple CSS</title>
+    <link rel="stylesheet" href="../../test/css/test.css" />
+  </head>
+  <body>
+    <div class="c-test">
+      <h1 class="c-test__title">Supple CSS: utilities.clearfix tests</h1>
 
-  <div class="c-test">
-    <h1 class="c-test__title">Supple CSS: utilities.clearfix tests</h1>
-
-    <h2 class="c-test__describe">.u-clearfix</h2>
-    <h3 class="c-test__it">the container should clear the floated images</h3>
-    <div class="c-test__run">
-      <div class="c-fixture-box--wrap  u-clearfix">
-        <img style="float: left;" src="//placehold.it/120x120" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda temporibus numquam repellendus repellat eaque illum, praesentium facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae ea numquam id ut doloribus adipisci.</p>
-        <img style="float: right;" src="//placehold.it/120x120" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus asperiores minima porro nemo, perferendis magni molestias rem illum, inventore fuga sunt! Amet, quisquam voluptatum hic modi doloribus rerum eveniet sint?</p>
+      <h2 class="c-test__describe">.u-clearfix</h2>
+      <h3 class="c-test__it">the container should clear the floated images</h3>
+      <div class="c-test__run">
+        <div class="c-fixture-box--wrap u-clearfix">
+          <img style="float: left" src="//placehold.it/120x120" alt="" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+            temporibus numquam repellendus repellat eaque illum, praesentium
+            facere iure fugiat obcaecati? Facere, reprehenderit recusandae quae
+            ea numquam id ut doloribus adipisci.
+          </p>
+          <img style="float: right" src="//placehold.it/120x120" alt="" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
+            asperiores minima porro nemo, perferendis magni molestias rem illum,
+            inventore fuga sunt! Amet, quisquam voluptatum hic modi doloribus
+            rerum eveniet sint?
+          </p>
+        </div>
       </div>
-    </div><!-- .c-test__run -->
-
-  </div><!-- .c-test -->
-</body>
+      <!-- .c-test__run -->
+    </div>
+    <!-- .c-test -->
+  </body>
 </html>

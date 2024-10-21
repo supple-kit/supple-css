@@ -1,13 +1,65 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-## 5.0.1 - 31-march-2021
+## 5.7.1 - 21-october-2024
 
+- fix deprecation warnings
+
+## 5.7.0 - 02-february-2023
+
+Update `o-mesh` with:
+
+- more flexible `o-mesh--flow` modifier which wraps grid cells better
+
+## 5.6.0 - 25-may-2022
+
+Update `o-layout` with:
+
+- native inline gaps, no more nasty margin hacks!
+- align-inline-between, generate equal space between items
+- block/inline specific gap classes
+
+## 5.5.1 - 16-may-2022
+
+- Added `button`, `input`, `select` & `textarea` to margin in `_reset.scss`
+
+## 5.5.0 - 10-may-2022
+
+- Removed `o-layout` block axis gaps with native row-gap property
+- General housekeeping, package update
+
+## 5.4.0 - 11-february-2022
+
+- Fixed a bug where `responsive.lock` didn't work on any root element.
+- General housekeeping by including prettier & upgrade stylelint
+
+## 5.3.0 - 10-november-2021
+
+- Fixed a bug where `px` based media queries were not converted to `em`
+
+## 5.2.0 - 03-november-2021
+
+- Upgraded stylelint-config-supple to version 4
+
+## 5.1.0 - 15-october-2021
+
+- Added `responsive.color-scheme` mixin that lets you define your dark mode custom properties in a way that supports a toggle component
+- Update dependencies & housekeeping
+
+## 5.0.2 - 07-june-2021
+
+- Refactor slash-based divisions(`/`) with `math.div()` functions as per: [slash-div](https://sass-lang.com/documentation/breaking-changes/slash-div)
+- Update dependencies & housekeeping
+
+## 5.0.1 - 31-march-2021
 
 - Added funding links
 - Updated packages
 - Added github issue templates
+
 ## 5.0.0 - 19-march-2021
+
 This is a massive overhaul opposed to v4.0.1, there is no simple upgrade path available.
 
 - Moved repository to [Supple Kit](https://github.com/supple-kit) as the first of the many to come tools for webdevelopment.
@@ -67,6 +119,7 @@ This is a massive overhaul opposed to v4.0.1, there is no simple upgrade path av
 - Use rem for spacing utility
 
 ## 2.0.0 - 13-dec-2018
+
 Massive overhaul, v2 is by any means not compatible with v1 codebases.
 
 - Converted the codebase to SCSS while maintaining custom property support.
@@ -80,9 +133,11 @@ Massive overhaul, v2 is by any means not compatible with v1 codebases.
 - Updated to `stylelint-config-supple` v2
 
 ## 1.0.1 - 09-apr-2018
+
 - Stupid typo's
 
 ## 1.0.0 - 09-apr-2018
+
 - Added vertical layout mode.
 - Formatted flexembed fallbacks a bit more consistent.
 - Removed `@apply` rules because the spec is abandoned.
@@ -91,9 +146,11 @@ Massive overhaul, v2 is by any means not compatible with v1 codebases.
 First major release 🔥.
 
 ## 0.2.1 - 09-jan-2018
+
 - Removed `:host` selector again because that is not how webcomponents work
 
 ## 0.2.0 - 29-dec-2017
+
 - Splitted responsive fractions into separate files
 - Added full fraction
 - Changed flexembed X & Y ratios to a single `--o-flexembed-ratio` variable
@@ -101,8 +158,9 @@ First major release 🔥.
 - Removed postcss-custom-properties because of aforementioned change
 
 ## 0.1.0
+
 - Initial alpha release
 
 ## [Unreleased]
-- Repository init
 
+- Repository init
