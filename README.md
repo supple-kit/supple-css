@@ -218,11 +218,11 @@ Every feature in Supple is extensively tested in Browserstack:
 
 Supple is derived from the ideas of many other developers:
 
-- [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff.
-- [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS.
-- [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS.
-- [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things.
-- [Machiel Hulsbosch](http://www.hulsbos.ch/) for the supple logo.
-- [Joris Hulsbosch](https://me.portfolioris.nl/) for general advice and in-field testing.
+* [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff.
+* [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS.
+* [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS.
+* [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things.
+* [Machiel Hulsbosch](http://www.hulsbos.ch/) for the supple logo.
+* [Joris Hulsbosch](https://www.portfolioris.nl/) for general advice and in-field testing.
 
 And probably more…
