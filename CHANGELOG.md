@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 5.7.1 - 21-october-2024
+
+- fix deprecation warnings
+
 ## 5.7.0 - 02-february-2023
 
 Update `o-mesh` with:
