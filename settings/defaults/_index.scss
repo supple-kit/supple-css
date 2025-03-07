@@ -107,7 +107,7 @@ $should-be-pixel-values: (
   'line-height': $line-height,
 );
 @each $key, $value in $should-be-pixel-values {
-  @if type-of($value) == number {
+  @if meta.type-of($value) == number {
     @if math.unit($value) != 'px' {
       @error '`#{$key}: #{$value}` needs to be a pixel unit.';
     }
@@ -120,7 +120,7 @@ $should-be-pixel-values: (
  * check that breakpoints are defined in px or em
  */
 @each $key, $value in $breakpoints {
-  @if type-of($value) == number {
+  @if meta.type-of($value) == number {
     @if math.unit($value) != 'px' and math.unit($value) != 'em' {
       @error 'Breakpoint `#{$key}: #{$value}` needs to be a pixel or em unit.';
     }
@@ -136,7 +136,7 @@ $should-be-unitless-integers: (
   'columns': $columns,
 );
 @each $key, $value in map.merge($space-factors, $should-be-unitless-integers) {
-  @if type-of($value) == number {
+  @if meta.type-of($value) == number {
     @if math.is-unitless($value) == false {
       @error '`#{$key}: #{$value}` needs to be unitless.';
     }
