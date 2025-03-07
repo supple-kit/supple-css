@@ -1,0 +1,11 @@
+{
+  "name": "@supple-kit/css",
+  "version": "0.0.1-alpha",
+  "description": "Reliable and testable CSS framework. Fluid, Variable, supple if you will",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

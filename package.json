@@ -33,5 +33,9 @@
   "browserslist": [
     "defaults"
   ],
-  "devDependencies": {}
+  "devDependencies": {},
+  "workspaces": [
+    "packages/css",
+		"packages/docs"
+  ]
 }
