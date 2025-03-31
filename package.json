@@ -1,6 +1,6 @@
 {
-	"name": "@supple-kit/css",
-	"description": "Reliable and testable Sass framework. Fluid, Variable, supple if you will",
+	"name": "supple-css",
+	"description": "Reliable and testable CSS framework. Fluid, Variable, supple if you will",
 	"repository": "https://github.com/supple-kit/supple-css.git",
 	"author": "Bram Smulders <source@bram.is>",
 	"funding": [
@@ -16,7 +16,7 @@
 	"license": "MIT",
 	"keywords": [
 		"supple",
-		"supple kit",
+		"supple-kit",
 		"css",
 		"scss",
 		"itcss",
@@ -27,14 +27,11 @@
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "echo \"Error: no dev specified\" && exit 1",
-		"docs:dev": "npm run dev --workspace=docs",
+		"dev": "pnpm run \"/^dev:.*/\"",
+		"dev:css": "pnpm run --filter=@supple-kit/css dev",
+		"dev:docs": "pnpm run --filter=docs dev",
 		"prettier": "prettier --write ."
 	},
-	"workspaces": [
-		"packages/css",
-		"packages/docs"
-	],
 	"devDependencies": {
 		"prettier": "^3.5.3"
 	}
