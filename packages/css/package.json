@@ -4,8 +4,13 @@
 	"description": "Reliable and testable CSS framework. Fluid, Variable, supple if you will",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tailwindcss -i ./src/index.css -o ./dist/index.css --watch"
 	},
 	"author": "",
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"@tailwindcss/cli": "^4.0.12",
+		"tailwindcss": "^4.0.12"
+	}
 }
