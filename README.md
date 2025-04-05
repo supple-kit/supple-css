@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework in its truest sense. It's based on the [ITCSS](https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) methodology and is suited very well for **component-based UI development**. Supple CSS plays well with React, Angular, Vue, Svelte, and every other component-based approach to UI development.
+Supple CSS is a reliable and testable CSS framework in its truest sense. It's based on the [CUBE](https://cube.fyi) methodology and is suited very well for **component-based UI development**. Supple CSS plays well with Webcomponents, Astro, Svelte, Vue, React, and every other component-based approach to UI development.
 
 ## Table of contents
 
@@ -14,7 +14,7 @@ Supple CSS is a reliable and testable [Sass](https://sass-lang.com/) framework i
 
 ## Why use Supple
 
-> It is a small but powerful (S)CSS framework designed especially with modern browsers in mind. The framework is made with an eye on the future. It uses new CSS webstandards like custom properties, Grid layout, Flexbox, logical properties.
+> It is a small but powerful CSS framework designed especially with modern browsers in mind. The framework is made with an eye on the future. It uses new CSS webstandards like custom properties, Grid layout, Flexbox, logical properties.
 
 Supple provides little to no design. This means that the style and design of your site are left entirely up to you. Because Supple gives you lots of customizable foundations you only need to add the final layer: **UI**.
 
