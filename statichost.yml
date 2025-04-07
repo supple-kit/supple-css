@@ -1,0 +1,6 @@
+# Docker image to use for building
+image: node:22
+# Build command
+command: corepack enable && pnpm install --no-frozen-lockfile && pnpm docs:build
+# Public directory
+public: packages/docs/dist
