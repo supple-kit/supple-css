@@ -8,10 +8,12 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "tailwindcss -i ./src/index.css -o ./dist/index.css --watch",
-		"build": "tailwindcss -i ./src/index.css -o ./dist/index.css"
+		"build": "tailwindcss -i ./src/index.css -o ./dist/index.css",
+		"build:tokens": "node ./scripts/style-dictionary.mjs"
 	},
 	"dependencies": {
 		"@tailwindcss/cli": "^4.0.12",
+		"style-dictionary": "^4.4.0",
 		"tailwindcss": "^4.0.12"
 	}
 }

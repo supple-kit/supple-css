@@ -1,0 +1,8 @@
+{
+	"color": {
+		"warning": {
+			"$value": "{color.red.500}",
+			"$type": "color"
+		}
+	}
+}
