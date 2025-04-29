@@ -7,14 +7,6 @@ const suppleCSSDictionary = new StyleDictionary({
 			transformGroup: "css",
 			buildPath: "./src/theme/",
 			files: [
-				// {
-				// 	destination: "core.tokens.css",
-				// 	format: "css/variables",
-				// 	filter: token => token.filePath.includes("core"),
-				// 	options: {
-				// 		selector: "@theme",
-				// 	},
-				// },
 				{
 					destination: "theme.css",
 					format: "css/variables",
