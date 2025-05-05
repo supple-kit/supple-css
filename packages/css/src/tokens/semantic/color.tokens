@@ -1,7 +1,27 @@
 {
 	"color": {
+		"danger": {
+			"$value": "{color.red.600}",
+			"$type": "color"
+		},
+		"success": {
+			"$value": "{color.green.500}",
+			"$type": "color"
+		},
 		"warning": {
-			"$value": "{color.red.500}",
+			"$value": "{color.yellow.500}",
+			"$type": "color"
+		},
+		"info": {
+			"$value": "{color.blue.500}",
+			"$type": "color"
+		},
+		"primary": {
+			"$value": "{color.red.600}",
+			"$type": "color"
+		},
+		"primary-reference": {
+			"$value": "{color.primary}",
 			"$type": "color"
 		}
 	}

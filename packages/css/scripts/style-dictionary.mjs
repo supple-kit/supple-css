@@ -1,16 +1,19 @@
 import StyleDictionary from "style-dictionary";
+import { createSuppleFormat } from "./utils/formatter.mjs";
+
+// Register the filtered format
+StyleDictionary.registerFormat(createSuppleFormat());
 
 const suppleCSSDictionary = new StyleDictionary({
 	source: ["src/tokens/**/*.tokens"],
 	platforms: {
 		css: {
 			transformGroup: "css",
-			buildPath: "./src/theme/",
+			buildPath: "./src/",
 			files: [
 				{
-					destination: "theme.css",
-					format: "css/variables",
-					// filter: token => token.filePath.includes("semantic"),
+					destination: "theme/theme.css",
+					format: "css/variables/supple",
 					options: {
 						outputReferences: true,
 						selector: "@theme",

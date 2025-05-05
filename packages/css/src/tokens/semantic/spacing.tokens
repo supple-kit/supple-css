@@ -1,0 +1,12 @@
+{
+	"spacing": {
+		"base": {
+			"$value": "{spacing.4}",
+			"$type": "dimension"
+		},
+		"lg": {
+			"$value": "{spacing.6}",
+			"$type": "dimension"
+		}
+	}
+}
