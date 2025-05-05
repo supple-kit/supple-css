@@ -1,0 +1,21 @@
+{
+	"name": "@supple-kit/style-dictionary-css",
+	"type": "module",
+	"version": "0.0.1-alpha",
+	"description": "Style Dictionary formatter for Supple CSS",
+	"author": "Bram Smulders",
+	"license": "MIT",
+	"keywords": [
+		"style-dictionary",
+		"css",
+		"design-tokens",
+		"supple"
+	],
+	"main": "src/index.js",
+	"files": [
+		"src"
+	],
+	"peerDependencies": {
+		"style-dictionary": "^3.0.0"
+	}
+}

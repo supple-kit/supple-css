@@ -1,7 +1,7 @@
+import { createSuppleFormat } from "@supple-kit/style-dictionary-css";
 import StyleDictionary from "style-dictionary";
-import { createSuppleFormat } from "./utils/formatter.mjs";
 
-// Register the filtered format
+// Register the supple format
 StyleDictionary.registerFormat(createSuppleFormat());
 
 const suppleCSSDictionary = new StyleDictionary({

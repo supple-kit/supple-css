@@ -77,7 +77,7 @@ ${filteredTokens
 
 			// If the referenced token is used multiple times, use var()
 			if (refCount >= 2) {
-				const refName = refPath.replace(/\./g, "-");
+				const refName = refPath.replace(/\\./g, "-");
 				return `  --${token.name}: var(--${refName});`;
 			}
 			else {
@@ -85,7 +85,7 @@ ${filteredTokens
 				const referencedToken = dictionary.allTokens.find(t => t.path.join(".") === refPath);
 				if (referencedToken && referencedToken.filePath.includes("/semantic/")) {
 					// Use var() for semantic token references
-					return `  --${token.name}: var(--${refPath.replace(/\./g, "-")});`;
+					return `  --${token.name}: var(--${refPath.replace(/\\./g, "-")});`;
 				}
 				// Otherwise, resolve the reference chain to get the final value
 				const resolvedToken = resolveTokenReference(dictionary, refPath);

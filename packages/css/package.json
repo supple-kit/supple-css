@@ -12,6 +12,7 @@
 		"build:tokens": "node ./scripts/style-dictionary.mjs"
 	},
 	"dependencies": {
+		"@supple-kit/style-dictionary-css": "workspace:*",
 		"@tailwindcss/cli": "^4.0.12",
 		"style-dictionary": "^4.4.0",
 		"tailwindcss": "^4.0.12"
